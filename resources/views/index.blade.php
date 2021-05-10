@@ -1,16 +1,13 @@
 @include('layout.header')
-
 <body class="bg-light-4">
-
     <!-- page wrapper start -->
-
     <div class="page-wrapper">
         @include('layout.navbar')
         <!--hero section start-->
         <section class="banner pos-r p-0 mt-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3">
+                    {{-- <div class="col-lg-3">
                         <div class="categories_wrap">
                             <div class="head"><i class="las la-bars"></i> Categories</div>
                             <div id="navCatContent" class="nav_cat navbar">
@@ -233,10 +230,10 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-9">
+                    </div> --}}
+                    <div class="col-lg-12">
                         <div class="banner-slider banner-3 owl-carousel no-pb h-100" data-dots="true" data-margin="5">
-                            <div class="item" data-bg-img="assets/images/electronic/bg/01.jpg">
+                            <div class="item" data-bg-img="{{url('public')}}/images/electronic/bg/newsletter.jpg">
                                 <div class="container h-100">
                                     <div class="row h-100 align-items-center">
                                         <div class="col py-8 pl-0">
@@ -252,7 +249,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="item" data-bg-img="assets/images/electronic/bg/02.jpg">
+                            <div class="item" data-bg-img="{{url('public')}}/images/electronic/bg/newsletter.jpg">
                                 <div class="container h-100">
                                     <div class="row h-100 align-items-center">
                                         <div class="col py-8 pl-0">
@@ -946,50 +943,11 @@
                     </div>
                 </div>
             </section>
-
-
             <!--blog end-->
-
-            <section class="pt-1 pb-8 brand-logo">
-                <h2>Brand logo</h2>
-                <div class="container">
-                    <div class="row mt-8">
-                        <div class="col-12">
-                            <div class="owl-carousel no-pb" data-dots="false" data-items="5" data-md-items="3"
-                                data-sm-items="1">
-                                <div class="item">
-                                    <img class="img-fluid d-inline" src="{{url('public')}}/images/client/01.png" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="img-fluid d-inline" src="{{url('public')}}/images/client/02.png" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="img-fluid d-inline" src="{{url('public')}}/images/client/03.png" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="img-fluid d-inline" src="{{url('public')}}/images/client/04.png" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="img-fluid d-inline" src="{{url('public')}}/images/client/05.png" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="img-fluid d-inline" src="{{url('public')}}/images/client/06.png" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="img-fluid d-inline" src="{{url('public')}}/images/client/07.png" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="img-fluid d-inline" src="{{url('public')}}/images/client/08.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
+            <!-- newsletter start-->
+            @include('includes.newsletter')
+            <!-- newsletter end-->
             <!--feature start-->
-
             <section class="bg-yellow services-block-1 py-5">
                 <div class="container ">
                     <!-- / .row -->

@@ -10,5 +10,5 @@
     <script src="{{url('public/')}}/js/jquery.dd.min.js"></script>
     <script src="{{url('public/')}}/js/validator.js"></script>
     <script src="{{url('public/')}}/js/wow.js"></script>
-    <script src="{{url('public/')}}/js/theme-script.js"></script>
+    <script src="{{url('public/')}}/js/app.js"></script>
 <!-- inject js end -->

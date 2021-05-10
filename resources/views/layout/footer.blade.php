@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-4"> <a class="footer-logo text-white h2 mb-0" href="index.html">
-                            <img class="img-fluid" src="assets/images/logo3.png" alt="">
+                            <img class="img-fluid" src="{{url('public')}}/images/logo3.png" alt="">
                         </a>
                         <p class="my-3 text-muted pr-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                             in velit a nibh ullamcorper dictum a malesuada ex. Donec sit amet volutpat nunc.</p>
