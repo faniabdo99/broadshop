@@ -408,6 +408,16 @@ Text Domain:  Flipmarto
         $('#newsletter-output').fadeIn().addClass('text-danger').html(response.responseText);
       }
     });
+  }); //Cookies Disclaimer
+
+  if (document.cookie.includes('Agreedcookies=Yes')) {
+    $('#cookies-disclaimer').remove();
+  }
+
+  $('#agree-cookies-usage').click(function () {
+    //Create a Cookie
+    document.cookie = "Agreedcookies=Yes";
+    $('#cookies-disclaimer').fadeOut();
   });
 })(jQuery);
 

@@ -437,7 +437,15 @@ $('#signup-to-newsletter').click(function(e){
       }
     });
 });
-
+//Cookies Disclaimer
+if(document.cookie.includes('Agreedcookies=Yes')){
+  $('#cookies-disclaimer').remove();
+}
+$('#agree-cookies-usage').click(function(){
+  //Create a Cookie
+  document.cookie = "Agreedcookies=Yes";
+  $('#cookies-disclaimer').fadeOut();
+});
 
 	
 })(jQuery);

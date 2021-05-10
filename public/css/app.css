@@ -7189,6 +7189,30 @@ footer.bg-dark-2 .footer-box {
   color: #c03b3b;
 }
 
+#cookies-disclaimer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+  background-color: #006CB4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  z-index: 9999;
+}
+#cookies-disclaimer p {
+  margin-bottom: 0;
+  color: #fff;
+}
+#cookies-disclaimer a {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #0B0D10;
+  padding: 5px 15px;
+  border-radius: 4px;
+}
+
 @media screen and (max-width: 820px) {
   .notification {
     left: 4%;
