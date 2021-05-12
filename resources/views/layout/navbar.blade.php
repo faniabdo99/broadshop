@@ -86,19 +86,7 @@
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                  <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle active" href="#" data-toggle="dropdown">Home</a>
-                    <ul class="dropdown-menu">
-                      <li><a href="index.html">Fashion 1</a> </li>
-                      <li><a href="index-2.html">Fashion 2</a> </li>
-                      <li><a href="index-3.html">Fashion 3</a> </li>
-                      <li><a href="index-4.html">Electronics</a> </li>
-                      <li><a href="index-5.html">Organic</a> </li>
-                      <li><a href="index-6.html">Furniture</a> </li>
-                      <li><a href="index-7.html">Kids</a> </li>
-                      <li><a href="index-8.html">Car Dealer</a> </li>
-                      <li><a href="index-9.html">Flower</a> </li>
-                   </ul>
-                  </li>
+                  <li class="nav-item"> <a class="nav-link" href="#" data-toggle="dropdown">Home</a></li>
                   <li class="nav-item dropdown position-static"> <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Categories</a>
                     <div class="dropdown-menu w-100"> 
                       <!-- Tabs -->
