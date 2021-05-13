@@ -24,3 +24,11 @@ Route::middleware('auth')->group(function () {
     Route::post('profile/update-password' , 'UserController@postEditPassword')->name('user.postEditPassword');
     Route::get('signout' , 'UserController@signout')->name('user.signout');
 });
+Route::group(['prefix' => 'admin' , 'middleware' => 'admin'] , function () {
+    Route::get('/' , 'AdminController@getIndex')->name('admin.home');
+    Route::prefix('categories')->group(function () {
+        Route::get('/' , 'CategoryController@getAll')->name('admin.categories.all');
+        Route::get('add' , 'CategoryController@getNew')->name('admin.categories.getNew');
+        Route::post('add' , 'CategoryController@postNew')->name('admin.categories.postNew');
+    });
+});
