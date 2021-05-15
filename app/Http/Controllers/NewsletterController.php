@@ -23,4 +23,12 @@ class NewsletterController extends Controller{
             return response('You are now signed up to our newsletter!' , 200);
         }
     }
+    public function getAll(){
+        $AllNewsletter = Newsletter::latest()->get();
+        return view('admin.newsletter.all' , compact('AllNewsletter'));
+    }
+    public function delete($id){
+        Newsletter::findOrFail($id)->delete();
+        return back()->withSuccess('Record Deleted');
+    }
 }

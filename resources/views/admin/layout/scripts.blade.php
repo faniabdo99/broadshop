@@ -8,5 +8,6 @@
   <!-- Optional JS -->
   <script src="{{url('public/admin')}}/vendor/chart.js/dist/Chart.min.js"></script>
   <script src="{{url('public/admin')}}/vendor/chart.js/dist/Chart.extension.js"></script>
+  <script src="{{url('public/admin')}}/js/datatables.min.js"></script>
   <!-- Argon JS -->
   <script src="{{url('public/admin')}}/js/argon.js?v=1.2.0"></script>

@@ -243,7 +243,7 @@
                        <li><a href="blog-detail-right.html">Blog Detail Right</a> </li>
                     </ul>
                   </li>
-                  <li class="nav-item"> <a class="nav-link" href="contact-us.html">Contact Us</a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="{{route('contactUs')}}">Contact Us</a> </li>
                   <li class="nav-item"> <a class="nav-link" href="about-us.html">About Us</a> </li>
                   <li class="nav-item"> <a class="nav-link text-yellow" href="#">Todays Offer</a> </li>
                 </ul>

@@ -1,4 +1,3 @@
-
 /*!
 
 =========================================================
@@ -1085,4 +1084,11 @@ var Scrollbar = (function() {
 		init();
 	}
 
+	//Datatables
+	$('.data-table').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
 })();

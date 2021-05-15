@@ -34,9 +34,8 @@
                 </div>
               </div>
             </div>
-            <div class="table-responsive">
               <!-- Projects table -->
-              <table class="table align-items-center table-flush">
+              <table class="table align-items-center table-flush data-table">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">Title</th>
@@ -92,12 +91,9 @@
                       </td>
                     </tr>
                   @empty
-                      There is no categories in the system yet
                   @endforelse
-
                 </tbody>
               </table>
-            </div>
           </div>
         </div>
       </div>

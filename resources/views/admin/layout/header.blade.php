@@ -29,6 +29,7 @@
   <!-- Icons -->
   <link rel="stylesheet" href="{{url('public/admin')}}/vendor/nucleo/css/nucleo.css" type="text/css">
   <link rel="stylesheet" href="{{url('public/admin')}}/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+  <link rel="stylesheet" href="{{url('public/')}}/admin/css/datatables.min.css"/>
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{url('public/admin')}}/css/argon.css" type="text/css">

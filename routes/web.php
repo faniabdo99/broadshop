@@ -1,6 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
 Route::get('/' , 'PageController@getIndex')->name('home');
+Route::get('/contact' , 'ContactController@getContact')->name('contactUs');
+Route::post('/contact' , 'ContactController@postContact')->name('contactUs.post'); 
 //Add middleware here to guest only
 Route::middleware('guest')->group(function () {
     Route::get('signup' , 'UserController@getSignup')->name('user.getSignup');
@@ -30,5 +32,9 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'admin'] , function () {
         Route::get('/' , 'CategoryController@getAll')->name('admin.categories.all');
         Route::get('add' , 'CategoryController@getNew')->name('admin.categories.getNew');
         Route::post('add' , 'CategoryController@postNew')->name('admin.categories.postNew');
+    });
+    Route::prefix('newsletter')->group(function () {
+        Route::get('/' , 'NewsletterController@getAll')->name('admin.newsletter.all');
+        Route::get('/{id}' , 'NewsletterController@delete')->name('admin.newsletter.delete');
     });
 });
