@@ -1,97 +1,53 @@
-<nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Search form -->
-        <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
-          <div class="form-group mb-0">
-            <div class="input-group input-group-alternative input-group-merge">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-search"></i></span>
-              </div>
-              <input class="form-control" placeholder="Search" type="text">
-            </div>
-          </div>
-          <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </form>
-        <!-- Navbar links -->
-        <ul class="navbar-nav align-items-center  ml-md-auto ">
-          <li class="nav-item d-xl-none">
-            <!-- Sidenav toggler -->
-            <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
-              <div class="sidenav-toggler-inner">
-                <i class="sidenav-toggler-line"></i>
-                <i class="sidenav-toggler-line"></i>
-                <i class="sidenav-toggler-line"></i>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item d-sm-none">
-            <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
-              <i class="ni ni-zoom-split-in"></i>
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="ni ni-bell-55"></i>
-            </a>
-            <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
-              <!-- Dropdown header -->
-              <div class="px-3 py-3">
-                <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
-              </div>
-              <!-- List group -->
-              <div class="list-group list-group-flush">
-                <a href="#!" class="list-group-item list-group-item-action">
-                  <div class="row align-items-center">
-                    <div class="col-auto">
-                      <!-- Avatar -->
-                      <img alt="Image placeholder" src="{{url('public/admin')}}/img/theme/team-5.jpg" class="avatar rounded-circle">
-                    </div>
-                    <div class="col ml--2">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                          <h4 class="mb-0 text-sm">John Snow</h4>
-                        </div>
-                        <div class="text-right text-muted">
-                          <small>3 hrs ago</small>
-                        </div>
-                      </div>
-                      <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
-                    </div>
-                  </div>
+<div class="header navbar">
+    <div class="header-container">
+        <ul class="nav-left">
+            <li><a id="sidebar-toggle" class="sidebar-toggle" href="javascript:void(0);"><i class="fas fa-bars"></i></a></li>
+        </ul>
+        <ul class="nav-right">
+            {{-- <li class="notifications dropdown"><span class="counter bgc-red"></span> <a href="" class="dropdown-toggle no-after" data-toggle="dropdown"><i class="fas fa-bell"></i></a>
+                <ul class="dropdown-menu">
+                    <li class="pX-20 pY-15 bdB"><i class="fas fa-bell"></i> <span
+                            class="fsz-sm fw-600 c-grey-900">Notifications</span></li>
+                    <li>
+                        <ul class="ovY-a pos-r scrollable lis-n p-0 m-0 fsz-sm">
+                            <li><a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
+                                    <div class="peer mR-15"><img class="w-3r bdrs-50p"
+                                            src="https://randomuser.me/api/portraits/men/1.jpg" alt=""></div>
+                                    <div class="peer peer-greed"><span><span class="fw-500">John Doe</span> <span
+                                                class="c-grey-600">liked your <span
+                                                    class="text-dark">post</span></span></span>
+                                        <p class="m-0"><small class="fsz-xs">5 mins ago</small></p>
+                                    </div>
+                                </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li> --}}
+            <li class="dropdown"><a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1"
+                    data-toggle="dropdown">
+                    <div class="peer mR-10"><img class="w-2r bdrs-50p" src="{{auth()->user()->profile_image}}" alt="{{auth()->user()->name}}"></div>
+                    <div class="peer"><span class="fsz-sm c-grey-900">{{auth()->user()->name}}</span></div>
                 </a>
-              </div>
-              <!-- View all -->
-              <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
-            </div>
-          </li>
+                <ul class="dropdown-menu fsz-sm">
+                    {{-- <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-settings mR-10"></i><span>Setting</span></a></li>
+                    <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-user mR-10"></i><span>Profile</span></a></li>
+                    <li><a href="email.html" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-email mR-10"></i> <span>Messages</span></a></li>
+                    <li role="separator" class="divider"></li> --}}
+                    <li><a href="{{route('user.signout')}}" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="fas fa-power-off mR-10"></i><span>Signout</span></a></li>
+                </ul>
+            </li>
         </ul>
-        <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
-          <li class="nav-item dropdown">
-            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <div class="media align-items-center">
-                <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="{{auth()->user()->ImagePath}}">
-                </span>
-                <div class="media-body  ml-2  d-none d-lg-block">
-                  <span class="mb-0 text-sm  font-weight-bold">{{auth()->user()->name}}</span>
-                </div>
-              </div>
-            </a>
-            <div class="dropdown-menu  dropdown-menu-right ">
-              <a href="{{route('home')}}" class="dropdown-item">
-                <i class="ni ni-user-run"></i>
-                <span>Back to Sitefront</span>
-              </a>
-              <a href="{{route('user.signout')}}" class="dropdown-item">
-                <i class="ni ni-button-power"></i>
-                <span>Logout</span>
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
     </div>
-  </nav>
+</div>
+@if(session()->has('success'))
+<div class="noto noto-success">
+    {{session('success')}}
+</div>
+@endif
+@if ($errors->any())
+<div class="noto noto-danger">
+    @foreach ($errors->all() as $error)
+    {!! $error . '<br>' !!}
+    @endforeach
+</div>
+@endif
