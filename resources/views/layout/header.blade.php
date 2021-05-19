@@ -13,6 +13,6 @@
     <link rel="shortcut icon" href="{{url('public/')}}/images/favicon.png" />
     <!-- inject css start -->
     <link href="{{url('public/')}}/css/theme-plugin.css" rel="stylesheet" />
-    {{-- <link href="{{url('public/')}}/css/app.css" rel="stylesheet" /> --}}
+    <link href="{{url('public/')}}/css/app.css" rel="stylesheet" />
     <!-- inject css end -->
 </head>

@@ -11,10 +11,10 @@ Route::post('delete-product' , 'ProductsController@delete')->name('admin.product
 Route::post('upload-images' , 'ProductsController@uploadGalleryImages')->name('admin.product.uploadGalleryImages');
 Route::post('/product/localize' , 'ProductsController@postLocalize')->name('admin.products.postLocalize');
 //Users
-Route::post('delete-user' , 'UsersController@delete')->name('admin.user.delete');
+Route::post('delete-user' , 'UserController@delete')->name('admin.user.delete');
 //Discount
 Route::post('delete-discount' , 'DiscountController@delete')->name('admin.discount.delete');
-Route::post('activate-deactivate-user' , 'UsersController@ToggleActive')->name('admin.user.toggleActive');
+Route::post('activate-deactivate-user' , 'UserController@ToggleActive')->name('admin.user.toggleActive');
 //Posts
 Route::post('delete-post' , 'BlogController@delete')->name('admin.posts.delete');
 
@@ -28,6 +28,6 @@ Route::post('update-cart' , 'CartController@postUpdate')->name('cart.update');
 //Order VAT Number
 Route::post('update-order-vat/{id}' , 'OrdersController@updateVatNumber')->name('order.updateVat');
 //*********non-Admin API Routes
-Route::post('send-activate-link' , 'UsersController@sendActivateEmail')->name('user.sendActivateLink');
+Route::post('send-activate-link' , 'UserController@sendActivateEmail')->name('user.sendActivateLink');
 Route::post('ask-question-about-product' , 'ProductsController@askQuestion')->name('product.askQuestion');
 Route::post('like-item' , 'FavouriteController@ToggleFavourite')->name('favourite.toggle');

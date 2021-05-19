@@ -21,7 +21,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Keywords *</label>
-                                                <input type="text" class="form-control" name="title" value="{{ $post->keywords }}" placeholder="Enter Keywords Here">
+                                                <input type="text" class="form-control" name="keywords" value="{{ $post->keywords }}" placeholder="Enter Keywords Here">
                                             </div>
                                             <div class="form-group">
                                                 <label>Main Image</label>

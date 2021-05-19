@@ -1,8 +1,3 @@
-   <!-- preloader start -->
-   <div id="ht-preloader">
-    <div class="loader clear-loader"> <img class="img-fluid" src="{{url('public')}}/images/loader.gif" alt=""> </div>
-  </div>
-  <!-- preloader end --> 
   <!--header start-->
   <header class="site-header header-5">
     <div class="header-top bg-blue pt-1">
@@ -43,7 +38,7 @@
     <div class="py-md-4 py-4">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-md-12 col-lg-3 d-none d-md-flex align-items-center"> <a class="navbar-brand logo d-none d-lg-block" href="index.html"> <img class="img-fluid" src="{{url('public')}}/images/logo3.png" alt=""> </a> </div>
+          <div class="col-md-12 col-lg-3 d-none d-md-flex align-items-center"> <a class="navbar-brand logo d-none d-lg-block" href="{{route('home')}}"> <img class="img-fluid" src="{{url('public')}}/images/footer-logo.png" alt=""> </a> </div>
           <div class="col-md-8 col-lg-7 col-sm-10 col-10">
             <div class="right-nav align-items-center d-flex justify-content-end">
               <form class="form-inline w-100">
@@ -82,11 +77,11 @@
         <div class="row m-0"> 
           <!--menu start-->
           <div class="col p-0">
-            <nav class="navbar navbar-expand-lg navbar-light position-static"> <a class="navbar-brand logo d-lg-none" href="index.html"> <img class="img-fluid" src="{{url('public')}}/images/logo3.png" alt=""> </a>
+            <nav class="navbar navbar-expand-lg navbar-light position-static"> <a class="navbar-brand logo d-lg-none" href="index.html"> <img class="img-fluid" src="{{url('public')}}/images/footer-logo.png" alt=""> </a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                  <li class="nav-item"> <a class="nav-link" href="#" data-toggle="dropdown">Home</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{route('home')}}" data-toggle="dropdown">Home</a></li>
                   <li class="nav-item dropdown position-static"> <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Categories</a>
                     <div class="dropdown-menu w-100"> 
                       <!-- Tabs -->
@@ -231,18 +226,7 @@
                       <li> <a href="terms-and-conditions.html">Term & Conditions</a> </li>
                     </ul>
                   </li>
-                  <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Blog</a>
-                    <ul class="dropdown-menu">
-                      <li><a href="blog-grid.html">Blog Grid</a> </li>
-                      <li><a href="blog-grid-left.html">Blog Grid Left</a> </li>
-                      <li><a href="blog-grid-right.html">Blog Grid Right</a> </li>
-                      <li><a href="blog-list-left.html">Blog List Left</a> </li>
-                      <li><a href="blog-list-right.html">Blog List Right</a> </li>
-                       <li><a href="blog-detail.html">Blog Detail</a> </li>
-                       <li><a href="blog-detail-left.html">Blog Detail Left</a> </li>
-                       <li><a href="blog-detail-right.html">Blog Detail Right</a> </li>
-                    </ul>
-                  </li>
+                  <li class="nav-item"> <a class="nav-link" href="{{route('blog')}}">Blog</a> </li>
                   <li class="nav-item"> <a class="nav-link" href="{{route('contactUs')}}">Contact Us</a> </li>
                   <li class="nav-item"> <a class="nav-link" href="about-us.html">About Us</a> </li>
                   <li class="nav-item"> <a class="nav-link text-yellow" href="#">Todays Offer</a> </li>

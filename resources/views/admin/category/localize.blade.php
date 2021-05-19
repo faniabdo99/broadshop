@@ -13,7 +13,7 @@
                                 @foreach ($SystemLangs as $Single)
                                 @php
                                 //Current Item Local Values (if exists)
-                                $CurrentLocalValues = \App\Category_local::where('category_id' , $Category->id)->where('lang_code' , $Single)->first();
+                                $CurrentLocalValues = \App\Models\Category_local::where('category_id' , $Category->id)->where('lang_code' , $Single)->first();
                                 @endphp
                                 <div class="bgc-white p-20 bd mB-40">
                                     <h6 class="c-grey-900">{{$Single}}</h6>

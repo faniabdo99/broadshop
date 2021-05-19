@@ -8,14 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CreatePostRequest;
 use Illuminate\Support\Facades\Storage;
 
-class BlogController extends Controller
-{
-    public function index(){
-        $post_views=Post::orderBy('views','DESC')->get();
-        $posts=Post::paginate(3);
-        return view('blog.index',compact('posts','post_views'));
-    }
-
+class BlogController extends Controller{
     public function admin_posts(){
         $posts=Post::paginate(3);
         return view('admin.blog.all',compact('posts'));
@@ -31,15 +24,25 @@ class BlogController extends Controller
         $PostData = $r->except('photo');
         if($r->has('photo')){
             $PostData['photo'] = $r->slug.'.'.$r->photo->getClientOriginalExtension();
-            $r->photo->storeAs('images/blog' , $PostData['photo']);
+            $r->photo->storeAs('public/blog' , $PostData['photo']);
         }
         $PostData['user_id'] = auth()->user()->id;
         Post::create($PostData);
         return redirect(route('admin.blog.index'));
     }
 
-  
-
+    public function getIndex(){
+        $AllPosts=Post::where('active' , 1)->latest()->get();
+        return view('blog.index',compact('AllPosts'));
+    }
+    public function getSingle($slug,$id){
+        $ThePost = Post::findOrFail($id);
+        if($ThePost->active != 1){
+            abort(404);
+        }
+        $OtherPosts = Post::where('active' , 1)->where('id' , '!=' , $id)->latest()->limit(3)->get();
+        return view('blog.single' , compact('ThePost' , 'OtherPosts'));
+    }
     public function show($post){
         $post_views=Post::orderBy('views','DESC')->get();
         $post=Post::find($post);
@@ -58,12 +61,12 @@ class BlogController extends Controller
             $fileWithExt=$request->file('photo')->getClientOriginalName();
             $fileWithoutExt=pathinfo($fileWithExt,PATHINFO_FILENAME);
             $fileExt=$request->file('photo')->getClientOriginalExtension();
-            $fileNewName=$fileWithoutExt.'_'.time().'.'.$fileExt;
+            $fileNewName=$post->slug.'.'.$fileExt;
             $path=$request->file('photo')->storeAs('public/blog',$fileNewName);
         }
         $post->update([
             'title'=>$request->title,
-            'keyword'=>$request->keyword,
+            'keywords'=>$request->keywords,
             'body'=>$request->body,
             'description'=>$request->description,
             'photo'=>$fileNewName

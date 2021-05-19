@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
-Route::get('/' , 'PageController@getIndex')->name('home');
+Route::get('/' , 'PageController@getSoon')->name('soon');
+Route::get('/home' , 'PageController@getIndex')->name('home');
 Route::get('/contact' , 'ContactController@getContact')->name('contactUs');
 Route::post('/contact' , 'ContactController@postContact')->name('contactUs.post'); 
 //Add middleware here to guest only
@@ -27,6 +28,11 @@ Route::middleware('auth')->group(function () {
     Route::post('review' , 'ReviewsController@postReview')->name('review.post');
     Route::get('signout' , 'UserController@signout')->name('user.signout');
 });
+Route::group(['prefix' => 'blog'] , function () {
+  Route::get('/' , 'BlogController@getIndex')->name('blog');
+  Route::get('/{slug}/{id}' , 'BlogController@getSingle')->name('blog.single');
+});
+
 //Admin Only Routes
 Route::group(['prefix' => 'admin',  'middleware' => 'admin'] , function () {
     Route::get('/' , 'AdminController@getHome')->name('admin.home');
@@ -57,7 +63,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'] , function () {
     });
     //Users System
     Route::prefix('users')->group(function(){
-      Route::get('/' , 'UsersController@getHome')->name('admin.users.home');
+      Route::get('/' , 'UserController@getHome')->name('admin.users.home');
     });
     //Discount System
     Route::prefix('discount')->group(function(){
@@ -110,21 +116,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'] , function () {
       Route::get('send-to-user/{id}' , 'InvoiceController@sendToUser')->name('invoice.sendToUser.get');
     });
   });
-// Route::group(['prefix' => 'admin' , 'middleware' => 'admin'] , function () {
-//     Route::get('/' , 'AdminController@getIndex')->name('admin.home');
-//     Route::prefix('categories')->group(function () {
-//         Route::get('/' , 'CategoryController@getAll')->name('admin.categories.all');
-//         Route::get('add' , 'CategoryController@getNew')->name('admin.categories.getNew');
-//         Route::post('add' , 'CategoryController@postNew')->name('admin.categories.postNew');
-//         Route::get('edit/{id}' , 'CategoryController@getEdit')->name('admin.categories.getEdit');
-//         Route::post('edit/{id}' , 'CategoryController@postEdit')->name('admin.categories.postEdit');
-//         Route::get('delete/{id}' , 'CategoryController@delete')->name('admin.categories.delete');
-//     });
-//     Route::prefix('newsletter')->group(function () {
-//         Route::get('/' , 'NewsletterController@getAll')->name('admin.newsletter.all');
-//         Route::get('/{id}' , 'NewsletterController@delete')->name('admin.newsletter.delete');
-//     });
-// });
+
 
 
 
@@ -155,7 +147,3 @@ Route::get('order-summary/{id}/{processed?}', 'OrdersController@getSummaryPage')
 Route::get('order-payment/{id}', 'OrdersController@getPaymentPage')->name('checkout.payment');
 Route::post('order-payment/{id}', 'OrdersController@postPaymentPage')->name('checkout.payment.post');
 Route::post('apply-coupon' , 'CoupounsController@applyCoupon')->name('coupon.apply');
-
-// blog Routes
-Route::resource('blog', 'BlogController');
-Route::post('add_comment','BlogController@create_comment')->name('admin.create_comment');

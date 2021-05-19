@@ -20,7 +20,6 @@
                                                 <th>Email</th>
                                                 <th>Confirmed</th>
                                                 <th>Code</th>
-                                                <th>Country</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -29,13 +28,11 @@
                                             <tr>
                                                 <td>{{$Single->name}}</td>
                                                 <td>{{$Single->email}}</td>
-                                                <td>@if($Single->confirmed) Yes @else No @endif</td>
+                                                <td>@if($Single->active) Yes @else No @endif</td>
                                                 <td>{{$Single->code}}</td>
-                                                <td>{{$Single->country}}</td>
                                                 <td>
-                                                    <a href="javascript:;" item-id="{{$Single->id}}" action-route="{{route('admin.user.toggleActive')}}" class="btn btn-primary activate-btn">@if($Single->confirmed) Deactivate @else Activate @endif</a>
+                                                    <a href="javascript:;" item-id="{{$Single->id}}" action-route="{{route('admin.user.toggleActive')}}" class="btn btn-primary activate-btn">@if($Single->active) Deactivate @else Activate @endif</a>
                                                     <a href="javascript:;" item-id="{{$Single->id}}" action-route="{{ route('admin.user.delete') }}" class="btn btn-danger delete-btn">Delete</a>
-                                                    {{-- <a href="{{route('admin.products.getLocalize' , $Single->id)}}" class="btn btn-success">Add to Group</a> --}}
                                                 </td>
                                             </tr>
                                             @empty

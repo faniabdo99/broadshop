@@ -40,6 +40,7 @@ class UserController extends Controller{
             //Create the user
             $UserData = $r->except(['_token' , 'agree' , 'password_confirmation']);
             $UserData['password'] = Hash::make($r->password);
+            $UserData['code'] = rand(1,9999);
             $TheUser = User::create($UserData);
             Auth::loginUsingId($TheUser->id);
             return redirect()->route('home');
@@ -263,4 +264,30 @@ class UserController extends Controller{
         Auth::logout();
         return redirect()->route('home');
     }
+    //Admin Related Stuff
+    public function getHome(){
+        $Users = User::latest()->get();
+        return view('admin.user.index' , compact('Users'));
+    }
+    public function delete(Request $r){
+        $User = User::findOrFail($r->item_id)->delete();
+        return response("User Deleted Successfully");
+    }
+    public function ToggleActive(Request $r){
+        $User = User::findOrFail($r->item_id)->first();
+        $User->active = !$User->active;
+        $User->save();
+        if($User->active == 1){
+        return response([
+            'successMessage' => 'User Activated',
+            'btnMessage' => 'Deactivate'
+        ]);
+        }else{
+        return response([
+            'successMessage' => 'User Deactivated',
+            'btnMessage' => 'Activate'
+        ]);
+        }
+    }
+
 }

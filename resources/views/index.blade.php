@@ -858,87 +858,24 @@
                         </div>
                         <!-- / .row -->
                         <div class="row m-0">
-                            <div class="col-12 col-lg-4 mt-5">
-                                <!-- Blog Card -->
-                                <div class="card border-0 bg-transparent">
-                                    <div class="position-relative overflow-hidden">
-                                        <div
-                                            class="position-absolute z-index-1 bottom-0 bg-white text-primary shadow-primary text-center py-1 px-2 rounded ml-3 mb-3">
-                                            20 June</div>
-                                        <img class="card-img-top hover-zoom" src="{{url('public')}}/images/electronic/blog/01.jpg"
-                                            alt="Image">
-                                    </div>
-                                    <div class="card-body px-0 pb-0">
-                                        <div> <a class="d-inline-block link-title btn-link text-small mr-2"
-                                                href="#">Speaker,</a><a
-                                                class="d-inline-block link-title btn-link text-small"
-                                                href="#">Audeo,</a> <a
-                                                class="d-inline-block link-title btn-link text-small"
-                                                href="#">Theater</a>
+                            @forelse($LatestArticles as $Post)
+                                <div class="col-12 col-lg-4 mt-5">
+                                    <!-- Blog Card -->
+                                    <div class="card border-0 bg-transparent">
+                                        <div class="position-relative overflow-hidden">
+                                            <div class="position-absolute z-index-1 bottom-0 bg-white text-primary shadow-primary text-center py-1 px-2 rounded ml-3 mb-3"> {{$Post->created_at->format('d M')}}</div>
+                                            <img class="card-img-top hover-zoom" src="{{$Post->ImagePath}}" alt="{{$Post->title}}">
                                         </div>
-                                        <h2 class="h5 font-w-5 mt-2 mb-0">
-                                            <a class="link-title" href="blog-single.html">Powerful and flexible premium
-                                                Ecommerce themes</a>
-                                        </h2>
-                                    </div>
-                                    <div></div>
-                                </div>
-                                <!-- End Blog Card -->
-                            </div>
-                            <div class="col-12 col-lg-4 mt-5">
-                                <!-- Blog Card -->
-                                <div class="card border-0 bg-transparent">
-                                    <div class="position-relative overflow-hidden">
-                                        <div
-                                            class="position-absolute z-index-1 bottom-0 bg-white text-primary shadow-primary text-center py-1 px-2 rounded ml-3 mb-3">
-                                            13 May</div>
-                                        <img class="card-img-top hover-zoom" src="{{url('public')}}/images/electronic/blog/02.jpg"
-                                            alt="Image">
-                                    </div>
-                                    <div class="card-body px-0 pb-0">
-                                        <div> <a class="d-inline-block link-title btn-link text-small mr-2"
-                                                href="#">Watch,</a><a
-                                                class="d-inline-block link-title btn-link text-small"
-                                                href="#">Digital,</a> <a
-                                                class="d-inline-block link-title btn-link text-small"
-                                                href="#">Waterproof</a>
+                                        <div class="card-body px-0 pb-0">
+                                            <h2 class="h5 font-w-5 mt-2 mb-0">
+                                                <a class="link-title" href="{{route('blog.single' , [$Post->slug,$Post->id])}}">{{$Post->title}}</a>
+                                            </h2>
                                         </div>
-                                        <h2 class="h5 font-w-5 mt-3">
-                                            <a class="link-title" href="blog-single.html">Premium template with
-                                                unlimited colours, and fully Customizable</a>
-                                        </h2>
                                     </div>
-                                    <div></div>
+                                    <!-- End Blog Card -->
                                 </div>
-                                <!-- End Blog Card -->
-                            </div>
-                            <div class="col-12 col-lg-4 mt-5">
-                                <!-- Blog Card -->
-                                <div class="card border-0 bg-transparent">
-                                    <div class="position-relative overflow-hidden">
-                                        <div
-                                            class="position-absolute z-index-1 bottom-0 bg-white text-primary shadow-primary text-center py-1 px-2 rounded ml-3 mb-3">
-                                            07 Apr</div>
-                                        <img class="card-img-top hover-zoom" src="{{url('public')}}/images/electronic/blog/03.jpg"
-                                            alt="Image">
-                                    </div>
-                                    <div class="card-body px-0 pb-0">
-                                        <div> <a class="d-inline-block link-title btn-link text-small mr-2"
-                                                href="#">Mobile,</a><a
-                                                class="d-inline-block link-title btn-link text-small"
-                                                href="#">Phones,</a> <a
-                                                class="d-inline-block link-title btn-link text-small"
-                                                href="#">Smartphones</a>
-                                        </div>
-                                        <h2 class="h5 font-w-5 mt-3">
-                                            <a class="link-title" href="blog-single.html">Awesome template with lot's of
-                                                features on the board!</a>
-                                        </h2>
-                                    </div>
-                                    <div></div>
-                                </div>
-                                <!-- End Blog Card -->
-                            </div>
+                            @empty
+                            @endforelse
                         </div>
                     </div>
                 </div>

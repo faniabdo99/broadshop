@@ -5,6 +5,7 @@ use Illuminate\Http\Response;
 use App;
 //Models
 use App\Product;
+
 class HomeController extends Controller{
     public function getHome(){
         $PromotedProducts = Product::where('is_promoted' , 1)->where('status' , '!=' , 'Invisible')->latest()->limit(10)->get();

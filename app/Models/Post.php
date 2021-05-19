@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $fillable=['photo','title','slug','body','description','views','user_id'];
-
+    protected $guarded = [];
     public function user(){
         return $this->belongsTo('App\User');
+    }
+    public function getImagePathAttribute(){
+        return url('storage/app/public/blog/'.$this->photo);
     }
 
     public function comments(){
