@@ -81,7 +81,7 @@
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                  <li class="nav-item"> <a class="nav-link" href="{{route('home')}}" data-toggle="dropdown">Home</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Home</a></li>
                   <li class="nav-item dropdown position-static"> <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Categories</a>
                     <div class="dropdown-menu w-100"> 
                       <!-- Tabs -->
@@ -228,8 +228,8 @@
                   </li>
                   <li class="nav-item"> <a class="nav-link" href="{{route('blog')}}">Blog</a> </li>
                   <li class="nav-item"> <a class="nav-link" href="{{route('contactUs')}}">Contact Us</a> </li>
-                  <li class="nav-item"> <a class="nav-link" href="about-us.html">About Us</a> </li>
-                  <li class="nav-item"> <a class="nav-link text-yellow" href="#">Todays Offer</a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="{{route('about')}}">About Us</a> </li>
+                  <li class="nav-item"> <a class="nav-link text-yellow" href="#">Kugoo Scooters</a> </li>
                 </ul>
               </div>
             </nav>

@@ -13,6 +13,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Product_Image;
 use App\Models\Product_Local;
+use App\Models\Product_Variation;
 use App\Models\Discount;
 //Mails
 use App\Mail\QuestionAboutProduct;
@@ -302,6 +303,36 @@ class ProductsController extends Controller{
             app()->setLocale($r->site_locale);
             Mail::to('faniabdo99@gmail.com')->send(new QuestionAboutProduct($r->all()));
             return response(__('controllers.product_Q_received'));
+        }
+    }
+    public function getVariation($id){
+        $TheProduct = Product::findOrFail($id);
+        $AllVariations = Product_Variation::where('product_id' , $id)->latest()->get();
+        return view('admin.product.variation' , compact('TheProduct' , 'AllVariations'));
+    }
+    public function deleteVariation($id){
+        $TheVariation = Product_Variation::findOrFail($id)->delete();
+        return back()->withSuccess('Deleted Successfully');
+    }
+    public function postVariation(Request $r, $id){
+        //Validate the request
+        $Rules = [
+            'color' => 'required',
+            'color_code' => 'required',
+            'inventory' => 'required',
+            'status' => 'required',
+        ];
+        $Validator = Validator::make($r->all() , $Rules);
+        if($Validator->fails()){
+            return back()->withErrors($Validator->errors()->all());
+        }else{
+            //Create new variation
+            $TheProduct = Product::findOrFail($id);
+            $VariationData = $r->all();
+            $VariationData['ref_code'] = $TheProduct->id.'_'.$r->color;
+            $VariationData['product_id'] = $TheProduct->id;
+            Product_Variation::create($VariationData);
+            return back()->withSuccess('Variation Created');
         }
     }
 }

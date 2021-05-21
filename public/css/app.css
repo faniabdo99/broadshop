@@ -4577,6 +4577,9 @@ header .navbar-nav .nav-tabs .nav-item {
   color: #FDCC0D;
   font-size: 14px;
 }
+.star-rating .not-active, .star-rating .stars-count {
+  color: #ccc !important;
+}
 
 .custom-checkbox input[type=checkbox]:checked + .custom-control-label::before {
   background-color: #FF324D;
@@ -5046,6 +5049,14 @@ input.form-product {
   line-height: 22px;
   margin-top: 10px;
   color: #fff;
+  position: relative;
+  z-index: 10;
+}
+
+.bg-pink p#newsletter-output {
+  display: none;
+  font-weight: 500;
+  font-size: 14px;
   position: relative;
   z-index: 10;
 }
@@ -7148,6 +7159,7 @@ footer.bg-dark-2 .footer-box {
 }
 .newsletter-section #newsletter-output {
   display: none;
+  z-index: 9999;
 }
 
 .notification {

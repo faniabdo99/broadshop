@@ -270,15 +270,10 @@
                 </div>
             </div>
         </section>
-
         <!--hero section end-->
-
         <!--body content start-->
-
         <div class="page-content">
-
             <!--product ad start-->
-
             <section class="banner-row pt-5 pb-0">
                 <div class="container">
                     <div class="row">
@@ -330,11 +325,8 @@
                     </div>
                 </div>
             </section>
-
             <!--product ad end-->
-
             <!--product start-->
-
             <section class="pb-0 pt-5">
                 <div class="container">
                     <div class="product-block product-block-div">
@@ -342,550 +334,76 @@
                             <h2 class="mb-0 font-w-5 bg-dark-blue">Best Seller</h2>
                         </div>
                         <div class="row">
-                            <div class="owl-carousel no-pb owl-2" data-dots="false" data-nav="true" data-items="5"
-                                data-md-items="2" data-sm-items="1">
-                                <div class="item">
-                                    <div class="card product-card card--default">
-
-                                        <a class="card-img-hover d-block" href="product-left-image.html">
-                                            <img class="card-img-top" src="{{url('public')}}/images/electronic/product/01.jpg"
-                                                alt="...">
-                                        </a>
-                                        <div class="card-icons">
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Add to wishlist"> <i class="lar la-heart"></i>
-                                                </a>
-                                            </div>
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Quick View"><span data-target="#quick-view"
-                                                        data-toggle="modal"> <i
-                                                            class="ion-ios-search-strong"></i></span> </a>
-                                            </div>
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Compare"> <i class="las la-random"></i> </a>
-                                            </div>
-                                        </div>
-                                        <div class="card-info">
-                                            <div class="card-body">
-                                                <div class="product-title font-w-4"><a class="link-title"
-                                                        href="product-left-image.html">Wireless Bluetooth</a>
+                            <div class="owl-carousel no-pb owl-2" data-dots="false" data-nav="true" data-items="3" data-md-items="2" data-sm-items="1">
+                                @forelse ($BestSeller as $BSProduct)
+                                    <div class="item">
+                                        <div class="card product-card card--default">
+                                            <a class="card-img-hover d-block" href="product-left-image.html">
+                                                <img class="card-img-top" src="{{$BSProduct->ImagePath}}" alt="{{$BSProduct->LocalTitle}}">
+                                            </a>
+                                            <div class="card-icons">
+                                                <div class="card-icons__item">
+                                                    <a href="#" data-toggle="tooltip" data-placement="left" title=""
+                                                        data-original-title="Add to wishlist"> <i class="lar la-heart"></i>
+                                                    </a>
                                                 </div>
-                                                <div class="mt-1"> <span class="product-price text-dark"><del
-                                                            class="text-muted">$35.00</del> $25.00</span>
-                                                    <div class="star-rating"><i class="las la-star"></i><i
-                                                            class="las la-star"></i><i class="las la-star"></i><i
-                                                            class="las la-star"></i><i class="las la-star"></i>
+                                                <div class="card-icons__item">
+                                                    <a href="#" data-toggle="tooltip" data-placement="left" title=""
+                                                        data-original-title="Quick View"><span data-target="#quick-view"
+                                                            data-toggle="modal"> <i
+                                                                class="ion-ios-search-strong"></i></span> </a>
+                                                </div>
+                                            </div>
+                                            <div class="card-info">
+                                                <div class="card-body">
+                                                    <div class="product-title font-w-4"><a class="link-title"
+                                                            href="product-left-image.html">{{$BSProduct->LocalTitle}}</a>
+                                                    </div>
+                                                    <div class="mt-1">
+                                                        @if($BSProduct->HasDiscount())
+                                                            <span class="product-price text-dark">
+                                                                <del class="text-muted">{{$BSProduct->price}}€</del>
+                                                                {{$BSProduct->FinalPrice}}€
+                                                            </span>
+                                                        @else
+                                                            <span class="product-price text-dark">
+                                                                {{$BSProduct->price}} €
+                                                            </span>
+                                                        @endif
+                                                        <div class="star-rating">
+                                                            @php 
+                                                                $i = 0;
+                                                                @endphp
+                                                            @for($i = 1; $i <= $BSProduct->Reviews->avg('rate'); $i++)
+                                                            <i class="las la-star"></i>
+                                                            @endfor
+                                                            @for($i = 1; $i <= (5-$BSProduct->Reviews->avg('rate')); $i++)
+                                                            <i class="las la-star not-active"></i>
+                                                            @endfor
+                                                            <span class="stars-count">({{$BSProduct->Reviews->avg('rate') ?? 0}})</span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="card-footer bg-transparent border-0">
-                                                <div
-                                                    class="product-link d-flex align-items-center justify-content-center">
-                                                    <button class="btn-cart btn btn-yellow-dark mx-3" type="button"><i
-                                                            class="las la-shopping-cart mr-1"></i> Add to cart
-                                                    </button>
+                                                <div class="card-footer bg-transparent border-0">
+                                                    <div class="product-link d-flex align-items-center justify-content-center">
+                                                        <button class="btn-cart btn btn-yellow-dark mx-3" type="button">
+                                                            <i class="las la-shopping-cart mr-1"></i> Add to cart
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="item">
-                                    <div class="card product-card card--default">
-
-                                        <a class="card-img-hover d-block" href="product-left-image.html">
-                                            <img class="card-img-top" src="{{url('public')}}/images/electronic/product/02.jpg"
-                                                alt="...">
-                                        </a>
-                                        <div class="card-icons">
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Add to wishlist"> <i class="lar la-heart"></i>
-                                                </a>
-                                            </div>
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Quick View"><span data-target="#quick-view"
-                                                        data-toggle="modal"> <i
-                                                            class="ion-ios-search-strong"></i></span> </a>
-                                            </div>
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Compare"> <i class="las la-random"></i> </a>
-                                            </div>
-                                        </div>
-                                        <div class="card-info">
-                                            <div class="card-body">
-                                                <div class="product-title font-w-4"><a class="link-title"
-                                                        href="product-left-image.html">Wireless Bluetooth</a>
-                                                </div>
-                                                <div class="mt-1"> <span class="product-price text-dark"><del
-                                                            class="text-muted">$35.00</del> $25.00</span>
-                                                    <div class="star-rating"><i class="las la-star"></i><i
-                                                            class="las la-star"></i><i class="las la-star"></i><i
-                                                            class="las la-star"></i><i class="las la-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer bg-transparent border-0">
-                                                <div
-                                                    class="product-link d-flex align-items-center justify-content-center">
-                                                    <button class="btn-cart btn btn-yellow-dark mx-3" type="button"><i
-                                                            class="las la-shopping-cart mr-1"></i> Add to cart
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="card product-card card--default">
-
-                                        <a class="card-img-hover d-block" href="product-left-image.html">
-                                            <img class="card-img-top" src="{{url('public')}}/images/electronic/product/03.jpg"
-                                                alt="...">
-                                        </a>
-                                        <div class="card-icons">
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Add to wishlist"> <i class="lar la-heart"></i>
-                                                </a>
-                                            </div>
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Quick View"><span data-target="#quick-view"
-                                                        data-toggle="modal"> <i
-                                                            class="ion-ios-search-strong"></i></span> </a>
-                                            </div>
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Compare"> <i class="las la-random"></i> </a>
-                                            </div>
-                                        </div>
-                                        <div class="card-info">
-                                            <div class="card-body">
-                                                <div class="product-title font-w-4"><a class="link-title"
-                                                        href="product-left-image.html">Wireless Bluetooth</a>
-                                                </div>
-                                                <div class="mt-1"> <span class="product-price text-dark"><del
-                                                            class="text-muted">$35.00</del> $25.00</span>
-                                                    <div class="star-rating"><i class="las la-star"></i><i
-                                                            class="las la-star"></i><i class="las la-star"></i><i
-                                                            class="las la-star"></i><i class="las la-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer bg-transparent border-0">
-                                                <div
-                                                    class="product-link d-flex align-items-center justify-content-center">
-                                                    <button class="btn-cart btn btn-yellow-dark mx-3" type="button"><i
-                                                            class="las la-shopping-cart mr-1"></i> Add to cart
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="card product-card card--default">
-
-                                        <a class="card-img-hover d-block" href="product-left-image.html">
-                                            <img class="card-img-top" src="{{url('public')}}/images/electronic/product/09.jpg"
-                                                alt="...">
-                                        </a>
-                                        <div class="card-icons">
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Add to wishlist"> <i class="lar la-heart"></i>
-                                                </a>
-                                            </div>
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Quick View"><span data-target="#quick-view"
-                                                        data-toggle="modal"> <i
-                                                            class="ion-ios-search-strong"></i></span> </a>
-                                            </div>
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Compare"> <i class="las la-random"></i> </a>
-                                            </div>
-                                        </div>
-                                        <div class="card-info">
-                                            <div class="card-body">
-                                                <div class="product-title font-w-4"><a class="link-title"
-                                                        href="product-left-image.html">Wireless Bluetooth</a>
-                                                </div>
-                                                <div class="mt-1"> <span class="product-price text-dark"><del
-                                                            class="text-muted">$35.00</del> $25.00</span>
-                                                    <div class="star-rating"><i class="las la-star"></i><i
-                                                            class="las la-star"></i><i class="las la-star"></i><i
-                                                            class="las la-star"></i><i class="las la-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer bg-transparent border-0">
-                                                <div
-                                                    class="product-link d-flex align-items-center justify-content-center">
-                                                    <button class="btn-cart btn btn-yellow-dark mx-3" type="button"><i
-                                                            class="las la-shopping-cart mr-1"></i> Add to cart
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="card product-card card--default">
-
-                                        <a class="card-img-hover d-block" href="product-left-image.html">
-                                            <img class="card-img-top" src="{{url('public')}}/images/electronic/product/04.jpg"
-                                                alt="...">
-                                        </a>
-                                        <div class="card-icons">
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Add to wishlist"> <i class="lar la-heart"></i>
-                                                </a>
-                                            </div>
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Quick View"><span data-target="#quick-view"
-                                                        data-toggle="modal"> <i
-                                                            class="ion-ios-search-strong"></i></span> </a>
-                                            </div>
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Compare"> <i class="las la-random"></i> </a>
-                                            </div>
-                                        </div>
-                                        <div class="card-info">
-                                            <div class="card-body">
-                                                <div class="product-title font-w-4"><a class="link-title"
-                                                        href="product-left-image.html">Wireless Bluetooth</a>
-                                                </div>
-                                                <div class="mt-1"> <span class="product-price text-dark"><del
-                                                            class="text-muted">$35.00</del> $25.00</span>
-                                                    <div class="star-rating"><i class="las la-star"></i><i
-                                                            class="las la-star"></i><i class="las la-star"></i><i
-                                                            class="las la-star"></i><i class="las la-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer bg-transparent border-0">
-                                                <div
-                                                    class="product-link d-flex align-items-center justify-content-center">
-                                                    <button class="btn-cart btn btn-yellow-dark mx-3" type="button"><i
-                                                            class="las la-shopping-cart mr-1"></i> Add to cart
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="card product-card card--default">
-
-                                        <a class="card-img-hover d-block" href="product-left-image.html">
-                                            <img class="card-img-top" src="{{url('public')}}/images/electronic/product/14.jpg"
-                                                alt="...">
-                                        </a>
-                                        <div class="card-icons">
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Add to wishlist"> <i class="lar la-heart"></i>
-                                                </a>
-                                            </div>
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Quick View"><span data-target="#quick-view"
-                                                        data-toggle="modal"> <i
-                                                            class="ion-ios-search-strong"></i></span> </a>
-                                            </div>
-                                            <div class="card-icons__item">
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                    data-original-title="Compare"> <i class="las la-random"></i> </a>
-                                            </div>
-                                        </div>
-                                        <div class="card-info">
-                                            <div class="card-body">
-                                                <div class="product-title font-w-4"><a class="link-title"
-                                                        href="product-left-image.html">Wireless Bluetooth</a>
-                                                </div>
-                                                <div class="mt-1"> <span class="product-price text-dark"><del
-                                                            class="text-muted">$35.00</del> $25.00</span>
-                                                    <div class="star-rating"><i class="las la-star"></i><i
-                                                            class="las la-star"></i><i class="las la-star"></i><i
-                                                            class="las la-star"></i><i class="las la-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer bg-transparent border-0">
-                                                <div
-                                                    class="product-link d-flex align-items-center justify-content-center">
-                                                    <button class="btn-cart btn btn-yellow-dark mx-3" type="button"><i
-                                                            class="las la-shopping-cart mr-1"></i> Add to cart
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @empty
+                                @endforelse
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-
             <!--product end-->
-
-            <!--product start-->
-
-            <section class="pb-0 pt-5">
-                <div class="container">
-                    <div class="product-block product-block-div pb-1">
-                        <div class="row justify-content-left text-left row_title">
-                            <h2 class="mb-0 font-w-5 bg-yellow text-dark">New Products</h2>
-                        </div>
-                        <div class="row pl-3">
-                            <div class="owl-carousel no-pb owl-2" data-dots="false" data-nav="true" data-items="3"
-                                data-md-items="2" data-sm-items="1">
-                                <div class="item">
-                                    <div class="col-lg-12 col-md-12 pt-5">
-                                        <div class="media align-items-center mb-4"> <a class="d-block mr-3"
-                                                href="product-left-image.html"> <img class="border"
-                                                    src="{{url('public')}}/images/electronic/product/15.jpg" alt="Product"
-                                                    width="100"> </a>
-                                            <div class="media-body">
-                                                <div class="product-title"><a class="link-title" href="#">Wireless
-                                                        Bluetooth Receiver</a> </div>
-                                                <span class="product-price"><del class="text-muted">$42.00</del>
-                                                    $37.00</span>
-                                                <div class="star-rating"><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i> </div>
-                                            </div>
-                                        </div>
-                                        <div class="media align-items-center mb-4"> <a class="d-block mr-3"
-                                                href="product-left-image.html"> <img class="border"
-                                                    src="{{url('public')}}/images/electronic/product/14.jpg" alt="Product"
-                                                    width="100"> </a>
-                                            <div class="media-body">
-                                                <div class="product-title"><a class="link-title" href="#">Wireless
-                                                        Bluetooth Receiver</a> </div>
-                                                <span class="product-price"><del class="text-muted">$35.00</del>
-                                                    $25.00</span>
-                                                <div class="star-rating"><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i> </div>
-                                            </div>
-                                        </div>
-                                        <div class="media align-items-center mb-4"> <a class="d-block mr-3"
-                                                href="product-left-image.html"> <img class="border"
-                                                    src="{{url('public')}}/images/electronic/product/12.jpg" alt="Product"
-                                                    width="100"> </a>
-                                            <div class="media-body">
-                                                <div class="product-title"><a class="link-title" href="#">Wireless
-                                                        Bluetooth Receiver</a> </div>
-                                                <span class="product-price"><del class="text-muted">$24.00</del>
-                                                    $18.00</span>
-                                                <div class="star-rating"><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i> </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="col-lg-12 col-md-12 mt-md-0 pt-5">
-                                        <div class="media align-items-center mb-4"> <a class="d-block mr-3"
-                                                href="product-left-image.html"> <img class="border"
-                                                    src="{{url('public')}}/images/electronic/product/11.jpg" alt="Product"
-                                                    width="100"> </a>
-                                            <div class="media-body">
-                                                <div class="product-title"><a class="link-title" href="#">Wireless
-                                                        Bluetooth Receiver</a> </div>
-                                                <span class="product-price"><del class="text-muted">$12.00</del>
-                                                    $9.00</span>
-                                                <div class="star-rating"><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i> </div>
-                                            </div>
-                                        </div>
-                                        <div class="media align-items-center mb-4"> <a class="d-block mr-3"
-                                                href="product-left-image.html"> <img class="border"
-                                                    src="{{url('public')}}/images/electronic/product/10.jpg" alt="Product"
-                                                    width="100"> </a>
-                                            <div class="media-body">
-                                                <div class="product-title"><a class="link-title" href="#">Wireless
-                                                        Bluetooth Receiver</a> </div>
-                                                <span class="product-price"><del class="text-muted">$19.00</del>
-                                                    $13.00</span>
-                                                <div class="star-rating"><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i> </div>
-                                            </div>
-                                        </div>
-                                        <div class="media align-items-center mb-4"> <a class="d-block mr-3"
-                                                href="product-left-image.html"> <img class="border"
-                                                    src="{{url('public')}}/images/electronic/product/09.jpg" alt="Product"
-                                                    width="100"> </a>
-                                            <div class="media-body">
-                                                <div class="product-title"><a class="link-title" href="#">Wireless
-                                                        Bluetooth Receiver</a> </div>
-                                                <span class="product-price"><del class="text-muted">$24.00</del>
-                                                    $22.00</span>
-                                                <div class="star-rating"><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i> </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="col-lg-12 col-md-12 mt-lg-0 pt-5">
-                                        <div class="media align-items-center mb-4"> <a class="d-block mr-3"
-                                                href="product-left-image.html"> <img class="border"
-                                                    src="{{url('public')}}/images/electronic/product/06.jpg" alt="Product"
-                                                    width="100"> </a>
-                                            <div class="media-body">
-                                                <div class="product-title"><a class="link-title" href="#">Wireless
-                                                        Bluetooth Receiver</a> </div>
-                                                <span class="product-price"><del class="text-muted">$42.00</del>
-                                                    $37.00</span>
-                                                <div class="star-rating"><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i> </div>
-                                            </div>
-                                        </div>
-                                        <div class="media align-items-center mb-4"> <a class="d-block mr-3"
-                                                href="product-left-image.html"> <img class="border"
-                                                    src="{{url('public')}}/images/electronic/product/08.jpg" alt="Product"
-                                                    width="100"> </a>
-                                            <div class="media-body">
-                                                <div class="product-title"><a class="link-title" href="#">Wireless
-                                                        Bluetooth Receiver</a> </div>
-                                                <span class="product-price"><del class="text-muted">$35.00</del>
-                                                    $25.00</span>
-                                                <div class="star-rating"><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i> </div>
-                                            </div>
-                                        </div>
-                                        <div class="media align-items-center mb-4"> <a class="d-block mr-3"
-                                                href="product-left-image.html"> <img class="border"
-                                                    src="{{url('public')}}/images/electronic/product/07.jpg" alt="Product"
-                                                    width="100"> </a>
-                                            <div class="media-body">
-                                                <div class="product-title"><a class="link-title" href="#">Wireless
-                                                        Bluetooth Receiver</a> </div>
-                                                <span class="product-price"><del class="text-muted">$24.00</del>
-                                                    $18.00</span>
-                                                <div class="star-rating"><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i> </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="col-lg-12 col-md-12 mt-lg-0 pt-5">
-                                        <div class="media align-items-center mb-4"> <a class="d-block mr-3"
-                                                href="product-left-image.html"> <img class="border"
-                                                    src="{{url('public')}}/images/electronic/product/05.jpg" alt="Product"
-                                                    width="100"> </a>
-                                            <div class="media-body">
-                                                <div class="product-title"><a class="link-title" href="#">Wireless
-                                                        Bluetooth Receiver</a> </div>
-                                                <span class="product-price"><del class="text-muted">$42.00</del>
-                                                    $37.00</span>
-                                                <div class="star-rating"><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i> </div>
-                                            </div>
-                                        </div>
-                                        <div class="media align-items-center mb-4"> <a class="d-block mr-3"
-                                                href="product-left-image.html"> <img class="border"
-                                                    src="{{url('public')}}/images/electronic/product/04.jpg" alt="Product"
-                                                    width="100"> </a>
-                                            <div class="media-body">
-                                                <div class="product-title"><a class="link-title" href="#">Wireless
-                                                        Bluetooth Receiver</a> </div>
-                                                <span class="product-price"><del class="text-muted">$35.00</del>
-                                                    $25.00</span>
-                                                <div class="star-rating"><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i> </div>
-                                            </div>
-                                        </div>
-                                        <div class="media align-items-center mb-4"> <a class="d-block mr-3"
-                                                href="product-left-image.html"> <img class="border"
-                                                    src="{{url('public')}}/images/electronic/product/03.jpg" alt="Product"
-                                                    width="100"> </a>
-                                            <div class="media-body">
-                                                <div class="product-title"><a class="link-title" href="#">Wireless
-                                                        Bluetooth Receiver</a> </div>
-                                                <span class="product-price"><del class="text-muted">$24.00</del>
-                                                    $18.00</span>
-                                                <div class="star-rating"><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i><i
-                                                        class="las la-star"></i><i class="las la-star"></i> </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!--product end-->
-
-
-            <!--blog start-->
-
-            <section class="pb-0 pt-5">
-                <div class="container">
-                    <div class="product-block product-block-div">
-                        <div class="row justify-content-left text-left row_title">
-                            <h2 class="mb-0 font-w-6 bg-redish">Latest From Blog</h2>
-                        </div>
-                        <!-- / .row -->
-                        <div class="row m-0">
-                            @forelse($LatestArticles as $Post)
-                                <div class="col-12 col-lg-4 mt-5">
-                                    <!-- Blog Card -->
-                                    <div class="card border-0 bg-transparent">
-                                        <div class="position-relative overflow-hidden">
-                                            <div class="position-absolute z-index-1 bottom-0 bg-white text-primary shadow-primary text-center py-1 px-2 rounded ml-3 mb-3"> {{$Post->created_at->format('d M')}}</div>
-                                            <img class="card-img-top hover-zoom" src="{{$Post->ImagePath}}" alt="{{$Post->title}}">
-                                        </div>
-                                        <div class="card-body px-0 pb-0">
-                                            <h2 class="h5 font-w-5 mt-2 mb-0">
-                                                <a class="link-title" href="{{route('blog.single' , [$Post->slug,$Post->id])}}">{{$Post->title}}</a>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                    <!-- End Blog Card -->
-                                </div>
-                            @empty
-                            @endforelse
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--blog end-->
-            <!-- newsletter start-->
-            @include('includes.newsletter')
-            <!-- newsletter end-->
             <!--feature start-->
-            <section class="bg-yellow services-block-1 py-5">
+            <section class="bg-yellow services-block-1 py-5 my-5">
                 <div class="container ">
                     <!-- / .row -->
                     <div class="row">
@@ -931,11 +449,114 @@
                 </div>
             </section>
             <!--feature end-->
+            <!--blog start-->
+            <section class="pb-0 pt-5 mb-5">
+                <div class="container">
+                    <div class="product-block product-block-div">
+                        <div class="row justify-content-left text-left row_title">
+                            <h2 class="mb-0 font-w-6 bg-redish">Latest From Blog</h2>
+                        </div>
+                        <!-- / .row -->
+                        <div class="row m-0">
+                            @forelse($LatestArticles as $Post)
+                                <div class="col-12 col-lg-4 mt-5">
+                                    <!-- Blog Card -->
+                                    <div class="card border-0 bg-transparent">
+                                        <div class="position-relative overflow-hidden">
+                                            <div class="position-absolute z-index-1 bottom-0 bg-white text-primary shadow-primary text-center py-1 px-2 rounded ml-3 mb-3"> {{$Post->created_at->format('d M')}}</div>
+                                            <img class="card-img-top hover-zoom" src="{{$Post->ImagePath}}" alt="{{$Post->title}}">
+                                        </div>
+                                        <div class="card-body px-0 pb-0">
+                                            <h2 class="h5 font-w-5 mt-2 mb-0">
+                                                <a class="link-title" href="{{route('blog.single' , [$Post->slug,$Post->id])}}">{{$Post->title}}</a>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <!-- End Blog Card -->
+                                </div>
+                            @empty
+                            @endforelse
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--blog end-->
+            <!--testimonails start-->
+            <section class="bg-pink-light testimonails custom-pb-0">
+                <div class="container text-center">
+                    <div class="row justify-content-center">
+                        <div class="col-12 pl-10 pr-10">
+                            <div class="owl-carousel owl-center owl-2" data-center="true" data-dots="false"
+                                data-nav="true" data-items="1" data-md-items="1" data-sm-items="1">
+                                <div class="item">
+                                    <div class="card p-lg-10 bg-primary-soft border-0">
+                                        <div>
+                                            <img alt="Image" src="{{url('public/')}}/images/thumbnail/member2.png"
+                                                class="img-fluid rounded-circle d-inline">
+                                        </div>
+                                        <div class="card-body pl-10 pr-10">
+                                            <p class="text-dark font-w-3">Lorem ipsum dolor sit amet, consectetur
+                                                adipiscing elit. Nam fringilla auguest tristique auctor. placerat a
+                                                condimentum diam mollis. Ut pulvinar neque eget massa dapibus dolor.</p>
+                                            <div>
+                                                <h6 class="text-primary d-inline mb-0">John Smith </h6>
+                                                <br>
+                                                <small class="text-muted">Happy Customer</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="card p-lg-10 bg-primary-soft border-0">
+                                        <div>
+                                            <img alt="Image" src="{{url('public/')}}/images/thumbnail/member1.png"
+                                                class="img-fluid rounded-circle d-inline">
+                                        </div>
+                                        <div class="card-body pl-10 pr-10">
+                                            <p class="text-dark font-w-3">Lorem ipsum dolor sit amet, consectetur
+                                                adipiscing elit. Nam fringilla auguest tristique auctor. placerat a
+                                                condimentum diam mollis. Ut pulvinar neque eget massa dapibus dolor.</p>
+                                            <div>
+                                                <h6 class="text-primary d-inline mb-0">Karla Anderson </h6>
+                                                <br>
+                                                <small class="text-muted">Happy Customer</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="card p-lg-10 bg-primary-soft border-0">
+                                        <div>
+                                            <img alt="Image" src="{{url('public/')}}/images/thumbnail/member3.png"
+                                                class="img-fluid rounded-circle d-inline">
+                                        </div>
+                                        <div class="card-body pl-10 pr-10">
+                                            <p class="text-dark font-w-3">Lorem ipsum dolor sit amet, consectetur
+                                                adipiscing elit. Nam fringilla auguest tristique auctor. placerat a
+                                                condimentum diam mollis. Ut pulvinar neque eget massa dapibus dolor.</p>
+                                            <div>
+                                                <h6 class="text-primary d-inline mb-0">Stephen Doe </h6>
+                                                <br>
+                                                <small class="text-muted">Happy Customer</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--testimonails end-->
+            <!-- newsletter start-->
+            @include('includes.newsletter')
+            <!-- newsletter end-->
         </div>
         <!--body content end-->
         @include('layout.footer')
       </div>
-      @include('layout.parts')
+    @include('layout.parts')
     @include('layout.scripts')
 </body>
 </html>

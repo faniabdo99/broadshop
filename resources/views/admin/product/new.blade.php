@@ -66,8 +66,6 @@
                                                         <option value="Pre-order">Pre-order</option>
                                                         <option value="Sold Out">Sold out</option>
                                                         <option value="Invisible">Invisible</option>
-                                                        <option value="Customers only">Only visible for logged in customers</option>
-                                                        <option value="0">Do not display product status</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
@@ -78,27 +76,6 @@
                                                           <option value="{{$Discount->id}}">{{$Discount->title}} , {{$Discount->amount}} {{$Discount->type}}</option>
                                                         @empty
                                                         @endforelse
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>For Season</label>
-                                                <select class="form-control mb-4" name="season" required>
-                                                        <option value="winter">Winter</option>
-                                                        <option value="summer">Summer</option>
-                                                        <option value="fall">Fall</option>
-                                                        <option value="spring">Spring</option>
-                                                        <option value="all">All</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>For Gender</label>
-                                                <select class="form-control mb-4" name="gender" required>
-                                                        <option value="men">Men</option>
-                                                        <option value="women">Women</option>
-                                                        <option value="children">Children</option>
-                                                        <option value="adults">Adults</option>
-                                                        <option value="young">Young</option>
-                                                        <option value="all">All</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">

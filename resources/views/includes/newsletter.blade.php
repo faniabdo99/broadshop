@@ -1,14 +1,23 @@
-<section class="py-5 newsletter-section">
+<section class="bg-pink py-9 position-relative overflow-hidden">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h3>Join Our Newsletter</h3>
-                <p>Get a 25% of coupon when you signup to our newsletter for the first time!</p>
-                <form action="#" method="post">
-                    <input id="newsletter-email-value" class="form-control border-0" type="email" placeholder="Enter Your Email Here" required>
-                    <button id="signup-to-newsletter" data-location="homepage" data-target="{{route('api.newsletter.signup')}}">Signup</button>
-                </form>
-                <p id="newsletter-output" class="mt-2 text-danger">That's an error!</p>
+        <div class="row justify-content-center text-center mb-1">
+            <div class="col-lg-6 col-md-10">
+                <div class="mb-4">
+                    <h2 class="mb-0">Be the first and get weekly updates</h2>
+                </div>
+                <div class="subscribe-form">
+                    <form id="mc-form" class="row align-items-center no-gutters mb-3">
+                        <div class="col">
+                            <input type="email" class="email form-control input-2 bg-white" id="newsletter-email-value" placeholder="Email Address" required>
+                        </div>
+                        <div class="col-auto">
+                            <button id="signup-to-newsletter" data-location="homepage" data-target="{{route('api.newsletter.signup')}}" class="btn dark-btn overflow-auto">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="mb-4">
+                        <p id="newsletter-output" class="bg-white p-2 border-rounded mt-2 text-danger">That's an error!</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

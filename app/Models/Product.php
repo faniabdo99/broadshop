@@ -80,7 +80,7 @@ class Product extends Model{
             }
         }
     }
-    public function getMainImageAttribute(){
+    public function getImagePathAttribute(){
         return url('storage/app/images/products').'/'.$this->image;
     }
     public function GalleryImages(){
@@ -152,6 +152,6 @@ class Product extends Model{
         return $StatuesArray;
     }
     public function Reviews(){
-      return Review::where('product_id' , $this->id)->get();
+        return $this->hasMany(Review::class);
     }
 }

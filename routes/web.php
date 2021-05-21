@@ -4,6 +4,7 @@ Route::get('/' , 'PageController@getSoon')->name('soon');
 Route::get('/home' , 'PageController@getIndex')->name('home');
 Route::get('/contact' , 'ContactController@getContact')->name('contactUs');
 Route::post('/contact' , 'ContactController@postContact')->name('contactUs.post'); 
+Route::get('/about' , 'PageController@getAbout')->name('about');
 //Add middleware here to guest only
 Route::middleware('guest')->group(function () {
     Route::get('signup' , 'UserController@getSignup')->name('user.getSignup');
@@ -60,6 +61,9 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'] , function () {
       Route::post('/edit/{id}' , 'ProductsController@postEdit')->name('admin.products.postEdit');
       Route::get('/delete-gallery/{id}' , 'ProductsController@deleteGalleryImages')->name('admin.galleryImages.delete');
       Route::get('/localize/{id}' , 'ProductsController@getLocalize')->name('admin.products.getLocalize');
+      Route::get('/variation/{id}' , 'ProductsController@getVariation')->name('admin.products.getVariation');
+      Route::post('/variation/{id}' , 'ProductsController@postVariation')->name('admin.products.postVariation');
+      Route::get('/delete-variation/{id}' , 'ProductsController@deleteVariation')->name('admin.products.deleteVariation');
     });
     //Users System
     Route::prefix('users')->group(function(){
