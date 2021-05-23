@@ -33,6 +33,10 @@ Route::group(['prefix' => 'blog'] , function () {
   Route::get('/' , 'BlogController@getIndex')->name('blog');
   Route::get('/{slug}/{id}' , 'BlogController@getSingle')->name('blog.single');
 });
+Route::group(['prefix' => 'products'] , function () {
+  Route::get('/' , 'BlogController@getIndex')->name('blog');
+  Route::get('/{slug}/{id}' , 'ProductsController@getSingle')->name('product.single');
+});
 
 //Admin Only Routes
 Route::group(['prefix' => 'admin',  'middleware' => 'admin'] , function () {
@@ -84,7 +88,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'] , function () {
       Route::post('/new' , 'CoupounsController@postNew')->name('admin.coupoun.postNew');
       Route::get('/edit/{id}' , 'CoupounsController@getEdit')->name('admin.coupoun.getEdit');
       Route::post('/edit/{id}' , 'CoupounsController@postEdit')->name('admin.coupoun.postEdit');
-    });
+  });
   
     //Shipping Costs System
     Route::prefix('shipping-costs')->group(function(){
@@ -119,17 +123,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'] , function () {
       Route::get('download/{id}' , 'InvoiceController@downloadInvoice')->name('invoice.download.get');
       Route::get('send-to-user/{id}' , 'InvoiceController@sendToUser')->name('invoice.sendToUser.get');
     });
-  });
-
-
-
-
-
-
-
-
-
-
+});
 
 Route::get('change-lang/{locale}', 'HomeController@changeLang')->name('changeLang');
 Route::get('/change-currency/{currency}/{currency_code}' , 'CurrencyController@setCurrency')->name('currency.change');

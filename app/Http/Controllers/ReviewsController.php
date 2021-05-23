@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
-use App\Review;
+use App\Models\Review;
 class ReviewsController extends Controller{
     public function postReview(Request $r){
       //Validate The Request
@@ -19,13 +19,13 @@ class ReviewsController extends Controller{
         $TheReview = Review::where('user_id',auth()->user()->id)->where('product_id',$r->product_id)->first();
         if($TheReview){
           $TheReview->update(['review' => $r->review , 'rate' => $r->rate]);
-          return back()->withSuccess(__('controllers.review_updated'));
+          return back()->withSuccess('Your review has been updated');
         }else{
           //Create the review
           $ReviewData = $r->all();
           $ReviewData['user_id'] = auth()->user()->id;
           Review::create($ReviewData);
-          return back()->withSuccess(__('controllers.review_thanks'));
+          return back()->withSuccess('Your review has been posted');
         }
       }
     }

@@ -10,9 +10,9 @@ class NewsletterController extends Controller{
             'email' => 'required|email|unique:newsletters'
         ];
         $ErrorMessages = [
-            'email.required' => 'Your email is required',
-            'email.email' => 'Your email is invalid',
-            'email.unique' => 'Your email is already listed in our newsletter'
+            'email.required' => 'Je e-mailadres is verplicht',
+            'email.email' => 'Uw e-mailadres is ongeldig',
+            'email.unique' => 'Uw e-mailadres staat al in onze nieuwsbrief'
         ];
         $Validator = Validator::make($r->all(), $Rules , $ErrorMessages);
         if($Validator->fails()){
@@ -20,7 +20,7 @@ class NewsletterController extends Controller{
         }else{
             //Do stuff
             Newsletter::create($r->all());
-            return response('You are now signed up to our newsletter!' , 200);
+            return response('U bent nu aangemeld voor onze nieuwsbrief!' , 200);
         }
     }
     public function getAll(){

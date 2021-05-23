@@ -87,18 +87,18 @@
                     <div>
                         <h1 class="d-none">Broadshop.be</h1>
                         <img class="mb-5" src="{{url('public/images/footer-logo.png')}}" width="250" alt="Broadsgop.be Logo">
-                        <p>Welcome to Broadshop.be, We are currentlly building an awesome site! Stay tuned and get ready for the upcoming launch discounts</p>
+                        <p>Welkom bij Boardshop.be, we bouwen aan een geweldige website!  Blijf op de hoogte en bereid u voor op de komende lanceringskortingen</p>
                     </div>
                     <div>
                         <form>
-                            <label for="">Get 20% Discount on your first order</label>
+                            <label>Ontvang 20% ​​korting op uw eerste bestelling</label>
                             <div class="flexbox">
-                                <input  id="newsletter-email-value" type="email" placeholder="Enter your email here" required>
-                                <button id="signup-to-newsletter" data-location="soon-page" data-target="{{route('api.newsletter.signup')}}">Signup</button>
+                                <input  id="newsletter-email-value" type="email" placeholder="Vul je email hier in" required>
+                                <button id="signup-to-newsletter" data-location="soon-page" data-target="{{route('api.newsletter.signup')}}">Aanmelden</button>
                             </div>
                             <p id="newsletter-output" class="mt-2 text-danger">That's an error!</p>
                         </form>
-                        <p>Follow Us:</p>
+                        <p>Volg ons:</p>
                         <ul class="social-media">
                             <li><a href="https://www.facebook.com/broadshop.be" target="_blank"><i class="fab fa-facebook"></i></a></li>
                             <li><a href="https://www.instagram.com/Broadshop.be/" target="_blank"><i class="fab fa-instagram"></i></a></li>

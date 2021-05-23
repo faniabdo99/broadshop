@@ -30,4 +30,4 @@ Route::post('update-order-vat/{id}' , 'OrdersController@updateVatNumber')->name(
 //*********non-Admin API Routes
 Route::post('send-activate-link' , 'UserController@sendActivateEmail')->name('user.sendActivateLink');
 Route::post('ask-question-about-product' , 'ProductsController@askQuestion')->name('product.askQuestion');
-Route::post('like-item' , 'FavouriteController@ToggleFavourite')->name('favourite.toggle');
+Route::post('add-to-wishlist' , 'FavouriteController@ToggleFavourite')->name('favourite.toggle');

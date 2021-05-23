@@ -56,8 +56,6 @@ class ProductsController extends Controller{
             'price' => 'required|numeric',
             'inventory' => 'required|numeric',
             'min_order' => 'required|numeric',
-            'season' => 'required',
-            'gender' => 'required',
             'weight' => 'numeric',
             'height' => 'nullable|numeric',
             'width' => 'nullable|numeric',
@@ -117,47 +115,45 @@ class ProductsController extends Controller{
             'price' => 'required|numeric',
             'inventory' => 'required|numeric',
             'min_order' => 'required|numeric',
-            'season' => 'required',
-            'gender' => 'required',
             'weight' => 'numeric',
             'height' => 'nullable|numeric',
             'width' => 'nullable|numeric',
             'tax_rate' => 'required',
             'image' => 'image|max:45000000'
-    ];
-    $validator = Validator::make($r->all() , $Rules);
-    if($validator->fails()){
-        return back()->withErrors($validator->errors()->all())->withInput();
-    }else{
-        //Prepare The Data For Uploading
-        $ProductData = $r->except('custom_tags');
-        //Check the Discount
-        if($r->has('discount_id') && $r->discount_id != null){
-            //Get the discount
-            $TheDiscount = Discount::find($r->discount_id);
-            if($TheDiscount->type == 'fixed'){
-                if($TheDiscount->amount >= $r->price){
-                    return back()->withErrors('The Discount is Bigger Than The Item Price')->withInput();
+        ];
+        $validator = Validator::make($r->all() , $Rules);
+        if($validator->fails()){
+            return back()->withErrors($validator->errors()->all())->withInput();
+        }else{
+            //Prepare The Data For Uploading
+            $ProductData = $r->except('custom_tags');
+            //Check the Discount
+            if($r->has('discount_id') && $r->discount_id != null){
+                //Get the discount
+                $TheDiscount = Discount::find($r->discount_id);
+                if($TheDiscount->type == 'fixed'){
+                    if($TheDiscount->amount >= $r->price){
+                        return back()->withErrors('The Discount is Bigger Than The Item Price')->withInput();
+                    }
                 }
             }
+            //Handle The Image
+            if($r->has('image')){
+                $ProductData['image'] = $TheProduct->slug.'.'.$r->image->getClientOriginalExtension();
+                $r->image->storeAs('images/products' , $ProductData['image']);
+            }else{
+                $ProductData['image'] = $TheProduct->image;
+            }
+            $ProductData['show_inventory'] = ($r->show_inventory == 'on') ? 1 : 0;
+            $ProductData['is_promoted'] = ($r->is_promoted == 'on') ? 1 : 0;
+            $ProductData['allow_reviews'] = ($r->allow_reviews == 'on') ? 1 : 0;
+            $ProductData['allow_reservations'] = ($r->allow_reservations == 'on') ? 1 : 0;
+            $ProductData['user_id'] = auth()->user()->id;
+            $ProductData['price'] = sprintf("%.2f",$r->price);
+            $TheProduct->update($ProductData);
+            return redirect()->route('admin.products.home')->withSuccess('Product Updated Successfully !');
         }
-        //Handle The Image
-        if($r->has('image')){
-            $ProductData['image'] = $TheProduct->slug.'.'.$r->image->getClientOriginalExtension();
-            $r->image->storeAs('images/products' , $ProductData['image']);
-        }else{
-            $ProductData['image'] = $TheProduct->image;
-        }
-        $ProductData['show_inventory'] = ($r->show_inventory == 'on') ? 1 : 0;
-        $ProductData['is_promoted'] = ($r->is_promoted == 'on') ? 1 : 0;
-        $ProductData['allow_reviews'] = ($r->allow_reviews == 'on') ? 1 : 0;
-        $ProductData['allow_reservations'] = ($r->allow_reservations == 'on') ? 1 : 0;
-        $ProductData['user_id'] = auth()->user()->id;
-        $ProductData['price'] = sprintf("%.2f",$r->price);
-        $TheProduct->update($ProductData);
-        return redirect()->route('admin.products.home')->withSuccess('Product Updated Successfully !');
     }
-}
     //Delete
     public function delete(Request $r){
         Product::findOrFail($r->item_id)->delete();
@@ -195,7 +191,6 @@ class ProductsController extends Controller{
         $SystemLangs = explode(',' , Setting::where('title' , 'languages_list')->first()->value);
         return view('admin.product.localize' , compact('Product' , 'SystemLangs'));
     }
-
     public function postLocalize(Request $r){
         $Rules = [
             'title_value' => 'required|min:5|max:255',
@@ -235,9 +230,36 @@ class ProductsController extends Controller{
             }
         }
     }
-
-
-
+    public function getVariation($id){
+        $TheProduct = Product::findOrFail($id);
+        $AllVariations = Product_Variation::where('product_id' , $id)->latest()->get();
+        return view('admin.product.variation' , compact('TheProduct' , 'AllVariations'));
+    }
+    public function deleteVariation($id){
+        $TheVariation = Product_Variation::findOrFail($id)->delete();
+        return back()->withSuccess('Deleted Successfully');
+    }
+    public function postVariation(Request $r, $id){
+        //Validate the request
+        $Rules = [
+            'color' => 'required',
+            'color_code' => 'required',
+            'inventory' => 'required',
+            'status' => 'required',
+        ];
+        $Validator = Validator::make($r->all() , $Rules);
+        if($Validator->fails()){
+            return back()->withErrors($Validator->errors()->all());
+        }else{
+            //Create new variation
+            $TheProduct = Product::findOrFail($id);
+            $VariationData = $r->all();
+            $VariationData['ref_code'] = $TheProduct->id.'_'.$r->color;
+            $VariationData['product_id'] = $TheProduct->id;
+            Product_Variation::create($VariationData);
+            return back()->withSuccess('Variation Created');
+        }
+    }
     //Non-Admin Routes
     public function getAll(Request $r){
         $FiltersCode = '';
@@ -267,14 +289,10 @@ class ProductsController extends Controller{
         $Products = Product::where('category_id' , $TheCategory->id)->where('status','!=','Invisible')->latest()->get();
         return view('products.index' , compact('Categories' , 'FiltersList' , 'Products'));
     }
-    public function getSingle($id , $slug){
+    public function getSingle($slug , $id){
         $TheProduct = Product::findOrFail($id);
         if($TheProduct->status == 'Invisible'){
             abort(404);
-        }elseif($TheProduct->status == 'Customers only'){
-            if(!auth()->check()){
-               abort(404);
-            }
         }
         return view('products.single' , compact('TheProduct'));
     }
@@ -303,36 +321,6 @@ class ProductsController extends Controller{
             app()->setLocale($r->site_locale);
             Mail::to('faniabdo99@gmail.com')->send(new QuestionAboutProduct($r->all()));
             return response(__('controllers.product_Q_received'));
-        }
-    }
-    public function getVariation($id){
-        $TheProduct = Product::findOrFail($id);
-        $AllVariations = Product_Variation::where('product_id' , $id)->latest()->get();
-        return view('admin.product.variation' , compact('TheProduct' , 'AllVariations'));
-    }
-    public function deleteVariation($id){
-        $TheVariation = Product_Variation::findOrFail($id)->delete();
-        return back()->withSuccess('Deleted Successfully');
-    }
-    public function postVariation(Request $r, $id){
-        //Validate the request
-        $Rules = [
-            'color' => 'required',
-            'color_code' => 'required',
-            'inventory' => 'required',
-            'status' => 'required',
-        ];
-        $Validator = Validator::make($r->all() , $Rules);
-        if($Validator->fails()){
-            return back()->withErrors($Validator->errors()->all());
-        }else{
-            //Create new variation
-            $TheProduct = Product::findOrFail($id);
-            $VariationData = $r->all();
-            $VariationData['ref_code'] = $TheProduct->id.'_'.$r->color;
-            $VariationData['product_id'] = $TheProduct->id;
-            Product_Variation::create($VariationData);
-            return back()->withSuccess('Variation Created');
         }
     }
 }

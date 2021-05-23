@@ -28,12 +28,9 @@ Text Domain:  Flipmarto
   18. Wow Animation
   19. Particles
   20. Window load and functions
-  
-
 ------------------------ */
 (function($) {
 	'use strict';
-
 /*------------------------------------
   HT Predefined Variables
 --------------------------------------*/
@@ -447,5 +444,26 @@ $('#agree-cookies-usage').click(function(){
   $('#cookies-disclaimer').fadeOut();
 });
 
+//Wishlist
+//Like Items
+$('.like_item').click(function(){
+  $(this).toggleClass('bg-danger').toggleClass('text-white');
+  var ProductId = $(this).attr('product-id');
+  var UserId = $('meta[name=user_id]').attr("content");
+  $.ajax({
+      'method':'post',
+      'url' : $('meta[name=base_url]').attr('content')+'/api/add-to-wishlist',
+      'data' : {
+          'user_id' : UserId ,
+          'product_id' : ProductId
+      },
+      success: function(response){
+          ShowNoto('noto-success' , response , 'Success');
+      },
+      error: function (response){
+          ShowNoto('noto-danger' , response.responseText , 'Error');
+      }
+  })
+});
 	
 })(jQuery);

@@ -338,26 +338,29 @@
                                 @forelse ($BestSeller as $BSProduct)
                                     <div class="item">
                                         <div class="card product-card card--default">
-                                            <a class="card-img-hover d-block" href="product-left-image.html">
+                                            <a class="card-img-hover d-block" href="{{route('product.single' , [$BSProduct->slug , $BSProduct->id])}}">
                                                 <img class="card-img-top" src="{{$BSProduct->ImagePath}}" alt="{{$BSProduct->LocalTitle}}">
                                             </a>
                                             <div class="card-icons">
+                                                @auth
+                                                    <div class="card-icons__item">
+                                                        <a href="javascript:;" product-id="{{$BSProduct->id}}" class="like_item @if($BSProduct->LikedByUser()) bg-primary text-white @endif" data-toggle="tooltip" data-placement="left" title="Add to Wishlist" data-original-title="Add to wishlist">
+                                                            <i class="lar la-heart"></i>
+                                                        </a>
+                                                    </div>
+                                                @endauth
+                                             
                                                 <div class="card-icons__item">
-                                                    <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                        data-original-title="Add to wishlist"> <i class="lar la-heart"></i>
+                                                    <a href="#" data-toggle="tooltip" data-placement="left" title="" data-original-title="Quick View">
+                                                        <span data-target="#quick-view" data-toggle="modal"> 
+                                                            <i class="ion-ios-search-strong"></i>
+                                                        </span> 
                                                     </a>
-                                                </div>
-                                                <div class="card-icons__item">
-                                                    <a href="#" data-toggle="tooltip" data-placement="left" title=""
-                                                        data-original-title="Quick View"><span data-target="#quick-view"
-                                                            data-toggle="modal"> <i
-                                                                class="ion-ios-search-strong"></i></span> </a>
                                                 </div>
                                             </div>
                                             <div class="card-info">
                                                 <div class="card-body">
-                                                    <div class="product-title font-w-4"><a class="link-title"
-                                                            href="product-left-image.html">{{$BSProduct->LocalTitle}}</a>
+                                                    <div class="product-title font-w-4"><a class="link-title" href="{{route('product.single' , [$BSProduct->slug , $BSProduct->id])}}">{{$BSProduct->LocalTitle}}</a>
                                                     </div>
                                                     <div class="mt-1">
                                                         @if($BSProduct->HasDiscount())
@@ -373,14 +376,14 @@
                                                         <div class="star-rating">
                                                             @php 
                                                                 $i = 0;
-                                                                @endphp
+                                                            @endphp
                                                             @for($i = 1; $i <= $BSProduct->Reviews->avg('rate'); $i++)
                                                             <i class="las la-star"></i>
                                                             @endfor
                                                             @for($i = 1; $i <= (5-$BSProduct->Reviews->avg('rate')); $i++)
                                                             <i class="las la-star not-active"></i>
                                                             @endfor
-                                                            <span class="stars-count">({{$BSProduct->Reviews->avg('rate') ?? 0}})</span>
+                                                            <span class="stars-count">({{$BSProduct->Reviews->count()}})</span>
                                                         </div>
                                                     </div>
                                                 </div>
