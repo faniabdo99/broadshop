@@ -338,6 +338,13 @@
                                 @forelse ($BestSeller as $BSProduct)
                                     <div class="item">
                                         <div class="card product-card card--default">
+                                            @if($BSProduct->HasDiscount())
+                                                @if($BSProduct->Discount()->type == 'percentage')
+                                                    <div class="sale-label">-{{$BSProduct->Discount()->amount}}%</div>
+                                                @else
+                                                    <div class="sale-label">-{{$BSProduct->Discount()->amount}}€</div>
+                                                @endif
+                                            @endif
                                             <a class="card-img-hover d-block" href="{{route('product.single' , [$BSProduct->slug , $BSProduct->id])}}">
                                                 <img class="card-img-top" src="{{$BSProduct->ImagePath}}" alt="{{$BSProduct->LocalTitle}}">
                                             </a>
@@ -349,7 +356,6 @@
                                                         </a>
                                                     </div>
                                                 @endauth
-                                             
                                                 <div class="card-icons__item">
                                                     <a href="#" data-toggle="tooltip" data-placement="left" title="" data-original-title="Quick View">
                                                         <span data-target="#quick-view" data-toggle="modal"> 
@@ -365,7 +371,7 @@
                                                     <div class="mt-1">
                                                         @if($BSProduct->HasDiscount())
                                                             <span class="product-price text-dark">
-                                                                <del class="text-muted">{{$BSProduct->price}}€</del>
+                                                                <del class="text-danger">{{$BSProduct->price}}€</del>
                                                                 {{$BSProduct->FinalPrice}}€
                                                             </span>
                                                         @else

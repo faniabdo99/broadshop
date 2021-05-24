@@ -34,7 +34,7 @@ Route::group(['prefix' => 'blog'] , function () {
   Route::get('/{slug}/{id}' , 'BlogController@getSingle')->name('blog.single');
 });
 Route::group(['prefix' => 'products'] , function () {
-  Route::get('/' , 'BlogController@getIndex')->name('blog');
+  Route::get('/{category?}' , 'ProductsController@getIndex')->name('products');
   Route::get('/{slug}/{id}' , 'ProductsController@getSingle')->name('product.single');
 });
 
@@ -136,7 +136,6 @@ Route::group(['prefix'=>'products'] , function (){
 });
 
 //Cart Related Routes
-Route::get('api/add-item-to-cart' ,'CartController@addItem')->name('cart.add');
 Route::get('delete-from-cart/{cartId}/{userId}' ,'CartController@deleteItem')->name('cart.delete');
 Route::get('cart' , 'CartController@getCartPage')->name('cart');
 Route::get('checkout' , 'OrdersController@getCheckoutPage')->name('checkout');

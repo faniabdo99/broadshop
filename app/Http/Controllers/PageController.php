@@ -11,7 +11,7 @@ class PageController extends Controller{
     }
     public function getIndex(){
         $LatestArticles = Post::where('active' , 1)->latest()->limit(3)->get();
-        $BestSeller = Product::where('is_important' , 1)->latest()->get();
+        $BestSeller = Product::where('is_promoted' , 1)->latest()->get();
         return view('index' , compact('LatestArticles', 'BestSeller'));
     }
     public function getAbout(){

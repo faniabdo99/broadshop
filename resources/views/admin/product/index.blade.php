@@ -35,7 +35,7 @@
                                                     <a href="{{route('admin.products.getEdit' , $Single->id)}}" class="btn btn-primary">Edit</a>
                                                     <a id="delete-btn" href="javascript:;" item-id="{{$Single->id}}" action-route="{{ route('admin.product.delete') }}" class="btn btn-danger">Delete</a>
                                                     <a href="{{route('admin.products.getLocalize' , $Single->id)}}" class="btn btn-success">Localize</a>
-                                                    <a href="{{route('admin.products.getVariation' , $Single->id)}}" class="btn btn-success">Variation</a>
+                                                    <a href="{{route('admin.products.getVariation' , $Single->id)}}" class="btn btn-success">Variation ({{count($Single->AvailableVariations()['variations'])}})</a>
                                                 </td>
                                             </tr>
                                             @empty

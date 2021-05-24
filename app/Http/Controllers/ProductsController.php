@@ -289,6 +289,17 @@ class ProductsController extends Controller{
         $Products = Product::where('category_id' , $TheCategory->id)->where('status','!=','Invisible')->latest()->get();
         return view('products.index' , compact('Categories' , 'FiltersList' , 'Products'));
     }
+    public function getIndex($Category = null){
+        $TheCategory = null;
+        if($Category){
+            $TheCategory = Category::where('slug' , $Category)->first();
+            $AllProducts = Product::where('status' , '!=' , 'Invisible')->where('category_id' , $TheCategory->id)->get();
+        }else{
+            $AllProducts = Product::where('status' , '!=' , 'Invisible')->get();
+        }
+        $AllCategories = Category::latest()->get();
+        return view('products.index' , compact('AllProducts' , 'AllCategories' , 'TheCategory'));
+    }
     public function getSingle($slug , $id){
         $TheProduct = Product::findOrFail($id);
         if($TheProduct->status == 'Invisible'){

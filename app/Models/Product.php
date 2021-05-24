@@ -13,7 +13,13 @@ class Product extends Model{
             'description' => __('models.deleted_category')
         ]);
     }
-
+    public function Discount(){
+        if($this->discount_id){
+            return Discount::findOrFail($this->discount_id);
+        }else{
+            return null;
+        }
+    }
     //Non-Relation Methods
     public function getInventoryValueAttribute(){
       if($this->inventory < 5){
@@ -153,5 +159,16 @@ class Product extends Model{
     }
     public function Reviews(){
         return $this->hasMany(Review::class);
+    }
+    public function AvailableVariations(){
+        //Get Variations
+        $Variations = Product_Variation::where('product_id' , $this->id)->get();
+        $DataArray = [
+            'color' => $Variations->pluck('color')->unique(),
+            'color_codes' => $Variations->pluck('color_code')->unique(),
+            'variations' => $Variations,
+            'inventory' => $Variations->sum('inventory')
+        ];
+        return $DataArray;
     }
 }

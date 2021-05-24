@@ -38,61 +38,53 @@
                                 </div>
                                 @if($TheProduct->HasDiscount())
                                     <span class="product-price text-dark">
-                                        <del class="text-muted">{{$TheProduct->price}}€</del>
+                                        <del class="text-danger">{{$TheProduct->price}}€</del>
                                         {{$TheProduct->FinalPrice}}€
                                     </span>
                                 @else
                                     <span class="product-price text-dark">
-                                        {{$TheProduct->price}} €
+                                        {{$TheProduct->price}}€
                                     </span>
                                 @endif
                                 <ul class="list-unstyled my-3">
                                     <li><small>Status: <span class="text-green"> {{$TheProduct->status}}</span></small></li>
-                                    <li class="font-w-4"><small>Category :<span class="text-muted"> {{$TheProduct->Category->title}}</span></small></li>
+                                    <li class="font-w-4"><small>Category :<span class="text-muted"> <a href="{{route('products' , $TheProduct->Category->slug)}}">{{$TheProduct->Category->title}}</a></span></small></li>
                                 </ul>
                                 <p class="mb-4 desc">{{$TheProduct->description}}</p>
                                 <div class="d-sm-flex align-items-center mb-5">
                                     <div class="d-flex align-items-center mr-sm-4">
                                         <button class="btn-product btn-product-up"> <i class="las la-minus"></i></button>
-                                        <input class="form-product" type="number" name="form-product" value="1">
-                                        <button class="btn-product btn-product-down"> <i class="las la-plus"></i>
-                                        </button>
+                                        <input class="form-product" type="number" name="count" value="1">
+                                        <button class="btn-product btn-product-down"> <i class="las la-plus"></i></button>
                                     </div>
                                     <div class="d-flex text-center ml-sm-4 mt-3 mt-sm-0">
+                                        @if($TheProduct->AvailableVariations()['inventory'] > 0)
+                                        @forelse($TheProduct->AvailableVariations()['variations'] as $key => $Item)
                                         <div class="form-check pl-0 mr-2">
-                                            <input type="radio" class="form-check-input" id="color-filter1"
-                                                name="Radios">
-                                            <label class="form-check-label" for="color-filter1"
-                                                data-bg-color="#ffc107"></label>
+                                            <input type="radio" value="{{$Item->color}}" class="form-check-input" id="color-filter-{{$key+1}}" name="color_code">
+                                            <label class="form-check-label" for="color-filter-{{$key+1}}" data-bg-color="{{$Item->color_code}}"></label>
                                         </div>
-                                        <div class="form-check pl-0 mr-2">
-                                            <input type="radio" class="form-check-input" id="color-filter2"
-                                                name="Radios" checked>
-                                            <label class="form-check-label" for="color-filter2"
-                                                data-bg-color="#6d5b97"></label>
-                                        </div>
-                                        <div class="form-check pl-0 mr-2">
-                                            <input type="radio" class="form-check-input" id="color-filter3"
-                                                name="Radios">
-                                            <label class="form-check-label" for="color-filter3"
-                                                data-bg-color="#88b04b"></label>
-                                        </div>
-                                        <div class="form-check pl-0">
-                                            <input type="radio" class="form-check-input" id="color-filter4"
-                                                name="Radios">
-                                            <label class="form-check-label" for="color-filter4"
-                                                data-bg-color="#23a5a8"></label>
-                                        </div>
+                                        @empty
+                                        @endforelse
+                                        @endif
                                     </div>
                                 </div>
+                                @if($TheProduct->AvailableVariations()['inventory'] > 0)
                                 <div class="d-sm-flex align-items-center mt-5">
-                                    <button class="btn btn-primary btn-animated mr-sm-3 mb-3 mb-sm-0">
-                                        <i class="las la-shopping-cart mr-2"></i>Add To Cart
+                                    <button class="btn btn-primary btn-animated mr-sm-3 mb-3 mb-sm-0" id="add-to-cart-single" data-product="{{$TheProduct->id}}" data-user="{{getUserId()}}">
+                                        <i class="las la-shopping-cart mr-2"></i> Add To Cart
                                     </button>
-                                    <a class="btn btn-animated btn-dark" href="#">
-                                        <i class="lar la-heart mr-2 ic-1-2x"></i>Add To Wishlist
-                                    </a>
+                                    @auth
+                                        <a class="btn btn-animated bg-primary text-white like_item @if($TheProduct->LikedByUser()) bg-primary @endif" product-id="{{$TheProduct->id}}" data-toggle="tooltip" data-placement="left" title="Add to Wishlist" data-original-title="Add to wishlist" href="javascript:;">
+                                            <i class="lar la-heart mr-2 ic-1-2x"></i> @if($TheProduct->LikedByUser()) Added To Wishlist @else Add To Wishlist @endif
+                                        </a>
+                                    @endauth
                                 </div>
+                                {{-- <button id="add-to-cart" type="submit" data-product="{{$TheProduct->id}}" data-user="{{getUserId()}}" data-action="{{route('cart.add')}}" class="d-inline-block site-btn"><i class="fas fa-eye"></i> اضف الى السلة</button>
+                                <a class="@if(userCart()->count() < 1) d-none @endif site-btn sb-white" id="go-to-cart-button" href="{{route('order.cart')}}"><i class="fas fa-shopping-cart"></i> اكمال عملية الشراء</a> --}}
+                                @else
+                                    <p class="text-danger">Sold Out</p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -237,11 +229,11 @@
                                                     <p>There is no reviews on this product yet.</p>
                                                 @endforelse
                                             </ul>
+                                            <div class="section-title">
+                                                <h4>Add a review</h4>
+                                            </div>
                                             @auth
                                             <div class="mt-8 bg-light-4 rounded py-5">
-                                                <div class="section-title mb-3">
-                                                    <h4>Add a review</h4>
-                                                </div>
                                                 <form class="row" method="post" action="{{route('review.post')}}">
                                                     <input type="hidden" name="product_id" value="{{$TheProduct->id}}">
                                                     @csrf
@@ -271,6 +263,9 @@
                                                 </form>
                                             </div>
                                             @endauth
+                                            @guest
+                                                <p>Please <a href="{{route('user.getSignin')}}">Signin</a> to add a review</p>
+                                            @endguest
                                         </div>
                                     </div>
                                 </div>
@@ -281,7 +276,7 @@
             </section>
             <!--tab end-->
             <!--recent product start-->
-            <section class="pb-6 border-top pt-7">
+            {{-- <section class="pb-6 border-top pt-7">
                 <div class="container">
                     <div class="row justify-content-center text-center">
                         <div class="col-lg-8 col-md-10">
@@ -519,8 +514,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
+            </section> --}}
             <!--recent product end-->
             <!-- newsletter start-->
             @include('includes.newsletter')

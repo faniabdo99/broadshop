@@ -465,5 +465,29 @@ $('.like_item').click(function(){
       }
   })
 });
+
+$('#add-to-cart-single').click(function(){
+  $(this).toggleClass('bg-danger').toggleClass('text-white');
+  var ProductId = $(this).data('product');
+  var UserId = $(this).data('user');
+  var Count = $('input[name="count"]').val();
+  var Color = $('input[name="color_code"]:checked').val();
+  $.ajax({
+      'method':'post',
+      'url' : $('meta[name=base_url]').attr('content')+'/api/add-item-to-cart',
+      'data' : {
+          'user_id' : UserId ,
+          'product_id' : ProductId,
+          'qty' : Count,
+          'color' : Color,
+      },
+      success: function(response){
+          ShowNoto('noto-success' , response , 'Success');
+      },
+      error: function (response){
+          ShowNoto('noto-danger' , response.responseText , 'Error');
+      }
+  })
+});
 	
 })(jQuery);

@@ -1,5 +1,28 @@
 <?php
 use Illuminate\Support\Facades\Cookie;
+use App\Models\Cart;
+function getUserId(){
+  if(auth()->check()){
+    return auth()->user()->id;
+  }else{
+    if(Cookie::has('guest_id')){
+    }else{
+      Cookie::queue(Cookie::make('guest_id', md5(rand(1,500))));
+    }
+    //Get the cookie value
+    return Cookie::get('guest_id');
+  }
+}
+function userCart(){
+  return Cart::where('user_id' , getUserId())->where('status' , 'active')->get();
+}
+function userCartTotal(){
+  $Total = 0;
+  foreach(userCart() as $Single){
+    $Total += $Single->TotalPrice;
+  }
+  return $Total;
+}
 function formatPrice($amount){
   return  sprintf("%.2f",$amount);
 }
