@@ -260,6 +260,9 @@ class UserController extends Controller{
             }
         }
     }
+    public function getWishlist(){
+        return view('user.wishlist');
+    }
     public function signout(){
         Auth::logout();
         return redirect()->route('home');

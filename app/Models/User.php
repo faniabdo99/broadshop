@@ -30,8 +30,8 @@ class User extends Authenticatable{
             return true;
         }
     }
-    public function LikedProducts(){
-        return Favourite::where('user_id' , $this->id)->get();
+    public function Wishlist(){
+        return $this->hasMany(Favourite::class);
     }
     public function Orders(){
         return Order::where('user_id' , $this->id)->get();

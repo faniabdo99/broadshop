@@ -48,9 +48,10 @@
                                 @endif
                                 <ul class="list-unstyled my-3">
                                     <li><small>Status: <span class="text-green"> {{$TheProduct->status}}</span></small></li>
-                                    <li class="font-w-4"><small>Category :<span class="text-muted"> <a href="{{route('products' , $TheProduct->Category->slug)}}">{{$TheProduct->Category->title}}</a></span></small></li>
+                                    <li class="font-w-4"><small>Category: <span class="text-muted"> <a href="{{route('products' , $TheProduct->Category->slug)}}">{{$TheProduct->Category->title}}</a></span></small></li>
                                 </ul>
                                 <p class="mb-4 desc">{{$TheProduct->description}}</p>
+                                @if($TheProduct->AvailableVariations()['inventory'] > 0)
                                 <div class="d-sm-flex align-items-center mb-5">
                                     <div class="d-flex align-items-center mr-sm-4">
                                         <button class="btn-product btn-product-up"> <i class="las la-minus"></i></button>
@@ -69,7 +70,6 @@
                                         @endif
                                     </div>
                                 </div>
-                                @if($TheProduct->AvailableVariations()['inventory'] > 0)
                                 <div class="d-sm-flex align-items-center mt-5">
                                     <button class="btn btn-primary btn-animated mr-sm-3 mb-3 mb-sm-0" id="add-to-cart-single" data-product="{{$TheProduct->id}}" data-user="{{getUserId()}}">
                                         <i class="las la-shopping-cart mr-2"></i> Add To Cart
@@ -83,7 +83,7 @@
                                 {{-- <button id="add-to-cart" type="submit" data-product="{{$TheProduct->id}}" data-user="{{getUserId()}}" data-action="{{route('cart.add')}}" class="d-inline-block site-btn"><i class="fas fa-eye"></i> اضف الى السلة</button>
                                 <a class="@if(userCart()->count() < 1) d-none @endif site-btn sb-white" id="go-to-cart-button" href="{{route('order.cart')}}"><i class="fas fa-shopping-cart"></i> اكمال عملية الشراء</a> --}}
                                 @else
-                                    <p class="text-danger">Sold Out</p>
+                                    <p class="text-danger">This item is out of stock and can't be ordered right now.</p>
                                 @endif
                             </div>
                         </div>
@@ -119,23 +119,29 @@
                                             <tbody>
                                                 <tr>
                                                     <td>Color/s</td>
-                                                    <td>Yellow, Red, Blue, Green &amp; Black</td>
+                                                    <td>
+                                                        @forelse($TheProduct->AvailableVariations()['color'] as $Color)
+                                                         {{$Color}} @if(!$loop->last),@endif
+                                                        @empty
+                                                            No Colors Available
+                                                        @endforelse
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Height</td>
-                                                    <td>{{$TheProduct->hiehgt ?? 'N/A'}} CM</td>
+                                                    <td>{{$TheProduct->hiehgt ?? '0'}} CM</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Width</td>
-                                                    <td>{{$TheProduct->width ?? 'N/A'}} CM</td>
+                                                    <td>{{$TheProduct->width ?? '0'}} CM</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Weight</td>
-                                                    <td>{{$TheProduct->weight ?? 'N/A'}} KG</td>
+                                                    <td>{{$TheProduct->weight ?? '0'}} KG</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Warranty</td>
-                                                    <td>6 Months</td>
+                                                    <td>24 Months</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -146,7 +152,7 @@
                                                 <div class="bg-light-4 text-center p-5">
                                                     <h4>Based on {{$TheProduct->Reviews->count()}} Reviews</h4>
                                                     <h5>Average</h5>
-                                                    <h4>{{$TheProduct->Reviews->avg('rate') ?? 'N/A'}}</h4>
+                                                    <h4>{{number_format($TheProduct->Reviews->avg('rate') , 1) ?? 'N/A'}}</h4>
                                                     <h6>({{$TheProduct->Reviews->count()}} Reviews)</h6>
                                                 </div>
                                             </div>
@@ -156,49 +162,41 @@
                                                         <div class="text-nowrap mr-3">5 Star</div>
                                                         <div class="w-100">
                                                             <div class="progress" style="height: 5px;">
-                                                                <div class="progress-bar bg-success" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div class="progress-bar bg-success" role="progressbar" style="width: {{number_format(($TheProduct->Reviews->where('rate' , 5)->count() / $TheProduct->Reviews->count())*100)}}%;" aria-valuenow="{{number_format(($TheProduct->Reviews->where('rate' , 5)->count() / $TheProduct->Reviews->count())*100)}}" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                        </div><span class="text-muted ml-3">90%</span>
+                                                        </div><span class="text-muted ml-3">{{number_format(($TheProduct->Reviews->where('rate' , 5)->count() / $TheProduct->Reviews->count())*100)}}% </span>
                                                     </div>
                                                     <div class="d-flex align-items-center mb-2">
                                                         <div class="text-nowrap mr-3">4 Star</div>
                                                         <div class="w-100">
                                                             <div class="progress" style="height: 5px;">
-                                                                <div class="progress-bar bg-success" role="progressbar"
-                                                                    style="width: 60%;" aria-valuenow="60"
-                                                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div class="progress-bar bg-success" role="progressbar" style="width: {{number_format(($TheProduct->Reviews->where('rate' , 4)->count() / $TheProduct->Reviews->count())*100)}}%;" aria-valuenow="{{number_format(($TheProduct->Reviews->where('rate' , 4)->count() / $TheProduct->Reviews->count())*100)}}" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                        </div><span class="text-muted ml-3">60%</span>
+                                                        </div><span class="text-muted ml-3">{{number_format(($TheProduct->Reviews->where('rate' , 4)->count() / $TheProduct->Reviews->count())*100)}}% </span>
                                                     </div>
                                                     <div class="d-flex align-items-center mb-2">
                                                         <div class="text-nowrap mr-3">3 Star</div>
                                                         <div class="w-100">
                                                             <div class="progress" style="height: 5px;">
-                                                                <div class="progress-bar bg-success" role="progressbar"
-                                                                    style="width: 40%;" aria-valuenow="40"
-                                                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div class="progress-bar bg-success" role="progressbar" style="width: {{number_format(($TheProduct->Reviews->where('rate' , 3)->count() / $TheProduct->Reviews->count())*100)}}%;" aria-valuenow="{{number_format(($TheProduct->Reviews->where('rate' , 3)->count() / $TheProduct->Reviews->count())*100)}}" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                        </div><span class="text-muted ml-3">40%</span>
+                                                        </div><span class="text-muted ml-3">{{number_format(($TheProduct->Reviews->where('rate' , 3)->count() / $TheProduct->Reviews->count())*100)}}% </span>
                                                     </div>
                                                     <div class="d-flex align-items-center mb-2">
                                                         <div class="text-nowrap mr-3">2 Star</div>
                                                         <div class="w-100">
                                                             <div class="progress" style="height: 5px;">
-                                                                <div class="progress-bar bg-warning" role="progressbar"
-                                                                    style="width: 20%;" aria-valuenow="20"
-                                                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div class="progress-bar bg-warning" role="progressbar" style="width: {{number_format(($TheProduct->Reviews->where('rate' , 2)->count() / $TheProduct->Reviews->count())*100)}}%;" aria-valuenow="{{number_format(($TheProduct->Reviews->where('rate' , 2)->count() / $TheProduct->Reviews->count())*100)}}" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                        </div><span class="text-muted ml-3">20%</span>
+                                                        </div><span class="text-muted ml-3">{{number_format(($TheProduct->Reviews->where('rate' , 2)->count() / $TheProduct->Reviews->count())*100)}}% </span>
                                                     </div>
                                                     <div class="d-flex align-items-center mb-2">
                                                         <div class="text-nowrap mr-3">1 Star</div>
                                                         <div class="w-100">
                                                             <div class="progress" style="height: 5px;">
-                                                                <div class="progress-bar bg-danger" role="progressbar"
-                                                                    style="width: 10%;" aria-valuenow="10"
-                                                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div class="progress-bar bg-danger" role="progressbar" style="width: {{number_format(($TheProduct->Reviews->where('rate' , 1)->count() / $TheProduct->Reviews->count())*100)}}%;" aria-valuenow="{{number_format(($TheProduct->Reviews->where('rate' , 1)->count() / $TheProduct->Reviews->count())*100)}}" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                        </div><span class="text-muted ml-3">10%</span>
+                                                        </div><span class="text-muted ml-3">{{number_format(($TheProduct->Reviews->where('rate' , 1)->count() / $TheProduct->Reviews->count())*100)}}% </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -209,7 +207,7 @@
                                             </div>
                                             <ul class="list_none comment_list">
                                                 @forelse($TheProduct->Reviews as $Review)
-                                                    <li class="comment_info">
+                                                <li class="comment_info">
                                                         <div class="d-flex">
                                                             <div class="comment_user">
                                                                 <img src="{{$Review->User->ProfileImage}}" alt="{{$Review->User->name}}">

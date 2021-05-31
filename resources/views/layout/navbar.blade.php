@@ -13,21 +13,12 @@
           </div>
           <div class="col-md-8">
             <div class="row justify-content-end">
-              <div class="language-selection font-w-3">
-                <div class="d-flex align-items-center justify-content-center justify-content-md-end">
-                  <div class="lng_dropdown">
-                    <select name="countries" class="custome_select">
-                      <option value='en'>English</option>
-                      <option value='nl'>Dutchland</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
               <ul class="header_list">
+                <li><a href="#"><img src="{{url('public/icons/uk-flag.png')}}" width="20"> English</a></li>
                 @auth 
-                <li><a href="{{route('user.signout')}}"><i class="icon fa fa-sign-out-alt"></i><span>Logout</span></a></li>
-                <li><a href="wishlist.html"><i class="icon fa fa-heart"></i><span>My Wishlist</span></a></li>
+                <li><a href="{{route('user.wishlist')}}"><i class="icon fa fa-heart"></i><span>My Wishlist</span></a></li>
                 <li><a href="{{route('user.getProfile')}}"><i class="icon fa fa-user"></i><span>Welcome, {{auth()->user()->name}}</span></a></li>
+                <li><a href="{{route('user.signout')}}"><i class="icon fa fa-sign-out-alt"></i><span>Logout</span></a></li>
                 @endauth
                 @guest
                 <li><a href="{{route('user.getSignin')}}"><i class="icon fa fa-lock"></i><span>Signin</span></a></li>
@@ -82,7 +73,7 @@
                 </ul>
                 <div class="cart_footer">
                   <p class="cart_total"><strong>Subtotal:</strong> <span class="cart_price"> <span class="price_symbole">€</span></span>{{userCartTotal()}}</p>
-                  <p class="cart_buttons"><a href="#" class="btn btn-secondary view-cart ml-2 mr-2">View Cart</a><a href="#" class="btn btn-yellow-dark ml-2 mr-2 checkout">Checkout</a></p>
+                  <p class="cart_buttons"><a href="{{route('cart')}}" class="btn btn-secondary view-cart ml-2 mr-2">View Cart</a><a href="{{route('checkout')}}" class="btn btn-yellow-dark ml-2 mr-2 checkout">Checkout</a></p>
                 </div>
               </div>
             </div>
@@ -104,6 +95,9 @@
                   <li class="nav-item"><a class="nav-link" href="{{route('blog')}}">Blog</a> </li>
                   <li class="nav-item"><a class="nav-link" href="{{route('contactUs')}}">Contact Us</a> </li>
                   <li class="nav-item"><a class="nav-link" href="{{route('about')}}">About Us</a> </li>
+                  @guest
+                    <li class="nav-item"><a class="nav-link" href="{{route('user.getSignin')}}">Signin</a> </li>
+                  @endguest
                   <li class="nav-item"><a class="nav-link text-yellow" href="#">Kugoo Scooters</a> </li>
                 </ul>
               </div>

@@ -12,14 +12,14 @@ use Mail;
 use GuzzleHttp\Client;
 use Srmklive\PayPal\Services\ExpressCheckout;
 //Models
-use App\Cart;
-use App\Coupoun;
-use App\Coupoun_User;
-use App\ShippingCost;
-use App\Order;
-use App\Order_Product;
-use App\User;
-use App\Payment_Method;
+use App\Models\Cart;
+use App\Models\Coupoun;
+use App\Models\Coupoun_User;
+use App\Models\ShippingCost;
+use App\Models\Order;
+use App\Models\Order_Product;
+use App\Models\User;
+use App\Models\Payment_Method;
 //Mails
 use App\Mail\OrderSignupPassword;
 use App\Mail\BankTransferMail;
@@ -31,7 +31,7 @@ class OrdersController extends Controller{
   public function getCheckoutPage(){
     //***************** Get Cart Items
     //1- Get the user data
-    if(auth()->check()){$UserId = auth()->user()->id;}else{$UserId = Cookie::get('guest_id');}
+    $UserId = getUserId();
     //2- Get the cart items
     $CartItems = Cart::where('user_id' , $UserId)->where('status','active')->whereDate('created_at' , Carbon::today())->get();
     if($CartItems->count() == 0){
@@ -50,7 +50,6 @@ class OrdersController extends Controller{
     //Check id there is a coupon code applied
     $CouponDiscount = null;
     $TotalWithoutTax = $Total;
-
     if(isset($CartItems->first()->applied_coupon)){//There is an applied coupon
         $CouponData = explode('-',$CartItems->first()->coupon_amount );
         if($CouponData[1] == 'fixed'){
@@ -72,7 +71,7 @@ class OrdersController extends Controller{
       return ($item->Product->tax_rate);
     });
     $CartTaxAvg = $CartTaxArray->avg();
-    return view('orders.checkout.checkout' , compact('CartItems','Total','CartTax','ShippingCostCountries' , 'OrderWeight' , 'CartTaxAvg' , 'SubTotal' , 'CouponDiscount' , 'TotalWithoutTax'));
+    return view('orders.checkout.checkout' , compact('CartItems','Total','CartTax','ShippingCostCountries' ,'OrderWeight','CartTaxAvg','SubTotal','CouponDiscount' , 'TotalWithoutTax'));
   }
   public function postOrder(Request $r){
     //Validate the Request

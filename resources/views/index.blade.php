@@ -345,7 +345,7 @@
                                                     <div class="sale-label">-{{$BSProduct->Discount()->amount}}€</div>
                                                 @endif
                                             @endif
-                                            <a class="card-img-hover d-block" href="{{route('product.single' , [$BSProduct->slug , $BSProduct->id])}}">
+                                            <a class="card-img-hover d-block" href="javascript:;">
                                                 <img class="card-img-top" src="{{$BSProduct->ImagePath}}" alt="{{$BSProduct->LocalTitle}}">
                                             </a>
                                             <div class="card-icons">

@@ -5,6 +5,7 @@ Route::get('/home' , 'PageController@getIndex')->name('home');
 Route::get('/contact' , 'ContactController@getContact')->name('contactUs');
 Route::post('/contact' , 'ContactController@postContact')->name('contactUs.post'); 
 Route::get('/about' , 'PageController@getAbout')->name('about');
+Route::get('/terms-and-conditions' , 'PageController@getToc')->name('toc');
 //Add middleware here to guest only
 Route::middleware('guest')->group(function () {
     Route::get('signup' , 'UserController@getSignup')->name('user.getSignup');
@@ -26,6 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::post('profile/edit' , 'UserController@postEditProfile')->name('user.postEditProfile');
     Route::get('profile/update-password' , 'UserController@getEditPassword')->name('user.getEditPassword');
     Route::post('profile/update-password' , 'UserController@postEditPassword')->name('user.postEditPassword');
+    Route::get('profile/wishlist' , 'UserController@getWishlist')->name('user.wishlist');
     Route::post('review' , 'ReviewsController@postReview')->name('review.post');
     Route::get('signout' , 'UserController@signout')->name('user.signout');
 });
@@ -134,7 +136,6 @@ Route::group(['prefix'=>'products'] , function (){
   Route::get('/{filter?}' , 'ProductsController@getAll')->name('product.home');
   Route::get('{id}/{slug}' , 'ProductsController@getSingle')->name('product.single');
 });
-
 //Cart Related Routes
 Route::get('delete-from-cart/{cartId}/{userId}' ,'CartController@deleteItem')->name('cart.delete');
 Route::get('cart' , 'CartController@getCartPage')->name('cart');

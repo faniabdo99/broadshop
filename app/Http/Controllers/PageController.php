@@ -17,4 +17,7 @@ class PageController extends Controller{
     public function getAbout(){
         return view('about');
     }
+    public function getToc(){
+        return view('toc');
+    }
 }
