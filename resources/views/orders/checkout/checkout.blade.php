@@ -127,13 +127,13 @@
                                     <h6 class="mb-3 font-w-6">Payment Method</h6>
                                     <div class="form-group">
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="credit-card" name="payment_method" value="credit-card" class="custom-control-input">
+                                            <input type="radio" id="credit-card" name="payment_method" value="creditcard" class="custom-control-input">
                                             <label class="custom-control-label" for="credit-card">Credit Card</label>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="bank-transfer" name="payment_method" value="bank-transfer" class="custom-control-input">
+                                            <input type="radio" id="bank-transfer" name="payment_method" value="banktransfer" class="custom-control-input">
                                             <label class="custom-control-label" for="bank-transfer">Bank Transfer</label>
                                         </div>
                                     </div>

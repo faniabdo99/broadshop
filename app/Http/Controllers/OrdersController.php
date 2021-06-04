@@ -141,7 +141,7 @@ class OrdersController extends Controller{
         ]);
       });
       // Mail::to('admin@ukfashionshop.be')->send(New NewOrderMail);
-      dd($TheNewOrder);
+      $TheNewOrder = Order::find($TheNewOrder->id); 
       if($TheNewOrder->AlreadyPaid()){
         return redirect()->route('home')->withErrors('This order already been paid');
       }
@@ -155,7 +155,7 @@ class OrdersController extends Controller{
       try{
         $payment = Mollie::api()->payments->create([
           "amount" => [
-              "currency" => "$TheNewOrder->order_currency",
+              "currency" => "EUR",
               "value" => sprintf("%.2f",$OrderFinalTotal)
           ],
           "description" => "Order #$TheNewOrder->serial_number",
@@ -171,6 +171,7 @@ class OrdersController extends Controller{
           ]);
       } catch(ApiException $ee){
         $StatusCode = $ee->getResponse()->getStatusCode();
+        dd($ee);
         switch ($StatusCode) {
           case 401:
             return back()->withErrors("The Payments Server is Being Fixed, Please Try Again Later");
@@ -185,7 +186,7 @@ class OrdersController extends Controller{
         }
       }
       //Update the order with mollie id and status
-      $TheOrder->update([
+      $TheNewOrder->update([
         'payment_method' => $payment->method,
         'status' => 'Order received',
         'payment_id' => $payment->id,
@@ -363,7 +364,7 @@ class OrdersController extends Controller{
             $item->update(['status' => 'purchased']);
           });
           //Mail The User
-          Mail::to($TheOrder->email)->send(new OrderReceiptMail($TheOrder));
+          // Mail::to($TheOrder->email)->send(new OrderReceiptMail($TheOrder));
         }else{
           $TheOrder->update(['status' => 'Waiting for payment']);
           //Add The Items Back to inventory
