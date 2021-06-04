@@ -356,13 +356,6 @@
                                                         </a>
                                                     </div>
                                                 @endauth
-                                                <div class="card-icons__item">
-                                                    <a href="#" data-toggle="tooltip" data-placement="left" title="" data-original-title="Quick View">
-                                                        <span data-target="#quick-view" data-toggle="modal"> 
-                                                            <i class="ion-ios-search-strong"></i>
-                                                        </span> 
-                                                    </a>
-                                                </div>
                                             </div>
                                             <div class="card-info">
                                                 <div class="card-body">
@@ -395,9 +388,9 @@
                                                 </div>
                                                 <div class="card-footer bg-transparent border-0">
                                                     <div class="product-link d-flex align-items-center justify-content-center">
-                                                        <button class="btn-cart btn btn-yellow-dark mx-3" type="button">
-                                                            <i class="las la-shopping-cart mr-1"></i> Add to cart
-                                                        </button>
+                                                        <a href="#" class="btn-cart btn btn-yellow-dark mx-3">
+                                                            <i class="las la-eye mr-1"></i> Quick View
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -411,53 +404,7 @@
                 </div>
             </section>
             <!--product end-->
-            <!--feature start-->
-            <section class="bg-yellow services-block-1 py-5 my-5">
-                <div class="container ">
-                    <!-- / .row -->
-                    <div class="row">
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="d-flex p-3">
-                                <div class="mr-3"> <i class="las la-truck ic-2x text-dark"></i> </div>
-                                <div>
-                                    <h5 class="mb-1 text-dark">Free Shipping</h5>
-                                    <p class="mb-0 text-dark">Free Shipping on order over $99</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 mt-3 mt-sm-0">
-                            <div class="d-flex p-3">
-                                <div class="mr-3"> <i class="las la-wallet ic-2x text-dark"></i> </div>
-                                <div>
-                                    <h5 class="mb-1 text-dark">Money Return</h5>
-                                    <p class="mb-0 text-dark">100% Money Back Guarentee</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 mt-3 mt-lg-0">
-                            <div class="d-flex p-3">
-                                <div class="mr-3"> <i class="las la-briefcase ic-2x text-dark"></i> </div>
-                                <div>
-                                    <h5 class="mb-1 text-dark">Return Policy</h5>
-                                    <p class="mb-0 text-dark">30 Days Return Service Available</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 mt-3 mt-lg-0">
-                            <div class="d-flex p-3">
-                                <div class="mr-3"> <i class="las la-mobile ic-2x text-dark"></i> </div>
-                                <div>
-                                    <h5 class="mb-1 text-dark">24/7 Support</h5>
-                                    <p class="mb-0 text-dark">Call +1 800 123 1234 <br>
-                                        flipmarto@example.com
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--feature end-->
+     
             <!--blog start-->
             <section class="pb-0 pt-5 mb-5">
                 <div class="container">

@@ -1,6 +1,10 @@
 <?php
 use Illuminate\Support\Facades\Cookie;
 use App\Models\Cart;
+use Carbon\Carbon;
+function getShippingValue(){
+  return 50;
+}
 function getUserId(){
   if(auth()->check()){
     return auth()->user()->id;
@@ -14,7 +18,7 @@ function getUserId(){
   }
 }
 function userCart(){
-  return Cart::where('user_id' , getUserId())->where('status' , 'active')->get();
+  return Cart::where('user_id' , getUserId())->where('status' , 'active')->whereDate('created_at' , Carbon::today())->get();
 }
 function userCartTotal(){
   $Total = 0;

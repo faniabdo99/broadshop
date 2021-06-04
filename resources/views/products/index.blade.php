@@ -56,13 +56,6 @@
                                                         </a>
                                                     </div>
                                                 @endauth
-                                                <div class="card-icons__item">
-                                                    <a href="#" data-toggle="tooltip" data-placement="left" title="" data-original-title="Quick View">
-                                                        <span data-target="#quick-view" data-toggle="modal">
-                                                            <i class="ion-ios-search-strong"></i>
-                                                        </span>
-                                                    </a>
-                                                </div>
                                             </div>
                                             <div class="card-info">
                                                 <div class="card-body">
@@ -96,9 +89,9 @@
                                                 </div>
                                                 <div class="card-footer bg-transparent border-0">
                                                     <div class="product-link d-flex align-items-center justify-content-center">
-                                                        <button class="btn-cart btn btn-pink mx-3" type="button">
-                                                            <i class="las la-shopping-cart mr-1"></i> Add to cart 
-                                                        </button>
+                                                        <a href="#" class="btn-cart btn btn-yellow-dark mx-3">
+                                                            <i class="las la-eye mr-1"></i> Quick View
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>

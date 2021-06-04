@@ -125,3 +125,12 @@
     </div>
 @endif
 <!-- notifications end -->
+<div id="noto" class="notification success-notification d-none">
+    <div class="notification-icon">
+        <i class="fas fa-check"></i>
+    </div>
+    <div class="notification-content">
+        <b>Success</b>
+        <p>Test</p>
+    </div>
+</div>

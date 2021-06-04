@@ -79,14 +79,10 @@ class CartController extends Controller{
     }
     public function getCartPage(){
         if(auth()->check()){$UserId = auth()->user()->id;}else{$UserId = Cookie::get('guest_id');}
-        $CartItems = Cart::where('user_id' , $UserId)->where('status' , 'active')->whereDate('created_at' , Carbon::today())->get();
+        $CartItems = Cart::where('user_id' , getUserId())->where('status' , 'active')->whereDate('created_at' , Carbon::today())->get();
         $CartSubTotalArray = $CartItems->map(function($item) {
             return $item->Product->final_price * $item->qty;
         });
-        $CartTaxArray = $CartItems->map(function($item) {
-            return ($item->Product->tax_amount * $item->qty);
-        });
-        $CartTax = $CartTaxArray->sum();
         $Total = $CartSubTotalArray->sum();
         //Check id there is a coupon code applied
         $CouponDiscount = null;
@@ -104,6 +100,6 @@ class CartController extends Controller{
         }
         $SubTotal = ($CartSubTotalArray->sum()) - $CouponDiscount;
         $ShippingCostCountries = ShippingCost::pluck('country_name')->unique();
-        return view('orders.cart' , compact('CartItems' , 'CartTax' , 'Total' ,'SubTotal','CouponDiscount' , 'ShippingCostCountries'));
+        return view('orders.cart' , compact('CartItems' , 'Total' ,'SubTotal','CouponDiscount' , 'ShippingCostCountries'));
     }
 }

@@ -106,7 +106,7 @@ class CoupounsController extends Controller{
                     //Decrease The Coupon Amount By One
                     $TheCoupon->amount = $TheCoupon->amount - 1;
                     $TheCoupon->save();
-                    return back()->withSuccess('The coupon ' .$TheCoupon->coupoun_code. 'is now applied!');
+                    return back()->withSuccess('The coupon ' .$TheCoupon->coupoun_code. ' is now applied!');
                 }else{
                     return back()->withErrors('You don\'t have any items in your cart!');
                 }

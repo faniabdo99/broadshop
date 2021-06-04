@@ -80,8 +80,6 @@
                                         </a>
                                     @endauth
                                 </div>
-                                {{-- <button id="add-to-cart" type="submit" data-product="{{$TheProduct->id}}" data-user="{{getUserId()}}" data-action="{{route('cart.add')}}" class="d-inline-block site-btn"><i class="fas fa-eye"></i> اضف الى السلة</button>
-                                <a class="@if(userCart()->count() < 1) d-none @endif site-btn sb-white" id="go-to-cart-button" href="{{route('order.cart')}}"><i class="fas fa-shopping-cart"></i> اكمال عملية الشراء</a> --}}
                                 @else
                                     <p class="text-danger">This item is out of stock and can't be ordered right now.</p>
                                 @endif
@@ -157,6 +155,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mt-3 mt-lg-0">
+                                                @if($TheProduct->Reviews->count() > 0)
                                                 <div class="rating-list">
                                                     <div class="d-flex align-items-center mb-2">
                                                         <div class="text-nowrap mr-3">5 Star</div>
@@ -199,6 +198,7 @@
                                                         </div><span class="text-muted ml-3">{{number_format(($TheProduct->Reviews->where('rate' , 1)->count() / $TheProduct->Reviews->count())*100)}}% </span>
                                                     </div>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="comment-area mt-5">

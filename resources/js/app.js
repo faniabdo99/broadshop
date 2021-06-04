@@ -1,34 +1,16 @@
-/* ------------------------------------------------
-Theme Name: Flipmarto
-Author:  ThemesGround
-Description:  Flipmarto HTML Template
-Tags: two-columns, left-sidebar, fixed-layout, responsive-layout, custom-background, custom-colors, custom-header, custom-menu
-Text Domain:  Flipmarto
------------------------------------------------- */
-/* ------------------------
-    Table of Contents
-
-  1. Predefined Variables
-  2. Preloader  
-  3. FullScreen
-  4. Counter
-  5. Owl carousel
-  6. Dropdown
-  7. Isotope
-  8. Magnific Popup
-  9. Fixed Header
-  10. Text Color, Background Color And Image
-  11. Contact Form
-  12. ProgressBar
-  13. Parallax
-  14. Countdown
-  15. Rangeslider
-  16. Btnproduct
-  17. LightSlider
-  18. Wow Animation
-  19. Particles
-  20. Window load and functions
------------------------- */
+function ShowNoto(className,text,header){
+  $('#noto').attr('class' , 'notification');
+  $('#noto').find('.notification-content b').html(header);
+  $('#noto').find('.notification-content p').html(text);
+  if(className == 'success-notification'){
+    $('.notification-icon').html('<i class="fas fa-check"></i>');
+  }else if(className == 'danger-notification'){
+    $('.notification-icon').html('<i class="fas fa-times"></i>');
+  }else{
+    $('.notification-icon').html('<i class="fas fa-times"></i>');
+  }
+  $('#noto').addClass(className).fadeIn('fast').delay(5000).fadeOut('fast');
+}
 (function($) {
 	'use strict';
 /*------------------------------------
@@ -334,13 +316,13 @@ $('.custome_select').msDropdown();
   HT LightSlider
 --------------------------------------*/
    $('#imageGallery').lightSlider({
-    gallery:true,
-    item:1,
-    verticalHeight:450,
-    thumbItem:4,
-    slideMargin:0,
-    speed:600,
-    autoplay: true,
+      gallery:true,
+      item:1,
+      verticalHeight:800,
+      thumbItem:4,
+      slideMargin:0,
+      speed:600,
+      autoplay: true,
   });  
   
   
@@ -458,10 +440,10 @@ $('.like_item').click(function(){
           'product_id' : ProductId
       },
       success: function(response){
-          ShowNoto('noto-success' , response , 'Success');
+          ShowNoto('success-notification' , response , 'Success');
       },
       error: function (response){
-          ShowNoto('noto-danger' , response.responseText , 'Error');
+          ShowNoto('danger-notification' , response.responseText , 'Error');
       }
   })
 });
@@ -482,10 +464,10 @@ $('#add-to-cart-single').click(function(){
           'color' : Color,
       },
       success: function(response){
-          ShowNoto('noto-success' , response , 'Success');
+          ShowNoto('success-notification' , response+'<a class="btn btn-dark btn-animated mt-3 btn-block" href="/products">Continue Shopping</a>' , 'Success');
       },
       error: function (response){
-          ShowNoto('noto-danger' , response.responseText , 'Error');
+          ShowNoto('danger-notification' , response.responseText , 'Error');
       }
   })
 });
