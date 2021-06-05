@@ -33,7 +33,7 @@
                                                 <td>{{$Single->inventory_value}}</td>
                                                 <td>
                                                     <a href="{{route('admin.products.getEdit' , $Single->id)}}" class="btn btn-primary">Edit</a>
-                                                    <a id="delete-btn" href="javascript:;" item-id="{{$Single->id}}" action-route="{{ route('admin.product.delete') }}" class="btn btn-danger">Delete</a>
+                                                    <a href="javascript:;" item-id="{{$Single->id}}" action-route="{{ route('admin.product.delete') }}" class="btn btn-danger delete-btn">Delete</a>
                                                     <a href="{{route('admin.products.getLocalize' , $Single->id)}}" class="btn btn-success">Localize</a>
                                                     <a href="{{route('admin.products.getVariation' , $Single->id)}}" class="btn btn-success">Variation ({{count($Single->AvailableVariations()['variations'])}})</a>
                                                 </td>
@@ -52,7 +52,7 @@
     </div>
     @include('admin.layout.scripts')
     <script>
-        $('#delete-btn').dblclick(function(){
+        $('.delete-btn').dblclick(function(){
             var Elem = $(this);
             var ItemId = $(this).attr('item-id');
             var ActionRoute = $(this).attr('action-route');

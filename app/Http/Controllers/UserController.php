@@ -178,6 +178,9 @@ class UserController extends Controller{
     public function getProfile(){
         return view('user.profile');
     }
+    public function getOrders(){
+        return view('user.orders');
+    }
     public function getEditProfile(){
         return view('user.edit');
     }

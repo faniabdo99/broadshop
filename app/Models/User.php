@@ -34,7 +34,7 @@ class User extends Authenticatable{
         return $this->hasMany(Favourite::class);
     }
     public function Orders(){
-        return Order::where('user_id' , $this->id)->get();
+        return $this->hasMany(Order::class, 'user_id');
     }
     public function Bought($ProductId){
       $UserOrders = Order_Product::where('user_id' , $this->id)->where('product_id' , $ProductId)->count();

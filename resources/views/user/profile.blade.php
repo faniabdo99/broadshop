@@ -11,7 +11,26 @@
                     <div class="row">
                         @include('user.sidebar')
                         <div class="col-9">
-                            Welcome back, {{auth()->user()->name}}
+                            <div class="row">
+                                <div class="col-lg-4 col-12">
+                                    <div class="profile-card">
+                                        <i class="fas fa-shopping-basket"></i>
+                                        <span><b>{{auth()->user()->Orders->where('status' , 'Order received')->count()}}</b><br> Pending Orders</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-12">
+                                    <div class="profile-card">
+                                        <i class="fas fa-spinner"></i>
+                                        <span><b>{{auth()->user()->Orders->where('status' , 'Waiting for payment')->count()}}</b><br> Action Required</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-12">
+                                    <div class="profile-card">
+                                        <i class="fas fa-check"></i>
+                                        <span><b>{{auth()->user()->Orders->where('status' , 'Complete')->count()}}</b><br> Completed Orders</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

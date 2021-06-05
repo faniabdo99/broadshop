@@ -23,6 +23,7 @@ Route::middleware('guest')->group(function () {
 });
 Route::middleware('auth')->group(function () {
     Route::get('profile' , 'UserController@getProfile')->name('user.getProfile');
+    Route::get('orders' , 'UserController@getOrders')->name('user.getOrders');
     Route::get('profile/edit' , 'UserController@getEditProfile')->name('user.getEditProfile');
     Route::post('profile/edit' , 'UserController@postEditProfile')->name('user.postEditProfile');
     Route::get('profile/update-password' , 'UserController@getEditPassword')->name('user.getEditPassword');
@@ -141,7 +142,7 @@ Route::get('delete-from-cart/{cartId}/{userId}' ,'CartController@deleteItem')->n
 Route::get('cart' , 'CartController@getCartPage')->name('cart');
 Route::get('checkout' , 'OrdersController@getCheckoutPage')->name('checkout');
 Route::post('checkout', 'OrdersController@postOrder')->name('checkout.post');
-Route::get('order-summary/{id}/{processed?}', 'OrdersController@getSummaryPage')->name('checkout.summary');
+Route::get('order-summary/{id}', 'OrdersController@getSummaryPage')->name('checkout.summary');
 Route::get('order-payment/{id}', 'OrdersController@getPaymentPage')->name('checkout.payment');
 Route::post('order-payment/{id}', 'OrdersController@postPaymentPage')->name('checkout.payment.post');
 Route::post('apply-coupon' , 'CoupounsController@applyCoupon')->name('coupon.apply');

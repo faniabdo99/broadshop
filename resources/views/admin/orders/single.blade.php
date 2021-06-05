@@ -21,10 +21,10 @@
               <tbody>
                 @forelse($TheOrder->Items() as $Item)
                   <tr>
-                    <td><img src="{{$Item->Product->MainImage}}" width="50" height="50"></td>
+                    <td><img src="{{$Item->Product->ImagePath}}" width="50" height="50"></td>
                     <td>{{$Item->Product->title}}</td>
                     <td>{{$Item->qty}}</td>
-                    <td><a href="{{route('product.single' , [$Item->Product->id , $Item->Product->slug])}}" target="_blank">Click Here</a></td>
+                    <td><a href="{{route('product.single' , [$Item->Product->slug , $Item->Product->id])}}" target="_blank">Click Here</a></td>
                   </tr>
                 @empty
                 <p>There is no items in this order</p>
@@ -37,7 +37,6 @@
         <div class="page-container">
             @include('admin.layout.navbar')
             <main class="main-content bgc-grey-100 mb-5">
-
                 <div id="mainContent">
                     <div class="container">
                         <div class="row">
@@ -45,7 +44,6 @@
                                 <h2>Order Details: <b>{{$TheOrder->serial_number}}</b></h2>
                                 <div class="bgc-white p-20 bd mb-5">
                                     <h6>Order Items ({{$TheOrder->Items()->count()}})</h6>
-
                                     <table class="table table-striped">
                                       <thead>
                                         <th>Image</th>
@@ -83,15 +81,10 @@
                                 </div>
                                 <div class="bgc-white p-20 bd mb-5">
                                     <h6>Shipping Data</h6>
-                                    @if($TheOrder->pickup_at_store == 'yes')
-                                    <p><b>Pickup :</b> At Store</p>
-                                    @else
-                                    <p class="mb-0"><b>Country :</b> {{getCountryNameFromISO($TheOrder->country)}}</p>
-                                    <p class="mb-0"><b>City :</b> {{$TheOrder->shipping_city}}</p>
-                                    <p class="mb-0"><b>Address 1 :</b> {{$TheOrder->shipping_address}}</p>
-                                    <p class="mb-0"><b>Address 2 :</b> {{$TheOrder->shipping_address_2 ?? 'N/A'}}</p>
-                                    <p class="mb-0"><b>ZIP Code :</b> {{$TheOrder->shipping_zip_code}}</p>
-                                    @endif
+                                    <p class="mb-0"><b>City :</b> {{$TheOrder->city}}</p>
+                                    <p class="mb-0"><b>Address 1 :</b> {{$TheOrder->address}}</p>
+                                    <p class="mb-0"><b>Address 2 :</b> {{$TheOrder->address_2 ?? 'N/A'}}</p>
+                                    <p class="mb-0"><b>ZIP Code :</b> {{$TheOrder->zip_code}}</p>
                                 </div>
                                 <div class="bgc-white p-20 bd mb-5">
                                     <h6>Payment Data</h6>
@@ -122,8 +115,6 @@
                                             <option value="Products sent">Order shipped</option>
                                             <option value="Complete">Complete</option>
                                             <option value="Cancelled">Cancelled</option>
-                                            <option value="custom0">Waiting information for shipping</option>
-                                            <option value="custom1">No delivery for this designation</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -133,7 +124,7 @@
                                     <p>Take Note, After Updating the Status an Email Will Be Sent to {{$TheOrder->email}}</p>
                                     <button type="submit" class="btn btn-success">Update Order Status</button>
                                 </form>
-                                <a href="{{route('invoice.generate.get' , $TheOrder->id)}}" class="btn btn-primary">Generate Invoice</a>
+                                {{-- <a href="{{route('invoice.generate.get' , $TheOrder->id)}}" class="btn btn-primary">Generate Invoice</a> --}}
                             </div>
                         </div>
                     </div>

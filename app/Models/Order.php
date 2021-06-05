@@ -24,24 +24,17 @@ class Order extends Model{
         }
     }
     public function getFinalTotalAttribute(){
-        return $this->total + $this->total_tax + $this->total_shipping;
+        return $this->total;
     }
     public function Items(){
         return Order_Product::where('order_id' , $this->id)->get();
     }
-    public function getPaymentMethodDataAttribute(){
-        $PaymentMethod = Payment_Method::where('code_name' , $this->payment_method)->first();
-        if($PaymentMethod){
-            return [
-            'code_name' => $PaymentMethod->code_name,
-            'name' => $PaymentMethod->name
+    public function getPaymentMethodTextAttribute(){
+        $TextArray = [
+            'creditcard' => 'Credit Card',
+            'banktransfer' => 'Bank Transfer',
         ];
-        }else{
-            return [
-                'code_name' => 'N/A',
-                'name' => 'N/A'
-            ];
-        }
+        return $TextArray[$this->payment_method];
     }
     public function Customer(){
         return $this->belongsTo(User::class ,'user_id')->withDefault([

@@ -7275,6 +7275,19 @@ footer.bg-dark-2 .footer-box {
   transition: all ease 0.3s;
 }
 
+.profile-card {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 4px;
+  text-align: center;
+}
+.profile-card i {
+  display: block;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #006CB4;
+}
+
 .edit-profile-form h3 {
   margin-bottom: 25px;
 }
