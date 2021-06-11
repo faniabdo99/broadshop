@@ -32,7 +32,8 @@ class Order extends Model{
     public function getPaymentMethodTextAttribute(){
         $TextArray = [
             'creditcard' => 'Credit Card',
-            'banktransfer' => 'Bank Transfer',
+            'bancontact' => 'Bancontact',
+            'ideal' => 'iDEAL',
         ];
         return $TextArray[$this->payment_method];
     }

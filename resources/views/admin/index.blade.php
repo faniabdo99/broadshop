@@ -87,7 +87,7 @@
                                                         <td>{{$Order->created_at->format('Y-m-d')}}</td>
                                                         <td><span class="badge bg-warning badge-pill">{{$Order->status}}</span></td>
                                                         <td>{{$Order->is_paid}}</td>
-                                                        <td>{{$Order->PaymentMethodData['name']}}</td>
+                                                        <td>{{$Order->PaymentMethodText}}</td>
                                                         <td>{{formatPrice($Order->final_total).getCurrency()['symbole']}}</td>
                                                         <td><a href="{{route('admin.orders.single' , $Order->id)}}" class="text-success">Order Details</a></td>
                                                     </tr>
