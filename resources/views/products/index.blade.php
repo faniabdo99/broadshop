@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'Products'
+])
 <body class="bg-light-4">
     <!-- page wrapper start -->
     <div class="page-wrapper">
@@ -89,8 +91,8 @@
                                                 </div>
                                                 <div class="card-footer bg-transparent border-0">
                                                     <div class="product-link d-flex align-items-center justify-content-center">
-                                                        <a href="#" class="btn-cart btn btn-yellow-dark mx-3">
-                                                            <i class="las la-eye mr-1"></i> Quick View
+                                                        <a href="{{route('product.single' , [$Product->slug,$Product->id])}}" class="btn-cart btn btn-yellow-dark mx-3">
+                                                            <i class="las la-eye mr-1"></i> View
                                                         </a>
                                                     </div>
                                                 </div>

@@ -1,6 +1,6 @@
 <div class="col-lg-3 col-12">
     <div class="user-profile-sidebar mb-5">
-        <img src="{{auth()->user()->ImagePath}}" alt="{{auth()->user()->name}}">
+        <img src="{{auth()->user()->ProfileImage}}" alt="{{auth()->user()->name}}">
         <h2>
             {{auth()->user()->name}}
             <span>{{auth()->user()->email}}</span>

@@ -55,9 +55,9 @@ class CartController extends Controller{
             $CartItem->update([
                 'status' => 'deleted'
             ]);
-            return redirect()->route('cart')->withSuccess(__('controllers.cart_item_deleted'));
+            return redirect()->route('cart')->withSuccess('Item deleted from your cart');
         }else{
-            return redirect()->route('cart')->withError(__('controllers.cart_item_doesnt_exist'));
+            return redirect()->route('cart')->withErrors('You don\'t have this item in your cart');
         }
     }
     public function postUpdate(Request $r){

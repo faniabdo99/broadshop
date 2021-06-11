@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'Contact us'
+])
 
 <body class="bg-light-4">
     <!-- page wrapper start -->

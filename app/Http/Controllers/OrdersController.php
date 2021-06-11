@@ -150,7 +150,7 @@ class OrdersController extends Controller{
       $ProductsListArray = $ProductsListObject->map(function($item){
         return "Title: ".$item->Product->title." | ID: ".$item->product_id." | Quantity: ".$item->qty;
       });
-      $OrderFinalTotal = $TheNewOrder->final_total;
+      $OrderFinalTotal = $TheNewOrder->final_total + getShippingValue($TheNewOrder->final_total);
       //Redirect to Payment Gateway
       try{
         $payment = Mollie::api()->payments->create([

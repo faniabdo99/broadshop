@@ -1,5 +1,6 @@
-@include('layout.header')
-
+@include('layout.header' , [
+    'PageTitle' => 'Checkout'
+])
 <body class="bg-light-4">
     <!-- page wrapper start -->
     <div class="page-wrapper">
@@ -19,50 +20,50 @@
                                     <input type="hidden" name="total_amount" value="{{$SubTotal}}">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Checkout Type</label>
+                                            <label>Checkout Type*</label>
                                             <select class="form-control" name="type">
-                                                <option value="Personal">Personal</option>
+                                                <option value="Indivisual">Indivisual</option>
                                                 <option value="Company">Company</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div id="company-feilds" class="col-md-12 d-none">
                                         <div class="form-group">
-                                            <label>Company Name</label>
+                                            <label>Company Name*</label>
                                             <input type="text" class="form-control" placeholder="Company Name">
                                         </div>
                                         <div class="form-group">
-                                            <label>VAT Number</label>
+                                            <label>VAT Number*</label>
                                             <input type="text" class="form-control" placeholder="VAT Number">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>First Name</label>
+                                            <label>First Name*</label>
                                             <input type="text" name="first_name" id="fname" class="form-control" placeholder="Your firstname">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Last Name</label>
+                                            <label>Last Name*</label>
                                             <input type="text" name="last_name" id="fname" class="form-control" placeholder="Your lastname">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>E-mail Address</label>
+                                            <label>Email Address*</label>
                                             <input type="text" name="email" id="email" class="form-control" value="{{auth()->user()->email ?? ''}}" placeholder="State Province">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Phone Number</label>
+                                            <label>Phone Number*</label>
                                             <input type="text" name="phone_number" id="phone" class="form-control" value="{{auth()->user()->phone ?? ''}}" placeholder="Please enter your phone number">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Address</label>
+                                            <label>Shipping Address*</label>
                                             <input type="text" name="address" id="address" class="form-control" placeholder="Enter Your Address">
                                         </div>
                                         <div class="form-group">
@@ -71,13 +72,13 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Town/City</label>
+                                            <label>Town/City*</label>
                                             <input type="text" name="city" id="towncity" class="form-control" placeholder="Town or City">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group mb-md-0">
-                                            <label>Zip/Postal Code</label>
+                                            <label>Zip/Postal Code*</label>
                                             <input type="text" name="zip_code" id="zippostalcode" class="form-control" placeholder="Zip / Postal">
                                         </div>
                                     </div>
@@ -133,13 +134,19 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="bank-transfer" name="payment_method" value="banktransfer" class="custom-control-input">
-                                            <label class="custom-control-label" for="bank-transfer">Bank Transfer</label>
+                                            <input type="radio" id="bancontact" name="payment_method" value="bancontact" class="custom-control-input">
+                                            <label class="custom-control-label" for="bancontact">Bancontact</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="ideal" name="payment_method" value="ideal" class="custom-control-input">
+                                            <label class="custom-control-label" for="ideal">iDEAL</label>
                                         </div>
                                     </div>
                                     <div class="form-group mb-0">
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" name="accepted_toc" class="custom-control-input" id="accepted_toc">
+                                            <input type="checkbox" name="accepted_toc" class="custom-control-input" id="accepted_toc" required>
                                             <label class="custom-control-label" for="accepted_toc">I have read and <a href="{{route('toc')}}" target="_blank">accept the terms</a> and conditions</label>
                                         </div>
                                     </div>

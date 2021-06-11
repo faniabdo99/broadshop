@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'Signup'
+])
 <body>
     <!-- page wrapper start -->
     <div class="page-wrapper">
@@ -71,6 +73,11 @@
                                             </div>
                                         </div>
                                     </form>
+                                    <div class="another_login"><span> or</span></div>
+                                    <ul class="login-btn list_none text-center">
+                                        {{-- <li><a href="#" class="btn facebook-btn"><i class="ion-social-facebook"></i>Facebook</a></li> --}}
+                                        <li><a href="{{route('login.social' , 'google')}}" class="btn google-btn"><i class="fab fa-google"></i>Signup With Google</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

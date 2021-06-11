@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' ,[
+    'PageTitle' => 'Cart'
+])
 
 <body class="bg-light-4">
     <!-- page wrapper start -->
@@ -38,20 +40,9 @@
                                                     </td>
                                                     <td> <span class="product-price text-muted">{{$Cart->Product->FinalPrice}}€</span>
                                                     </td>
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                            <button class="btn-product btn-product-up"> <i
-                                                                    class="las la-minus"></i>
-                                                            </button>
-                                                            <input class="form-product" type="number" name="form-product"
-                                                                value="1">
-                                                            <button class="btn-product btn-product-down"> <i
-                                                                    class="las la-plus"></i>
-                                                            </button>
-                                                        </div>
-                                                    </td>
+                                                    <td class="text-center">X{{$Cart->qty}}</td>
                                                     <td> <span class="product-price text-dark font-w-6">{{$Cart->TotalPrice}}€</span>
-                                                        <a href="#" class="close-link"><i class="las la-times"></i></a>
+                                                        <a href="{{route('cart.delete' , [$Cart->Product->id , getUserId()])}}" class="close-link"><i class="las la-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             @empty
@@ -109,7 +100,6 @@
                             @guest
                             <p>Please <a href="{{route('user.getSignin')}}">Signin</a> to use coupons</p>   
                             @endguest
-                            <button class="btn btn-primary btn-animated mt-3 mt-md-0">Update Cart</button>
                         @endif
                     </div>
                 </div>

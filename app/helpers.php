@@ -2,8 +2,16 @@
 use Illuminate\Support\Facades\Cookie;
 use App\Models\Cart;
 use Carbon\Carbon;
-function getShippingValue(){
-  return 50;
+function getShippingValue($OrderTotal = null){
+  if($OrderTotal){
+    if($OrderTotal > 50){
+      return 0;
+    }else{
+      return 5;
+    }
+  }else{
+    return 5;
+  }
 }
 function getUserId(){
   if(auth()->check()){

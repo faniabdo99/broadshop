@@ -18,8 +18,8 @@ Route::middleware('guest')->group(function () {
     Route::post('choose-password/' , 'UserController@postChoosePasswordPage')->name('reset.postChoosePassword');
     Route::get('activate/{code}/{email}' , 'UserController@activate')->name('user.activate');
     //Social Signup System
-    Route::get('social-login/{provider}' , 'AuthController@redirectToProvider')->name('login.social');
-    Route::get('login/{driver}/callback' , 'AuthController@handleProviderCallback')->name('login.social.callback');
+    Route::get('social-login/{provider}' , 'UserController@redirectToProvider')->name('login.social');
+    Route::get('login/{driver}/callback' , 'UserController@handleProviderCallback')->name('login.social.callback');
 });
 Route::middleware('auth')->group(function () {
     Route::get('profile' , 'UserController@getProfile')->name('user.getProfile');

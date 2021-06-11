@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => $ThePost->title
+])
 
 <body class="bg-light-4">
     <!-- page wrapper start -->
@@ -79,7 +81,6 @@
             <!--multi sec end-->
 
         </div>
-
         <!--body content end-->
         @include('layout.footer')
     </div>

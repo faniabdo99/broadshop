@@ -32,7 +32,7 @@
                                                 <td>{{$Single->status}}</td>
                                                 <td>{{$Single->Customer->name}}</td>
                                                 <td>{{$Single->is_paid}}</td>
-                                                <td>{{$Single->PaymentMethodData['name']}}</td>
+                                                {{-- <td>{{$Single->PaymentMethodData['name']}}</td> --}}
                                                 <td>{{formatPrice($Single->final_total).getCurrency()['symbole']}}</td>
                                                 <td>
                                                     <a href="{{route('admin.orders.single' , $Single->id)}}" class="btn btn-primary">View</a>

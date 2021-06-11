@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'Update Your Password'
+])
 <body>
     <!-- page wrapper start -->
     <div class="page-wrapper">

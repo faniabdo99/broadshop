@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'My Orders'
+])
 <body>
     <!-- page wrapper start -->
     <div class="page-wrapper">

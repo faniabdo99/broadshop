@@ -7,6 +7,7 @@ use Hash;
 use Validator;
 use Mail;
 use Image;
+use Socialite;
 use App\Mail\ResetPasswordMail;
 class UserController extends Controller{
     //Traditional Singup
@@ -295,5 +296,31 @@ class UserController extends Controller{
         ]);
         }
     }
-
+    /*================================== Social auth */
+    public function redirectToProvider($provider){
+     return Socialite::driver($provider)->redirect();
+    }
+    public function handleProviderCallback(Request $r , $driver){
+        $user = Socialite::driver($driver)->user();
+        $FindUser = User::where('email' , $user->email)->get();
+        if($FindUser->count() == 0){
+            //Signup
+            $ProfileImage = (isset($user->avatar)) ? $user->avatar : 'user.png';
+            $NewUser = User::create([
+            'name' => $user->name ,
+            'email' => $user->email,
+            'image' => $ProfileImage,
+            'password' => 'PlaceholderPass',
+            'signup_method' => $driver,
+            'code' =>  rand(0,99999999),
+            'active' => 1
+            ]);
+            //Send Welcome Email
+            auth()->loginUsingId($NewUser->id);
+            return redirect()->route('home');
+        }else{
+            auth()->loginUsingId($FindUser->first()->id);
+            return redirect()->route('home');
+        }
+    }
 }

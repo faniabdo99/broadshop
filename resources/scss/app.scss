@@ -112,7 +112,7 @@ ul {
 }
 
 a {
-    color: #FF324D;
+    color: $brand;
 }
 
 a:hover {
@@ -360,7 +360,7 @@ img,
 .btn-primary:not(:disabled):not(.disabled).active,
 .btn-primary:not(:disabled):not(.disabled):active,
 .show>.btn-primary.dropdown-toggle {
-    background: #FF324D
+    background: $brand
 }
 
 .btn-sm {
@@ -370,9 +370,9 @@ img,
 
 .btn-primary {
     color: #fff;
-    background-color: #FF324D;
+    background-color: $brand;
     border: none;
-    border-bottom: 3px #eb1f3a solid;
+    border-bottom: 3px $brandDark solid;
 }
 
 .btn-yellow {
@@ -404,7 +404,7 @@ img,
 
 .btn-pink {
     color: #fff;
-    background-color: #FF324D;
+    background-color: $brand;
     border: none;
     border-bottom: 3px #ef2f49 solid;
 }
@@ -478,8 +478,8 @@ img,
 
 .btn-secondary:hover {
     color: #fff;
-    background-color: #FF324D;
-    border-color: #eb1f3a;
+    background-color: $brand;
+    border-color: $brandDark;
 }
 
 .header-2 .btn-secondary {
@@ -556,8 +556,8 @@ img,
 }
 
 .btn-dark:hover {
-    background-color: #FF324D;
-    border-color: #eb1f3a;
+    background-color: $brand;
+    border-color: $brandDark;
 }
 
 .btn.focus,
@@ -601,7 +601,7 @@ button:focus {
 
 .btn-red {
     color: #fff;
-    background-color: #ed6663;
+    background-color: $brandDark;
     border: none;
     border-bottom: 3px #e8524e solid;
 }
@@ -645,11 +645,11 @@ button:focus {
 7. Text Color
 ------------------------*/
 .text-dark {
-    color: #042825 !important;
+    color: #333333 !important;
 }
 
 .text-primary {
-    color: #FF324D !important;
+    color: $brand !important;
 }
 
 .text-muted {
@@ -681,7 +681,7 @@ button:focus {
 }
 
 .text-pink {
-    color: #FF324D;
+    color: $brand;
 }
 
 .text-red {
@@ -781,11 +781,11 @@ button:focus {
 }
 
 .bg-pink-light {
-    background-color: #fee5f0;
+    background-color: #e7e7e7;
 }
 
 .bg-pink {
-    background-color: #f85c92;
+    background-color: $brand;
 }
 
 .bg-green-row {
@@ -837,7 +837,7 @@ button:focus {
 }
 
 .bg-pink-btn {
-    background-color: #FF324D;
+    background-color: $brand;
     text-transform: uppercase;
     color: #fff;
     letter-spacing: 1px
@@ -1451,15 +1451,6 @@ button:focus {
     padding-left: 16px;
 }
 
-.header-6 .header-top {
-    background: url(../images/kids/bg/watercolor-top.png);
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-repeat-x: repeat;
-    background-size: 100% 100%;
-    height: 57px;
-}
-
 /* ------------------------
 13. Navigation
 ------------------------*/
@@ -1578,7 +1569,7 @@ header .navbar-nav .nav-item {
 .header-1 .navbar-light .navbar-nav .nav-link:focus,
 .header-1 .navbar-light .navbar-nav .nav-link:hover,
 .header-1 .navbar-light .navbar-nav .show>.nav-link {
-    color: #FF324D;
+    color: $brand;
 }
 
 .header-1.dark-text-div .navbar-light .navbar-nav .nav-link.active,
@@ -1618,7 +1609,7 @@ header .navbar-nav .nav-item {
 }
 
 .header-1 .navbar .navbar-nav>li:hover>a {
-    color: #FF324D;
+    color: $brand;
 }
 
 .header-3 .navbar .navbar-nav>li:hover>a {
@@ -1626,7 +1617,7 @@ header .navbar-nav .nav-item {
 }
 
 .header-4 .navbar .navbar-nav>li:hover>a {
-    color: #ed6663;
+    color: $brandDark;
 }
 
 .header-6 .navbar-nav .nav-link {
@@ -1644,7 +1635,7 @@ header .navbar-nav .nav-item {
 .header-6 .navbar-light .navbar-nav .nav-link:focus,
 .header-6 .navbar-light .navbar-nav .nav-link:hover,
 .header-6 .navbar-light .navbar-nav .show>.nav-link {
-    color: #FF324D;
+    color: $brand;
 }
 
 .header-7 .navbar-light .navbar-nav .nav-link.active,
@@ -1695,7 +1686,7 @@ header .navbar-nav .nav-item {
     transition: all 0.25s ease-in-out;
     padding: 0;
     top: 100% !important;
-    left: auto !important;
+    left: 0;
     right: 0;
     background-color: #fff;
     box-shadow: 0 0.8rem 1rem rgba(0, 0, 0, .1) !important;
@@ -2227,7 +2218,7 @@ header .navbar-nav .nav-item {
 }
 
 .header-1 [data-cart-items]::before {
-    background: #FF324D
+    background: $brand
 }
 
 .header-3 [data-cart-items]::before {
@@ -2239,7 +2230,7 @@ header .navbar-nav .nav-item {
 }
 
 .header-6 [data-cart-items]::before {
-    background: #FF324D
+    background: $brand
 }
 
 .header-7 [data-cart-items]::before {
@@ -2564,7 +2555,7 @@ header .navbar-nav .nav-item {
 }
 
 .header-4 .wishlist-block {
-    background: #ed6663;
+    background: $brandDark;
     padding: 0 20px;
     line-height: 4.2rem;
 }
@@ -2867,7 +2858,6 @@ header .navbar-nav .nav-item {
 .banner-3 h1 {
     font-weight: 700;
     padding-left: 20px;
-    color: #222;
     text-transform: uppercase;
     font-size: 54px;
     line-height: 1em
@@ -3079,7 +3069,7 @@ header .navbar-nav .nav-item {
     display: inline-block;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    background: #ed6663;
+    background: $brandDark;
     margin-top: 0px;
     min-width: 250px;
 }
@@ -3214,7 +3204,7 @@ header .navbar-nav .nav-item {
 }
 
 .product-block .link-title:hover {
-    color: #ed6663;
+    color: $brandDark;
 }
 
 .product-block-div {
@@ -3246,11 +3236,11 @@ header .navbar-nav .nav-item {
 }
 
 .product-block-div h2.bg-redish {
-    background: #e94148
+    background: $brand
 }
 
 .product-block-div h2.bg-redish:after {
-    border-color: #d32e36 #d32e36 transparent transparent
+    border-color: $brandDark $brandDark transparent transparent
 }
 
 .product-block-div .star-rating {
@@ -3342,7 +3332,7 @@ header .navbar-nav .nav-item {
 }
 
 .product_gallery_item a.active {
-    border-color: #FF324D;
+    border-color: $brand;
 }
 
 
@@ -3563,7 +3553,7 @@ header .navbar-nav .nav-item {
 }
 
 .services-block-1 h5 {
-    color: #e94148
+    color: $brand
 }
 
 .services-block-1 p {
@@ -4172,8 +4162,8 @@ header .navbar-nav .nav-tabs .nav-item {
 .nav-tabs.nav-tabs-div .nav-link.active,
 .nav-tabs.nav-tabs-div .nav-link:focus,
 .nav-tabs.nav-tabs-div .nav-link:hover {
-    color: #FF324D;
-    border-bottom: 1px solid #FF324D;
+    color: $brand;
+    border-bottom: 1px solid $brand;
     padding-bottom: 8px;
 }
 
@@ -4208,7 +4198,7 @@ header .navbar-nav .nav-tabs .nav-item {
 .product-tab .nav-tabs .nav-item.nav-link.active,
 .product-tab .nav-tabs .nav-link:focus,
 .product-tab .nav-tabs .nav-link:hover {
-    border-bottom: 3px solid #FF324D
+    border-bottom: 3px solid $brand
 }
 
 @media (max-width:575.98px) {
@@ -4430,7 +4420,7 @@ header .navbar-nav .nav-tabs .nav-item {
 }
 
 .card--default .link-title:hover {
-    color: #FF324D;
+    color: $brand;
 }
 
 .card--default .card-icons__item i,
@@ -4636,8 +4626,8 @@ header .navbar-nav .nav-tabs .nav-item {
 }
 
 .custom-checkbox input[type="checkbox"]:checked+.custom-control-label::before {
-    background-color: #FF324D;
-    border-color: #FF324D;
+    background-color: $brand;
+    border-color: $brand;
 }
 
 .custom-checkbox .custom-control-label::before {
@@ -4674,7 +4664,7 @@ header .navbar-nav .nav-tabs .nav-item {
 }
 
 .widget-size input[type="radio"]:checked+label {
-    background: #FF324D;
+    background: $brand;
     color: #fff;
 }
 
@@ -4813,7 +4803,7 @@ input.form-product {
 }
 
 .view-filter a.active {
-    color: #FF324D;
+    color: $brand;
 }
 
 .view-filter a {
@@ -4922,7 +4912,7 @@ input.form-product {
 
 .hot-deal-1 h6.border-bottom-pink {
     font-size: 22px;
-    border-bottom: 1px #FF324D solid;
+    border-bottom: 1px $brand solid;
     display: inline-block;
     padding-bottom: 5px;
 }
@@ -5151,7 +5141,7 @@ input.form-product {
 
 .bg-pink:before {
     content: "";
-    background: #fd75a4;
+    background: $brandDark;
     width: 50%;
     position: absolute;
     top: 0;
@@ -5160,7 +5150,7 @@ input.form-product {
 
 .bg-pink:after {
     content: "";
-    background: #fd75a4;
+    background: $brandDark;
     width: 50%;
     position: absolute;
     top: 0;
@@ -5234,7 +5224,7 @@ input.form-product {
 
 .testimonails.bg-pink-light .owl-carousel .owl-nav button.owl-prev:hover,
 .testimonails .owl-carousel .owl-nav button.owl-next:hover {
-    background: #FF324D
+    background: $brand
 }
 
 .testimonails .owl-carousel .owl-item.center {
@@ -5365,7 +5355,7 @@ input.form-product {
 
 .list-group-item-action:focus,
 .list-group-item-action:hover {
-    color: #FF324D;
+    color: $brand;
     background-color: inherit;
 }
 
@@ -5374,13 +5364,13 @@ input.form-product {
 }
 
 .page-item.active .page-link {
-    background-color: #FF324D;
+    background-color: $brand;
 }
 
 .page-item a.page-link:hover {
     color: #ffffff !important;
-    background-color: #FF324D;
-    border-color: #FF324D;
+    background-color: $brand;
+    border-color: $brand;
 }
 
 .link-title {
@@ -5388,7 +5378,7 @@ input.form-product {
 }
 
 .link-title:hover {
-    color: #FF324D
+    color: $brand
 }
 
 .link-title-2 {
@@ -5475,11 +5465,11 @@ input.form-product {
 
 .dashboard-page .nav-tabs .nav-link:hover {
     border: none;
-    color: #FF324D
+    color: $brand
 }
 
 .dashboard-page .nav-tabs .nav-link.active {
-    background: #FF324D;
+    background: $brand;
     color: #fff
 }
 
@@ -6021,7 +6011,7 @@ input.form-product {
 }
 
 blockquote {
-    border-left: 4px #FF324D solid;
+    border-left: 4px $brand solid;
     padding: 25px 30px;
     background: #f2f2f2;
     font-weight: 300;
@@ -6448,11 +6438,11 @@ blockquote span {
 }
 
 .accordion .card .card-header a[aria-expanded="true"] {
-    color: #FF324D;
+    color: $brand;
 }
 
 .accordion .card .card-header a[aria-expanded="true"]:before {
-    background: #FF324D;
+    background: $brand;
     color: #ffffff;
     transform: rotate(180deg);
 }
@@ -6587,7 +6577,7 @@ footer.bg-dark-2 .footer-box {
 .scroll-top a:visited {
     font-size: 24px;
     color: #ffffff;
-    background: #FF324D;
+    background: $brand;
     display: block;
     height: 40px;
     width: 40px;
@@ -7166,7 +7156,7 @@ footer.bg-dark-2 .footer-box {
     .nav-tabs.nav-tabs-div .nav-link.active,
     .nav-tabs.nav-tabs-div .nav-link:focus,
     .nav-tabs.nav-tabs-div .nav-link:hover {
-        border-bottom: 1px solid #FF324D
+        border-bottom: 1px solid $brand
     }
 
     .tab nav.mb-5 {
@@ -7256,7 +7246,7 @@ footer.bg-dark-2 .footer-box {
     }
 
     .header-5 .header_list {
-        display: none
+        text-align: center;
     }
 
     .banner-3 h1 {

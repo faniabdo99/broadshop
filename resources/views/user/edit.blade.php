@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'Edit Profile'
+])
 <body>
     <!-- page wrapper start -->
     <div class="page-wrapper">

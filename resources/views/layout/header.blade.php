@@ -12,7 +12,7 @@
         <meta name="user_id" content="{{auth()->user()->id}}">
     @endauth
     <!-- Title -->
-    <title>Broadshop - Coming Soon</title>
+    <title>Broadshop - {{$PageTitle ?? 'Get everything your home needs online'}}</title>
     <!-- Favicon Icon -->
     <link rel="shortcut icon" href="{{url('public/')}}/images/favicon.png" />
     <!-- inject css start -->

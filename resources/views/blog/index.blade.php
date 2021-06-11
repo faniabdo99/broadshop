@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'Blog'
+])
 
 <body class="bg-light-4">
     <!-- page wrapper start -->
