@@ -151,7 +151,7 @@
             <div class="col-12 mt-5" style="width: 100%;">
                 <p><b class="text-dark">GENERAL</b><br>
                     Art.1 These terms and conditions apply to any sale agreement by a visitor to this site, hereinafter
-                    "customer", concluded with UK Fashion Shop,
+                    "customer", concluded with Broadshop,
                     GLOBALE TRADING private company with limited liability. Company number: BE0827774244. These terms
                     and conditions take precedence over all
                     other terms and conditions of the customer. Additional conditions are excluded from the customer,

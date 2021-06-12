@@ -11,7 +11,7 @@ class AdminController extends Controller{
       $TotalOrdersCount = Order::count();
       $ThisMonthSales = Order::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->sum('total_amount');
       $TotalUsersCount = User::count();
-      $LatestOrders = Order::where('status' , 'Order received')->limit(10)->latest()->get();
+      $LatestOrders = Order::limit(10)->latest()->get();
       return view('admin.index' , compact('TotalProductsCount' , 'TotalUsersCount' , 'LatestOrders' , 'TotalOrdersCount' , 'ThisMonthSales'));
     }
 }

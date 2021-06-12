@@ -10,6 +10,6 @@ class OrderSignupPassword extends Mailable{
         $this->EmailData = $EmailData;
     }
     public function build(){
-        return $this->markdown('mail/users/order-signup-password')->subject('Welcome to UK Fashion Shop');
+        return $this->markdown('mail/users/order-signup-password')->subject('Welcome to Broadshop');
     }
 }

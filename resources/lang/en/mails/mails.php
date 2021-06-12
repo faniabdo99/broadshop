@@ -3,8 +3,8 @@
 return [
     
     // bank transfer
-    'sender' => 'UK Fashion Shop LLC',
+    'sender' => 'Broadshop LLC',
     'thanks' => 'Thanks',
     'hello' => 'Hello',
-    'welcome' => 'Welcome to UK Fashion Shop',
+    'welcome' => 'Welcome to Broadshop',
 ];

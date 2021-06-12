@@ -293,7 +293,11 @@ class ProductsController extends Controller{
         $TheCategory = null;
         if($Category){
             $TheCategory = Category::where('slug' , $Category)->first();
-            $AllProducts = Product::where('status' , '!=' , 'Invisible')->where('category_id' , $TheCategory->id)->get();
+            if($TheCategory){
+                $AllProducts = Product::where('status' , '!=' , 'Invisible')->where('category_id' , $TheCategory->id)->get();
+            }else{
+                abort(404);
+            }
         }else{
             $AllProducts = Product::where('status' , '!=' , 'Invisible')->get();
         }

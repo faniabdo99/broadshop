@@ -106,7 +106,7 @@
                                
                                         <li class="mb-3 border-bottom pb-3 d-flex">
                                             <span class="mr-auto"> @lang('checkout.shipping')</span>
-                                            <span>{{getShippingValue()}} €</span>
+                                            <span>{{getShippingValue($SubTotal)}} €</span>
                                         </li>
                                         <li class="mb-3 border-bottom pb-3 d-flex">
                                             <span class="mr-auto"> @lang('layout.subtotal')</span>

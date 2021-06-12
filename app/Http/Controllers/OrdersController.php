@@ -45,7 +45,7 @@ class OrdersController extends Controller{
         return ($item->Product->final_price * $item->qty);
     });
     //Generate the total tax
-    $Total = $CartSubTotalArray->sum() + getShippingValue();
+    $Total = $CartSubTotalArray->sum() + getShippingValue($CartSubTotalArray->sum());
     //Check id there is a coupon code applied
     $CouponDiscount = null;
     if(isset($CartItems->first()->applied_coupon)){//There is an applied coupon
@@ -58,7 +58,7 @@ class OrdersController extends Controller{
             $CouponDiscount = $CouponData[0];
         }
     }
-    $SubTotal = $CartSubTotalArray->sum() + getShippingValue() - $CouponDiscount;
+    $SubTotal = $CartSubTotalArray->sum() + getShippingValue($Total) - $CouponDiscount;
     $ShippingCostCountries = ShippingCost::pluck('country_name')->unique();
     $WeightArray = $CartItems->map(function($item){
       return ($item->Product->weight * $item->qty);
@@ -279,7 +279,7 @@ class OrdersController extends Controller{
           }
           Mail::to($TheOrder->email)->send(new OrderFailedMail($TheOrder));
         }
-      return view('orders.checkout.thank-you' , compact('TheOrder' , 'OrderItems'));
+        return view('orders.checkout.thank-you' , compact('TheOrder' , 'OrderItems'));
       }else{
         $TheOrder->update(['status' => 'Wrong User']);
         abort(403);
@@ -287,7 +287,6 @@ class OrdersController extends Controller{
     }else{
       abort(404);
     }
-
   }
 
   //Admin Only Methods

@@ -109,6 +109,28 @@
                 </table>
             </div>
             <br>
+            <h4>Invoice Summary:</h4>
+            <div style="width: 70%;display:block;float:left;">
+                <table class="table border" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td style="color:#333;padding:10px;font-weight:bold;">Shipping Cost</td>
+                            <td style="color:#333;padding:10px;font-weight:bold;">Tax Excluded</td>
+                            <td style="color:#333;padding:10px;font-weight:bold;">Tax</td>
+                        </tr>
+                        <tr>
+                            <td>{{formatPrice($TheOrder->totalShipping)}} €</td>
+                            <td>{{formatPrice($TheOrder->total)}} €</td>
+                            <td>{{formatPrice(($TheOrder->total * 0.21))}} €</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                @if($TheInvoice->due_date)
+                <p class="mb-0">Due Date : {{$TheInvoice->due_date->format('d-m-Y')}}</p>
+                @endif
+                <p>The customer agrees to the terms and conditions on page 2 of this invoice.</p>
+            </div>
             <div style="width:25%;display:block;float: right;">
                 @if($TheOrder->is_paid == 'paid' || $TheInvoice->is_paid)
                 <h2 class="mb-0" style="color:#4ec74e;">Paid</h2>

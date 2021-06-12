@@ -140,7 +140,7 @@
                   @guest
                     <li class="nav-item"><a class="nav-link" href="{{route('user.getSignin')}}">@lang('layout.signin')</a> </li>
                   @endguest
-                  <li class="nav-item"><a class="nav-link text-yellow" href="#">@lang('layout.kugoo_scooters')</a> </li>
+                  <li class="nav-item"><a class="nav-link text-yellow" href="https://kugoo.eu/" target="_blank">@lang('layout.kugoo_scooters')</a> </li>
                 </ul>
               </div>
             </nav>

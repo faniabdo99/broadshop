@@ -20,8 +20,8 @@ return [
     'bank_transfer_last_paragraph' => 'Your order will be processed only after we have received the payment and you have limit of 10 days to make the transaction or you order will be automatically deleted',
 
     // New Order
-    'new_order' => 'New Order in UK Fashion Shop',
-    'new_order_first_paragraph' => 'Hello, this email is to inform you that you have new order at uk fashion shop',
+    'new_order' => 'New Order in Broadshop',
+    'new_order_first_paragraph' => 'Hello, this email is to inform you that you have new order at Broadshop',
     'new_order_second_paragraph' => 'Please login to admin panel to view the order details',
 
     // Order Failed
@@ -32,17 +32,17 @@ return [
 
     // Order Invoice
     'order_invoice' => 'Order Invoice',
-    'order_invoice_first_paragraph' => 'Please find the attached invoice file for your order in UK Fashion Shop.',
+    'order_invoice_first_paragraph' => 'Please find the attached invoice file for your order in Broadshop.',
     'order_invoice_order_id' => 'Order ID',
     'order_invoice_total' => 'Total',
 
     // Order Receipt
     'order_receipt' => 'Your Order Receipt',
-    'order_receipt_first_paragraph' => 'Thank you for your order at UK Fashion Shop, Please find the order information below',
+    'order_receipt_first_paragraph' => 'Thank you for your order at Broadshop, Please find the order information below',
     'order_receipt_serial_number' => 'Order Serial Number',
     'order_receipt_order_total' => 'Order Total',
     'order_receipt_payment_method' => 'Payment Method',
-    'order_receipt_last_paragraph' => 'if you already have an account, you can view your orders from your account page at UK Fashion Shop, Otherwise you can track your order status in the order tracking page.',
+    'order_receipt_last_paragraph' => 'if you already have an account, you can view your orders from your account page at Broadshop, Otherwise you can track your order status in the order tracking page.',
 
     // Status Updated
     'status_updated' => 'Order Status Updated',

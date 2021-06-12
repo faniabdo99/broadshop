@@ -21,7 +21,7 @@
                     <div class="col-12 col-sm-4 navbar-white">
                         <h6 class="mb-4 text-white font-w-5 txt-transform">@lang('layout.quick_links')</h6>
                         <ul class="navbar-nav list-unstyled mb-0">
-                            <li class="mb-3 nav-item"><a class="nav-link text-muted font-w-4" href="#">@lang('layout.kugoo_scooters')</a></li>
+                            <li class="mb-3 nav-item"><a class="nav-link text-muted font-w-4" href="https://kugoo.eu/" target="_blank">@lang('layout.kugoo_scooters')</a></li>
                             <li class="mb-3 nav-item"><a class="nav-link text-muted font-w-4" href="{{route('about')}}">@lang('layout.about')</a></li>
                             <li class="mb-3 nav-item"><a class="nav-link text-muted font-w-4" href="{{route('products')}}">@lang('layout.shop')</a></li>
                             <li class="mb-3 nav-item"><a class="nav-link text-muted font-w-4" href="{{route('blog')}}">@lang('layout.blog')</a></li>
