@@ -120,7 +120,7 @@
                         </tr>
                         <tr>
                             <td>{{formatPrice($TheOrder->totalShipping)}} €</td>
-                            <td>{{formatPrice($TheOrder->total)}} €</td>
+                            <td>{{formatPrice(($TheOrder->total) - ($TheOrder->total * 0.21))}} €</td>
                             <td>{{formatPrice(($TheOrder->total * 0.21))}} €</td>
                         </tr>
                     </tbody>
