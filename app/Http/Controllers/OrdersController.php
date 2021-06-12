@@ -26,6 +26,7 @@ use App\Models\Invoice;
 use App\Mail\OrderSignupPassword;
 use App\Mail\BankTransferMail;
 use App\Mail\NewOrderMail;
+use App\Mail\OrderInvoiceMail;
 use App\Mail\OrderReceiptMail;
 use App\Mail\OrderFailedMail;
 use App\Mail\OrderStatusUpdateMail;
