@@ -68,7 +68,7 @@
             </section>
         </div>
         @include('layout.footer')
-    </div>
+    </div>{{url('public/images/logo3.png')}}
     @include('layout.parts')
     @include('layout.scripts')
 </body>

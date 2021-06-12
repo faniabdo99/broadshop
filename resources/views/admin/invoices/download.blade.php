@@ -42,7 +42,7 @@
 <body>
         <div class="full-width-container">
             <div class="half-width">
-                <img width="170" height="100" src="{{url('public/img/logo.png')}}" />
+                <img width="170" height="100" src="/public/img/logo.png" />
             </div>
             <div class="half-width">
                 <table class="table border invoice-data" cellspacing="0">
