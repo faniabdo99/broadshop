@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Validator;
 use Auth;
 use Mail;
+use PDF;
 use GuzzleHttp\Client;
 use Srmklive\PayPal\Services\ExpressCheckout;
 //Models
