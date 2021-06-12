@@ -1,9 +1,10 @@
 @component('mail::message')
-# @lang('mails/orders.order_invoice')
-@lang('mails/mails.hello'), {{$EmailData->first_name}}, @lang('mails/orders.order_invoice_first_paragraph')<br>
+# Order Invoice <br>
+<p>Hello There, {{$EmailData->first_name}}, Please find the attached invoice file for your order from Broadshop.</p><br>
 <br>
-<b>@lang('mails/orders.order_invoice_order_id'):</b> {{$EmailData->serial_number}}<br>
-<b>@lang('mails/orders.order_invoice_total'):</b> {{$EmailData->total}}€<br>
+<p><b>Order Serial Number:</b> {{$EmailData->serial_number}}</p>
+<p><b>Order Total: </b> {{$EmailData->total.getCurrency()['symbole']}}</p>
+<p><b>Payment Method: </b> {{$EmailData->PaymentMethodText}}</p><br>
 
 Thanks<br>
 Broadshop

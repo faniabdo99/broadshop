@@ -14,6 +14,6 @@ class OrderInvoiceMail extends Mailable{
     }
 
     public function build(){
-        return $this->markdown('mail/orders/order-invoice-mail')->subject('Your Order Invoice - UK Fashion Shop')->attachData($this->TheInvoice,$this->EmailData->serial_number.'.pdf');
+        return $this->markdown('mail/orders/order-invoice-mail')->subject('Your Order Invoice - Broadshop')->attachData($this->TheInvoice,$this->EmailData->serial_number.'.pdf');
     }
 }
