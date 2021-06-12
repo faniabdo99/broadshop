@@ -1,7 +1,6 @@
 @include('layout.header' ,[
-    'PageTitle' => 'Cart'
+    'PageTitle' => __('cart.title')
 ])
-
 <body class="bg-light-4">
     <!-- page wrapper start -->
     <div class="page-wrapper">
@@ -17,10 +16,10 @@
                                     <table class="cart-table table">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Product</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">Quantity</th>
-                                                <th scope="col">Total</th>
+                                                <th scope="col">@lang('cart.product')</th>
+                                                <th scope="col">@lang('cart.price')</th>
+                                                <th scope="col">@lang('cart.quantity')</th>
+                                                <th scope="col">@lang('cart.total')</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -50,16 +49,16 @@
                                         </tbody>
                                     </table>
                                 @else
-                                    <p>You don't have any items in your cart</p>
-                                    <a class="btn btn-dark btn-animated mt-3 btn-block" href="{{route('product.home')}}">Shop Now</a>
+                                    <p>@lang('cart.no_items')</p>
+                                    <a class="btn btn-dark btn-animated mt-3 btn-block" href="{{route('product.home')}}">@lang('cart.shop_now')</a>
                                 @endif
                             </div>
                         </div>
                         <div class="col-lg-4 pl-lg-5 mt-8 mt-lg-0">
                             <div class="border rounded p-5 bg-light-4">
-                                <h4 class="text-black text-left mb-2 font-w-6">Cart Totals</h4>
+                                <h4 class="text-black text-left mb-2 font-w-6">@lang('cart.cart_totals')</h4>
                                 <div class="d-flex justify-content-between align-items-center border-bottom py-3"> <span
-                                        class="text-muted">Subtotal</span> <span class="text-dark">{{$Total}}€</span>
+                                        class="text-muted">@lang('cart.subtotal')</span> <span class="text-dark">{{$Total}}€</span>
                                 </div>
                             
                                 @if($CouponDiscount)
@@ -68,13 +67,13 @@
                                 </div>
                                 @endif
                                 <div class="d-flex justify-content-between align-items-center pt-3 mb-5"> <span
-                                        class="text-dark h5">Total</span> <span
+                                        class="text-dark h5">@lang('cart.total')</span> <span
                                         class="text-dark font-w-6 h5">{{$SubTotal}}€</span>
                                 </div>
                                 @if(count($CartItems) > 0)
-                                    <a class="btn btn-primary btn-animated btn-block" href="{{route('checkout')}}">Proceed To Checkout</a>
+                                    <a class="btn btn-primary btn-animated btn-block" href="{{route('checkout')}}">@lang('cart.proceed_to_checkout')</a>
                                 @endif
-                                <a class="btn btn-dark btn-animated mt-3 btn-block" href="{{route('product.home')}}">Continue Shopping</a>
+                                <a class="btn btn-dark btn-animated mt-3 btn-block" href="{{route('product.home')}}">@lang('cart.continue_shopping')</a>
                             </div>
                         </div>
                     </div>
@@ -84,21 +83,21 @@
                             @auth
                             <form action="{{route('coupon.apply')}}" method="POST">
                                 @csrf
-                                <label class="text-black h4" for="coupon">Coupon</label>
-                                <p>Enter your coupon code if you have one.</p>
+                                <label class="text-black h4" for="coupon">@lang('cart.coupon')</label>
+                                <p>@lang('cart.coupon_desc')</p>
                                 <div class="row form-row">
                                     <div class="col">
-                                        <input class="form-control" name="coupuon_code" placeholder="Coupon Code" type="text">
+                                        <input class="form-control" name="coupuon_code" placeholder="@lang('cart.coupon')" type="text">
                                     </div>
                                     <div class="col col-auto">
-                                        <button class="btn btn-dark btn-animated">Apply Coupon</button>
+                                        <button class="btn btn-dark btn-animated">@lang('cart.coupon_cta')</button>
                                     </div>
                                 </div>
                                 </div>
                             </form>
                             @endauth
                             @guest
-                            <p>Please <a href="{{route('user.getSignin')}}">Signin</a> to use coupons</p>   
+                            <p>@lang('cart.please') <a href="{{route('user.getSignin')}}">@lang('layout.signin')</a> @lang('cart.use_coupons')</p>   
                             @endguest
                         @endif
                     </div>

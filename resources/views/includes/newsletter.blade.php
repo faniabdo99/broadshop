@@ -3,15 +3,15 @@
         <div class="row justify-content-center text-center mb-1">
             <div class="col-lg-6 col-md-10">
                 <div class="mb-4">
-                    <h2 class="mb-0">Be the first and get weekly updates</h2>
+                    <h2 class="mb-0">@lang('includes.newsletter_title')</h2>
                 </div>
                 <div class="subscribe-form">
                     <form id="mc-form" class="row align-items-center no-gutters mb-3">
                         <div class="col">
-                            <input type="email" class="email form-control input-2 bg-white" id="newsletter-email-value" placeholder="Email Address" required>
+                            <input type="email" class="email form-control input-2 bg-white" id="newsletter-email-value" placeholder="@lang('parts.email_address')" required>
                         </div>
                         <div class="col-auto">
-                            <button id="signup-to-newsletter" data-location="homepage" data-target="{{route('api.newsletter.signup')}}" class="btn dark-btn overflow-auto">Subscribe</button>
+                            <button id="signup-to-newsletter" data-location="homepage" data-target="{{route('api.newsletter.signup')}}" class="btn dark-btn overflow-auto">@lang('parts.subscribe')</button>
                         </div>
                     </form>
                     <div class="mb-4">

@@ -5,7 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Product;
+use App;
 class PageController extends Controller{
+    public function getSwitchLang($locale){
+        if (! in_array($locale, ['en', 'nl'])) {
+            abort(400);
+        }
+        App::setLocale($locale);
+        session()->put('locale', $locale);
+        return redirect()->back();
+    }
     public function getSoon(){
         return view('soon');
     }

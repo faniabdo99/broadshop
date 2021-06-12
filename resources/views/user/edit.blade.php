@@ -1,5 +1,5 @@
 @include('layout.header' , [
-    'PageTitle' => 'Edit Profile'
+    'PageTitle' => __('user.edit_title')
 ])
 <body>
     <!-- page wrapper start -->
@@ -14,22 +14,22 @@
                         @include('user.sidebar')
                         <div class="col-9">
                             <div class="edit-profile-form">
-                                <h3>Edit Your Profile</h3>
+                                <h3>@lang('user.edit_title')</h3>
                                 <form method="post" action="#" enctype="multipart/form-data">
                                     @csrf
-                                    <label>Name:</label>
-                                    <input class="form-control" type="text" placeholder="Name" name="name" value="{{auth()->user()->name}}" required>
+                                    <label>@lang('user.name'):</label>
+                                    <input class="form-control" type="text" placeholder="@lang('user.name')" name="name" value="{{auth()->user()->name}}" required>
                                     <br>
-                                    <label>Email:</label>
-                                    <input class="form-control" type="email" placeholder="Email" name="email" value="{{auth()->user()->email}}" required>
+                                    <label>@lang('user.email'):</label>
+                                    <input class="form-control" type="email" placeholder="@lang('user.email')" name="email" value="{{auth()->user()->email}}" required>
                                     <br>
-                                    <label>Image:</label>
+                                    <label>@lang('user.image'):</label>
                                     <input class="form-control" type="file" name="image">
                                     <br>
-                                    <label>Phone:</label>
-                                    <input class="form-control" type="text" placeholder="Phone Number" name="phone" value="{{auth()->user()->phone}}">
+                                    <label>@lang('user.phone'):</label>
+                                    <input class="form-control" type="text" placeholder="@lang('user.phone')" name="phone" value="{{auth()->user()->phone}}">
                                     <br>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">@lang('user.submit')</button>
                                 </form>
                             </div>
                         </div>

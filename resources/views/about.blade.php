@@ -15,12 +15,11 @@
                         </div>
                         <div class="col-12 col-lg-6">
                             <div class="ml-2">
-                                <h2 class="font-w-5">About Broadshop</h2>
+                                <h2 class="font-w-5">@lang('static.about_title')</h2>
                                 <p>
-                                    Welcome to Broadsshop, your number one source for kitchen equipments and electric scooters. We're dedicated to giving you the very best of our products, with a focus on quality, price and enviroment
-                                    Founded in 2019, Broadshop has come a long way from its beginnings in a Antwerpen. When we first started out, our passion for helping others to be more eco-friendly, providing the best equipment for affordable price drove us to do intense research and find the best products for the best prices.
-                                    <br>
-                                    We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or comments, please don't hesitate to contact us.
+                                    @lang('static.about_desc_1')
+                                    <br><br>
+                                    @lang('static.about_desc_2')
                                 </p>
                             </div>
                         </div>
@@ -33,42 +32,42 @@
                     <div class="row justify-content-center text-center">
                         <div class="col-lg-8 col-md-10">
                             <div class="mb-5">
-                                <h2 class="mb-0 font-w-6">Our Values</h2>
+                                <h2 class="mb-0 font-w-6">@lang('static.our_values')</h2>
                             </div>
                         </div>
                     </div>
                     <div class="row text-center mt-5">
                         <div class="col-12 col-lg-4 col-md-4 mb-5 mb-md-0">
                             <i class="fas fa-globe-europe text-primary"></i>
-                            <h5 class="font-w-6">Eco-Friendly</h5>
-                            <p>Environment-first thinking is what drives us to keep looking for the best products</p>
+                            <h5 class="font-w-6">@lang('static.value_1')</h5>
+                            <p>@lang('static.value_1_desc')</p>
                         </div>
                         <div class="col-12 col-lg-4 col-md-4 mb-5 mb-md-0">
                             <i class="fas fa-money-bill text-primary"></i>
-                            <h5 class="font-w-6">Affordable Prices</h5>
-                            <p>Everyone needs to find high-quality items with the best prices, and that's what we do in Broadshop</p>
+                            <h5 class="font-w-6">@lang('static.value_2')</h5>
+                            <p>@lang('static.value_2_desc')</p>
                         </div>
                         <div class="col-12 col-lg-4 col-md-4 mb-5 mb-md-0">
                             <i class="fas fa-certificate text-primary"></i>
-                            <h5 class="font-w-6">2 Years Guarantee</h5>
-                            <p>2 Years of real guarantee for any product you buy from Braodshop, shop with an ease of mind!</p>
+                            <h5 class="font-w-6">@lang('static.value_3')</h5>
+                            <p>@lang('static.value_3_desc')</p>
                         </div>
                     </div>
                     <div class="row text-center mt-0 mt-lg-5 mt-md-5">
                         <div class="col-12 col-lg-4 col-md-4 mb-5 mb-md-0">
                             <i class="fas fa-check text-primary"></i>
-                            <h5 class="font-w-6">High Quality</h5>
-                            <p>Our inspectors take a real responsibility for checking each item quality, any product you buy from Braodshop is 100% guaranteed</p>
+                            <h5 class="font-w-6">@lang('static.value_4')</h5>
+                            <p>@lang('static.value_4_desc')</p>
                         </div>
                         <div class="col-12 col-lg-4 col-md-4 mb-5 mb-md-0">
                             <i class="fas fa-truck text-primary"></i>
-                            <h5 class="font-w-6">Fast Delivery</h5>
-                            <p>We partnered with many big shipping companies to deliver the best and fastest experience for our clients!</p>
+                            <h5 class="font-w-6">@lang('static.value_5')</h5>
+                            <p>@lang('static.value_5_desc')</p>
                         </div>
                         <div class="col-12 col-lg-4 col-md-4 mb-5 mb-md-0">
                             <i class="fas fa-home text-primary"></i>
-                            <h5 class="font-w-6">From The Neighborhood</h5>
-                            <p>We proudly serve our neighborhood! we started here and we will always have many feelings for this city!</p>
+                            <h5 class="font-w-6">@lang('static.value_6')</h5>
+                            <p>@lang('static.value_6_desc')</p>
                         </div>
                     </div>
                 </div>
@@ -87,11 +86,11 @@
                                             <img alt="Image" src="{{url('public/')}}/images/about/thomas.jpg" class="img-fluid rounded-circle d-inline">
                                         </div>
                                         <div class="card-body pl-10 pr-10">
-                                            <p class="text-dark font-w-3">Love it! Broadshop has a wide variatey of products that fit everyone needs.</p>
+                                            <p class="text-dark font-w-3">@lang('static.testo_1')</p>
                                             <div>
                                                 <h6 class="text-primary d-inline mb-0">Thomas Diallo</h6>
                                                 <br>
-                                                <small class="text-muted">Happy Customer</small>
+                                                <small class="text-muted">@lang('static.happy_customer')</small>
                                             </div>
                                         </div>
                                     </div>
@@ -102,11 +101,11 @@
                                             <img alt="Image" src="{{url('public/')}}/images/about/karla.jpg" class="img-fluid rounded-circle d-inline">
                                         </div>
                                         <div class="card-body pl-10 pr-10">
-                                            <p class="text-dark font-w-3">What is amaizing is how Broadshop solve the hardest equation ever, affordable prices and high quality!</p>
+                                            <p class="text-dark font-w-3">@lang('static.testo_2')</p>
                                             <div>
                                                 <h6 class="text-primary d-inline mb-0">Karla Anderson </h6>
                                                 <br>
-                                                <small class="text-muted">Happy Customer</small>
+                                                <small class="text-muted">@lang('static.happy_customer')</small>
                                             </div>
                                         </div>
                                     </div>

@@ -9,6 +9,7 @@ use Mail;
 use Image;
 use Socialite;
 use App\Mail\ResetPasswordMail;
+use App\Mail\WelcomeNewUser;
 class UserController extends Controller{
     //Traditional Singup
     public function getSignup(){
@@ -44,6 +45,8 @@ class UserController extends Controller{
             $UserData['code'] = rand(1,9999);
             $TheUser = User::create($UserData);
             Auth::loginUsingId($TheUser->id);
+            //Send Welcome Email
+            Mail::to($TheUser->email)->send(new WelcomeNewUser($TheUser));
             return redirect()->route('home');
         }
     }

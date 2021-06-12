@@ -1,5 +1,5 @@
 @include('layout.header' , [
-    'PageTitle' => 'Update Your Password'
+    'PageTitle' => __('user.update_password_title')
 ])
 <body>
     <!-- page wrapper start -->
@@ -14,19 +14,19 @@
                         @include('user.sidebar')
                         <div class="col-lg-9 col-12">
                             <div class="edit-profile-form">
-                                <h3>Update Your Password</h3>
+                                <h3>@lang('user.update_password_title')</h3>
                                 <form method="post" action="#">
                                     @csrf
-                                    <label>Current Password:</label>
-                                    <input class="form-control" type="password" name="current_pass" placeholder="Current Password" required>
+                                    <label>@lang('user.current_password'):</label>
+                                    <input class="form-control" type="password" name="current_pass" placeholder="@lang('user.current_password')" required>
                                     <br>
-                                    <label>New Password:</label>
-                                    <input class="form-control" type="password" name="password" placeholder="Password" required>
+                                    <label>@lang('user.new_password'):</label>
+                                    <input class="form-control" type="password" name="password" placeholder="@lang('user.new_password')" required>
                                     <br>
-                                    <label>Confirm New Password:</label>
-                                    <input class="form-control" type="password" name="password_confirmation" placeholder="Password Confirmation" required>
+                                    <label>@lang('user.confirm_password'):</label>
+                                    <input class="form-control" type="password" name="password_confirmation" placeholder="@lang('user.confirm_password')" required>
                                     <br>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">@lang('user.submit')</button>
                                 </form>
                             </div>
                         </div>

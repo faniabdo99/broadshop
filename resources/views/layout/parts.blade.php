@@ -106,7 +106,7 @@
             <i class="fas fa-check"></i>
         </div>
         <div class="notification-content">
-            <b>Success</b>
+            <b>@lang('part.success')</b>
             <p>{{session('success')}}</p>
         </div>
     </div>
@@ -117,7 +117,7 @@
             <i class="fas fa-times"></i>
         </div>
         <div class="notification-content">
-            <b>Error</b>
+            <b>@lang('part.error')</b>
             @foreach ($errors->all() as $error)
             <p>{{$error}}</p>
             @endforeach
@@ -130,7 +130,7 @@
         <i class="fas fa-check"></i>
     </div>
     <div class="notification-content">
-        <b>Success</b>
+        <b>@lang('part.success')</b>
         <p>Test</p>
     </div>
 </div>

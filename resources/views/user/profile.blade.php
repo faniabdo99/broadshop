@@ -1,5 +1,5 @@
 @include('layout.header' , [
-    'PageTitle' => 'Profile'
+    'PageTitle' => __('user.profile')
 ])
 <body>
     <!-- page wrapper start -->
@@ -17,19 +17,19 @@
                                 <div class="col-lg-4 col-12">
                                     <div class="profile-card">
                                         <i class="fas fa-shopping-basket"></i>
-                                        <span><b>{{auth()->user()->Orders->where('status' , 'Order received')->count()}}</b><br> Pending Orders</span>
+                                        <span><b>{{auth()->user()->Orders->where('status' , 'Order received')->count()}}</b><br> @lang('user.pending_orders')</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-12">
                                     <div class="profile-card">
                                         <i class="fas fa-spinner"></i>
-                                        <span><b>{{auth()->user()->Orders->where('status' , 'Waiting for payment')->count()}}</b><br> Action Required</span>
+                                        <span><b>{{auth()->user()->Orders->where('status' , 'Waiting for payment')->count()}}</b><br> @lang('user.action_required')</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-12">
                                     <div class="profile-card">
                                         <i class="fas fa-check"></i>
-                                        <span><b>{{auth()->user()->Orders->where('status' , 'Complete')->count()}}</b><br> Completed Orders</span>
+                                        <span><b>{{auth()->user()->Orders->where('status' , 'Complete')->count()}}</b><br> @lang('user.completed_orders')</span>
                                     </div>
                                 </div>
                             </div>

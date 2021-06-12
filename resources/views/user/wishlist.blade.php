@@ -1,5 +1,5 @@
 @include('layout.header' , [
-    'PageTitle' => 'My Wishlist'
+    'PageTitle' => __('user.wishlist_title')
 ])
 <body>
     <!-- page wrapper start -->
@@ -15,10 +15,10 @@
                                 <table class="cart-table table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Product</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Actions</th>
+                                            <th scope="col">@lang('user.product')</th>
+                                            <th scope="col">@lang('user.status')</th>
+                                            <th scope="col">@lang('user.price')</th>
+                                            <th scope="col">@lang('user.actions')</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -41,13 +41,13 @@
                                                     <td><span class="product-price text-muted">{{$Item->Product->status}}</span></td>
                                                     <td><span class="product-price text-muted">{{$Item->Product->FinalPrice}}€</span></td>
                                                     <td>
-                                                        <a class="btn-cart btn btn-pink mx-3" href="{{route('product.single' , [$Item->Product->slug,$Item->Product->id])}}">View Product</a>
-                                                        <a href="javascript:;" product-id="{{$Item->Product->id}}" class="btn-cart btn btn-pink mx-3 like_item" data-toggle="tooltip" data-placement="left" title="Remove From wishlist" data-original-title="Remove From wishlist">Remove</a>
+                                                        <a class="btn-cart btn btn-pink mx-3" href="{{route('product.single' , [$Item->Product->slug,$Item->Product->id])}}">@lang('user.view_product')</a>
+                                                        <a href="javascript:;" product-id="{{$Item->Product->id}}" class="btn-cart btn btn-pink mx-3 like_item" data-toggle="tooltip" data-placement="left" title="@lang('user.remove_from_wishlist')" data-original-title="@lang('user.remove_from_wishlist')">@lang('user.remove')</a>
                                                     </td>
                                                 </tr>
                                             @endif
                                         @empty
-                                            <p>You don't have any item is your wishlist yet</p>
+                                            <p>@lang('user.empty_wishlist')</p>
                                         @endforelse
                                     </tbody>
                                 </table>

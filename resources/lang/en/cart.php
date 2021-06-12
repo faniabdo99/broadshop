@@ -1,0 +1,20 @@
+<?php
+ return [
+    'title' => 'Cart',
+    'product' => 'Product',
+    'price' => 'Price',
+    'quantity' => 'Quantity',
+    'total' => 'Total',
+    'shop_now' => 'Shop Now',
+    'no_items' => 'There are no items in your cart',
+    'cart_totals' => 'Cart Totals',
+    'subtotal' => 'Subtotal',
+    'total' => 'Total',
+    'proceed_to_checkout' => 'Proceed To Checkout',
+    'continue_shopping' => 'Continue Shopping',
+    'coupon' => 'Coupon',
+    'coupon_desc' => 'Enter your coupon code if you have one.',
+    'coupon_cta' => 'Apply Coupon',
+    'please' => 'Please',
+    'use_coupons' => 'to use coupons',
+ ];

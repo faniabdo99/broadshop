@@ -6,11 +6,11 @@
             <span>{{auth()->user()->email}}</span>
         </h2>
         <ul class="mt-4">
-            <li><a href="{{route('user.getProfile')}}"><i class="fas fa-user"></i> My Profile</a></li>
-            <li><a href="{{route('user.getOrders')}}"><i class="fas fa-shopping-cart"></i> My Orders</a></li>
-            <li><a href="{{route('user.getEditProfile')}}"><i class="fas fa-edit"></i> Edit Profile</a></li>
-            <li><a href="{{route('user.getEditPassword')}}"><i class="fas fa-lock"></i> Change Password</a></li>
-            <li><a href="{{route('user.signout')}}"><i class="fas fa-sign-out-alt"></i> Signout</a></li>
+            <li><a href="{{route('user.getProfile')}}"><i class="fas fa-user"></i> @lang('user.my_profile')</a></li>
+            <li><a href="{{route('user.getOrders')}}"><i class="fas fa-shopping-cart"></i> @lang('user.my_orders')</a></li>
+            <li><a href="{{route('user.getEditProfile')}}"><i class="fas fa-edit"></i> @lang('user.edit_profile')</a></li>
+            <li><a href="{{route('user.getEditPassword')}}"><i class="fas fa-lock"></i> @lang('user.change_password')</a></li>
+            <li><a href="{{route('user.signout')}}"><i class="fas fa-sign-out-alt"></i> @lang('user.signout')</a></li>
         </ul>
     </div>
 </div>

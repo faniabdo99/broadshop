@@ -49,8 +49,8 @@
                                     </span>
                                 @endif
                                 <ul class="list-unstyled my-3">
-                                    <li><small>Status: <span class="text-green"> {{$TheProduct->status}}</span></small></li>
-                                    <li class="font-w-4"><small>Category: <span class="text-muted"> <a href="{{route('products' , $TheProduct->Category->slug)}}">{{$TheProduct->Category->title}}</a></span></small></li>
+                                    <li><small>@lang('products.category'): <span class="text-green"> {{$TheProduct->status}}</span></small></li>
+                                    <li class="font-w-4"><small>@lang('products.status'): <span class="text-muted"> <a href="{{route('products' , $TheProduct->Category->slug)}}">{{$TheProduct->Category->title}}</a></span></small></li>
                                 </ul>
                                 <p class="mb-4 desc">{{$TheProduct->description}}</p>
                                 @if($TheProduct->AvailableVariations()['inventory'] > 0)
@@ -74,16 +74,16 @@
                                 </div>
                                 <div class="d-sm-flex align-items-center mt-5">
                                     <button class="btn btn-primary btn-animated mr-sm-3 mb-3 mb-sm-0" id="add-to-cart-single" data-product="{{$TheProduct->id}}" data-user="{{getUserId()}}">
-                                        <i class="las la-shopping-cart mr-2"></i> Add To Cart
+                                        <i class="las la-shopping-cart mr-2"></i> @lang('products.add_to_cart')
                                     </button>
                                     @auth
                                         <a class="btn btn-animated bg-primary text-white like_item @if($TheProduct->LikedByUser()) bg-primary @endif" product-id="{{$TheProduct->id}}" data-toggle="tooltip" data-placement="left" title="Add to Wishlist" data-original-title="Add to wishlist" href="javascript:;">
-                                            <i class="lar la-heart mr-2 ic-1-2x"></i> @if($TheProduct->LikedByUser()) Added To Wishlist @else Add To Wishlist @endif
+                                            <i class="lar la-heart mr-2 ic-1-2x"></i> @if($TheProduct->LikedByUser()) @lang('products.added_to_wishlist') @else @lang('products.add_to_wishlist') @endif
                                         </a>
                                     @endauth
                                 </div>
                                 @else
-                                    <p class="text-danger">This item is out of stock and can't be ordered right now.</p>
+                                    <p class="text-danger">@lang('products.out_of_stock')</p>
                                 @endif
                             </div>
                         </div>
@@ -100,9 +100,9 @@
                                 <!-- Nav tabs -->
                                 <nav>
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist"> 
-                                        <a class="nav-item nav-link p-2 active ml-0" id="nav-tab1" data-toggle="tab" href="#tab3-1" role="tab" aria-selected="true">Description</a>
-                                        <a class="nav-item nav-link p-2" id="nav-tab2" data-toggle="tab" href="#tab3-2" role="tab" aria-selected="false">Specification</a>
-                                        <a class="nav-item nav-link p-2" id="nav-tab3" data-toggle="tab" href="#tab3-3" role="tab" aria-selected="false">Ratings and Reviews</a>
+                                        <a class="nav-item nav-link p-2 active ml-0" id="nav-tab1" data-toggle="tab" href="#tab3-1" role="tab" aria-selected="true">@lang('products.description')</a>
+                                        <a class="nav-item nav-link p-2" id="nav-tab2" data-toggle="tab" href="#tab3-2" role="tab" aria-selected="false">@lang('products.specification')</a>
+                                        <a class="nav-item nav-link p-2" id="nav-tab3" data-toggle="tab" href="#tab3-3" role="tab" aria-selected="false">@lang('products.ratings_and_reviews')</a>
                                     </div>
                                 </nav>
                                 <!-- Tab panes -->
@@ -118,30 +118,30 @@
                                         <table class="table table-bordered mb-0">
                                             <tbody>
                                                 <tr>
-                                                    <td>Color/s</td>
+                                                    <td>@lang('products.colors')</td>
                                                     <td>
                                                         @forelse($TheProduct->AvailableVariations()['color'] as $Color)
                                                          {{$Color}} @if(!$loop->last),@endif
                                                         @empty
-                                                            No Colors Available
+                                                            @lang('products.no_colors_available')
                                                         @endforelse
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Height</td>
+                                                    <td>@lang('products.height')</td>
                                                     <td>{{$TheProduct->hiehgt ?? '0'}} CM</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Width</td>
+                                                    <td>@lang('products.width')</td>
                                                     <td>{{$TheProduct->width ?? '0'}} CM</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Weight</td>
+                                                    <td>@lang('products.weight')</td>
                                                     <td>{{$TheProduct->weight ?? '0'}} KG</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Warranty</td>
-                                                    <td>24 Months</td>
+                                                    <td>@lang('products.warranty')</td>
+                                                    <td>24 @lang('products.months')</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -150,8 +150,8 @@
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <div class="bg-light-4 text-center p-5">
-                                                    <h4>Based on {{$TheProduct->Reviews->count()}} Reviews</h4>
-                                                    <h5>Average</h5>
+                                                    <h4>@lang('products.based_on') {{$TheProduct->Reviews->count()}} @lang('products.reviews')</h4>
+                                                    <h5>@lang('products.average')</h5>
                                                     <h4>{{number_format($TheProduct->Reviews->avg('rate') , 1) ?? 'N/A'}}</h4>
                                                     <h6>({{$TheProduct->Reviews->count()}} Reviews)</h6>
                                                 </div>
@@ -160,7 +160,7 @@
                                                 @if($TheProduct->Reviews->count() > 0)
                                                 <div class="rating-list">
                                                     <div class="d-flex align-items-center mb-2">
-                                                        <div class="text-nowrap mr-3">5 Star</div>
+                                                        <div class="text-nowrap mr-3">5 @lang('products.star')</div>
                                                         <div class="w-100">
                                                             <div class="progress" style="height: 5px;">
                                                                 <div class="progress-bar bg-success" role="progressbar" style="width: {{number_format(($TheProduct->Reviews->where('rate' , 5)->count() / $TheProduct->Reviews->count())*100)}}%;" aria-valuenow="{{number_format(($TheProduct->Reviews->where('rate' , 5)->count() / $TheProduct->Reviews->count())*100)}}" aria-valuemin="0" aria-valuemax="100"></div>
@@ -168,7 +168,7 @@
                                                         </div><span class="text-muted ml-3">{{number_format(($TheProduct->Reviews->where('rate' , 5)->count() / $TheProduct->Reviews->count())*100)}}% </span>
                                                     </div>
                                                     <div class="d-flex align-items-center mb-2">
-                                                        <div class="text-nowrap mr-3">4 Star</div>
+                                                        <div class="text-nowrap mr-3">4 @lang('products.star')</div>
                                                         <div class="w-100">
                                                             <div class="progress" style="height: 5px;">
                                                                 <div class="progress-bar bg-success" role="progressbar" style="width: {{number_format(($TheProduct->Reviews->where('rate' , 4)->count() / $TheProduct->Reviews->count())*100)}}%;" aria-valuenow="{{number_format(($TheProduct->Reviews->where('rate' , 4)->count() / $TheProduct->Reviews->count())*100)}}" aria-valuemin="0" aria-valuemax="100"></div>
@@ -176,7 +176,7 @@
                                                         </div><span class="text-muted ml-3">{{number_format(($TheProduct->Reviews->where('rate' , 4)->count() / $TheProduct->Reviews->count())*100)}}% </span>
                                                     </div>
                                                     <div class="d-flex align-items-center mb-2">
-                                                        <div class="text-nowrap mr-3">3 Star</div>
+                                                        <div class="text-nowrap mr-3">3 @lang('products.star')</div>
                                                         <div class="w-100">
                                                             <div class="progress" style="height: 5px;">
                                                                 <div class="progress-bar bg-success" role="progressbar" style="width: {{number_format(($TheProduct->Reviews->where('rate' , 3)->count() / $TheProduct->Reviews->count())*100)}}%;" aria-valuenow="{{number_format(($TheProduct->Reviews->where('rate' , 3)->count() / $TheProduct->Reviews->count())*100)}}" aria-valuemin="0" aria-valuemax="100"></div>
@@ -184,7 +184,7 @@
                                                         </div><span class="text-muted ml-3">{{number_format(($TheProduct->Reviews->where('rate' , 3)->count() / $TheProduct->Reviews->count())*100)}}% </span>
                                                     </div>
                                                     <div class="d-flex align-items-center mb-2">
-                                                        <div class="text-nowrap mr-3">2 Star</div>
+                                                        <div class="text-nowrap mr-3">2 @lang('products.star')</div>
                                                         <div class="w-100">
                                                             <div class="progress" style="height: 5px;">
                                                                 <div class="progress-bar bg-warning" role="progressbar" style="width: {{number_format(($TheProduct->Reviews->where('rate' , 2)->count() / $TheProduct->Reviews->count())*100)}}%;" aria-valuenow="{{number_format(($TheProduct->Reviews->where('rate' , 2)->count() / $TheProduct->Reviews->count())*100)}}" aria-valuemin="0" aria-valuemax="100"></div>
@@ -192,7 +192,7 @@
                                                         </div><span class="text-muted ml-3">{{number_format(($TheProduct->Reviews->where('rate' , 2)->count() / $TheProduct->Reviews->count())*100)}}% </span>
                                                     </div>
                                                     <div class="d-flex align-items-center mb-2">
-                                                        <div class="text-nowrap mr-3">1 Star</div>
+                                                        <div class="text-nowrap mr-3">1 @lang('products.star')</div>
                                                         <div class="w-100">
                                                             <div class="progress" style="height: 5px;">
                                                                 <div class="progress-bar bg-danger" role="progressbar" style="width: {{number_format(($TheProduct->Reviews->where('rate' , 1)->count() / $TheProduct->Reviews->count())*100)}}%;" aria-valuenow="{{number_format(($TheProduct->Reviews->where('rate' , 1)->count() / $TheProduct->Reviews->count())*100)}}" aria-valuemin="0" aria-valuemax="100"></div>
@@ -205,7 +205,7 @@
                                         </div>
                                         <div class="comment-area mt-5">
                                             <div class="content_title">
-                                                <h4>Reviews</h4>
+                                                <h4>@lang('products.reviews')</h4>
                                             </div>
                                             <ul class="list_none comment_list">
                                                 @forelse($TheProduct->Reviews as $Review)
@@ -217,7 +217,11 @@
                                                             <div class="comment_content">
                                                                 <div class="d-flex">
                                                                     <div class="meta_data">
-                                                                        <h6><a href="#">{{$Review->User->name}}</a></h6>
+                                                                        <h6>
+                                                                            <a href="#">{{$Review->User->name}}</a>
+                                                                            <br>
+                                                                            <small>{{$Review->rate}} <i class="fas fa-star"></i></small>
+                                                                        </h6>
                                                                         <div class="comment-time">{{$Review->created_at->format('Y/m/d')}}</div>
                                                                     </div>
                                                                 </div>
@@ -226,11 +230,11 @@
                                                         </div>
                                                     </li>
                                                 @empty
-                                                    <p>There is no reviews on this product yet.</p>
+                                                    <p>@lang('products.no_reviews')</p>
                                                 @endforelse
                                             </ul>
                                             <div class="section-title">
-                                                <h4>Add a review</h4>
+                                                <h4>@lang('products.add_review')</h4>
                                             </div>
                                             @auth
                                             <div class="mt-8 bg-light-4 rounded py-5">
@@ -242,11 +246,11 @@
                                                         <p>{{auth()->user()->name}}</p>
                                                     </div>
                                                     <div class="form-group col-sm-6">
-                                                        <p>{{auth()->user()->email}} (Not Shown)</p>
+                                                        <p>{{auth()->user()->email}} @lang('products.not_shown')</p>
                                                     </div>
                                                     <div class="form-group clearfix col-12">
                                                         <select class="form-control" name="rate" required>
-                                                            <option value="">Rating -- Select</option>
+                                                            <option value="">@lang('products.rating')</option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
                                                             <option value="3">3</option>
@@ -255,16 +259,16 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-12">
-                                                        <textarea id="form_message" name="review" class="form-control" placeholder="Write Your Review" rows="4" required></textarea>
+                                                        <textarea id="form_message" name="review" class="form-control" placeholder="@lang('products.write_your_review')" rows="4" required></textarea>
                                                     </div>
                                                     <div class="col-12">
-                                                        <button class="btn btn-primary btn-animated mt-1">Post Review</button>
+                                                        <button class="btn btn-primary btn-animated mt-1">@lang('products.post_review')</button>
                                                     </div>
                                                 </form>
                                             </div>
                                             @endauth
                                             @guest
-                                                <p>Please <a href="{{route('user.getSignin')}}">Signin</a> to add a review</p>
+                                                <p>@lang('products.please') <a href="{{route('user.getSignin')}}">@lang('products.signin')</a> @lang('products.to_add_review')</p>
                                             @endguest
                                         </div>
                                     </div>
@@ -527,5 +531,4 @@
     @include('layout.parts')
     @include('layout.scripts')
 </body>
-
 </html>

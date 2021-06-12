@@ -1,5 +1,5 @@
 @include('layout.header' , [
-    'PageTitle' => 'My Orders'
+    'PageTitle' => __('user.my_orders')
 ])
 <body>
     <!-- page wrapper start -->
@@ -16,11 +16,11 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Order</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Total</th>
-                                        <th>Actions</th>
+                                        <th>@lang('usre.order')</th>
+                                        <th>@lang('usre.date')</th>
+                                        <th>@lang('usre.status')</th>
+                                        <th>@lang('usre.total')</th>
+                                        <th>@lang('usre.actions')</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -29,8 +29,8 @@
                                             <td>{{$Order->serial_number}}</td>
                                             <td>{{$Order->created_at->format('Y/m/d')}}</td>
                                             <td>{{$Order->status}}</td>
-                                            <td>{{$Order->total_amount}}€ for {{$Order->Items()->count()}} items</td>
-                                            <td><a href="{{route('checkout.summary' , $Order->id)}}" class="btn btn-fill-out btn-sm">View</a></td>
+                                            <td>{{$Order->total_amount}}€ @lang('user.for') {{$Order->Items()->count()}} @lang('user.items')</td>
+                                            <td><a href="{{route('checkout.summary' , $Order->id)}}" class="btn btn-fill-out btn-sm">@lang('user.view')</a></td>
                                         </tr>
                                     @empty
                                     @endforelse

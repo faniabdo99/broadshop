@@ -11,10 +11,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4 class="mb-4 font-w-6">Thank you for purchasing, Your order is completed!</h4>
-                            <p>We have mailed you a recepit</p>
-                            <a class="btn btn-primary btn-animated" href="{{route('home')}}">Home</a>
-                            <a class="btn btn-dark btn-animated" href="{{route('products')}}">Continue Shopping</a>
+                            <h4 class="mb-4 font-w-6">@lang('checkout.thank_you_title')</h4>
+                            <p>@lang('checkout.thank_you_mailed')</p>
+                            <a class="btn btn-primary btn-animated" href="{{route('home')}}">@lang('layout.home')</a>
+                            <a class="btn btn-dark btn-animated" href="{{route('products')}}">@lang('checkout.continue_shopping')</a>
                         </div>
                     </div>
                 </div>
