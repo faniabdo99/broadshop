@@ -113,6 +113,9 @@ class OrdersController extends Controller{
             $OrderData['is_vat_valid'] = 'yes';
           }
         }
+      }else{
+        $OrderData['vat_number'] = 'N/A';
+        $OrderData['is_vat_valid'] = 'N/A';
       }
       $TheCodeNumber = "20200".str_replace('.' ,'', microtime(true).rand(1,9));
       $OrderData['serial_number'] = wordwrap($TheCodeNumber,5,'-',true);
@@ -140,7 +143,7 @@ class OrdersController extends Controller{
           'qty' => $item->qty
         ]);
       });
-      // Mail::to('admin@ukfashionshop.be')->send(New NewOrderMail);
+      Mail::to('admin@ukfashionshop.be')->send(New NewOrderMail);
       $TheNewOrder = Order::find($TheNewOrder->id); 
       if($TheNewOrder->AlreadyPaid()){
         return redirect()->route('home')->withErrors('This order already been paid');
@@ -234,7 +237,7 @@ class OrdersController extends Controller{
             $item->update(['status' => 'purchased']);
           });
           //Mail The User
-          // Mail::to($TheOrder->email)->send(new OrderReceiptMail($TheOrder));
+          Mail::to($TheOrder->email)->send(new OrderReceiptMail($TheOrder));
         }else{
           $TheOrder->update(['status' => 'Waiting for payment']);
           //Add The Items Back to inventory
@@ -252,7 +255,6 @@ class OrdersController extends Controller{
             Coupoun_User::where('user_id' , auth()->user()->id)->where('coupoun_id' , $TheCoupon->id)->delete();
           }
           Mail::to($TheOrder->email)->send(new OrderFailedMail($TheOrder));
-
         }
       return view('orders.checkout.thank-you' , compact('TheOrder' , 'OrderItems'));
       }else{
@@ -299,6 +301,5 @@ class OrdersController extends Controller{
     }else{
       return back()->withErrors('Order is Not Available');
     }
-
   }
 }

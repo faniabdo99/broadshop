@@ -309,17 +309,18 @@ class UserController extends Controller{
         if($FindUser->count() == 0){
             //Signup
             $ProfileImage = (isset($user->avatar)) ? $user->avatar : 'user.png';
-            $NewUser = User::create([
-            'name' => $user->name ,
-            'email' => $user->email,
-            'image' => $ProfileImage,
-            'password' => 'PlaceholderPass',
-            'signup_method' => $driver,
-            'code' =>  rand(0,99999999),
-            'active' => 1
+            $TheUser = User::create([
+                'name' => $user->name ,
+                'email' => $user->email,
+                'image' => $ProfileImage,
+                'password' => 'PlaceholderPass',
+                'signup_method' => $driver,
+                'code' =>  rand(0,99999999),
+                'active' => 1
             ]);
             //Send Welcome Email
-            auth()->loginUsingId($NewUser->id);
+            auth()->loginUsingId($TheUser->id);
+            Mail::to($TheUser->email)->send(new WelcomeNewUser($TheUser));
             return redirect()->route('home');
         }else{
             auth()->loginUsingId($FindUser->first()->id);

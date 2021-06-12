@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class WelcomeNewUser extends Mailable
+class OrderCreatedAdmin extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -15,12 +15,19 @@ class WelcomeNewUser extends Mailable
      * Create a new message instance.
      *
      * @return void
-     */   
-    public $EmailData;
-    public function __construct($EmailData){
-        $this->EmailData = $EmailData;
+     */
+    public function __construct()
+    {
+        //
     }
-    public function build(){
-        return $this->markdown('mail/user/welcome-new-user')->subject('Welcome to Broadshop!');
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->markdown('mail/ordersorder-created-admin');
     }
 }
