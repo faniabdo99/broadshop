@@ -258,6 +258,7 @@ class OrdersController extends Controller{
               ]);
           }
           //Generate the PDF Invoice
+          $EmailData = $TheOrder;
           $pdf = PDF::loadView('orders.download' , ['TheOrder' => $TheOrder , 'TheInvoice' => $TheInvoice]);
           Mail::to($TheOrder->email)->send(new OrderInvoiceMail($EmailData,$pdf->output()));
         }else{
