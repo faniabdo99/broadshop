@@ -1,5 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap);
 @charset "UTF-8";
+.lSGallery li {
+  padding: 5px;
+}
+.lSGallery li img {
+  width: 120px !important;
+  height: 120px !important;
+}
+
 /* ------------------------
 1. Body
 ------------------------*/

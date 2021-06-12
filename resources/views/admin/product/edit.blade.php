@@ -148,7 +148,7 @@
              paramName: "image",
              params: {'product_id':$('input[name="id"]').val()},
              acceptedFiles: 'image/*',
-             maxFiles: 5,
+             maxFiles: 10,
              dictDefaultMessage: "Drag Images or Click to Upload",
      });
     </script>
