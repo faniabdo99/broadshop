@@ -20,6 +20,7 @@ use App\Models\Order;
 use App\Models\Order_Product;
 use App\Models\User;
 use App\Models\Payment_Method;
+use App\Models\Invoice;
 //Mails
 use App\Mail\OrderSignupPassword;
 use App\Mail\BankTransferMail;
@@ -143,7 +144,7 @@ class OrdersController extends Controller{
           'qty' => $item->qty
         ]);
       });
-      Mail::to('admin@ukfashionshop.be')->send(New NewOrderMail);
+      Mail::to('admin@broadshop.be')->send(New NewOrderMail);
       $TheNewOrder = Order::find($TheNewOrder->id); 
       if($TheNewOrder->AlreadyPaid()){
         return redirect()->route('home')->withErrors('This order already been paid');
@@ -236,8 +237,27 @@ class OrdersController extends Controller{
           $TheCart->map(function($item){
             $item->update(['status' => 'purchased']);
           });
-          //Mail The User
-          Mail::to($TheOrder->email)->send(new OrderReceiptMail($TheOrder));
+          //Craft the Invoice
+          $TheInvoice = Invoice::where('order_id' , $TheOrder->id)->first();
+          if(!$TheInvoice){
+              $TheInvoice = Invoice::create([
+                  'order_id' => $TheOrder->id,
+                  'user_id' => $TheOrder->user_id,
+                  'customer_name' => $TheOrder->first_name . ' ' . $TheOrder->last_name,
+                  'address' => $TheOrder->shipping_address,
+                  'city' => $TheOrder->shipping_city,
+                  'phone_number' => $TheOrder->phone_number,
+                  'email' => $TheOrder->email,
+                  'country' => $TheOrder->country,
+                  'vat_number' => $TheOrder->vat_number,
+                  'payment_method' => $TheOrder->payment_method,
+                  'order_serial_number' => $TheOrder->serial_number,
+                  'is_paid' => ($TheOrder->is_paid == 'paid') ? 1 : 0
+              ]);
+          }
+          //Generate the PDF Invoice
+          $pdf = PDF::loadView('orders.download' , ['TheOrder' => $TheOrder , 'TheInvoice' => $TheInvoice]);
+          Mail::to($TheOrder->email)->send(new OrderInvoiceMail($EmailData,$pdf->output()));
         }else{
           $TheOrder->update(['status' => 'Waiting for payment']);
           //Add The Items Back to inventory
