@@ -63,8 +63,8 @@
                   <li>
                     {{-- <a href="#" class="item_remove"><i class="ion-ios-close-empty"></i></a>  --}}
                     <a href="{{route('product.single' , [$NavCartItem->Product->slug , $NavCartItem->Product->id])}}">
-                      <img src="{{$NavCartItem->Product->ImagePath}}" alt="{{$NavCartItem->Product->title}}">
-                      {{$NavCartItem->Product->title}}
+                      <img src="{{$NavCartItem->Product->ImagePath}}" alt="{{$NavCartItem->Product->LocalTitle}}">
+                      {{$NavCartItem->Product->LocalTitle}}
                     </a>
                     <span class="cart_quantity"> {{$NavCartItem->qty}} x <span class="cart_amount">
                     <span class="price_symbole">€</span></span>{{$NavCartItem->total_price}}</span> 
@@ -104,8 +104,8 @@
                   <li>
                     {{-- <a href="#" class="item_remove"><i class="ion-ios-close-empty"></i></a>  --}}
                     <a href="{{route('product.single' , [$NavCartItem->Product->slug , $NavCartItem->Product->id])}}">
-                      <img src="{{$NavCartItem->Product->ImagePath}}" alt="{{$NavCartItem->Product->title}}">
-                      {{$NavCartItem->Product->title}}
+                      <img src="{{$NavCartItem->Product->ImagePath}}" alt="{{$NavCartItem->Product->LocalTitle}}">
+                      {{$NavCartItem->Product->LocalTitle}}
                     </a>
                     <span class="cart_quantity"> {{$NavCartItem->qty}} x <span class="cart_amount">
                     <span class="price_symbole">€</span></span>{{$NavCartItem->total_price}}</span> 

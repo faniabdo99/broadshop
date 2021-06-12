@@ -23,8 +23,8 @@
                                                 @endif
                                             @endif
                                             <a class="card-img-hover d-block" href="{{route('product.single' , [$Product->slug,$Product->id])}}"> 
-                                                <img class="card-img-back" src="{{$Product->ImagePath}}" alt="{{$Product->title}}">
-                                                <img class="card-img-front" src="{{$Product->ImagePath}}" alt="{{$Product->title}}"> 
+                                                <img class="card-img-back" src="{{$Product->ImagePath}}" alt="{{$Product->LocalTitle}}">
+                                                <img class="card-img-front" src="{{$Product->ImagePath}}" alt="{{$Product->LocalTitle}}"> 
                                             </a>
                                             <div class="card-icons">
                                                 @auth
@@ -38,7 +38,7 @@
                                             <div class="card-info">
                                                 <div class="card-body">
                                                     <div class="product-title font-w-5">
-                                                        <a class="link-title" href="{{route('product.single' , [$Product->slug,$Product->id])}}">{{$Product->title}}</a>
+                                                        <a class="link-title" href="{{route('product.single' , [$Product->slug,$Product->id])}}">{{$Product->LocalTitle}}</a>
                                                     </div>
                                                     <div class="mt-1">
                                                         @if($Product->HasDiscount())
@@ -85,7 +85,7 @@
                                     <h5 class="widget-title mb-3">@lang('products.categories')</h5>
                                     <ul class="list-unstyled">
                                         @forelse ($AllCategories as $Category)
-                                        <li> <a href="{{route('products' , $Category->slug)}}">{{$Category->title}} ({{$Category->Product->count()}})</a></li>
+                                        <li> <a href="{{route('products' , $Category->slug)}}">{{$Category->LocalTitle}} ({{$Category->Product->count()}})</a></li>
                                         @empty
                                         @endforelse
                                     </ul>

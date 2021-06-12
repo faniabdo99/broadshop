@@ -41,7 +41,7 @@
                                                     </td>
                                                     <td class="text-center">X{{$Cart->qty}}</td>
                                                     <td> <span class="product-price text-dark font-w-6">{{$Cart->TotalPrice}}€</span>
-                                                        <a href="{{route('cart.delete' , [$Cart->Product->id , getUserId()])}}" class="close-link"><i class="las la-trash"></i></a>
+                                                        <a href="{{route('cart.delete' , [$Cart->id , getUserId()])}}" class="close-link"><i class="las la-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             @empty

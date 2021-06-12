@@ -1,5 +1,5 @@
 @include('layout.header' , [
-    'PageTitle' => $TheProduct->title
+    'PageTitle' => $TheProduct->LocalTitle
 ])
 <body class="bg-light-4">
     <!-- page wrapper start -->
@@ -25,7 +25,7 @@
                         </div>
                         <div class="col-lg-6 col-12 mt-5 mt-lg-0">
                             <div class="product-details">
-                                <h1 class="h4 mb-0 font-w-6">{{$TheProduct->local_title}}</h1>
+                                <h1 class="h4 mb-0 font-w-6">{{$TheProduct->LocalTitle}}</h1>
                                 <div class="star-rating mb-4">
                                     @php 
                                         $i = 0;
@@ -50,9 +50,9 @@
                                 @endif
                                 <ul class="list-unstyled my-3">
                                     <li><small>@lang('products.category'): <span class="text-green"> {{$TheProduct->status}}</span></small></li>
-                                    <li class="font-w-4"><small>@lang('products.status'): <span class="text-muted"> <a href="{{route('products' , $TheProduct->Category->slug)}}">{{$TheProduct->Category->title}}</a></span></small></li>
+                                    <li class="font-w-4"><small>@lang('products.status'): <span class="text-muted"> <a href="{{route('products' , $TheProduct->Category->slug)}}">{{$TheProduct->Category->LocalTitle}}</a></span></small></li>
                                 </ul>
-                                <p class="mb-4 desc">{{$TheProduct->description}}</p>
+                                <p class="mb-4 desc">{{$TheProduct->LocalDescription}}</p>
                                 @if($TheProduct->AvailableVariations()['inventory'] > 0)
                                 <div class="d-sm-flex align-items-center mb-5">
                                     <div class="d-flex align-items-center mr-sm-4">
@@ -110,7 +110,7 @@
                                     <div role="tabpanel" class="tab-pane fade show active" id="tab3-1">
                                         <div class="row align-items-center">
                                             <div class="col-md-12">
-                                                {!! $TheProduct->body !!}
+                                                {!! $TheProduct->LocalBody !!}
                                             </div>
                                         </div>
                                     </div>

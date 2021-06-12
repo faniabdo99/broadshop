@@ -29,11 +29,11 @@
                                                     <td>
                                                         <div class="cart-thumb media align-items-center">
                                                             <a href="{{route('product.single' , [$Item->Product->slug,$Item->Product->id])}}">
-                                                                <img class="img-fluid" src="{{$Item->Product->ImagePath}}" alt="{{$Item->Product->title}}">
+                                                                <img class="img-fluid" src="{{$Item->Product->ImagePath}}" alt="{{$Item->Product->LocalTitle}}">
                                                             </a>
                                                             <div class="media-body ml-3">
                                                                 <div class="product-title mb-2">
-                                                                    <a class="link-title" href="{{route('product.single' , [$Item->Product->slug,$Item->Product->id])}}">{{$Item->Product->title}}</a>
+                                                                    <a class="link-title" href="{{route('product.single' , [$Item->Product->slug,$Item->Product->id])}}">{{$Item->Product->LocalTitle}}</a>
                                                                 </div>
                                                             </div>
                                                         </div>
