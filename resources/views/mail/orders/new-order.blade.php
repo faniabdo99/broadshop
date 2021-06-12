@@ -1,8 +1,8 @@
 @component('mail::message')
-# @lang('mails/orders.new_order')
-@lang('mails/orders.first_paragraph') <br><br>
-@lang('mails/orders.second_paragraph')
+# New Order
+Hello admin, You have bew order on Broadshop <br><br>
+Please go to the admin panel to check the new order
 <br><br>
-@lang('mails/mails.thanks'),<br>
-{{ config('app.name') }}
+Thanks,<br>
+Broadshop
 @endcomponent
