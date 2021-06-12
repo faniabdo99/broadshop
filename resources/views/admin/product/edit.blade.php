@@ -15,7 +15,7 @@
                                     <div class="mT-30">
                                         <form action="{{route('admin.products.postEdit' , $ProductData->id)}}" method="post" enctype="multipart/form-data">
                                             @csrf
-                                            <input hidden name="id" value={{$ProductData->id}}>
+                                            <input hidden name="item_id" value={{$ProductData->id}}>
                                             <div class="form-group">
                                                 <label>Fallback Title *</label>
                                                 <input type="text" class="form-control" name="title" value="{{old('title') ?? $ProductData->title}}" placeholder="Enter Title Here">
@@ -146,7 +146,7 @@
         var myDropzone = new Dropzone("div#drop-zone", {
              url: "{{route('admin.product.uploadGalleryImages')}}",
              paramName: "image",
-             params: {'product_id':$('input[name="id"]').val()},
+             params: {'product_id':$('input[name="item_id"]').val()},
              acceptedFiles: 'image/*',
              maxFiles: 10,
              dictDefaultMessage: "Drag Images or Click to Upload",

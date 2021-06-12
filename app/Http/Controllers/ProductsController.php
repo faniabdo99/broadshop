@@ -67,7 +67,7 @@ class ProductsController extends Controller{
             return back()->withErrors($validator->errors()->all())->withInput();
         }else{
             //Prepare The Data For Uploading
-            $ProductData = $r->except('custom_tags');
+            $ProductData = $r->except('custom_tags' , 'item_id');
             //Check the Discount
             if($r->has('discount_id') && $r->discount_id != null){
                 //Get the discount
@@ -126,7 +126,7 @@ class ProductsController extends Controller{
             return back()->withErrors($validator->errors()->all())->withInput();
         }else{
             //Prepare The Data For Uploading
-            $ProductData = $r->except('custom_tags');
+            $ProductData = $r->except('custom_tags' , 'item_id');
             //Check the Discount
             if($r->has('discount_id') && $r->discount_id != null){
                 //Get the discount
