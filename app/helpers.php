@@ -7,10 +7,10 @@ function getShippingValue($OrderTotal = null){
     if($OrderTotal > 50){
       return 0;
     }else{
-      return 5;
+      return 0;
     }
   }else{
-    return 5;
+    return 0;
   }
 }
 function getUserId(){
