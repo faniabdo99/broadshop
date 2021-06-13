@@ -18,8 +18,10 @@
                                             @if($Product->HasDiscount())
                                                 @if($Product->Discount()->type == 'percentage')
                                                     <div class="sale-label">-{{$Product->Discount()->amount}}%</div>
+                                                    TES
                                                 @else
                                                     <div class="sale-label">-{{$Product->Discount()->amount}}€</div>
+                                                    TES
                                                 @endif
                                             @endif
                                             <a class="card-img-hover d-block" href="{{route('product.single' , [$Product->slug,$Product->id])}}"> 
