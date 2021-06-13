@@ -291,14 +291,14 @@
                         <div class="position-relative rounded overflow-hidden">
                             <!-- Background -->
                             <img class="img-fluid hover-zoom"
-                                src="{{url('public')}}/images/electronic/product-ad/01.jpg" alt="">
+                                src="{{url('public')}}/images/sub-hero/scooters-block.jpg" alt="Shop Scooters">
                             <!-- Body -->
                             <div class="position-absolute top-50 pl-5">
-                                <h6 class="text-white">@lang('static.shop')</h6>
+                                <h6 class="text-dark">@lang('static.shop')</h6>
                                 <!-- Heading -->
-                                <h3 class="text-white font-w-7">@lang('static.electric_scooters')</h3>
+                                <h3 class="text-dark font-w-7">@lang('static.electric_scooters')</h3>
                                 <!-- Link -->
-                                <a class="more-link text-white" href="{{route('products' , 'scooters')}}">Shop Now </a>
+                                <a class="more-link text-dark" href="{{route('products' , 'scooters')}}">Shop Now </a>
                             </div>
                         </div>
                     </div>
@@ -306,14 +306,14 @@
                         <div class="position-relative rounded overflow-hidden">
                             <!-- Background -->
                             <img class="img-fluid hover-zoom"
-                                src="{{url('public')}}/images/electronic/product-ad/02.jpg" alt="">
+                            src="{{url('public')}}/images/sub-hero/personal-care-block.jpg" alt="Shop Personal Care">
                             <!-- Body -->
                             <div class="position-absolute top-50 pl-5">
-                                <h6 class="text-white">@lang('static.shop')</h6>
+                                <h6 class="text-dark">@lang('static.shop')</h6>
                                 <!-- Heading -->
-                                <h3 class="font-w-7 text-white">@lang('static.personal_care')</h3>
+                                <h3 class="font-w-7 text-dark">@lang('static.personal_care')</h3>
                                 <!-- Link -->
-                                <a class="more-link text-white" href="{{route('products' , 'personal-care')}}">@lang('static.shop_now')
+                                <a class="more-link text-dark" href="{{route('products' , 'personal-care')}}">@lang('static.shop_now')
                                 </a>
                             </div>
                         </div>
@@ -322,7 +322,7 @@
                         <div class="position-relative rounded overflow-hidden">
                             <!-- Background -->
                             <img class="img-fluid hover-zoom"
-                                src="{{url('public')}}/images/electronic/product-ad/03.jpg" alt="">
+                            src="{{url('public')}}/images/sub-hero/more-block.jpg" alt="Shop More">
                             <!-- Body -->
                             <div class="position-absolute top-50 pl-5">
                                 <h6 class="text-dark">@lang('static.wide_variatey')</h6>
@@ -444,25 +444,25 @@
                     <div class="row">
                         <div class="owl-carousel no-pb owl-2" data-dots="false" data-nav="true" data-items="3"
                             data-md-items="2" data-sm-items="1">
-                            @forelse ($BestSeller as $BSProduct)
+                            @forelse ($HotDeals as $HDProduct)
                             <div class="item">
                                 <div class="card product-card card--default">
-                                    @if($BSProduct->HasDiscount())
-                                    @if($BSProduct->Discount()->type == 'percentage')
-                                    <div class="sale-label">-{{$BSProduct->Discount()->amount}}%</div>
+                                    @if($HDProduct->HasDiscount())
+                                    @if($HDProduct->Discount()->type == 'percentage')
+                                    <div class="sale-label">-{{$HDProduct->Discount()->amount}}%</div>
                                     @else
-                                    <div class="sale-label">-{{$BSProduct->Discount()->amount}}€</div>
+                                    <div class="sale-label">-{{$HDProduct->Discount()->amount}}€</div>
                                     @endif
                                     @endif
                                     <a class="card-img-hover d-block" href="javascript:;">
-                                        <img class="card-img-top" src="{{$BSProduct->ImagePath}}"
-                                            alt="{{$BSProduct->LocalTitle}}">
+                                        <img class="card-img-top" src="{{$HDProduct->ImagePath}}"
+                                            alt="{{$HDProduct->LocalTitle}}">
                                     </a>
                                     <div class="card-icons">
                                         @auth
                                         <div class="card-icons__item">
-                                            <a href="javascript:;" product-id="{{$BSProduct->id}}"
-                                                class="like_item @if($BSProduct->LikedByUser()) bg-primary text-white @endif"
+                                            <a href="javascript:;" product-id="{{$HDProduct->id}}"
+                                                class="like_item @if($HDProduct->LikedByUser()) bg-primary text-white @endif"
                                                 data-toggle="tooltip" data-placement="left" title="@lang('static.add_to_wishlist')"
                                                 data-original-title="@lang('static.add_to_wishlist')">
                                                 <i class="lar la-heart"></i>
@@ -473,36 +473,36 @@
                                     <div class="card-info">
                                         <div class="card-body">
                                             <div class="product-title font-w-4"><a class="link-title"
-                                                    href="{{route('product.single' , [$BSProduct->slug , $BSProduct->id])}}">{{$BSProduct->LocalTitle}}</a>
+                                                    href="{{route('product.single' , [$HDProduct->slug , $HDProduct->id])}}">{{$HDProduct->LocalTitle}}</a>
                                             </div>
                                             <div class="mt-1">
-                                                @if($BSProduct->HasDiscount())
+                                                @if($HDProduct->HasDiscount())
                                                 <span class="product-price text-dark">
-                                                    <del class="text-danger">{{$BSProduct->price}}€</del>
-                                                    {{$BSProduct->FinalPrice}}€
+                                                    <del class="text-danger">{{$HDProduct->price}}€</del>
+                                                    {{$HDProduct->FinalPrice}}€
                                                 </span>
                                                 @else
                                                 <span class="product-price text-dark">
-                                                    {{$BSProduct->price}} €
+                                                    {{$HDProduct->price}} €
                                                 </span>
                                                 @endif
                                                 <div class="star-rating">
                                                     @php
                                                     $i = 0;
                                                     @endphp
-                                                    @for($i = 1; $i <= $BSProduct->Reviews->avg('rate'); $i++)
+                                                    @for($i = 1; $i <= $HDProduct->Reviews->avg('rate'); $i++)
                                                         <i class="las la-star"></i>
                                                     @endfor
-                                                    @for($i = 1; $i <= (5-$BSProduct->Reviews->avg('rate')); $i++)
+                                                    @for($i = 1; $i <= (5-$HDProduct->Reviews->avg('rate')); $i++)
                                                         <i class="las la-star not-active"></i>
                                                     @endfor
-                                                    <span class="stars-count">({{$BSProduct->Reviews->count()}})</span>
+                                                    <span class="stars-count">({{$HDProduct->Reviews->count()}})</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="card-footer bg-transparent border-0">
                                             <div class="product-link d-flex align-items-center justify-content-center">
-                                                <a href="{{route('product.single' ,  [$BSProduct->slug,$BSProduct->id])}}"
+                                                <a href="{{route('product.single' ,  [$HDProduct->slug,$BSProduct->id])}}"
                                                     class="btn-cart btn btn-yellow-dark mx-3">
                                                     <i class="las la-eye mr-1"></i> @lang('static.view')
                                                 </a>
@@ -512,6 +512,7 @@
                                 </div>
                             </div>
                             @empty
+                            <p>There are no Products at the momment</p>
                             @endforelse
                         </div>
                     </div>

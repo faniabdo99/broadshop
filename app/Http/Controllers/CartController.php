@@ -14,7 +14,7 @@ class CartController extends Controller{
             'product_id' => 'required',
             'user_id' => 'required',
             'qty' => 'required',
-            'color' => 'required',
+            // 'color' => 'required',
         ];
         $Validator = Validator::make($r->all() , $Rules);
         if($Validator->fails()){

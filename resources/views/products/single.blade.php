@@ -49,6 +49,9 @@
                                     </span>
                                 @endif
                                 <ul class="list-unstyled my-3">
+                                    @if($TheProduct->show_inventory)
+                                        <li><small>In Stock: <span class="text-danger"> {{$TheProduct->inventory}}</span></small></li>
+                                    @endif
                                     <li><small>@lang('products.category'): <span class="text-green"> {{$TheProduct->status}}</span></small></li>
                                     <li class="font-w-4"><small>@lang('products.status'): <span class="text-muted"> <a href="{{route('products' , $TheProduct->Category->slug)}}">{{$TheProduct->Category->LocalTitle}}</a></span></small></li>
                                 </ul>
