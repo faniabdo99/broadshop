@@ -70,11 +70,13 @@
         <div class="full-width-container smaller-font">
             <div class="half-width">
                 <h4>Broadshop</h4>
-                <p class="mb-0">Lange beeldekensstraat 103</p>
-                <p class="mb-0">Antwerpen 2060</p>
+                <p class="mb-0">Adres: Lange beeldekensstraat 103 Antwerpen 2060</p>
                 <p class="mb-0">België</p>
-                <p class="mb-0">BE0827774244</p>
-                <p class="mb-0">+32 488 19 88 10</p>
+                <p class="mb-0">Tel: +32 3 277 16 74</p>
+                <p class="mb-0">Email: sales@broadshop.be</p>
+                <p class="mb-0">BTW nr: BE 0730.975.271</p>
+                <p class="mb-0">IBAN: BE50 0689 3476 8718</p>
+                <p class="mb-0">BIC: GKCCBEBB</p>
                 <p class="mb-0">broadshop.be</p>
             </div>
             <div class="half-width">
@@ -82,7 +84,9 @@
                 <p class="mb-0">{{$TheInvoice->address}}</p>
                 <p class="mb-0">{{$TheInvoice->city}}</p>
                 <p class="mb-0">{{getCountryNameFromISO($TheInvoice->country)}}</p>
-                <p class="mb-0">{{$TheInvoice->vat_number}}</p>
+                @if(!$TheInvoice == 'N/A')
+                    <p class="mb-0">{{$TheInvoice->vat_number}}</p>
+                @endif
                 <p class="mb-0">{{$TheInvoice->phone_number}}</p>
                 <p class="mb-0">{{$TheInvoice->email}}</p>
             </div>

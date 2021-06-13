@@ -21,7 +21,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>@lang('checkout.checkout_type')*</label>
-                                            <select class="form-control" name="type">
+                                            <select class="form-control" name="type" required>
                                                 <option value="Indivisual">@lang('checkout.indivisual')</option>
                                                 <option value="Company">@lang('checkout.company')</option>
                                             </select>
@@ -70,7 +70,7 @@
                                             <input type="text" name="address_2" id="address_2" class="form-control" placeholder="@lang('checkout.second_address')">
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label>@lang('checkout.town')*</label>
                                             <input type="text" name="city" id="towncity" class="form-control" placeholder="@lang('checkout.town')">
@@ -80,6 +80,18 @@
                                         <div class="form-group mb-md-0">
                                             <label>@lang('checkout.zip_code')*</label>
                                             <input type="text" name="zip_code" id="zippostalcode" class="form-control" placeholder="@lang('checkout.zip_code')">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>House Number*</label>
+                                            <input type="text" name="house_number" id="house_number" class="form-control" placeholder="House Number" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-md-0">
+                                            <label>Bus Number</label>
+                                            <input type="text" name="bus_number" id="bus_number" class="form-control" placeholder="Bus Number">
                                         </div>
                                     </div>
                                     <div class="col-md-12">

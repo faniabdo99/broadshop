@@ -78,6 +78,7 @@ class OrdersController extends Controller{
       'email' => 'required|email',
       'phone_number' => 'required',
       'address' =>'required',
+      'house_number' =>'required',
       'city' => 'required',
       'zip_code' => 'required',
       'accepted_toc' => 'required',
