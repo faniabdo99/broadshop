@@ -351,7 +351,7 @@
                             <div class="item">
                                 <div class="card product-card card--default">
                                     @if($BSProduct->HasDiscount())
-                                    @if($BSProduct->Discount()->type == 'percentage')
+                                    @if($BSProduct->Discount()->type == 'percent')
                                     <div class="sale-label">-{{$BSProduct->Discount()->amount}}%</div>
                                     @else
                                     <div class="sale-label">-{{$BSProduct->Discount()->amount}}€</div>
@@ -448,7 +448,7 @@
                             <div class="item">
                                 <div class="card product-card card--default">
                                     @if($HDProduct->HasDiscount())
-                                    @if($HDProduct->Discount()->type == 'percentage')
+                                    @if($HDProduct->Discount()->type == 'percent')
                                     <div class="sale-label">-{{$HDProduct->Discount()->amount}}%</div>
                                     @else
                                     <div class="sale-label">-{{$HDProduct->Discount()->amount}}€</div>

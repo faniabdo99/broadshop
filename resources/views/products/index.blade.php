@@ -16,12 +16,10 @@
                                     <div class="col-lg-4 col-md-6 mb-5">
                                         <div class="card product-card card--default rounded-0">
                                             @if($Product->HasDiscount())
-                                                @if($Product->Discount()->type == 'percentage')
+                                                @if($Product->Discount()->type == 'percent')
                                                     <div class="sale-label">-{{$Product->Discount()->amount}}%</div>
-                                                    TES
                                                 @else
                                                     <div class="sale-label">-{{$Product->Discount()->amount}}€</div>
-                                                    TES
                                                 @endif
                                             @endif
                                             <a class="card-img-hover d-block" href="{{route('product.single' , [$Product->slug,$Product->id])}}"> 
