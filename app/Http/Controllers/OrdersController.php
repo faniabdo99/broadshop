@@ -108,7 +108,7 @@ class OrdersController extends Controller{
       if($r->has('vat_number') && $r->vat_number != null && $r->vat_number != ''){
         //Validate VAT Number
         $HttpClient = new Client();
-        $response = @$HttpClient->get('http://apilayer.net/api/validate?access_key=test_EBUDqV7NJUyz32HvgyAHPpnhFSDU58&vat_number='.$r->vat_number);
+        $response = @$HttpClient->get('http://apilayer.net/api/validate?access_key=9fd9f0afc73edf63a9c38f9d9cead84a&vat_number='.$r->vat_number);
         if($response->getStatusCode() != 200){
           $OrderData['is_vat_valid'] = 'no';
         }else{
@@ -165,7 +165,7 @@ class OrdersController extends Controller{
               "currency" => "EUR",
               "value" => sprintf("%.2f",$OrderFinalTotal)
           ],
-          "description" => "Order #$TheNewOrder->serial_number",
+          "description" => "Broadshop Order #$TheNewOrder->serial_number",
           "locale" => "$TheNewOrder->lang"."_us",
           "method" => "$r->payment_method",
           "billingEmail" => "$TheNewOrder->email",

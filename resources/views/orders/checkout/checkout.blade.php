@@ -15,7 +15,7 @@
                                 <h4 class="mb-4 font-w-6">@lang('checkout.billing_details')</h4>
                                 <form class="row" action="{{route('checkout.post')}}" method="post">
                                     @csrf
-                                    <input type="hidden" name="total_shipping_cost" value="{{getShippingValue()}}">
+                                    <input type="hidden" name="total_shipping_cost" value="{{getShippingValue($Total)}}">
                                     <input type="hidden" name="order_weight" value="{{$OrderWeight}}">
                                     <input type="hidden" name="total_amount" value="{{$SubTotal}}">
                                     <div class="col-md-12">
@@ -40,31 +40,31 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>@lang('checkout.f_name')*</label>
-                                            <input type="text" name="first_name" id="fname" class="form-control" placeholder="@lang('checkout.f_name')">
+                                            <input type="text" name="first_name" id="fname" class="form-control" placeholder="@lang('checkout.f_name')" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>@lang('checkout.l_name')*</label>
-                                            <input type="text" name="last_name" id="fname" class="form-control" placeholder="@lang('checkout.l_name')">
+                                            <input type="text" name="last_name" id="fname" class="form-control" placeholder="@lang('checkout.l_name')" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>@lang('checkout.email')*</label>
-                                            <input type="text" name="email" id="email" class="form-control" value="{{auth()->user()->email ?? ''}}" placeholder="@lang('checkout.email')">
+                                            <input type="text" name="email" id="email" class="form-control" value="{{auth()->user()->email ?? ''}}" placeholder="@lang('checkout.email')" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>@lang('checkout.phone')*</label>
-                                            <input type="text" name="phone_number" id="phone" class="form-control" value="{{auth()->user()->phone ?? ''}}" placeholder="@lang('checkout.phone')">
+                                            <input type="text" name="phone_number" id="phone" class="form-control" value="{{auth()->user()->phone ?? ''}}" placeholder="@lang('checkout.phone')" required>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>@lang('checkout.shipping_address')*</label>
-                                            <input type="text" name="address" id="address" class="form-control" placeholder="@lang('checkout.shipping_address')">
+                                            <input type="text" name="address" id="address" class="form-control" placeholder="@lang('checkout.shipping_address')" required>
                                         </div>
                                         <div class="form-group">
                                             <input type="text" name="address_2" id="address_2" class="form-control" placeholder="@lang('checkout.second_address')">
@@ -73,13 +73,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>@lang('checkout.town')*</label>
-                                            <input type="text" name="city" id="towncity" class="form-control" placeholder="@lang('checkout.town')">
+                                            <input type="text" name="city" id="towncity" class="form-control" placeholder="@lang('checkout.town')" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group mb-md-0">
                                             <label>@lang('checkout.zip_code')*</label>
-                                            <input type="text" name="zip_code" id="zippostalcode" class="form-control" placeholder="@lang('checkout.zip_code')">
+                                            <input type="text" name="zip_code" id="zippostalcode" class="form-control" placeholder="@lang('checkout.zip_code')" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">

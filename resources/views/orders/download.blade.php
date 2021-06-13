@@ -104,7 +104,7 @@
                         @foreach ($TheOrder->Items() as $Item)
                         <tr>
                             <td class="item-name">{{$Item->Product->title}}</td>
-                            <td>{{formatPrice($Item->Product->price)}} €</td>
+                            <td>{{formatPrice($Item->Product->FinalPrice)}} €</td>
                             <td>{{$Item->qty}}</td>
                             <td>{{formatPrice($Item->qty * $Item->Product->price)}} €</td>
                         </tr>
