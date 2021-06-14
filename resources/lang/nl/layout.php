@@ -9,7 +9,7 @@
     'about' => 'Over Broadshop',
     'shop' => 'Winkel',
     'blog' => 'Blog',
-    'contact' => 'Neem contact met ons op',
+    'contact' => 'Contact',
     'address' => 'Adres',
     'copywrites' => 'Copyright ©2021 Broadshop. Alle rechten voorbehouden.',
     //Navbar
