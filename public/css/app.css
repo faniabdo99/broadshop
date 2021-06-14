@@ -1436,6 +1436,7 @@ button:focus {
   height: 3rem;
   font-weight: 300;
   font-size: 14px;
+  width: 205px;
 }
 
 .header-5 .cart-d [data-cart-items]::before {

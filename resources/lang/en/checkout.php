@@ -1,10 +1,10 @@
 <?php
  return [
-    'title' => 'Checkout',
-    'billing_details' => 'Billing Details',
-    'checkout_type' => 'Checkout Type',
-    'indivisual' => 'Indivisual',
-    'company' => 'Company',
+    'title' => 'Checkout in dutch',
+    'billing_details' => 'Billing Details in dutch',
+    'checkout_type' => 'Checkout Type in dutch',
+    'indivisual' => 'Indivisual in dutch',
+    'company' => 'Company in dutch',
     'company_name' => 'Company Name',
     'vat_number' => 'VAT Number',
     'f_name' => 'First Name',

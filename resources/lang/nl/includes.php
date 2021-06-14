@@ -1,6 +1,6 @@
 <?php
     return[
         //Newsletter
-        'newsletter_title' => 'Be the first and get weekly updates',
+        'newsletter_title' => 'Wees de eerste en ontvang wekelijkse updates',
         
     ];

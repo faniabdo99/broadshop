@@ -1,5 +1,7 @@
 <?php
 return [
-    'page_title' => 'Blog dutch',
+    //Blog Index
+    'page_title' => 'Blog',
+    //Single Blog
     
 ];
