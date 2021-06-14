@@ -25,7 +25,7 @@
                             <li class="mb-3 nav-item"><a class="nav-link text-muted font-w-4" href="{{route('about')}}">@lang('layout.about')</a></li>
                             <li class="mb-3 nav-item"><a class="nav-link text-muted font-w-4" href="{{route('products')}}">@lang('layout.shop')</a></li>
                             <li class="mb-3 nav-item"><a class="nav-link text-muted font-w-4" href="{{route('blog')}}">@lang('layout.blog')</a></li>
-                            <li class="nav-item"><a class="nav-link text-muted font-w-4" href="{{route('contactUs')}}">@lang('layout.contact')</a></li>
+                            <li class="mb-3 nav-item"><a class="nav-link text-muted font-w-4" href="{{route('contactUs')}}">@lang('layout.contact')</a></li>
                             <li class="nav-item"><a class="nav-link text-muted font-w-4" href="{{route('toc')}}">@lang('layout.toc')</a></li>
                         </ul>
                     </div>
