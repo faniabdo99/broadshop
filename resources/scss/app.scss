@@ -1,14 +1,6 @@
 @import 'vars';
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
-.lSGallery{
-    li{
-        padding: 5px;
-        img{
-            width: 120px !important;
-            height: 120px !important;
-        }
-    }
-}
+
 /* ------------------------
 1. Body
 ------------------------*/
@@ -6731,7 +6723,15 @@ footer.bg-dark-2 .footer-box {
     .header-5 .text-yellow {
         display: none
     }
-
+    .lSGallery{
+        li{
+            padding: 5px;
+            img{
+                width: 60px !important;
+                height: 60px !important;
+            }
+        }
+    }
     .header-5 #header-wrap .navbar-light .navbar-nav .nav-link.active,
     .header-5 #header-wrap .navbar-light .navbar-nav .nav-link:focus,
     .header-5 #header-wrap .navbar-light .navbar-nav .nav-link:hover,
@@ -6749,6 +6749,9 @@ footer.bg-dark-2 .footer-box {
 
     .header-5 .label {
         display: inline
+    }
+    .header-5 .cart-d{
+        width: 45px;
     }
 
     .product-block .owl-carousel.owl-2 .owl-nav {

@@ -51,8 +51,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>@lang('checkout.email')*</label>
-                                            <input type="text" name="email" id="email" class="form-control" value="{{auth()->user()->email ?? ''}}" placeholder="@lang('checkout.email')" required>
+                                            <label>@lang('checkout.email')</label>
+                                            <input type="text" name="email" id="email" class="form-control" value="{{auth()->user()->email ?? ''}}" placeholder="@lang('checkout.email')">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -70,16 +70,13 @@
                                             <input type="text" name="address_2" id="address_2" class="form-control" placeholder="@lang('checkout.second_address')">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>@lang('checkout.town')*</label>
-                                            <input type="text" name="city" id="towncity" class="form-control" placeholder="@lang('checkout.town')" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group mb-md-0">
-                                            <label>@lang('checkout.zip_code')*</label>
-                                            <input type="text" name="zip_code" id="zippostalcode" class="form-control" placeholder="@lang('checkout.zip_code')" required>
+                                            <label for="country">Country</label>
+                                            <select class="form-control" name="country" id="country" required>
+                                                <option value="Belgium">Belgium</option>
+                                                <option value="Netherlands">Netherlands</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -92,6 +89,18 @@
                                         <div class="form-group mb-md-0">
                                             <label>Bus Number</label>
                                             <input type="text" name="bus_number" id="bus_number" class="form-control" placeholder="Bus Number">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@lang('checkout.town')*</label>
+                                            <input type="text" name="city" id="towncity" class="form-control" placeholder="@lang('checkout.town')" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-md-0">
+                                            <label>@lang('checkout.zip_code')*</label>
+                                            <input type="text" name="zip_code" id="zippostalcode" class="form-control" placeholder="@lang('checkout.zip_code')" required>
                                         </div>
                                     </div>
                                     <div class="col-md-12">

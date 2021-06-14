@@ -75,7 +75,7 @@ class OrdersController extends Controller{
     $Rules = [
       'first_name' =>'required',
       'last_name' => 'required',
-      'email' => 'required|email',
+      'email' => 'email',
       'phone_number' => 'required',
       'address' =>'required',
       'house_number' =>'required',
@@ -261,7 +261,9 @@ class OrdersController extends Controller{
           //Generate the PDF Invoice
           $EmailData = $TheOrder;
           $pdf = PDF::loadView('orders.download' , ['TheOrder' => $TheOrder , 'TheInvoice' => $TheInvoice]);
-          Mail::to($TheOrder->email)->send(new OrderInvoiceMail($EmailData,$pdf->output()));
+          if($TheOrder->email){
+            Mail::to($TheOrder->email)->send(new OrderInvoiceMail($EmailData,$pdf->output()));
+          }
         }else{
           $TheOrder->update(['status' => 'Waiting for payment']);
           //Add The Items Back to inventory
@@ -278,7 +280,9 @@ class OrdersController extends Controller{
             //Delete The Usage Record
             Coupoun_User::where('user_id' , auth()->user()->id)->where('coupoun_id' , $TheCoupon->id)->delete();
           }
-          Mail::to($TheOrder->email)->send(new OrderFailedMail($TheOrder));
+          if($TheOrder->email){
+            Mail::to($TheOrder->email)->send(new OrderFailedMail($TheOrder));
+          }
         }
         return view('orders.checkout.thank-you' , compact('TheOrder' , 'OrderItems'));
       }else{
