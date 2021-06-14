@@ -56,6 +56,7 @@
                                     <li class="font-w-4"><small>@lang('products.status'): <span class="text-muted"> <a href="{{route('products' , $TheProduct->Category->slug)}}">{{$TheProduct->Category->LocalTitle}}</a></span></small></li>
                                 </ul>
                                 <p class="mb-4 desc">{{$TheProduct->LocalDescription}}</p>
+                                <p class="text-success"><i class="fas fa-truck"></i> 1-3 Days Delivery</p>
                                 @if($TheProduct->AvailableVariations()['inventory'] > 0)
                                 <div class="d-sm-flex align-items-center mb-5">
                                     <div class="d-flex align-items-center mr-sm-4">

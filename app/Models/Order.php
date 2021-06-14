@@ -24,7 +24,7 @@ class Order extends Model{
         }
     }
     public function getFinalTotalAttribute(){
-        return $this->total;
+        return $this->total_amount;
     }
     public function Items(){
         return Order_Product::where('order_id' , $this->id)->get();

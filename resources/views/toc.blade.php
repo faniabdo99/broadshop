@@ -15,11 +15,13 @@
                         <br>
                         <h2>1. Identificatie van de verkoper</h2>
                         <ul>
-                            <li>Broadshop ADRES Lange beeldekensstraat 103 Antwerpen 2060</li>
-                            <li>Tel.: +32E</li>
-                            <li>Mail: ….</li>
-                            <li>KBO BE ….</li>
-                            <li>Rek.nr  IBAN BE50 0689 3476 8718BIC: GKCCBEBB</li>
+                            <li>Adres: Lange beeldekensstraat 103 Antwerpen 2060</li>
+                            <li>België</li>
+                            <li>Tel: +32 3 277 16 74</li>
+                            <li>Email: sales@broadshop.be</li>
+                            <li>BTW nr: BE 0730.975.271</li>
+                            <li>IBAN BE50 0689 3476 8718</li>
+                            <li>BIC: GKCCBEBB</li>
                         </ul>
                         <h2>2. Definities</h2>
                         <p>

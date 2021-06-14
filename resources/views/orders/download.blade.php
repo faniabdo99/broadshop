@@ -83,7 +83,7 @@
                 <h4>{{$TheInvoice->customer_name}}</h4>
                 <p class="mb-0">{{$TheInvoice->address}}</p>
                 <p class="mb-0">{{$TheInvoice->city}}</p>
-                <p class="mb-0">{{getCountryNameFromISO($TheInvoice->country)}}</p>
+                <p class="mb-0">{{$TheInvoice->country}}</p>
                 @if(!$TheInvoice == 'N/A')
                     <p class="mb-0">{{$TheInvoice->vat_number}}</p>
                 @endif

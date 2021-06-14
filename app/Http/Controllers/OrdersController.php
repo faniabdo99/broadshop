@@ -45,7 +45,7 @@ class OrdersController extends Controller{
         return ($item->Product->final_price * $item->qty);
     });
     //Generate the total tax
-    $Total = $CartSubTotalArray->sum() + getShippingValue($CartSubTotalArray->sum());
+    $Total = $CartSubTotalArray->sum();
     //Check id there is a coupon code applied
     $CouponDiscount = null;
     if(isset($CartItems->first()->applied_coupon)){//There is an applied coupon
@@ -147,7 +147,7 @@ class OrdersController extends Controller{
           'qty' => $item->qty
         ]);
       });
-      Mail::to('admin@broadshop.be')->send(New NewOrderMail);
+      // Mail::to('admin@broadshop.be')->send(New NewOrderMail);
       $TheNewOrder = Order::find($TheNewOrder->id); 
       if($TheNewOrder->AlreadyPaid()){
         return redirect()->route('home')->withErrors('This order already been paid');
@@ -235,7 +235,7 @@ class OrdersController extends Controller{
         //Check the Payment Status
         $TheOrder->update(['is_paid' => $ThePayment->status]);
         $TheCart = Cart::where('user_id' , $TheOrder->user_id)->where('status' , 'active')->whereDate('created_at' , Carbon::today())->get();
-        if($ThePayment->status != 'failed'){
+        if($ThePayment->status == 'paid'){
             //Clear the cart
           $TheCart->map(function($item){
             $item->update(['status' => 'purchased']);
@@ -281,7 +281,7 @@ class OrdersController extends Controller{
             Coupoun_User::where('user_id' , auth()->user()->id)->where('coupoun_id' , $TheCoupon->id)->delete();
           }
           if($TheOrder->email){
-            Mail::to($TheOrder->email)->send(new OrderFailedMail($TheOrder));
+            // Mail::to($TheOrder->email)->send(new OrderFailedMail($TheOrder));
           }
         }
         return view('orders.checkout.thank-you' , compact('TheOrder' , 'OrderItems'));
