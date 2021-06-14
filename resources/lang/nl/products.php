@@ -7,7 +7,7 @@
     //Single
     'category' => 'Categorie',
     'status' => 'Status',
-    'add_to_cart' => 'Voeg toe aan winkelmandje',
+    'add_to_cart' => 'In winkelwagen',
     'added_to_wishlist' => 'Toegevoegd aan verlanglijst',
     'add_to_wishlist' => 'Voeg toe aan verlanglijst',
     'out_of_stock' => 'Dit artikel is niet op voorraad en kan nu niet worden besteld.',

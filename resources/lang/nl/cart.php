@@ -1,13 +1,13 @@
 <?php
  return [
-    'title' => 'Winkelmandje',
+    'title' => 'Winkelwagen',
     'product' => 'Product',
     'price' => 'Prijs',
     'quantity' => 'Aantal stuks',
     'total' => 'Totaal',
     'shop_now' => 'Winkel nu',
-    'no_items' => 'Er zitten geen artikelen in je winkelmandje',
-    'cart_totals' => 'Winkelmandje totalen',
+    'no_items' => 'Er zitten geen artikelen in je Winkelwagen',
+    'cart_totals' => 'Winkelwagen totalen',
     'subtotal' => 'Subtotaal',
     'total' => 'Totaal',
     'proceed_to_checkout' => 'Ga naar de kassa',

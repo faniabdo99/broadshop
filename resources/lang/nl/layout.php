@@ -10,6 +10,7 @@
     'shop' => 'Winkel',
     'blog' => 'Blog',
     'contact' => 'Contact',
+    'toc' => 'Algemene voorwaarden',
     'address' => 'Adres',
     'copywrites' => 'Copyright ©2021 Broadshop. Alle rechten voorbehouden.',
     //Navbar
@@ -18,10 +19,10 @@
     'welcome' => 'Welkom',
     'logout' => 'Uitloggen',
     'signin' => 'Inloggen',
-    'cart' => 'Winkelmandje',
-    'cart_empty' => 'Er zitten nog geen artikelen in je winkelmandje.',
+    'cart' => 'Winkelwagen',
+    'cart_empty' => 'Er zitten nog geen artikelen in je Winkelwagen.',
     'subtotal' => 'Subtotaal',
-    'view_cart' => 'Bekijk winkelmandje',
+    'view_cart' => 'Bekijk Winkelwagen',
     'checkout' => 'Afrekenen',
     'home' => 'Home',
 ];

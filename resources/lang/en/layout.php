@@ -10,6 +10,7 @@
     'shop' => 'Shop',
     'blog' => 'Blog',
     'contact' => 'Contact us',
+    'toc' => 'Terms & Conditions',
     'address' => 'Address',
     'copywrites' => 'Copyright ©2021 Broadshop. All Rights Reserved.',
     //Navbar
