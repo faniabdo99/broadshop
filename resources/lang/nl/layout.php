@@ -23,5 +23,5 @@
     'subtotal' => 'Subtotaal',
     'view_cart' => 'Bekijk winkelmandje',
     'checkout' => 'Afrekenen',
-    'home' => 'Startpagina',
+    'home' => 'Home',
 ];
