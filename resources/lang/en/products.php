@@ -34,4 +34,7 @@
     'please' => 'Please',
     'signin' => 'Signin',
     'to_add_review' => 'to add a review',
+    'vat_disclaimer' => 'Including VAT',
+    'in_stock' => 'In Stock',
+    'delivery_notice' => '1-3 Days Delivery'
  ]; 

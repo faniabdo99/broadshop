@@ -22,7 +22,7 @@
     'warranty' => 'Garantie',
     'months' => 'Maanden',
     'based_on' => 'Gebaseerd op',
-    'reviews' => 'Recencies',
+    'reviews' => 'Recensies',
     'average' => 'Gemiddels',
     'star' => 'Ster',
     'no_reviews' => 'Er zijn nog geen beoordelingen over dit product.',
@@ -34,4 +34,7 @@
     'please' => 'Alsjeblieft',
     'signin' => 'Inloggen',
     'to_add_review' => 'om een beoordeling toe te voegen',
+    'vat_disclaimer' => 'Inclusief BTW',
+    'in_stock' => 'Op voorraad',
+    'delivery_notice' => '1-3 Dagen Levering'
  ];

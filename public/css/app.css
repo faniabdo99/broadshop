@@ -4549,6 +4549,10 @@ header .navbar-nav .nav-tabs .nav-item {
   display: block;
 }
 
+.vat-disclaimer {
+  font-size: 14px;
+}
+
 .product-details .product-price {
   font-weight: 600;
   padding-bottom: 0;

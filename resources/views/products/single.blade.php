@@ -36,27 +36,28 @@
                                     @for($i = 1; $i <= (5-$TheProduct->Reviews->avg('rate')); $i++)
                                     <i class="las la-star not-active"></i>
                                     @endfor
-                                    <span class="stars-count">({{$TheProduct->Reviews->count()}} Reviews)</span>
+                                    <span class="stars-count">({{$TheProduct->Reviews->count()}} @lang('products.reviews'))</span>
                                 </div>
                                 @if($TheProduct->HasDiscount())
                                     <span class="product-price text-dark">
                                         <del class="text-danger">{{$TheProduct->price}}€</del>
-                                        {{$TheProduct->FinalPrice}}€
+                                        {{$TheProduct->FinalPrice}}€<br>
                                     </span>
                                 @else
                                     <span class="product-price text-dark">
-                                        {{$TheProduct->price}}€
+                                        {{$TheProduct->price}}€<br>
                                     </span>
                                 @endif
+                                <p class="vat-disclaimer">@lang('products.vat_disclaimer')</p>
                                 <ul class="list-unstyled my-3">
                                     @if($TheProduct->show_inventory)
-                                        <li><small>In Stock: <span class="text-danger"> {{$TheProduct->inventory}}</span></small></li>
+                                        <li><small>@lang('products.in_stock'): <span class="text-danger"> {{$TheProduct->inventory}}</span></small></li>
                                     @endif
-                                    <li><small>@lang('products.category'): <span class="text-green"> {{$TheProduct->status}}</span></small></li>
-                                    <li class="font-w-4"><small>@lang('products.status'): <span class="text-muted"> <a href="{{route('products' , $TheProduct->Category->slug)}}">{{$TheProduct->Category->LocalTitle}}</a></span></small></li>
+                                    <li><small>@lang('products.status'): <span class="text-green">@lang('products.in_stock')</span></small></li>
+                                    <li class="font-w-4"><small>@lang('products.category'): <span class="text-muted"> <a href="{{route('products' , $TheProduct->Category->slug)}}">{{$TheProduct->Category->LocalTitle}}</a></span></small></li>
                                 </ul>
                                 <p class="mb-4 desc">{{$TheProduct->LocalDescription}}</p>
-                                <p class="text-success"><i class="fas fa-truck"></i> 1-3 Days Delivery</p>
+                                <p class="text-success"><i class="fas fa-truck"></i> @lang('products.delivery_notice')</p>
                                 @if($TheProduct->AvailableVariations()['inventory'] > 0)
                                 <div class="d-sm-flex align-items-center mb-5">
                                     <div class="d-flex align-items-center mr-sm-4">

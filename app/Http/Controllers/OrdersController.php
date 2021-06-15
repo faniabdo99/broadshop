@@ -281,7 +281,7 @@ class OrdersController extends Controller{
             Coupoun_User::where('user_id' , auth()->user()->id)->where('coupoun_id' , $TheCoupon->id)->delete();
           }
           if($TheOrder->email){
-            // Mail::to($TheOrder->email)->send(new OrderFailedMail($TheOrder));
+            Mail::to($TheOrder->email)->send(new OrderFailedMail($TheOrder));
           }
         }
         return view('orders.checkout.thank-you' , compact('TheOrder' , 'OrderItems'));
