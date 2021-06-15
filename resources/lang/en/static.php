@@ -1,7 +1,7 @@
 <?php
  return [
     'about_title' => 'About Broadshop',
-    'about_desc_1' => 'Welcome to Broadsshop, your number one source for kitchen equipments and electric scooters. We\'re dedicated to giving you the very best of our products, with a focus on quality, price and enviroment Founded in 2019, Broadshop has come a long way from its beginnings in a Antwerpen. When we first started out, our passion for helping others to be more eco-friendly, providing the best equipment for affordable price drove us to do intense research and find the best products for the best prices.',
+    'about_desc_1' => 'Welcome to Broadsshop, We\'re dedicated to giving you the very best of our products, with a focus on quality, price and enviroment Founded in 2019, Broadshop has come a long way from its beginnings in a Antwerpen. When we first started out, our passion for helping others to be more eco-friendly, providing the best equipment for affordable price drove us to do intense research and find the best products for the best prices.',
     'about_desc_2' => 'We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or comments, please don\'t hesitate to contact us.',
     'our_values' => 'Our Values',
     'value_1' => 'Eco-Friendly',

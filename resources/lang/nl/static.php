@@ -1,7 +1,7 @@
 <?php
  return [
     'about_title' => 'Over Broadshop',
-    'about_desc_1' => 'Welkom bij Broadsshop, jouw nummer één winkel voor keukenapparatuur en elektrische scooters. We zijn toegewijd om je het allerbeste van onze producten te geven, met een focus op kwaliteit, prijs en het milieu. Broadshop, opgericht in 2019, heeft sinds het begin in Antwerpen een lange weg afgelegd. Toen we net begonnen, dreef onze passie om anderen te helpen, milieuvriendelijker te zijn en het leveren van de beste apparatuur voor een betaalbare prijs, ons ertoe om intensief onderzoek te doen en de beste producten voor de beste prijzen te vinden.',
+    'about_desc_1' => 'Welkom bij Broadsshop, We zijn toegewijd om je het allerbeste van onze producten te geven, met een focus op kwaliteit, prijs en het milieu. Broadshop, opgericht in 2019, heeft sinds het begin in Antwerpen een lange weg afgelegd. Toen we net begonnen, dreef onze passie om anderen te helpen, milieuvriendelijker te zijn en het leveren van de beste apparatuur voor een betaalbare prijs, ons ertoe om intensief onderzoek te doen en de beste producten voor de beste prijzen te vinden.',
     'about_desc_2' => 'Wij hopen dat je net zoveel plezier beleeft aan onze producten als dat wij ze voor je beschikbaar stellen. Als je vragen of opmerkingen hebt, aarzel dan niet om contact met ons op te nemen!.',
     'our_values' => 'Onze waarden',
     'value_1' => 'Milieuvriendelijk',
