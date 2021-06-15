@@ -8,8 +8,8 @@ class LanguageMiddleware{
         if (session()->has('locale')) {
             App::setLocale(session()->get('locale'));
         }else{
-            App::setLocale('en');
-            session()->put('locale', 'en');
+            App::setLocale('nl');
+            session()->put('locale', 'nl');
         }
         return $next($request);
     }

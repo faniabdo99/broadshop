@@ -4,7 +4,7 @@
     'billing_details' => 'Factureringsgegevens',
     'checkout_type' => 'Afrekentype',
     'indivisual' => 'Particulier',
-    'company' => 'Bedrijf',
+    'company' => 'Zakelijk',
     'company_name' => 'Bedrijfsnaam',
     'vat_number' => ' BTW-nummer ',
     'f_name' => 'Voornaam',

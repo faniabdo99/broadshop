@@ -36,5 +36,5 @@
     'to_add_review' => 'om een beoordeling toe te voegen',
     'vat_disclaimer' => 'Inclusief BTW',
     'in_stock' => 'Op voorraad',
-    'delivery_notice' => '1-3 Dagen Levering'
+    'delivery_notice' => '1-3 Werkdagen'
  ];
