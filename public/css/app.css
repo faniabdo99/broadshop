@@ -364,7 +364,7 @@ img,
   color: #fff;
   background-color: #0090e3;
   border: none;
-  border-bottom: 3px #1081c2 solid;
+  border-bottom: 3px #0090e3 solid;
 }
 
 .btn-yellow {
@@ -391,7 +391,7 @@ img,
   color: #fff;
   background-color: #0090e3;
   border: none;
-  border-bottom: 3px #1081c2 solid;
+  border-bottom: 3px #0090e3 solid;
 }
 
 .btn-pink {
@@ -471,7 +471,7 @@ img,
 .btn-secondary:hover {
   color: #fff;
   background-color: #0090e3;
-  border-color: #1081c2;
+  border-color: #0090e3;
 }
 
 .header-2 .btn-secondary {
@@ -549,7 +549,7 @@ img,
 
 .btn-dark:hover {
   background-color: #0090e3;
-  border-color: #1081c2;
+  border-color: #0090e3;
 }
 
 .btn.focus,
@@ -603,7 +603,7 @@ button:focus {
 
 .btn-red {
   color: #fff;
-  background-color: #1081c2;
+  background-color: #0090e3;
   border: none;
   border-bottom: 3px #e8524e solid;
 }
@@ -1289,12 +1289,12 @@ button:focus {
 }
 
 .header-5 #header-wrap {
-  background: #1081c2;
+  background: #0090e3;
   padding: 0;
 }
 
 .header-5 #header-wrap.fixed-header {
-  background: #1081c2;
+  background: #0090e3;
 }
 
 .top-offer-text {
@@ -1616,7 +1616,7 @@ header .navbar-nav .nav-item {
 }
 
 .header-4 .navbar .navbar-nav > li:hover > a {
-  color: #1081c2;
+  color: #0090e3;
 }
 
 .header-6 .navbar-nav .nav-link {
@@ -2530,7 +2530,7 @@ header .navbar-nav .nav-item {
 }
 
 .header-4 .wishlist-block {
-  background: #1081c2;
+  background: #0090e3;
   padding: 0 20px;
   line-height: 4.2rem;
 }
@@ -3040,7 +3040,7 @@ header .navbar-nav .nav-item {
   display: inline-block;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  background: #1081c2;
+  background: #0090e3;
   margin-top: 0px;
   min-width: 250px;
 }
@@ -3175,7 +3175,7 @@ header .navbar-nav .nav-item {
 }
 
 .product-block .link-title:hover {
-  color: #1081c2;
+  color: #0090e3;
 }
 
 .product-block-div {
@@ -3191,7 +3191,7 @@ header .navbar-nav .nav-item {
 }
 
 .product-block-div h2.bg-dark-blue {
-  background: #1081c2;
+  background: #0090e3;
 }
 
 .product-block-div h2.bg-dark-blue:after {
@@ -3211,7 +3211,7 @@ header .navbar-nav .nav-item {
 }
 
 .product-block-div h2.bg-redish:after {
-  border-color: #1081c2 #1081c2 transparent transparent;
+  border-color: #0090e3 #0090e3 transparent transparent;
 }
 
 .product-block-div .star-rating {
@@ -5088,7 +5088,7 @@ input.form-product {
 
 .bg-pink:before {
   content: "";
-  background: #1081c2;
+  background: #0090e3;
   width: 50%;
   position: absolute;
   top: 0;
@@ -5097,7 +5097,7 @@ input.form-product {
 
 .bg-pink:after {
   content: "";
-  background: #1081c2;
+  background: #0090e3;
   width: 50%;
   position: absolute;
   top: 0;

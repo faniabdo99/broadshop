@@ -14,11 +14,6 @@
           <div class="col-md-8">
             <div class="row justify-content-end">
               <ul class="header_list">
-                @if(session()->get('locale') == 'nl')
-                  <li><a href="{{route('switchLang' , 'en')}}"><img src="{{url('public/icons/uk-flag.png')}}" width="20"> English</a></li>
-                @else
-                  <li><a href="{{route('switchLang' , 'nl')}}"><img src="{{url('public/icons/bg-flag.png')}}" width="20"> Dutch</a></li>
-                @endif
                 @auth 
                 <li><a href="{{route('user.wishlist')}}"><i class="icon fa fa-heart"></i><span>@lang('layout.wishlist')</span></a></li>
                 <li><a href="{{route('user.getProfile')}}"><i class="icon fa fa-user"></i><span>@lang('layout.welcome'), {{auth()->user()->name}}</span></a></li>
@@ -139,7 +134,15 @@
                   <li class="nav-item"><a class="nav-link" href="{{route('about')}}">@lang('layout.about')</a> </li>
                   @guest
                     <li class="nav-item"><a class="nav-link" href="{{route('user.getSignin')}}">@lang('layout.signin')</a> </li>
-                  @endguest
+                    @endguest
+                  @auth
+                    <li class="nav-item"><a class="nav-link" href="{{route('user.getProfile')}}">{{auth()->user()->name}}</a> </li>
+                  @endauth
+                  @if(session()->get('locale') == 'nl')
+                    <li class="nav-item"><a class="nav-link text-left" href="{{route('switchLang' , 'en')}}"><img src="{{url('public/icons/uk-flag.png')}}" width="20"> English</a></li>
+                  @else
+                    <li class="nav-item"><a class="nav-link text-left" href="{{route('switchLang' , 'nl')}}"><img src="{{url('public/icons/bg-flag.png')}}" width="20"> Dutch</a></li>
+                  @endif
                   <li class="nav-item"><a class="nav-link text-yellow" href="https://kugoo.eu/" target="_blank">@lang('layout.kugoo_scooters')</a> </li>
                 </ul>
               </div>

@@ -298,7 +298,7 @@
                                 <!-- Heading -->
                                 <h3 class="text-dark font-w-7">@lang('static.electric_scooters')</h3>
                                 <!-- Link -->
-                                <a class="more-link text-dark" href="{{route('products' , 'scooters')}}">Shop Now </a>
+                                <a class="more-link text-dark" href="{{route('products' , 'scooters')}}">@lang('static.shop_now')</a>
                             </div>
                         </div>
                     </div>
@@ -313,8 +313,7 @@
                                 <!-- Heading -->
                                 <h3 class="font-w-7 text-dark">@lang('static.personal_care')</h3>
                                 <!-- Link -->
-                                <a class="more-link text-dark" href="{{route('products' , 'personal-care')}}">@lang('static.shop_now')
-                                </a>
+                                <a class="more-link text-dark" href="{{route('products' , 'personal-care')}}">@lang('static.shop_now')</a>
                             </div>
                         </div>
                     </div>
@@ -328,8 +327,7 @@
                                 <h6 class="text-dark">@lang('static.wide_variatey')</h6>
                                 <!-- Heading -->
                                 <h3 class="font-w-7">@lang('static.view_all')</h3>
-                                <!-- Link --> <a class="more-link text-dark" href="{{route('product.home')}}">@lang('static.shop_now')
-                                </a>
+                                <!-- Link --> <a class="more-link text-dark" href="{{route('product.home')}}">@lang('static.shop_now')</a>
                             </div>
                         </div>
                     </div>
@@ -399,8 +397,7 @@
                                                         @for($i = 1; $i <= (5-$BSProduct->Reviews->avg('rate')); $i++)
                                                             <i class="las la-star not-active"></i>
                                                             @endfor
-                                                            <span
-                                                                class="stars-count">({{$BSProduct->Reviews->count()}})</span>
+                                                            <span class="stars-count">({{$BSProduct->Reviews->count()}})</span>
                                                 </div>
                                             </div>
                                         </div>
