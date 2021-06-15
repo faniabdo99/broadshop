@@ -65,7 +65,7 @@
                             <p>@lang('static.value_5_desc')</p>
                         </div>
                         <div class="col-12 col-lg-4 col-md-4 mb-5 mb-md-0">
-                            <i class="fas fa-home text-primary"></i>
+                            <i class="fas fa-lock text-primary"></i>
                             <h5 class="font-w-6">@lang('static.value_6')</h5>
                             <p>@lang('static.value_6_desc')</p>
                         </div>

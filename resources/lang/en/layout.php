@@ -17,7 +17,7 @@
     'navbar_free_shipping' => 'FREE shipping for orders above 50€',
     'wishlist' => 'My Wishlist',
     'welcome' => 'Welcome',
-    'logout' => 'Logout',
+    'logout' => 'Signout',
     'signin' => 'Signin',
     'cart' => 'Cart',
     'cart_empty' => 'There is no items in your cart yet.',

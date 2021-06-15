@@ -37,7 +37,7 @@
     //Signin
     'password' => 'Password',
     'remember_me' => 'Remember me',
-    'forgot_password?' => 'Forgot Password?',
+    'forgot_password' => 'Forgot Password?',
     'signin' => 'Signin',
     'or' => 'or',
     'signin_google' => 'Signin With Google',

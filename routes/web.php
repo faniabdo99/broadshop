@@ -129,10 +129,6 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'] , function () {
     });
 });
 
-Route::get('change-lang/{locale}', 'HomeController@changeLang')->name('changeLang');
-Route::get('/change-currency/{currency}/{currency_code}' , 'CurrencyController@setCurrency')->name('currency.change');
-Route::get('/success' , 'OrdersController@orderSuccess')->name('order.success');
-
 //Products Routes
 Route::group(['prefix'=>'products'] , function (){
   Route::get('/{filter?}' , 'ProductsController@getAll')->name('product.home');
@@ -147,3 +143,4 @@ Route::get('order-summary/{id}', 'OrdersController@getSummaryPage')->name('check
 Route::get('order-payment/{id}', 'OrdersController@getPaymentPage')->name('checkout.payment');
 Route::post('order-payment/{id}', 'OrdersController@postPaymentPage')->name('checkout.payment.post');
 Route::post('apply-coupon' , 'CoupounsController@applyCoupon')->name('coupon.apply');
+Route::get('/success' , 'OrdersController@orderSuccess')->name('order.success');

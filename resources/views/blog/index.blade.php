@@ -28,6 +28,7 @@
                                 <!-- End Blog Card -->
                             </div>
                         @empty
+                            <p>Er zijn momenteel geen blogartikelen beschikbaar articles</p>
                         @endforelse
                     </div>
                 </div>
