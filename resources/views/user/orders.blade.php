@@ -16,11 +16,11 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>@lang('usre.order')</th>
-                                        <th>@lang('usre.date')</th>
-                                        <th>@lang('usre.status')</th>
-                                        <th>@lang('usre.total')</th>
-                                        <th>@lang('usre.actions')</th>
+                                        <th>@lang('user.order')</th>
+                                        <th>@lang('user.date')</th>
+                                        <th>@lang('user.status')</th>
+                                        <th>@lang('user.total')</th>
+                                        <th>@lang('user.actions')</th>
                                     </tr>
                                 </thead>
                                 <tbody>
