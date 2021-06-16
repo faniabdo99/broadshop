@@ -78,11 +78,11 @@
                                     </div>
                                 </div>
                                 <div class="d-sm-flex align-items-center mt-5">
-                                    <a class="add-to-cart-button" href="javascript:;" id="add-to-cart-single" data-product="{{$TheProduct->id}}" data-user="{{getUserId()}}">
+                                    <a class="add-to-cart-button mr-3" href="javascript:;" id="add-to-cart-single" data-product="{{$TheProduct->id}}" data-user="{{getUserId()}}">
                                         <i class="las la-shopping-cart mr-2"></i> @lang('products.add_to_cart')
                                     </a>
                                     @auth
-                                        <a class="btn bg-primary text-white like_item @if($TheProduct->LikedByUser()) bg-primary @endif" product-id="{{$TheProduct->id}}" data-toggle="tooltip" data-placement="left" title="Add to Wishlist" data-original-title="Add to wishlist" href="javascript:;">
+                                        <a class="add-to-cart-button text-white like_item @if($TheProduct->LikedByUser()) bg-primary @endif" product-id="{{$TheProduct->id}}" data-toggle="tooltip" data-placement="left" title="Add to Wishlist" data-original-title="Add to wishlist" href="javascript:;">
                                             <i class="lar la-heart mr-2 ic-1-2x"></i> @if($TheProduct->LikedByUser()) @lang('products.added_to_wishlist') @else @lang('products.add_to_wishlist') @endif
                                         </a>
                                     @endauth
