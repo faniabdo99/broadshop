@@ -1,7 +1,7 @@
 @include('layout.header' , [
     'PageTitle' => __('user.signin')
 ])
-<body>
+<body class="no-touch">
     <!-- page wrapper start -->
     <div class="page-wrapper">
       @include('layout.navbar')

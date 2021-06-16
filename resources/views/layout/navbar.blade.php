@@ -56,7 +56,7 @@
                 <ul class="cart_list">
                   @forelse (userCart() as $NavCartItem)
                   <li>
-                    {{-- <a href="#" class="item_remove"><i class="ion-ios-close-empty"></i></a>  --}}
+                    <a href="{{route('cart.delete' , [$NavCartItem->id , getUserId()])}}" class="item_remove"><i class="fas fa-times"></i></a> 
                     <a href="{{route('product.single' , [$NavCartItem->Product->slug , $NavCartItem->Product->id])}}">
                       <img src="{{$NavCartItem->Product->ImagePath}}" alt="{{$NavCartItem->Product->LocalTitle}}">
                       {{$NavCartItem->Product->LocalTitle}}
@@ -97,7 +97,7 @@
                 <ul class="cart_list">
                   @forelse (userCart() as $NavCartItem)
                   <li>
-                    {{-- <a href="#" class="item_remove"><i class="ion-ios-close-empty"></i></a>  --}}
+                    <a href="{{route('cart.delete' , [$NavCartItem->id , getUserId()])}}" class="item_remove"><i class="fas fa-times"></i></a> 
                     <a href="{{route('product.single' , [$NavCartItem->Product->slug , $NavCartItem->Product->id])}}">
                       <img src="{{$NavCartItem->Product->ImagePath}}" alt="{{$NavCartItem->Product->LocalTitle}}">
                       {{$NavCartItem->Product->LocalTitle}}

@@ -1,4 +1,5 @@
 <!-- inject js start -->
+    <script src="{{url('public/')}}/js/modernizr.js"></script>
     <script src="{{url('public/')}}/js/jquery-3.5.1.min.js"></script>
     <script src="{{url('public/')}}/js/popper.min.js"></script>
     <script src="{{url('public/')}}/js/bootstrap.min.js"></script>

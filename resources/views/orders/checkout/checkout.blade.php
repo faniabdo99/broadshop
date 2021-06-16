@@ -2,7 +2,7 @@
 'PageTitle' => __('checkout.title')
 ])
 
-<body class="bg-light-4">
+<body class="bg-light-4 no-touch">
     <!-- page wrapper start -->
     <div class="page-wrapper">
         @include('layout.navbar')
