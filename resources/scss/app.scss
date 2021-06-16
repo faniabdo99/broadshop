@@ -7352,6 +7352,24 @@ footer.bg-dark-2 .footer-box {
         z-index: 9999;
     }
 }
+.cta-section{
+    position: relative;
+}
+.cta-content{
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 4px;
+    top: 15%;
+    left: 5%;
+    padding:30px;
+    color: #fff;
+    p{
+        color: #fff;
+    }
+    h3{
+        font-weight: bold;
+    }
+}
 @media (max-width:768px) {
     .cta-section{
         position: relative;
