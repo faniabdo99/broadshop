@@ -1799,7 +1799,19 @@ header .navbar-nav .nav-item {
 .cart_buttons .checkout {
     padding: 8px 20px !important;
 }
-
+.add-to-cart-button{
+    padding:10px 25px;
+    background-color: $brand;
+    color: #fff;
+    border-radius: 4px;
+}
+.no-touch.add-to-cart-button:hover{
+        background-color: red;
+        color: #fff;
+}
+.no-touch.add-to-cart-button:focus{
+        background-color: $success;
+}
 
 /* ------------------------
 15. Side Nav

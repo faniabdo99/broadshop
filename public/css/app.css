@@ -1794,6 +1794,22 @@ header .navbar-nav .nav-item {
   padding: 8px 20px !important;
 }
 
+.add-to-cart-button {
+  padding: 10px 25px;
+  background-color: #0090e3;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.no-touch.add-to-cart-button:hover {
+  background-color: red;
+  color: #fff;
+}
+
+.no-touch.add-to-cart-button:focus {
+  background-color: #3bc04b;
+}
+
 /* ------------------------
 15. Side Nav
 ------------------------*/

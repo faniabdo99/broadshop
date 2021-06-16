@@ -1,7 +1,7 @@
 @include('layout.header' , [
     'PageTitle' => $TheProduct->LocalTitle
 ])
-<body class="bg-light-4 no-touch">
+<body class="bg-light-4">
     <!-- page wrapper start -->
     <div class="page-wrapper">
         @include('layout.navbar')
@@ -78,7 +78,7 @@
                                     </div>
                                 </div>
                                 <div class="d-sm-flex align-items-center mt-5">
-                                    <a class="btn btn-primary mr-sm-3 mb-3 mb-sm-0" href="javascript:;" id="add-to-cart-single" data-product="{{$TheProduct->id}}" data-user="{{getUserId()}}">
+                                    <a class="add-to-cart-button" href="javascript:;" id="add-to-cart-single" data-product="{{$TheProduct->id}}" data-user="{{getUserId()}}">
                                         <i class="las la-shopping-cart mr-2"></i> @lang('products.add_to_cart')
                                     </a>
                                     @auth
