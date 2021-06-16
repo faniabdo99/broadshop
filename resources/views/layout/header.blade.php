@@ -7,7 +7,7 @@
     <meta name="description" content="Bootstrap 4 Landing Page Template" />
     <meta name="author" content="www.themesground.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="base_url" content="{{route('soon')}}">
+    <meta name="base_url" content="{{route('home')}}">
     @auth
         <meta name="user_id" content="{{auth()->user()->id}}">
     @endauth
