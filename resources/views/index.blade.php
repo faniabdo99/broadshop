@@ -238,7 +238,7 @@
                                 <span class="dark-yellow d-inline-block text-white mb-0">20€</span>
                                 <br>
                                 <h5 class="dark-red d-inline-block text-white font-w-6">@lang('static.discount')</h5>
-                                <h1 class="mt-4 text-dark animated3"><span>@lang('static.use_coupon')</span><br> BROADSGOP_20</h1>
+                                <h1 class="mt-4 text-dark animated3"><span>@lang('static.use_coupon')</span><br> BROADSHOP_20</h1>
                                 <p class="ml-4">@lang('layout.navbar_free_shipping')</p>
                                 <a class="btn btn-primary btn-animated ml-3 mt-4" href="{{route('product.home')}}">@lang('static.shop_now')</a>
                             </div>
