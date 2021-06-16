@@ -1,8 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 Route::get('lang/{locale}', 'PageController@getSwitchlang')->name('switchLang');
-Route::get('/' , 'PageController@getSoon')->name('soon');
-Route::get('/home' , 'PageController@getIndex')->name('home');
+Route::get('/' , 'PageController@getIndex')->name('home');
 Route::get('/contact' , 'ContactController@getContact')->name('contactUs');
 Route::post('/contact' , 'ContactController@postContact')->name('contactUs.post'); 
 Route::get('/about' , 'PageController@getAbout')->name('about');

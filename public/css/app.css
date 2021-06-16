@@ -7273,6 +7273,11 @@ footer.bg-dark-2 .footer-box {
   color: #c03b3b;
 }
 
+.footer-payment-methods li a img {
+  height: 32px;
+  width: auto;
+}
+
 #cookies-disclaimer {
   position: fixed;
   bottom: 0;

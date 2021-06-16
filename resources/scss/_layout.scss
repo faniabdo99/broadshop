@@ -30,6 +30,12 @@
         .notification-content{b{color: $danger;}}
     }
 }
+.footer-payment-methods{
+    li a img{
+        height: 32px;
+        width: auto;
+    }
+}
 //Cookies Disclaimer
 #cookies-disclaimer{
     position: fixed;

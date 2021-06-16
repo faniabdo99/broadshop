@@ -42,7 +42,7 @@
             <div class="col-md-7 font-w-4"><small>@lang('layout.copywrites')</small>
             </div>
             <div class="col-md-5 text-md-right mt-3 mt-md-0">
-                <ul class="list-inline mb-0">
+                <ul class="list-inline mb-0 footer-payment-methods">
                     <li class="list-inline-item">
                         <a href="#">
                             <img class="img-fluid" src="{{url('public')}}/images/pay-icon/01.png" alt="">
@@ -51,6 +51,16 @@
                     <li class="list-inline-item">
                         <a href="#">
                             <img class="img-fluid" src="{{url('public')}}/images/pay-icon/02.png" alt="">
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <img class="img-fluid" src="{{url('public')}}/images/pay-icon/bancontact.png" alt="">
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <img class="img-fluid" src="{{url('public')}}/images/pay-icon/ideal.png" alt="">
                         </a>
                     </li>
                 </ul>
