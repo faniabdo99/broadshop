@@ -438,7 +438,64 @@ function ShowNoto(className, text, header) {
         'color': Color
       },
       success: function success(response) {
-        ShowNoto('success-notification', response + '<a class="btn btn-dark btn-animated mt-3 btn-block" href="/products">Continue Shopping</a>', 'Success');
+        console.log(response);
+        ShowNoto('success-notification', response.message + '<a class="btn btn-dark btn-animated mt-3 btn-block" href="/products">Continue Shopping</a> <a class="btn btn-dark btn-animated mt-3 btn-block" href="/checkout">Processed to Checkout</a>', 'Success'); //Update the cart number
+
+        $('.navbar-cart-icon').attr('data-cart-items', response.count);
+        $('.user-cart-total').html(response.total); //Update navbar using dynamic content
+
+        $('.cart_list').append("\n            <li>\n              <a href=\"/product/".concat(response.item.product.slug, "/").concat(response.item.product.id, "\">\n                <img src=\"/storage/app/images/products/").concat(response.item.product.image, "\" alt=\"").concat(response.item.product.title, "\">\n                ").concat(response.item.product.title, "\n              </a>\n              <span class=\"cart_quantity\"> 1 x <span class=\"cart_amount\">\n              <span class=\"price_symbole\">\u20AC</span></span>").concat(response.item.product.price, "</span> \n            </li>\n          "));
+      },
+      error: function error(response) {
+        ShowNoto('danger-notification', response.responseText, 'Error');
+      }
+    });
+  }); //Update Cart
+
+  $('.btn-product').click(function () {
+    var ActionRoute = $(this).data('target');
+    var ItemId = $(this).data('id');
+    var UserId = $(this).data('user');
+    var TheItem = $(this);
+    var ItemValue = $(this).parent().find('.update-cart-form').val();
+    $.ajax({
+      'method': 'post',
+      'url': ActionRoute,
+      'data': {
+        'item_id': ItemId,
+        'qty': ItemValue,
+        'user_id': UserId
+      },
+      success: function success(response) {
+        //Get the refresh icon and show it
+        $('#update-cart-button').removeClass('d-none');
+        ShowNoto('success-notification', response, 'Success');
+        $('.update-cart-btn').html('Update Cart Data <i class="fas fa-circle text-success"></i>');
+      },
+      error: function error(response) {
+        ShowNoto('danger-notification', response.responseText, 'Error');
+      }
+    });
+  });
+  $('.update-cart-form').change(function () {
+    var ActionRoute = $(this).data('target');
+    var ItemId = $(this).data('id');
+    var UserId = $(this).data('user');
+    var TheItem = $(this);
+    var ItemValue = $(this).val();
+    $.ajax({
+      'method': 'post',
+      'url': ActionRoute,
+      'data': {
+        'item_id': ItemId,
+        'qty': ItemValue,
+        'user_id': UserId
+      },
+      success: function success(response) {
+        //Get the refresh icon and show it
+        $('#update-cart-button').removeClass('d-none');
+        ShowNoto('success-notification', response, 'Success');
+        $('.update-cart-btn').html('Update Cart Data <i class="fas fa-circle text-success"></i>');
       },
       error: function error(response) {
         ShowNoto('danger-notification', response.responseText, 'Error');

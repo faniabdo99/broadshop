@@ -238,8 +238,8 @@
                                 <span class="dark-yellow d-inline-block text-white mb-0">20€</span>
                                 <br>
                                 <h5 class="dark-red d-inline-block text-white font-w-6">@lang('static.discount')</h5>
-                                <h1 class="mt-4 text-dark animated3"><span>@lang('static.use_coupon')</span><br> BROADSHOP_20</h1>
-                                <p class="ml-4">@lang('layout.navbar_free_shipping')</p>
+                                <h1 class="mt-4 text-white animated3"><span>@lang('static.use_coupon')</span><br> BROADSHOP_20</h1>
+                                <p class="ml-4 text-white">@lang('layout.navbar_free_shipping')</p>
                                 <a class="btn btn-primary btn-animated ml-3 mt-1 mt-lg-4" href="{{route('product.home')}}">@lang('static.shop_now')</a>
                             </div>
                         </div>
@@ -254,8 +254,8 @@
                                 <span class="dark-yellow d-inline-block text-white mb-0">KUGOO</span>
                                 <br>
                                 <h5 class="dark-red d-inline-block text-white font-w-6">@lang('static.scooters')</h5>
-                                <h1 class="mt-4 animated3 text-white">@lang('static.now_in_broadshop')</h1>
-                                <p class="ml-4 text-white">@lang('layout.navbar_free_shipping')</p>
+                                <h1 class="mt-4 animated3 text-dark">@lang('static.now_in_broadshop')</h1>
+                                <p class="ml-4 text-dark">@lang('layout.navbar_free_shipping')</p>
                                 <a class="btn btn-primary btn-animated ml-3 mt-1 mt-lg-4" href="{{route('product.home')}}">@lang('static.shop_now')</a>
                             </div>
                         </div>
@@ -400,11 +400,11 @@
                                                     @endphp
                                                     @for($i = 1; $i <= $BSProduct->Reviews->avg('rate'); $i++)
                                                         <i class="las la-star"></i>
-                                                        @endfor
-                                                        @for($i = 1; $i <= (5-$BSProduct->Reviews->avg('rate')); $i++)
-                                                            <i class="las la-star not-active"></i>
-                                                            @endfor
-                                                            <span class="stars-count">({{$BSProduct->Reviews->count()}})</span>
+                                                    @endfor
+                                                    @for($i = 1; $i <= (5-$BSProduct->Reviews->avg('rate')); $i++)
+                                                        <i class="las la-star not-active"></i>
+                                                    @endfor
+                                                    <span class="stars-count">({{$BSProduct->Reviews->count()}})</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -432,7 +432,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <img class="w-100" src="{{url('public/images/hero')}}/cta-banner.jpg" alt="Cupon Banner">
+                        <img class="w-100" src="{{url('public/images/hero')}}/banner-1.jpg" alt="Coupon Banner">
                         <div class="cta-content">
                             <h3>20 EURO CUOPON!</h3>
                             <p>Get a 20 Euro Coupon when you signup for a new account of broadshop!</p>

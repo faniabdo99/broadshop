@@ -40,12 +40,25 @@ class CartController extends Controller{
                 $CurrentCart = Cart::where('product_id' , $CartData['product_id'])->where('user_id' , $CartData['user_id'])->whereDate('created_at' , Carbon::today())->where('status' , 'active')->first();
                 if($CurrentCart){
                     $CurrentCart->update(['qty' => $CurrentCart->qty + $CartData['qty']]);
-                    return response('Your cart has been updated' , 200);
+                    $CartItem = Cart::find($CurrentCart->id)->with('Product')->first();
+                    $ResponseArray = [
+                        'count' => count(userCart($r->user_id)),
+                        'item' => $CartItem,
+                        'total' => userCartTotal($r->user_id),
+                        'message' => 'Your cart has been updated'
+                    ];
                 }else{
                     $CartData['product_id'] = $Product->id;
-                    Cart::create($CartData);
-                    return response('Your cart has been updated' , 200);
+                    $TheCart = Cart::create($CartData);
+                    $NewCart = Cart::find($TheCart->id)->with('Product')->first();
+                    $ResponseArray = [
+                        'count' => count(userCart($r->user_id)),
+                        'total' => userCartTotal($r->user_id),
+                        'item' => $NewCart,
+                        'message' => 'Your cart has been updated'
+                    ];
                 }
+                return response($ResponseArray , 200);
             }
         }
     }

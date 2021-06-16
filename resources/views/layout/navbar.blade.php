@@ -47,9 +47,9 @@
           <div class="col-md-4 col-lg-2 col-sm-2 col-2 pl-0">
             <div class="dropdown cart_dropdown">
                <a class="d-flex align-items-center cart-d" href="#">
-                <span class="px-2 py-1 rounded" data-cart-items="{{count(userCart())}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                <span class="px-2 py-1 rounded navbar-cart-icon" data-cart-items="{{count(userCart())}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
                 <div class="ml-2 d-none d-md-block cart-details">
-                  <span class="text-white"><span class="label">@lang('layout.cart') -</span> €{{userCartTotal()}}</span> 
+                  <span class="text-white"><span class="label">@lang('layout.cart') -</span> €<span class="user-cart-total">{{userCartTotal()}}</span></span> 
                 </div>
               </a>
               <div class="cart_box dropdown-menu dropdown-menu-right">
@@ -88,9 +88,9 @@
           <div class="col-lg-12 col-md-12 col-xs-3 col-sm-3 p-0 d-flex navbar-menu">
               <div class="dropdown cart_dropdown d-lg-none d-md-none d-xs-block d-sm-block" dir="ltr">
                 <a class="d-flex align-items-center cart-d" href="#">
-                <span class="px-2 py-1 rounded" data-cart-items="{{count(userCart())}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                <span class="px-2 py-1 rounded navbar-cart-icon" data-cart-items="{{count(userCart())}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
                 <div class="ml-2 d-none d-md-block cart-details">
-                    <span class="text-white"><span class="label">@lang('layout.cart') -</span> €{{userCartTotal()}}</span> 
+                  <span class="text-white"><span class="label">@lang('layout.cart') -</span> €<span class="user-cart-total">{{userCartTotal()}}</span></span> 
                 </div>
               </a>
               <div class="cart_box dropdown-menu dropdown-menu-right">

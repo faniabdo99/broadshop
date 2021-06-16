@@ -25,12 +25,14 @@ function getUserId(){
     return Cookie::get('guest_id');
   }
 }
-function userCart(){
-  return Cart::where('user_id' , getUserId())->where('status' , 'active')->whereDate('created_at' , Carbon::today())->get();
+function userCart($userId = null){
+  if($userId == null){$userId = getUserId();}
+  return Cart::where('user_id' , $userId)->where('status' , 'active')->whereDate('created_at' , Carbon::today())->get();
 }
-function userCartTotal(){
+function userCartTotal($userId = null){
+  if($userId == null){$userId = getUserId();}
   $Total = 0;
-  foreach(userCart() as $Single){
+  foreach(userCart($userId) as $Single){
     $Total += $Single->TotalPrice;
   }
   return $Total;

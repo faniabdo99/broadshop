@@ -4173,7 +4173,7 @@ header .navbar-nav .nav-tabs .nav-item {
 -------------------------------*/
 [data-bg-img] {
   background-size: cover;
-  background-position: center center;
+  background-position: 80%;
   background-repeat: no-repeat;
 }
 
@@ -7215,25 +7215,39 @@ footer.bg-dark-2 .footer-box {
   z-index: 9999;
 }
 
-.cta-section {
-  position: relative;
-}
-.cta-section .cta-content {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
-  top: 25%;
-  left: 5%;
-  padding: 30px;
-  border-radius: 4px;
-  color: #fff;
-}
-.cta-section .cta-content p {
-  color: #fff;
-}
-.cta-section .cta-content h3 {
-  font-weight: bold;
-}
+@media (max-width: 768px) {
+  .cta-section {
+    position: relative;
+    height: 200px !important;
+    width: auto !important;
+  }
 
+  .cta-content {
+    width: 92%;
+    height: 115px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0%;
+    right: 15px;
+    left: 15px;
+    padding: 10px;
+    color: #fff;
+  }
+  .cta-content p {
+    color: #fff;
+    font-size: 0.6em;
+    margin-bottom: 5px;
+  }
+  .cta-content h3 {
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-bottom: 0;
+  }
+  .cta-content .btn {
+    padding: 5px 10px;
+    font-size: 0.7em;
+  }
+}
 .notification {
   position: fixed;
   z-index: 999;

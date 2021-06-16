@@ -39,7 +39,13 @@
                                                     </td>
                                                     <td> <span class="product-price text-muted">{{$Cart->Product->FinalPrice}}€</span>
                                                     </td>
-                                                    <td class="text-center">X{{$Cart->qty}}</td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <button class="btn-product btn-product-up" data-user="{{getUserId()}}" data-id="{{$Cart->id}}" data-target="{{route('cart.update')}}"> <i class="las la-minus"></i></button>
+                                                            <input class="form-product update-cart-form" data-user="{{getUserId()}}" data-id="{{$Cart->id}}" type="number" name="qty" data-target="{{route('cart.update')}}" value="{{$Cart->qty}}">
+                                                            <button class="btn-product btn-product-down" data-user="{{getUserId()}}" data-id="{{$Cart->id}}" data-target="{{route('cart.update')}}"> <i class="las la-plus"></i></button>
+                                                        </div>
+                                                    </td>
                                                     <td> <span class="product-price text-dark font-w-6">{{$Cart->TotalPrice}}€</span>
                                                         <a href="{{route('cart.delete' , [$Cart->id , getUserId()])}}" class="close-link"><i class="las la-trash"></i></a>
                                                     </td>
@@ -48,6 +54,7 @@
                                             @endforelse
                                         </tbody>
                                     </table>
+                                    <a href="{{route('cart')}}" class="btn btn-light d-none" id="update-cart-button">Update Cart Values</a>
                                 @else
                                     <p>@lang('cart.no_items')</p>
                                     <a class="btn btn-dark btn-animated mt-3 btn-block" href="{{route('product.home')}}">@lang('cart.shop_now')</a>
