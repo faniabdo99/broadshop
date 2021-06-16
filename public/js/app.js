@@ -438,7 +438,7 @@ function ShowNoto(className, text, header) {
         'color': Color
       },
       success: function success(response) {
-        console.log(response);
+        console.log(response.item);
         ShowNoto('success-notification', response.message + '<a class="btn btn-dark btn-animated mt-3 btn-block" href="/products">Continue Shopping</a> <a class="btn btn-dark btn-animated mt-3 btn-block" href="/checkout">Processed to Checkout</a>', 'Success'); //Update the cart number
 
         $('.navbar-cart-icon').attr('data-cart-items', response.count);
@@ -456,7 +456,6 @@ function ShowNoto(className, text, header) {
     var ActionRoute = $(this).data('target');
     var ItemId = $(this).data('id');
     var UserId = $(this).data('user');
-    var TheItem = $(this);
     var ItemValue = $(this).parent().find('.update-cart-form').val();
     $.ajax({
       'method': 'post',

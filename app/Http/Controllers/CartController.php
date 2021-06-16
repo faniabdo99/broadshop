@@ -40,7 +40,7 @@ class CartController extends Controller{
                 $CurrentCart = Cart::where('product_id' , $CartData['product_id'])->where('user_id' , $CartData['user_id'])->whereDate('created_at' , Carbon::today())->where('status' , 'active')->first();
                 if($CurrentCart){
                     $CurrentCart->update(['qty' => $CurrentCart->qty + $CartData['qty']]);
-                    $CartItem = Cart::find($CurrentCart->id)->with('Product')->get()->first();
+                    $CartItem = Cart::where('id',$CurrentCart->id)->with('Product')->first();
                     $ResponseArray = [
                         'count' => count(userCart($r->user_id)),
                         'item' => $CartItem,
@@ -50,7 +50,7 @@ class CartController extends Controller{
                 }else{
                     $CartData['product_id'] = $Product->id;
                     $TheCart = Cart::create($CartData);
-                    $NewCart = Cart::find($TheCart->id)->with('Product')->get()->first();
+                    $NewCart = Cart::where('id',$TheCart->id)->with('Product')->first();
                     $ResponseArray = [
                         'count' => count(userCart($r->user_id)),
                         'total' => userCartTotal($r->user_id),
