@@ -3,7 +3,7 @@
   <!-- End Google Tag Manager (noscript) -->
   <!--header start-->
   <header class="site-header header-5">
-    <div class="header-top bg-blue pt-1">
+    <div class="header-top bg-blue pt-1 d-none d-lg-block d-md-block">
       <div class="container">
         <div class="row">
           <div class="col-md-4">
@@ -85,8 +85,8 @@
       <div class="container">
         <div class="row m-0"> 
           <!--menu start-->
-          <div class="col-lg-12 col-md-12 col-xs-3 col-sm-3 p-0 d-flex">
-              <div class="dropdown cart_dropdown d-lg-none d-md-none d-xs-block d-sm-block">
+          <div class="col-lg-12 col-md-12 col-xs-3 col-sm-3 p-0 d-flex navbar-menu">
+              <div class="dropdown cart_dropdown d-lg-none d-md-none d-xs-block d-sm-block" dir="ltr">
                 <a class="d-flex align-items-center cart-d" href="#">
                 <span class="px-2 py-1 rounded" data-cart-items="{{count(userCart())}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
                 <div class="ml-2 d-none d-md-block cart-details">
@@ -119,11 +119,11 @@
               </div>
             </div>
             <nav class="navbar navbar-expand-lg navbar-light position-static">
-              <a class="navbar-brand logo d-lg-none text-center w-75" href="{{route('home')}}">
+              <a class="navbar-brand logo d-lg-none text-center" href="{{route('home')}}">
                 <img class="img-fluid" src="{{url('public')}}/images/footer-logo.png" alt="Broadshop Logo">
               </a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <i class="fas fa-bars"></i>
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">

@@ -230,23 +230,24 @@
     </div> --}}
     <div class="col-lg-12">
         <div class="banner-slider banner-3 owl-carousel no-pb h-100" data-dots="true" data-margin="5">
-            <div class="item" data-bg-img="{{url('public')}}/images/electronic/bg/newsite.jpg">
-                <div class="container h-100">
+            <div class="item" data-bg-img="{{url('public')}}/images/hero/banner-1.jpg">
+                <div class="container">
                     <div class="row h-100 align-items-center">
                         <div class="col py-8 pl-0">
                             <div class="animated3">
                                 <span class="dark-yellow d-inline-block text-white mb-0">20€</span>
                                 <br>
                                 <h5 class="dark-red d-inline-block text-white font-w-6">@lang('static.discount')</h5>
-                                <h1 class="mt-4 text-dark animated3"><span>@lang('static.use_coupon')</span><br> NEW_SITE_2021</h1>
+                                <h1 class="mt-4 text-dark animated3"><span>@lang('static.use_coupon')</span><br> BROADSGOP_20</h1>
+                                <p class="ml-4">@lang('layout.navbar_free_shipping')</p>
                                 <a class="btn btn-primary btn-animated ml-3 mt-4" href="{{route('product.home')}}">@lang('static.shop_now')</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="item" data-bg-img="{{url('public')}}/images/electronic/bg/newsletter.jpg">
-                <div class="container h-100">
+            <div class="item" data-bg-img="{{url('public')}}/images/hero/scooters-banner.jpg">
+                <div class="container">
                     <div class="row h-100 align-items-center">
                         <div class="col py-8 pl-0">
                             <div class="animated3">
@@ -254,14 +255,15 @@
                                 <br>
                                 <h5 class="dark-red d-inline-block text-white font-w-6">@lang('static.scooters')</h5>
                                 <h1 class="mt-4 animated3 text-white">@lang('static.now_in_broadshop')</h1>
+                                <p class="ml-4">@lang('layout.navbar_free_shipping')</p>
                                 <a class="btn btn-primary btn-animated ml-3 mt-4" href="{{route('product.home')}}">@lang('static.shop_now')</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="item" data-bg-img="{{url('public')}}/images/electronic/bg/newsletter.jpg">
-                <div class="container h-100">
+            <div class="item" data-bg-img="{{url('public')}}/images/hero/personal-care.jpg">
+                <div class="container">
                     <div class="row h-100 align-items-center">
                         <div class="col py-8 pl-0">
                             <div class="animated3">
@@ -269,6 +271,7 @@
                                 <br>
                                 <h5 class="dark-red d-inline-block text-white font-w-6">@lang('static.products')</h5>
                                 <h1 class="mt-4 animated3">@lang('static.now_in_broadshop')</h1>
+                                <p class="ml-4">@lang('layout.navbar_free_shipping')</p>
                                 <a class="btn btn-primary btn-animated ml-3 mt-4" href="{{route('product.home')}}">@lang('static.shop_now')</a>
                             </div>
                         </div>
@@ -288,48 +291,52 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-4 col-md-6">
-                        <div class="position-relative rounded overflow-hidden">
-                            <!-- Background -->
-                            <img class="img-fluid hover-zoom"
-                                src="{{url('public')}}/images/sub-hero/scooters-block.jpg" alt="Shop Scooters">
-                            <!-- Body -->
-                            <div class="position-absolute top-50 pl-5">
-                                <h6 class="text-dark">@lang('static.shop')</h6>
-                                <!-- Heading -->
-                                <h3 class="text-dark font-w-7">@lang('static.electric_scooters')</h3>
-                                <!-- Link -->
-                                <a class="more-link text-dark" href="{{route('products' , 'scooters')}}">@lang('static.shop_now')</a>
+                        <a class="more-link text-dark" href="{{route('products' , 'scooters')}}">
+                            <div class="position-relative rounded overflow-hidden">
+                                <!-- Background -->
+                                <img class="img-fluid hover-zoom" src="{{url('public')}}/images/sub-hero/scooters-block.jpg" alt="Shop Scooters">
+                                <!-- Body -->
+                                <div class="position-absolute top-50 pl-5">
+                                    <h6 class="text-dark">@lang('static.shop')</h6>
+                                    <!-- Heading -->
+                                    <h3 class="text-dark font-w-7">@lang('static.electric_scooters')</h3>
+                                    <!-- Link -->
+                                    <a class="more-link text-dark" href="{{route('products' , 'scooters')}}">@lang('static.shop_now')</a>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-12 col-lg-4 col-md-6 mt-5 mt-md-0">
-                        <div class="position-relative rounded overflow-hidden">
-                            <!-- Background -->
-                            <img class="img-fluid hover-zoom"
-                            src="{{url('public')}}/images/sub-hero/personal-care-block.jpg" alt="Shop Personal Care">
-                            <!-- Body -->
-                            <div class="position-absolute top-50 pl-5">
-                                <h6 class="text-dark">@lang('static.shop')</h6>
-                                <!-- Heading -->
-                                <h3 class="font-w-7 text-dark">@lang('static.personal_care')</h3>
-                                <!-- Link -->
-                                <a class="more-link text-dark" href="{{route('products' , 'personal-care')}}">@lang('static.shop_now')</a>
+                        <a class="more-link text-dark" href="{{route('products' , 'personal-care')}}">
+                            <div class="position-relative rounded overflow-hidden">
+                                <!-- Background -->
+                                <img class="img-fluid hover-zoom" src="{{url('public')}}/images/sub-hero/personal-care-block.jpg" alt="Shop Personal Care">
+                                <!-- Body -->
+                                <div class="position-absolute top-50 pl-5">
+                                    <h6 class="text-dark">@lang('static.shop')</h6>
+                                    <!-- Heading -->
+                                    <h3 class="font-w-7 text-dark">@lang('static.personal_care')</h3>
+                                    <!-- Link -->
+                                    <a class="more-link text-dark" href="{{route('products' , 'personal-care')}}">@lang('static.shop_now')</a>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-12 col-lg-4 col-md-12 mt-5 mt-lg-0 d-md-none d-lg-block">
-                        <div class="position-relative rounded overflow-hidden">
-                            <!-- Background -->
-                            <img class="img-fluid hover-zoom"
-                            src="{{url('public')}}/images/sub-hero/more-block.jpg" alt="Shop More">
-                            <!-- Body -->
-                            <div class="position-absolute top-50 pl-5">
-                                <h6 class="text-dark">@lang('static.wide_variatey')</h6>
-                                <!-- Heading -->
-                                <h3 class="font-w-7">@lang('static.view_all')</h3>
-                                <!-- Link --> <a class="more-link text-dark" href="{{route('product.home')}}">@lang('static.shop_now')</a>
+                        <a class="more-link text-dark" href="{{route('product.home')}}">
+                            <div class="position-relative rounded overflow-hidden">
+                                <!-- Background -->
+                                <img class="img-fluid hover-zoom" src="{{url('public')}}/images/sub-hero/more-block.jpg" alt="Shop More">
+                                <!-- Body -->
+                                <div class="position-absolute top-50 pl-5">
+                                    <h6 class="text-dark">@lang('static.wide_variatey')</h6>
+                                    <!-- Heading -->
+                                    <h3 class="font-w-7">@lang('static.view_all')</h3>
+                                    <!-- Link -->
+                                    <a class="more-link text-dark" href="{{route('product.home')}}">@lang('static.shop_now')  </a>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -355,7 +362,7 @@
                                     <div class="sale-label">-{{$BSProduct->Discount()->amount}}€</div>
                                     @endif
                                     @endif
-                                    <a class="card-img-hover d-block" href="javascript:;">
+                                    <a class="card-img-hover d-block" href="{{route('product.single' , [$BSProduct->slug , $BSProduct->id])}}">
                                         <img class="card-img-top" src="{{$BSProduct->ImagePath}}"
                                             alt="{{$BSProduct->LocalTitle}}">
                                     </a>
@@ -421,11 +428,16 @@
         </section>
         <!--product end-->
         <!--blog start-->
-        <section class="pb-0 pt-5 mb-5">
+        <section class="pb-0 pt-5 mb-5 cta-section">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <img class="w-100" src="http://placehold.it/1500x200" alt="">
+                        <img class="w-100" src="{{url('public/images/hero')}}/cta-banner.jpg" alt="Cupon Banner">
+                        <div class="cta-content">
+                            <h3>20 EURO CUOPON!</h3>
+                            <p>Get a 20 Euro Coupon when you signup for a new account of broadshop!</p>
+                            <a class="btn btn-animated btn-primary" href="{{route('user.getSignup')}}">Signup Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -451,7 +463,7 @@
                                     <div class="sale-label">-{{$HDProduct->Discount()->amount}}€</div>
                                     @endif
                                     @endif
-                                    <a class="card-img-hover d-block" href="javascript:;">
+                                    <a class="card-img-hover d-block" href="{{route('product.single' , [$HDProduct->slug , $HDProduct->id])}}">
                                         <img class="card-img-top" src="{{$HDProduct->ImagePath}}"
                                             alt="{{$HDProduct->LocalTitle}}">
                                     </a>

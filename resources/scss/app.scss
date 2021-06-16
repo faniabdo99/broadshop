@@ -1688,7 +1688,6 @@ header .navbar-nav .nav-item {
     transition: all 0.25s ease-in-out;
     padding: 0;
     top: 100% !important;
-    left: 0;
     right: 0;
     background-color: #fff;
     box-shadow: 0 0.8rem 1rem rgba(0, 0, 0, .1) !important;
@@ -1934,7 +1933,7 @@ header .navbar-nav .nav-item {
     }
 
     .navbar-brand {
-        left: 0;
+        right: 0;
         z-index: 1;
         margin-right: 0;
         position: absolute;
@@ -2289,7 +2288,9 @@ header .navbar-nav .nav-item {
 .banner-bg .owl-carousel.owl-2 .owl-nav {
     top: 50%
 }
-
+.banner-slider {
+    height: 500px !important;
+}
 .banner-slider span {
     font-size: 18px
 }
@@ -3956,12 +3957,11 @@ header .navbar-nav .nav-item {
 .banner-row h3 {
     font-size: 26px;
     line-height: 26px;
-    margin-bottom: 1rem
+    margin-bottom: 1rem;
 }
 
 .banner-row .more-link {
     font-size: 14px;
-    text-decoration: underline
 }
 
 .banner-row.full h3 {
@@ -6713,8 +6713,9 @@ footer.bg-dark-2 .footer-box {
     }
 
     .header-5 .navbar-light .navbar-toggler {
-        background: #fff;
-        border-radius: 5px
+        border-radius: 5px;
+        color: #fff;
+        font-size: 2em;
     }
 
     .header-5 #header-wrap .navbar-nav .nav-link {
@@ -6752,8 +6753,15 @@ footer.bg-dark-2 .footer-box {
     .header-5 .label {
         display: inline
     }
+    .navbar-menu{
+        direction: rtl;
+    }
     .header-5 .cart-d{
+        border:none;
         width: 45px;
+        i{
+            font-size: 1.7em;
+        }
     }
 
     .product-block .owl-carousel.owl-2 .owl-nav {
@@ -7062,9 +7070,11 @@ footer.bg-dark-2 .footer-box {
         font-size: 17px;
         line-height: 24px;
     }
-
+    .navbar-brand{
+        width: 82%;
+    }
     .navbar-brand img {
-        height: 30px;
+        height: 40px;
     }
 
     .offer-text {
@@ -7315,6 +7325,24 @@ footer.bg-dark-2 .footer-box {
     #newsletter-output{
         display: none;
         z-index: 9999;
+    }
+}
+.cta-section{
+    position: relative;
+    .cta-content{
+        position: absolute;
+        background-color: rgba(0,0,0,0.5);
+        top: 25%;
+        left:5%;
+        padding:30px;
+        border-radius: 4px;
+        color: #fff;
+        p{
+            color: #fff;
+        }
+        h3{
+            font-weight: bold;
+        }
     }
 }
 @import 'layout';
