@@ -3,9 +3,9 @@
 <head>
     <!-- meta tags -->
     <meta charset="utf-8">
-    <meta name="keywords" content="bootstrap 4, premium, multipurpose, ecommerce, html5, CSS" />
-    <meta name="description" content="Bootstrap 4 Landing Page Template" />
-    <meta name="author" content="www.themesground.com" />
+    <meta name="keywords" content="Broadshop, broadshop.be, ecommerce, online store" />
+    <meta name="description" content="Your number one source of kitchen tools and online scooters in belgium, Welcome to Broadshop" />
+    <meta name="author" content="www.broadshop.be" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="base_url" content="{{route('home')}}">
     @auth
