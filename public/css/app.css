@@ -6502,6 +6502,36 @@ footer.bg-dark-2 .footer-box {
   }
 }
 @media (max-width: 991.98px) {
+  .banner-slider {
+    height: 300px !important;
+  }
+
+  .banner-slider .btn {
+    padding: 5px 15px;
+    font-size: 0.6em;
+  }
+  .banner-slider p {
+    font-size: 0.7em;
+  }
+
+  .banner-3 .dark-red {
+    font-size: 15px;
+    padding: 10px 15px;
+  }
+
+  .banner-3 .dark-red:after {
+    border-bottom: 17px solid transparent;
+  }
+
+  .banner-3 .dark-yellow {
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  .banner-3 .dark-yellow:after {
+    border-bottom: 0px solid #fdaa1b;
+  }
+
   h1,
 .h1 {
     font-size: 50px;
@@ -7136,7 +7166,7 @@ footer.bg-dark-2 .footer-box {
   }
 
   .banner-3 h1 {
-    font-size: 44px;
+    font-size: 22px;
   }
 
   .product-block-div .owl-carousel.owl-2 .owl-nav {
