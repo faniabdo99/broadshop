@@ -91,7 +91,7 @@
                                         @endforelse
                                     </ul>
                                 </div>
-                                <div class="widget mb-4">
+                                {{-- <div class="widget mb-4">
                                     <div class="position-relative rounded overflow-hidden">
                                         <!-- Background -->
                                         <img class="img-fluid hover-zoom" src="{{url('public')}}/images/product-ad/side-banner.jpg" alt="">
@@ -104,7 +104,7 @@
                                             <a class="more-link" href="#">Shop Now </a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
