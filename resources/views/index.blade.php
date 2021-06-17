@@ -1,6 +1,7 @@
 @include('layout.header')
 
 <body class="bg-light-4">
+    @include('layout.tag-manager')
     <!-- page wrapper start -->
     <div class="page-wrapper">
         @include('layout.navbar')

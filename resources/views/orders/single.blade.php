@@ -2,6 +2,7 @@
     'PageTitle' => __('checkout.order') .' #'.$TheOrder->serial_number
 ])
 <body class="no-touch">
+    @include('layout.tag-manager')
     <!-- page wrapper start -->
     <div class="page-wrapper">
       @include('layout.navbar')

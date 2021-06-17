@@ -3,6 +3,7 @@
 ])
 
 <body class="bg-light-4 no-touch">
+    @include('layout.tag-manager')
     <!-- page wrapper start -->
     <div class="page-wrapper">
         @include('layout.navbar')

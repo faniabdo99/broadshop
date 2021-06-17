@@ -2,6 +2,10 @@
     'PageTitle' => __('user.edit_title')
 ])
 <body class="no-touch">
+    @include('layout.tag-manager')
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGHPW7N" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!-- page wrapper start -->
     <div class="page-wrapper">
       @include('layout.navbar')

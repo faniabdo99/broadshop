@@ -1,6 +1,3 @@
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGHPW7N" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
   <!--header start-->
   <header class="site-header header-5">
     <div class="header-top bg-blue pt-1 d-none d-lg-block d-md-block">
