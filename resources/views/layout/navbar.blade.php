@@ -136,11 +136,11 @@
                     <li class="nav-item"><a class="nav-link" href="{{route('user.getProfile')}}">{{auth()->user()->name}}</a> </li>
                   @endauth
                   @if(session()->get('locale') == 'nl')
-                    <li class="nav-item"><a class="nav-link text-left" href="{{route('switchLang' , 'en')}}"><img src="{{url('public/icons/uk-flag.png')}}" width="20"> English</a></li>
+                    <li class="nav-item"><a class="nav-link text-left" href="{{route('switchLang' , 'en')}}"><img src="{{url('public/icons/uk-flag.png')}}" width="20"> EN</a></li>
                   @else
-                    <li class="nav-item"><a class="nav-link text-left" href="{{route('switchLang' , 'nl')}}"><img src="{{url('public/icons/bg-flag.png')}}" width="20"> Dutch</a></li>
+                    <li class="nav-item"><a class="nav-link text-left" href="{{route('switchLang' , 'nl')}}"><img src="{{url('public/icons/bg-flag.png')}}" width="20"> NL</a></li>
                   @endif
-                  <li class="nav-item"><a class="nav-link text-yellow" href="https://kugoo.eu/" target="_blank">@lang('layout.kugoo_scooters')</a> </li>
+                  {{-- <li class="nav-item"><a class="nav-link text-yellow" href="https://kugoo.eu/" target="_blank">@lang('layout.kugoo_scooters')</a> </li> --}}
                 </ul>
               </div>
             </nav>

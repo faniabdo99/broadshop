@@ -168,12 +168,12 @@
                                 </div>
                                 <div class="cart-detail my-5">
                                     <h6 class="mb-3 font-w-6">@lang('checkout.payment_method')</h6>
-                                    {{-- <div class="form-group">
+                                    <div class="form-group">
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="credit-card" name="payment_method" value="creditcard" class="custom-control-input">
                                             <label class="custom-control-label" for="credit-card">Credit Card</label>
                                         </div>
-                                    </div> --}}
+                                    </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="bancontact" name="payment_method" value="bancontact"
