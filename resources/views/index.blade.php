@@ -257,7 +257,7 @@
                                 <h5 class="dark-red d-inline-block text-white font-w-6">@lang('static.scooters')</h5>
                                 <h1 class="mt-4 animated3 text-dark">@lang('static.now_in_broadshop')</h1>
                                 <p class="ml-4 text-dark">@lang('layout.navbar_free_shipping')</p>
-                                <a class="btn btn-primary btn-animated ml-3 mt-1 mt-lg-4" href="{{route('product.home')}}">@lang('static.shop_now')</a>
+                                <a class="btn btn-primary btn-animated ml-3 mt-1 mt-lg-4" href="{{route('products' , 'scooters')}}">@lang('static.shop_now')</a>
                             </div>
                         </div>
                     </div>
