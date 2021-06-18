@@ -398,6 +398,8 @@ function ShowNoto(className, text, header) {
 
   $('#agree-cookies-usage').click(function () {
     //Create a Cookie
+    var now = new Date();
+    var time = now.getTime();
     var expireTime = time + 1000 * 36000;
     now.setTime(expireTime);
     document.cookie = 'Agreedcookies=Yes;expires=' + now.toUTCString() + ';';
