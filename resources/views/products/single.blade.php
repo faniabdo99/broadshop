@@ -1,5 +1,6 @@
 @include('layout.header' , [
-    'PageTitle' => $TheProduct->LocalTitle
+    'PageTitle' => $TheProduct->LocalTitle,
+    'PageDescription' => $TheProduct->LocalDescription
 ])
 <body class="bg-light-4">
     @include('layout.tag-manager')

@@ -422,7 +422,9 @@ if(document.cookie.includes('Agreedcookies=Yes')){
 }
 $('#agree-cookies-usage').click(function(){
   //Create a Cookie
-  document.cookie = "Agreedcookies=Yes";
+  var expireTime = time + 1000*36000;
+  now.setTime(expireTime);
+  document.cookie = 'Agreedcookies=Yes;expires='+now.toUTCString()+';';
   $('#cookies-disclaimer').fadeOut();
 });
 

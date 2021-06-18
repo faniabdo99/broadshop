@@ -4,10 +4,11 @@
     <!-- meta tags -->
     <meta charset="utf-8">
     <meta name="keywords" content="Broadshop, broadshop.be, ecommerce, online store" />
-    <meta name="description" content="Your number one source of kitchen tools and online scooters in belgium, Welcome to Broadshop" />
-    <meta name="author" content="www.broadshop.be" />
+    <meta name="description" content="{{$PageDescription ?? 'Your number one source of kitchen tools and online scooters in belgium, Welcome to Broadshop'}}" />
+    <meta name="author" content="Semicolon Group" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="base_url" content="{{route('home')}}">
+    <link rel="canonical" href="{{url()->current()}}" />
     @auth
         <meta name="user_id" content="{{auth()->user()->id}}">
     @endauth
