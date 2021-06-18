@@ -50,7 +50,6 @@
         fbq('init', '315451716896873');
         fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=315451716896873&ev=PageView&noscript=1"/></noscript>
     <!-- End Facebook Pixel Code -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-197639030-1">
