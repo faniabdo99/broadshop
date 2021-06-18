@@ -127,12 +127,6 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'] , function () {
       Route::get('send-to-user/{id}' , 'InvoiceController@sendToUser')->name('invoice.sendToUser.get');
     });
 });
-
-//Products Routes
-Route::group(['prefix'=>'products'] , function (){
-  Route::get('/{filter?}' , 'ProductsController@getAll')->name('product.home');
-  Route::get('{id}/{slug}' , 'ProductsController@getSingle')->name('product.single');
-});
 //Cart Related Routes
 Route::get('delete-from-cart/{cartId}/{userId}' ,'CartController@deleteItem')->name('cart.delete');
 Route::get('cart' , 'CartController@getCartPage')->name('cart');
@@ -143,3 +137,4 @@ Route::get('order-payment/{id}', 'OrdersController@getPaymentPage')->name('check
 Route::post('order-payment/{id}', 'OrdersController@postPaymentPage')->name('checkout.payment.post');
 Route::post('apply-coupon' , 'CoupounsController@applyCoupon')->name('coupon.apply');
 Route::get('/success' , 'OrdersController@orderSuccess')->name('order.success');
+Route::get('sitemap.xml' , 'SitemapController@getSitemap');

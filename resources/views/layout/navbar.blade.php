@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-md-4">
             <ul class="header_list">
-              <li><a href="{{route('product.home')}}"><i class="icon fa fa-truck"></i> @lang('layout.navbar_free_shipping')</a></li>
+              <li><a href="{{route('products')}}"><i class="icon fa fa-truck"></i> @lang('layout.navbar_free_shipping')</a></li>
             </ul>
           </div>
           <div class="col-md-8">

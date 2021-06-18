@@ -58,7 +58,7 @@
                                     <a href="{{route('cart')}}" class="btn btn-light d-none" id="update-cart-button">Update Cart Values</a>
                                 @else
                                     <p>@lang('cart.no_items')</p>
-                                    <a class="btn btn-dark btn-animated mt-3 btn-block" href="{{route('product.home')}}">@lang('cart.shop_now')</a>
+                                    <a class="btn btn-dark btn-animated mt-3 btn-block" href="{{route('products')}}">@lang('cart.shop_now')</a>
                                 @endif
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                                 @if(count($CartItems) > 0)
                                     <a class="btn btn-primary btn-animated btn-block" href="{{route('checkout')}}">@lang('cart.proceed_to_checkout')</a>
                                 @endif
-                                <a class="btn btn-dark btn-animated mt-3 btn-block" href="{{route('product.home')}}">@lang('cart.continue_shopping')</a>
+                                <a class="btn btn-dark btn-animated mt-3 btn-block" href="{{route('products')}}">@lang('cart.continue_shopping')</a>
                             </div>
                         </div>
                     </div>

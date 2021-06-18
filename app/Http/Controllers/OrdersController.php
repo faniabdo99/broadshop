@@ -38,7 +38,7 @@ class OrdersController extends Controller{
     //2- Get the cart items
     $CartItems = Cart::where('user_id' , $UserId)->where('status','active')->whereDate('created_at' , Carbon::today())->get();
     if($CartItems->count() == 0){
-      return redirect()->route('product.home')->withError(__('controllers.orders_no_items'));
+      return redirect()->route('products')->withError(__('controllers.orders_no_items'));
     }
     //Generate the total price without a tax
     $CartSubTotalArray = $CartItems->map(function($item) {

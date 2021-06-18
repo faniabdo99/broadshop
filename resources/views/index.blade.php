@@ -241,7 +241,7 @@
                                 <h5 class="dark-red d-inline-block text-white font-w-6">@lang('static.discount')</h5>
                                 <h1 class="mt-4 text-white animated3"><span>@lang('static.use_coupon')</span><br> BROADSHOP_20</h1>
                                 <p class="ml-4 text-white">@lang('layout.navbar_free_shipping')</p>
-                                <a class="btn btn-primary btn-animated ml-3 mt-1 mt-lg-4" href="{{route('product.home')}}">@lang('static.shop_now')</a>
+                                <a class="btn btn-primary btn-animated ml-3 mt-1 mt-lg-4" href="{{route('products')}}">@lang('static.shop_now')</a>
                             </div>
                         </div>
                     </div>
@@ -273,7 +273,7 @@
                                 <h5 class="dark-red d-inline-block text-white font-w-6">@lang('static.products')</h5>
                                 <h1 class="mt-4 animated3">@lang('static.now_in_broadshop')</h1>
                                 <p class="ml-4">@lang('layout.navbar_free_shipping')</p>
-                                <a class="btn btn-primary btn-animated ml-3 mt-1 mt-lg-4" href="{{route('product.home')}}">@lang('static.shop_now')</a>
+                                <a class="btn btn-primary btn-animated ml-3 mt-1 mt-lg-4" href="{{route('products')}}">@lang('static.shop_now')</a>
                             </div>
                         </div>
                     </div>
@@ -324,7 +324,7 @@
                         </a>
                     </div>
                     <div class="col-12 col-lg-4 col-md-12 mt-5 mt-lg-0 d-md-none d-lg-block">
-                        <a class="more-link text-dark" href="{{route('product.home')}}">
+                        <a class="more-link text-dark" href="{{route('products')}}">
                             <div class="position-relative rounded overflow-hidden">
                                 <!-- Background -->
                                 <img class="img-fluid hover-zoom" src="{{url('public')}}/images/sub-hero/more-block.jpg" alt="Shop More">
@@ -334,7 +334,7 @@
                                     <!-- Heading -->
                                     <h3 class="font-w-7">@lang('static.view_all')</h3>
                                     <!-- Link -->
-                                    <a class="more-link text-dark" href="{{route('product.home')}}">@lang('static.shop_now')  </a>
+                                    <a class="more-link text-dark" href="{{route('products')}}">@lang('static.shop_now')  </a>
                                 </div>
                             </div>
                         </a>
