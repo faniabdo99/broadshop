@@ -8,6 +8,15 @@
         @include('layout.navbar')
         <!--body content start-->
         <div class="page-content">
+            <section class="hero-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1>@lang('products.title')</h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section>
                 <div class="container">
                     <div class="row">

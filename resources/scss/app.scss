@@ -7382,6 +7382,14 @@ footer.bg-dark-2 .footer-box {
         font-weight: bold;
     }
 }
+.hero-section{
+    background-color: $brand;
+    h1{
+        text-align: center;
+        color: #fff;
+        font-size: 2.5em;
+    }
+}
 @media (max-width:768px) {
     .cta-section{
         position: relative;
