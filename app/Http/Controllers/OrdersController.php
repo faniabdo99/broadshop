@@ -147,7 +147,7 @@ class OrdersController extends Controller{
           'qty' => $item->qty
         ]);
       });
-      // Mail::to('admin@broadshop.be')->send(New NewOrderMail);
+      Mail::to('sales@broadshop.be')->send(New NewOrderMail);
       $TheNewOrder = Order::find($TheNewOrder->id); 
       if($TheNewOrder->AlreadyPaid()){
         return redirect()->route('home')->withErrors('This order already been paid');
