@@ -125,7 +125,15 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item"><a class="nav-link" href="{{route('home')}}">@lang('layout.home')</a></li>
-                  <li class="nav-item"><a class="nav-link" href="{{route('products')}}">@lang('layout.shop')</a> </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{{route('products')}}" data-toggle="dropdown">@lang('layout.shop') <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                      @forelse(getCategories() as $NavCategory)
+                        <li><a href="{{route('products' , $NavCategory->slug)}}">{{$NavCategory->LocalTitle}}</a></li>
+                      @empty
+                      @endforelse
+                   </ul>
+                  </li>
                   <li class="nav-item"><a class="nav-link" href="{{route('blog')}}">@lang('layout.blog')</a> </li>
                   <li class="nav-item"><a class="nav-link" href="{{route('contactUs')}}">@lang('layout.contact')</a> </li>
                   <li class="nav-item"><a class="nav-link" href="{{route('about')}}">@lang('layout.about')</a> </li>
