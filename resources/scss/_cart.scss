@@ -1,0 +1,55 @@
+.single-cart-card{
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    display: flex;
+    .image-container{
+        flex:1;
+        margin-right: 25px;
+        img{
+            width: 75px;
+            height: 75px;
+            border-radius: 4px;
+        }
+    }
+    .content-container{
+        flex:5;
+        h4{
+            font-size: 1em;
+            margin-bottom: 0;
+        }
+        ul{
+            list-style-type: none;
+            margin-bottom: 25px;
+            li{
+                display: inline-block;
+                font-size: 0.7em;
+                color: $darkgrey;
+                margin-right: 15px;
+                i{
+                    color: $brand;
+                }
+            }
+        }
+        .change-cart-count{
+            font-size: 0.8em;
+            button{
+                padding:5px;
+                height: 25px;
+            }
+            input{
+                height: 25px;
+                width: 30px;
+                text-align: center;
+            }
+            a{
+                margin-left: 10px;
+                background-color: $danger;
+                border-radius: 4px;
+                color: #fff;
+                padding:3px 15px;
+            }
+        }
+    }
+}

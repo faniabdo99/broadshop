@@ -37,7 +37,7 @@
     //Signin
     'password' => 'Wachtwoord',
     'remember_me' => 'Onthoud mij',
-    'forgot_password?' => 'Wachtwoord vergeten?',
+    'forgot_password' => 'Wachtwoord vergeten?',
     'signin' => 'Inloggen',
     'or' => 'of',
     'signin_google' => 'Aanmelden met Google',

@@ -39,8 +39,7 @@ class ProductsController extends Controller{
     }
     public function getNew(){
         $AllCategories = Category::latest()->get();
-        $id = DB::select("SHOW TABLE STATUS LIKE 'products'");
-        $NextProductId= $id[0]->Auto_increment + 1;
+        $NextProductId= Product::orderBy('id' , 'DESC')->first()->id + 1;
         $ReadyToUseTagsArray = $this->getAllTags();
         $DiscountsList = Discount::whereDate('valid_until' , '>' , Carbon::today())->get();
         return view('admin.product.new' , compact('AllCategories' , 'NextProductId' , 'ReadyToUseTagsArray' , 'DiscountsList'));

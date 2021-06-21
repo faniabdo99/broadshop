@@ -12,54 +12,37 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8">
-                            <div class="table-responsive">
+                            <h3 class="mb-4">@lang('cart.title')</h3>
+                            <div class="cart-list">
+                                <div class="row">
                                 @if(count($CartItems) > 0)
-                                    <table class="cart-table table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">@lang('cart.product')</th>
-                                                <th scope="col">@lang('cart.price')</th>
-                                                <th scope="col">@lang('cart.quantity')</th>
-                                                <th scope="col">@lang('cart.total')</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @forelse($CartItems as $Cart)
-                                                <tr>
-                                                    <td>
-                                                        <div class="cart-thumb media align-items-center">
-                                                            <a href="#">
-                                                                <img class="img-fluid" src="{{$Cart->Product->ImagePath}}" alt="{{$Cart->Product->title}}">
-                                                            </a>
-                                                            <div class="media-body ml-3">
-                                                                <div class="product-title mb-2">
-                                                                    <a class="link-title" href="{{route('product.single' , [$Cart->Product->slug,$Cart->Product->id])}}">{{$Cart->Product->title}}</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td> <span class="product-price text-muted">{{$Cart->Product->FinalPrice}}€</span>
-                                                    </td>
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
+                                    @forelse($CartItems as $Cart)
+                                        <div class="col-lg-6">
+                                            <div class="single-cart-card">
+                                                <div class="d-flex">
+                                                    <div class="image-container">
+                                                        <img src="{{$Cart->Product->imagePath}}" alt="{{$Cart->Product->title}}">
+                                                    </div>
+                                                    <div class="content-container">
+                                                        <h4>{{$Cart->Product->title}}</h4>
+                                                        <ul>
+                                                            <li><i class="fas fa-shopping-cart"></i> X{{$Cart->qty}}</li>
+                                                            <li><i class="fas fa-euro-sign"></i> {{$Cart->Product->FinalPrice}}</li>
+                                                        </ul>
+                                                        <div class="d-flex align-items-center change-cart-count">
                                                             <button class="btn-product btn-product-up" data-user="{{getUserId()}}" data-id="{{$Cart->id}}" data-target="{{route('cart.update')}}"> <i class="las la-minus"></i></button>
                                                             <input class="form-product update-cart-form" data-user="{{getUserId()}}" data-id="{{$Cart->id}}" type="number" name="qty" data-target="{{route('cart.update')}}" value="{{$Cart->qty}}">
                                                             <button class="btn-product btn-product-down" data-user="{{getUserId()}}" data-id="{{$Cart->id}}" data-target="{{route('cart.update')}}"> <i class="las la-plus"></i></button>
+                                                            <a href="{{route('cart.delete' , [$Cart->id , getUserId()])}}" class="close-link"><i class="las la-trash"></i></a>
                                                         </div>
-                                                    </td>
-                                                    <td> <span class="product-price text-dark font-w-6">{{$Cart->TotalPrice}}€</span>
-                                                        <a href="{{route('cart.delete' , [$Cart->id , getUserId()])}}" class="close-link"><i class="las la-trash"></i></a>
-                                                    </td>
-                                                </tr>
-                                            @empty
-                                            @endforelse
-                                        </tbody>
-                                    </table>
-                                    <a href="{{route('cart')}}" class="btn btn-light d-none" id="update-cart-button">Update Cart Values</a>
-                                @else
-                                    <p>@lang('cart.no_items')</p>
-                                    <a class="btn btn-dark btn-animated mt-3 btn-block" href="{{route('products')}}">@lang('cart.shop_now')</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @empty
+                                    @endforelse
                                 @endif
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 pl-lg-5 mt-8 mt-lg-0">
