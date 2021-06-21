@@ -17,7 +17,7 @@
                                 <div class="row">
                                 @if(count($CartItems) > 0)
                                     @forelse($CartItems as $Cart)
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6 mb-5">
                                             <div class="single-cart-card h-100">
                                                 <div class="d-flex">
                                                     <div class="image-container">
@@ -38,7 +38,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <br>
                                         </div>
                                     @empty
                                         <p>@lang('cart.no_items')</p>
