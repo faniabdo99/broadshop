@@ -3,12 +3,11 @@
         Options -MultiViews -Indexes
     </IfModule>
     RewriteEngine On
+    RewriteCond %{HTTP_HOST} ^www.broadshop.be$ [NC]
+    RewriteRule ^(.*)$ https://broadshop.be/$1 [R=301,L]
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-    RewriteCond %{HTTP_HOST} !localhost
-    RewriteCond %{HTTP_HOST} ^www\. [NC]
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
