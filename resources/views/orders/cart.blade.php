@@ -18,7 +18,7 @@
                                 @if(count($CartItems) > 0)
                                     @forelse($CartItems as $Cart)
                                         <div class="col-lg-6">
-                                            <div class="single-cart-card">
+                                            <div class="single-cart-card h-100">
                                                 <div class="d-flex">
                                                     <div class="image-container">
                                                         <img src="{{$Cart->Product->imagePath}}" alt="{{$Cart->Product->title}}">
@@ -40,6 +40,7 @@
                                             </div>
                                         </div>
                                     @empty
+                                        <p>@lang('cart.no_items')</p>
                                     @endforelse
                                 @endif
                                 </div>
