@@ -38,6 +38,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <br>
                                         </div>
                                     @empty
                                         <p>@lang('cart.no_items')</p>
