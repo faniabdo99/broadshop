@@ -47,4 +47,5 @@
     'add_to_wishlist' => 'Add to Wishlist',
     'view' => 'View',
     'hot_deals' => 'Hot Deals',
+    'coupon_description' => 'Get a 20 Euro Coupon when you signup for a new account of broadshop!',
  ];

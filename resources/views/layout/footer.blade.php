@@ -45,22 +45,22 @@
                 <ul class="list-inline mb-0 footer-payment-methods">
                     <li class="list-inline-item">
                         <a href="#">
-                            <img class="img-fluid" src="{{url('public')}}/images/pay-icon/01.png" alt="">
+                            <img class="img-fluid" src="{{url('public')}}/images/pay-icon/01.png" alt="Betaal icoon 1">
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a href="#">
-                            <img class="img-fluid" src="{{url('public')}}/images/pay-icon/02.png" alt="">
+                            <img class="img-fluid" src="{{url('public')}}/images/pay-icon/02.png" alt="Betaal icoon 1">
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a href="#">
-                            <img class="img-fluid" src="{{url('public')}}/images/pay-icon/bancontact.png" alt="">
+                            <img class="img-fluid" src="{{url('public')}}/images/pay-icon/bancontact.png" alt="Betaal icoon 1">
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a href="#">
-                            <img class="img-fluid" src="{{url('public')}}/images/pay-icon/ideal.png" alt="">
+                            <img class="img-fluid" src="{{url('public')}}/images/pay-icon/ideal.png" alt="Betaal icoon 1">
                         </a>
                     </li>
                 </ul>

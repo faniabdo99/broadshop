@@ -295,7 +295,7 @@
                         <a class="more-link text-dark" href="{{route('products' , 'scooters')}}">
                             <div class="position-relative rounded overflow-hidden">
                                 <!-- Background -->
-                                <img class="img-fluid hover-zoom" src="{{url('public')}}/images/sub-hero/scooters-block.jpg" alt="Shop Scooters">
+                                <img class="img-fluid hover-zoom" src="{{url('public')}}/images/sub-hero/scooters-block.jpg" alt="@lang('static.electric_scooters')">
                                 <!-- Body -->
                                 <div class="position-absolute top-50 pl-5">
                                     <h6 class="text-dark">@lang('static.shop')</h6>
@@ -311,7 +311,7 @@
                         <a class="more-link text-dark" href="{{route('products' , 'personal-care')}}">
                             <div class="position-relative rounded overflow-hidden">
                                 <!-- Background -->
-                                <img class="img-fluid hover-zoom" src="{{url('public')}}/images/sub-hero/personal-care-block.jpg" alt="Shop Personal Care">
+                                <img class="img-fluid hover-zoom" src="{{url('public')}}/images/sub-hero/personal-care-block.jpg" alt="@lang('static.personal_care')">
                                 <!-- Body -->
                                 <div class="position-absolute top-50 pl-5">
                                     <h6 class="text-dark">@lang('static.shop')</h6>
@@ -327,7 +327,7 @@
                         <a class="more-link text-dark" href="{{route('products')}}">
                             <div class="position-relative rounded overflow-hidden">
                                 <!-- Background -->
-                                <img class="img-fluid hover-zoom" src="{{url('public')}}/images/sub-hero/more-block.jpg" alt="Shop More">
+                                <img class="img-fluid hover-zoom" src="{{url('public')}}/images/sub-hero/more-block.jpg" alt="@lang('static.wide_variatey')">
                                 <!-- Body -->
                                 <div class="position-absolute top-50 pl-5">
                                     <h6 class="text-dark">@lang('static.wide_variatey')</h6>
@@ -364,8 +364,7 @@
                                     @endif
                                     @endif
                                     <a class="card-img-hover d-block" href="{{route('product.single' , [$BSProduct->slug , $BSProduct->id])}}">
-                                        <img class="card-img-top" src="{{$BSProduct->ImagePath}}"
-                                            alt="{{$BSProduct->LocalTitle}}">
+                                        <img class="card-img-top" src="{{$BSProduct->ImagePath}}" alt="{{$BSProduct->LocalTitle}}">
                                     </a>
                                     <div class="card-icons">
                                         @auth
@@ -435,9 +434,9 @@
                     <div class="col-12">
                         <img class="w-100" src="{{url('public/images/hero')}}/banner-1.jpg" alt="Coupon Banner">
                         <div class="cta-content">
-                            <h3>20 EURO CUOPON!</h3>
-                            <p>Get a 20 Euro Coupon when you signup for a new account of broadshop!</p>
-                            <a class="btn btn-animated btn-primary" href="{{route('user.getSignup')}}">Signup Now</a>
+                            <h3>20 EURO COUPON!</h3>
+                            <p>@lang('static.coupon_description')</p>
+                            <a class="btn btn-animated btn-primary" href="{{route('user.getSignup')}}">@lang('user.signup')</a>
                         </div>
                     </div>
                 </div>
@@ -465,8 +464,7 @@
                                     @endif
                                     @endif
                                     <a class="card-img-hover d-block" href="{{route('product.single' , [$HDProduct->slug , $HDProduct->id])}}">
-                                        <img class="card-img-top" src="{{$HDProduct->ImagePath}}"
-                                            alt="{{$HDProduct->LocalTitle}}">
+                                        <img class="card-img-top" src="{{$HDProduct->ImagePath}}" alt="{{$HDProduct->LocalTitle}}">
                                     </a>
                                     <div class="card-icons">
                                         @auth
@@ -540,7 +538,7 @@
                             <div class="item">
                                 <div class="card p-lg-10 bg-primary-soft border-0">
                                     <div>
-                                        <img alt="Image" src="{{url('public/')}}/images/about/thomas.jpg" class="img-fluid rounded-circle d-inline">
+                                        <img alt="Thomas Diallo" src="{{url('public/')}}/images/about/thomas.jpg" class="img-fluid rounded-circle d-inline">
                                     </div>
                                     <div class="card-body pl-10 pr-10">
                                         <p class="text-dark font-w-3">@lang('static.testo_1')</p>
@@ -555,12 +553,12 @@
                             <div class="item">
                                 <div class="card p-lg-10 bg-primary-soft border-0">
                                     <div>
-                                        <img alt="Image" src="{{url('public/')}}/images/about/karla.jpg" class="img-fluid rounded-circle d-inline">
+                                        <img alt="Karla Anderson" src="{{url('public/')}}/images/about/karla.jpg" class="img-fluid rounded-circle d-inline">
                                     </div>
                                     <div class="card-body pl-10 pr-10">
                                         <p class="text-dark font-w-3">@lang('static.testo_2')</p>
                                         <div>
-                                            <h6 class="text-primary d-inline mb-0">Karla Anderson </h6>
+                                            <h6 class="text-primary d-inline mb-0">Karla Anderson</h6>
                                             <br>
                                             <small class="text-muted">@lang('static.happy_customer')</small>
                                         </div>

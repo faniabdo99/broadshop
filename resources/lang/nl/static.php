@@ -46,4 +46,6 @@
     'add_to_wishlist' => 'Voeg toe aan verlanglijst',
     'view' => 'Bekijken',
     'hot_deals' => 'Superaanbiedingen',
+    'coupon_description' => 'Ontvang een 20 Euro Coupon wanneer u zich aanmeldt voor een nieuw account van broadshop!',
+
  ];
