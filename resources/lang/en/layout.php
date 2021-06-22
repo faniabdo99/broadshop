@@ -16,7 +16,7 @@
     //Navbar
     'navbar_free_shipping' => 'FREE shipping for orders above 50€',
     'wishlist' => 'My Wishlist',
-    'welcome' => 'Welcome',
+    'my-profile' => 'My Profile',
     'logout' => 'Signout',
     'signin' => 'Signin',
     'cart' => 'Cart',

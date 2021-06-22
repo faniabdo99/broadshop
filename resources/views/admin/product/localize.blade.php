@@ -18,8 +18,7 @@
                                 <div class="bgc-white p-20 bd mB-40">
                                     <h6 class="c-grey-900">{{$Single}}</h6>
                                     <div class="mT-30">
-                                        <form action="{{route('admin.categories.postNew')}}" method="post"
-                                            enctype="multipart/form-data">
+                                        <form action="{{route('admin.categories.postNew')}}" method="post">
                                             @csrf
                                             <input type="text" hidden name="lang_code" value="{{$Single}}">
                                             <input type="text" hidden name="product_id" value="{{$Product->id}}">
@@ -35,7 +34,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>{{$Single}} Body</label>
-                                                <textarea id="{{$Single}}" class="editor" name="body_value" placeholder="{{$Product->body}}">{{$CurrentLocalValues->body_value ?? ''}}</textarea>
+                                                <textarea class="editor" name="body_value" placeholder="{{$Product->body}}">{{$CurrentLocalValues->body_value ?? ''}}</textarea>
                                             </div>
                                     </div>
                                     <button class="btn btn-primary submit-form" action-route="{{route('admin.products.postLocalize')}}">Submit {{$Single}} Translation</button>
@@ -56,8 +55,14 @@
             e.preventDefault();
             var Elem = $(this);
             var ActionRoute = Elem.attr('action-route');
-            var FormData = Elem.parent().find('form').serialize();
-            // FormData = FormData + tinyMCE.activeEditor.getContent();
+            var FormData = {
+                '_token' : $('input[name="_token"]').val(),
+                'lang_code' : $('input[name="lang_code"]').val(),
+                'product_id' : $('input[name="product_id"]').val(),
+                'title_value' : $('input[name="title_value"]').val(),
+                'description_value' : $('textarea[name="description_value"]').val(),
+                'body_value': tinyMCE.activeEditor.getContent()
+            }
             $.ajax({
                 method: 'POST',
                 url: ActionRoute,

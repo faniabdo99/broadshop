@@ -14,7 +14,7 @@
                         @include('user.sidebar')
                         <div class="col-lg-9 col-md-8 mt-5 mt-lg-0 mt-md-0">
                           <div class="table-responsive bg-white">
-                            <table class="table table-striped">
+                            <table class="table table-striped user-orders-table">
                                 <thead>
                                     <tr>
                                         <th>@lang('user.order')</th>
@@ -31,7 +31,12 @@
                                             <td>{{$Order->created_at->format('Y/m/d')}}</td>
                                             <td>{{$Order->status}}</td>
                                             <td>{{$Order->total_amount}}€ @lang('user.for') {{$Order->Items()->count()}} @lang('user.items')</td>
-                                            <td><a href="{{route('checkout.summary' , $Order->id)}}" class="btn btn-fill-out btn-sm">@lang('user.view')</a></td>
+                                            <td>
+                                                <a href="{{route('checkout.summary' , $Order->id)}}">@lang('user.view')</a>
+                                                {{-- @if($Order->is_paid != 'paid')
+                                                    - <a href="{{route('checkout.payment' , $Order->id)}}">@lang('user.pay')</a>
+                                                @endif --}}
+                                            </td>
                                         </tr>
                                     @empty
                                     @endforelse

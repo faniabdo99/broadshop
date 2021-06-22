@@ -13,7 +13,7 @@
               <ul class="header_list">
                 @auth 
                 <li><a href="{{route('user.wishlist')}}"><i class="icon fa fa-heart"></i><span>@lang('layout.wishlist')</span></a></li>
-                <li><a href="{{route('user.getProfile')}}"><i class="icon fa fa-user"></i><span>@lang('layout.welcome'), {{auth()->user()->name}}</span></a></li>
+                <li><a href="{{route('user.getProfile')}}"><i class="icon fa fa-user"></i><span>@lang('layout.my-profile')</span></a></li>
                 <li><a href="{{route('user.signout')}}"><i class="icon fa fa-sign-out-alt"></i><span>@lang('layout.logout')</span></a></li>
                 @endauth
                 @guest

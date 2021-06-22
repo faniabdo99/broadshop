@@ -60,4 +60,5 @@
     'remove_from_wishlist' => 'Remove From wishlist',
     'remove' => 'Remove',
     'empty_wishlist' => 'You don\'t have any item is your wishlist yet',
+    'pay' => 'Pay'
  ];

@@ -6458,7 +6458,7 @@ footer.bg-dark-2 .footer-box {
 .scroll-top {
   position: fixed;
   bottom: 30px;
-  right: 30px;
+  left: 30px;
   z-index: 600;
   opacity: 0;
   visibility: hidden;
@@ -7485,5 +7485,9 @@ footer.bg-dark-2 .footer-box {
   margin-bottom: 25px;
 }
 .edit-profile-form label {
+  font-size: 0.8em;
+}
+
+.user-orders-table {
   font-size: 0.8em;
 }

@@ -60,4 +60,5 @@
     'remove_from_wishlist' => 'Verwijder van verlanglijst',
     'remove' => 'Verwijderen',
     'empty_wishlist' => 'Je hebt nog geen item op je verlanglijstje staan',
+    'pay' => 'Betalen'
  ];

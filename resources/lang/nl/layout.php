@@ -16,7 +16,7 @@
     //Navbar
     'navbar_free_shipping' => 'GRATIS verzending voor bestellingen boven € 50',
     'wishlist' => 'Mijn verlanglijst',
-    'welcome' => 'Welkom',
+    'my-profile' => 'Mijn profiel',
     'logout' => 'Uitloggen',
     'signin' => 'Inloggen',
     'cart' => 'Winkelwagen',
