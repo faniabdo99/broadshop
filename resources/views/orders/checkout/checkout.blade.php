@@ -33,13 +33,11 @@
                                     <div id="company-feilds" class="col-md-12 d-none">
                                         <div class="form-group">
                                             <label>@lang('checkout.company_name')*</label>
-                                            <input type="text" class="form-control"
-                                                placeholder="@lang('checkout.company_name')">
+                                            <input type="text" class="form-control" name="company_name" placeholder="@lang('checkout.company_name')">
                                         </div>
                                         <div class="form-group">
                                             <label>@lang('checkout.vat_number')*</label>
-                                            <input type="text" class="form-control" name="vat_number"
-                                                placeholder="@lang('checkout.vat_number')">
+                                            <input type="text" class="form-control" name="vat_number" placeholder="@lang('checkout.vat_number')">
                                         </div>
                                     </div>
                                     <div class="col-md-6">

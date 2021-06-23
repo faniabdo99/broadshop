@@ -9,4 +9,6 @@ return [
     'cart_item_deleted' => 'Cart Item Deleted Successfully',
     'cart_item_doesnt_exist' => 'This Cart Item Doesn\'t Exist',
     'cart_value_updated' => 'Cart Value Updated',
+    //Orders
+    'orders_already_paid' => 'Order Already Paid!'
 ];

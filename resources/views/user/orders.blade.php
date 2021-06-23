@@ -33,9 +33,9 @@
                                             <td>{{$Order->total_amount}}€ @lang('user.for') {{$Order->Items()->count()}} @lang('user.items')</td>
                                             <td>
                                                 <a href="{{route('checkout.summary' , $Order->id)}}">@lang('user.view')</a>
-                                                {{-- @if($Order->is_paid != 'paid')
+                                                @if($Order->is_paid != 'paid')
                                                     - <a href="{{route('checkout.payment' , $Order->id)}}">@lang('user.pay')</a>
-                                                @endif --}}
+                                                @endif
                                             </td>
                                         </tr>
                                     @empty

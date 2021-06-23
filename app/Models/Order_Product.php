@@ -6,4 +6,7 @@ class Order_Product extends Model{
     public function Product(){
       return $this->belongsTo(Product::class , 'product_id');
     }
+    public function getTotalPriceAttribute(){
+      return $this->qty * $this->Product->final_price;
+    }
 }

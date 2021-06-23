@@ -171,7 +171,7 @@ class OrdersController extends Controller{
           "billingEmail" => "$TheNewOrder->email",
           "metadata" => [
               'customer_name' => $TheNewOrder->first_name .' '.$TheNewOrder->last_name,
-              'customer_id' => 'cst_'.$r->user_id,
+              'customer_id' => 'cst_'.getUserId(),
               'products_list' => $ProductsListArray
           ],
           "redirectUrl" => route('order.success' , ['id' => $TheNewOrder->id])
@@ -225,12 +225,23 @@ class OrdersController extends Controller{
       return ($item->Product->tax_rate);
     });
     //All Good , Move On
-    return view('orders.checkout.payment' , compact('TheOrder' , 'OrderItems' , 'Total' , 'OrderWeight' , 'OrderItems' , 'SubTotal'));
+    return view('orders.checkout.payment' , compact('TheOrder' , 'OrderItems' , 'Total', 'OrderWeight' , 'OrderItems' , 'SubTotal'));
   }
   public function postPaymentPage(Request $r , $id){
     //Validate the Request
     $Rules = [
-      'user_id' => 'required',
+      'first_name' =>'required',
+      'last_name' => 'required',
+      'email' => 'email',
+      'phone_number' => 'required',
+      'address' =>'required',
+      'house_number' =>'required',
+      'city' => 'required',
+      'zip_code' => 'required',
+      'accepted_toc' => 'required',
+      'order_weight' => 'required',
+      'total_amount' => 'required',
+      'total_shipping_cost' => 'required',
       'payment_method' => 'required'
     ];
     $validator = Validator::make($r->all() , $Rules);
@@ -240,107 +251,67 @@ class OrdersController extends Controller{
       //Get the order and compare it to user id
       $TheOrder = Order::findOrFail($id);
       if($TheOrder){
-        if($TheOrder->user_id == $r->user_id){
+        if($TheOrder->user_id == getUserId()){
          //Check if the order already paid
           if($TheOrder->AlreadyPaid()){
             return redirect()->route('home')->withErrors(__('controllers.orders_already_paid'));
           }
-          if($r->payment_method == 'banktransfer'){
-            //Send the Email to User
-            $SendTheMessage = Mail::to($TheOrder->email)->send(new BankTransferMail($TheOrder));
-            $OrderItems = Order_Product::where('order_id' , $TheOrder->id)->get();
-            //Check the Payment Status
-            $TheOrder->update([
-              'is_paid' => 'Pending',
-              'payment_method' => 'banktransfer',
-              'status' => 'Waiting for payment'
-              ]);
-            $TheCart = Cart::where('user_id' , $TheOrder->user_id)->where('status' , 'active')->whereDate('created_at' , Carbon::today())->get();
-            $TheCart->map(function($item){
-              $item->update(['status' => 'purchased']);
-            });
-           return view('orders.checkout.thank-you' , compact('TheOrder' , 'OrderItems'));
-          }elseif($r->payment_method == 'paymentoncollection'){
-            //Payment on Collection
-            if($TheOrder){
-              if($TheOrder->pickup_at_store == 'yes'){
-                //Get the order items
-                $OrderItems = Order_Product::where('order_id' , $TheOrder->id)->get();
-                //Clear the Cart
-                $TheCart = Cart::where('user_id' , $TheOrder->user_id)->where('status' , 'active')->whereDate('created_at' , Carbon::today())->get();
-                $TheCart->map(function($item){
-                  $item->update(['status' => 'purchased']);
-                });
-                //Update the order to the new information
-                $TheOrder->update([
-                  'status' => 'Order received',
-                  'is_paid' => 'no',
-                  'payment_method' => 'Payment On Collection'
-                ]);
-                return view('orders.checkout.thank-you' , compact('TheOrder' , 'OrderItems'));
-              }else{
-                return back()->withError(__('controllers.orders_cant_pay_on_collection'));
-              }
-            }
-          }
+          //Update the order info
+          $TheOrder->update($r->except(['_token' , 'accepted_toc' , 'type']));
           //Normal Payment Here
           $ProductsListObject = Order_Product::where('order_id' , $TheOrder->id)->get();
           $ProductsListArray = $ProductsListObject->map(function($item){
             return "Title: ".$item->Product->title." | ID: ".$item->product_id." | Quantity: ".$item->qty;
           });
-            $GetPaymentMethod = Payment_Method::where('code_name' , $r->payment_method)->first();
-            $OrderTotalAddition = ($TheOrder->final_total * $GetPaymentMethod->percentage_fee) / 100;
-            $OrderFixedFee = $GetPaymentMethod->fixed_fee;
-            $OrderFinalTotal = $TheOrder->final_total + $OrderTotalAddition + $OrderFixedFee;
-
-              try{
-                $payment = Mollie::api()->payments->create([
-                  "amount" => [
-                      "currency" => "$TheOrder->order_currency",
-                      "value" => sprintf("%.2f",$OrderFinalTotal)
-                  ],
-                  "description" => "Order #$TheOrder->serial_number",
-                  "locale" => "$TheOrder->lang"."_us",
-                  "method" => "$r->payment_method",
-                  "billingEmail" => "$TheOrder->email",
-                  "metadata" => [
-                      'customer_name' => $TheOrder->first_name .' '.$TheOrder->last_name,
-                      'customer_id' => 'cst_'.$r->user_id,
-                      'products_list' => $ProductsListArray
-                  ],
-                  "redirectUrl" => route('order.success' , ['id' => $TheOrder->id])
-                  ]);
-              } catch(ApiException $ee){
-                $StatusCode = $ee->getResponse()->getStatusCode();
-                switch ($StatusCode) {
-                  case 401:
-                    return back()->withErrors("The Payments Server is Being Fixed, Please Try Again Later");
-                    break;
-                  case 422:
-                    return back()->withErrors("This Currency is Not Supported For This Payment Method");
-                    break;
-
-                  default:
-                    return back()->withErrors("Something Went Wrong, Please Try Again");
-                    break;
-                }
-              }
-              //Update the order with mollie id and status
-              $TheOrder->update([
-                'payment_method' => $payment->method,
-                'status' => 'Order received',
-                'payment_id' => $payment->id,
-                'is_paid' => $payment->status
+          $OrderFinalTotal = $TheOrder->final_total + getShippingValue($TheOrder->final_total);
+          //Redirect to Payment Gateway
+          try{
+            $payment = Mollie::api()->payments->create([
+              "amount" => [
+                  "currency" => "EUR",
+                  "value" => sprintf("%.2f",$OrderFinalTotal)
+              ],
+              "description" => "Broadshop Order #$TheOrder->serial_number",
+              "locale" => "$TheOrder->lang"."_us",
+              "method" => "$r->payment_method",
+              "billingEmail" => "$TheOrder->email",
+              "metadata" => [
+                  'customer_name' => $TheOrder->first_name .' '.$TheOrder->last_name,
+                  'customer_id' => 'cst_'.getUserId(),
+                  'products_list' => $ProductsListArray
+              ],
+              "redirectUrl" => route('order.success' , ['id' => $TheOrder->id])
               ]);
-              // redirect customer to Mollie checkout page
-              return redirect($payment->getCheckoutUrl(), 303);
-        }else{
-          abort(403);
-        }
-        abort(404);
+          } catch(ApiException $ee){
+            $StatusCode = $ee->getResponse()->getStatusCode();
+            switch ($StatusCode) {
+              case 401:
+                return back()->withErrors("The Payments Server is Being Fixed, Please Try Again Later");
+                break;
+              case 422:
+                return back()->withErrors("Proccess Failed, Try again using payment method");
+                break;
+              default:
+                return back()->withErrors("Something Went Wrong, Please Try Again");
+                break;
+            }
+          }
+          //Update the order with mollie id and status
+          $TheOrder->update([
+            'payment_method' => $payment->method,
+            'status' => 'Order received',
+            'payment_id' => $payment->id,
+            'is_paid' => $payment->status
+          ]);
+          // redirect customer to Mollie checkout page
+          return redirect($payment->getCheckoutUrl(), 303);
+      }else{
+        abort(403);
       }
+      abort(404);
     }
   }
+}
 
 
   public function getSummaryPage($id){
@@ -352,7 +323,7 @@ class OrdersController extends Controller{
     $TheOrder = Order::findOrFail($id);
     if($TheOrder != null){
       //Checl User ID vs Order
-      if($TheOrder->user_id == $r->user_id){
+      if($TheOrder->user_id == getUserId()){
         //The Guy's Order m Looking Good
         $TheOrder->update([
           'vat_number' => $r->vat_number,

@@ -33,5 +33,4 @@
     'serial_number' => 'Serial Number',
     'status' => 'Status',
     'order' => 'Order'
-
  ];

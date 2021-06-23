@@ -44,10 +44,10 @@ class Order extends Model{
         ]);
     }
     public function AlreadyPaid(){
-      if($this->is_paid == 'failed' || $this->is_paid == 'no'){
-        return false;
-      }else{
+      if($this->is_paid == 'paid'){
         return true;
+      }else{
+        return false;
       }
     }
 }
