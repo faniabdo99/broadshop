@@ -14,6 +14,6 @@ class OrderStatusUpdateMail extends Mailable{
 
     public function build()
     {
-        return $this->markdown('mail/orders/order-status-update')->subject("Order Status Updated - UKFashion Shop");
+        return $this->markdown('mail/orders/order-status-update')->subject("Order Status Updated - Broadshop");
     }
 }

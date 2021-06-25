@@ -6,7 +6,7 @@ return [
     'bank_transfer' => 'Bank Transfer',
     'bank_transfer_first_paragraph' => 'In this email we have included the payment information for your payment to Test profile. Use this data only for the completion of this particular payment. Please make sure that you fill in all the details correctly.',
     'bank_transfer_beneficiary' => 'BENEFICIARY',
-    'bank_transfer_global_trading' => 'Globale trading',
+    'bank_transfer_global_trading' => 'Broadshop.be',
     'bank_transfer_iban' => 'IBAN',
     'bank_transfer_iban_number' => 'BE76 1431 0026 8395',
     'bank_transfer_bic' => 'BIC',
