@@ -150,6 +150,6 @@ return [
     |
     */
 
-    'attributes' => [attributen],
+    'attributes' => [attribute],
 
 ];
