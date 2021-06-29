@@ -1,20 +1,20 @@
 <?php
 return [
-    'welcome' => 'Welcome',
-    'thanks' => 'Thanks',
+    'welcome' => 'Welkom',
+    'thanks' => 'Bedankt',
     'sender' => 'Broadshop',
-    'confirm' => 'Confirm Your Email',
+    'confirm' => 'Bevestig je email',
     // Order Signup Password
-    'one_step_behind' => 'Your are one step behind of getting your account, you just need to choose a password!',
-    'click_the_link' => 'Click the link below to do so.',
-    'set_your_password' => 'Set Your Password',
+    'one_step_behind' => 'U bent een stap achter bij het verkrijgen van uw account, u hoeft alleen een wachtwoord te kiezen!',
+    'click_the_link' => 'Klik hiervoor op onderstaande link.',
+    'set_your_password' => 'Stel je wachtwoord in',
     // Reset Password
-    'reset_password' => 'Reset Your Password',
-    'reset_password_first_paragraph' => 'You requested to reset your password on Broadshop , Please click the link below to do so . ',
-    'reset_password_second_paragraph' => 'if you don\'t know about this request , you can safley ignore this message and your account will be secure .',
+    'reset_password' => 'Stel je wachtwoord opnieuw in',
+    'reset_password_first_paragraph' => 'U heeft gevraagd uw wachtwoord op Broadshop opnieuw in te stellen. Klik hiervoor op de onderstaande link.',
+    'reset_password_second_paragraph' => 'als je niet op de hoogte bent van dit verzoek, kun je dit bericht veilig negeren en is je account beveiligd.',
     // New User
-    'new_user_first_paragraph' => 'Please take a moment to confirm your email , you won\'t be able to place orders or buy any items unless you do this .',
-    'new_user_confirm' => 'Confirm My Account',
+    'new_user_first_paragraph' => 'Neem even de tijd om uw e-mail te bevestigen, tenzij u dit doet, kunt u geen bestellingen plaatsen of artikelen kopen.',
+    'new_user_confirm' => 'Bevestig mijn account',
     // Social Login
-    'social_login_paragraph' => 'You Have Successfully Linked Your Social Account With UK Fasion Shop , You Can Always Login Using That Account Without the Need of a Password !',
+    'social_login_paragraph' => 'U heeft uw sociale account succesvol gekoppeld aan UK Fashion Shop, u kunt altijd inloggen met dat account zonder dat u een wachtwoord nodig heeft!',
 ];

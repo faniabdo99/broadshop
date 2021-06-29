@@ -25,30 +25,29 @@ return [
     'new_order_second_paragraph' => 'Please login to admin panel to view the order details',
 
     // Order Failed
-    'order_failed' => 'Order Failed',
-    'order_failed_first_paragraph' => 'We are sorry to tell you that the payment has failed, You may try again anytime you want',
-    'order_failed_second_paragraph' => 'In case you are a registered user, You can find all your orders under your account page and try again there',
-    'order_failed_try_payment_again' => 'Try Payment Again',
+    'order_failed' => 'Bestelling mislukt',
+    'order_failed_first_paragraph' => 'Het spijt ons u te moeten mededelen dat de betaling is mislukt. U kunt het op elk gewenst moment opnieuw proberen!',
+    'order_failed_second_paragraph' => 'Als u een geregistreerde gebruiker bent, kunt u al uw bestellingen vinden onder uw accountpagina en het daar opnieuw proberen',
+    'order_failed_try_payment_again' => 'Probeer opnieuw te betalen',
 
     // Order Invoice
-    'order_invoice' => 'Order Invoice',
-    'order_invoice_first_paragraph' => 'Please find the attached invoice file for your order in Broadshop.',
+    'order_invoice' => 'Factuur bestellen',
+    'order_invoice_first_paragraph' => 'U vindt het bijgevoegde factuurbestand voor uw bestelling in Broadshop.',
     'order_invoice_order_id' => 'Order ID',
-    'order_invoice_total' => 'Total',
+    'order_invoice_total' => 'Totaal',
 
     // Order Receipt
-    'order_receipt' => 'Your Order Receipt',
-    'order_receipt_first_paragraph' => 'Thank you for your order at Broadshop, Please find the order information below',
-    'order_receipt_serial_number' => 'Order Serial Number',
-    'order_receipt_order_total' => 'Order Total',
-    'order_receipt_payment_method' => 'Payment Method',
-    'order_receipt_last_paragraph' => 'if you already have an account, you can view your orders from your account page at Broadshop, Otherwise you can track your order status in the order tracking page.',
+    'order_receipt' => 'Uw Orderontvangst',
+    'order_receipt_first_paragraph' => 'Bedankt voor uw bestelling bij Broadshop. Hieronder vindt u de bestelinformatie:',
+    'order_receipt_serial_number' => 'Serienummer bestellen',
+    'order_receipt_order_total' => 'totale bestelling',
+    'order_receipt_payment_method' => 'Betalingswijze',
+    'order_receipt_last_paragraph' => 'als u al een account heeft, kunt u uw bestellingen bekijken vanaf uw accountpagina bij Broadshop. Anders kunt u uw bestelstatus volgen op de pagina voor het volgen van bestellingen.',
 
     // Status Updated
-    'status_updated' => 'Order Status Updated',
-    'status_updated_first_paragraph' => 'Your Order Status Has Been Updated',
-    'status_updated_current_status' => 'Your Current Order Status is',
-    'status_updated_tracking_link' => 'You Can Track Your Order Shipping From This Link',
-    'status_updated_track_and_trace' => 'Track & Trace',
-
+    'status_updated' => 'Bestellingsstatus bijgewerkt',
+    'status_updated_first_paragraph' => 'Uw bestelstatus is bijgewerkt',
+    'status_updated_current_status' => 'Uw huidige bestelstatus is:',
+    'status_updated_tracking_link' => 'U kunt de verzending van uw bestelling volgen via deze link',
+    'status_updated_track_and_trace' => 'volgen',
 ];
