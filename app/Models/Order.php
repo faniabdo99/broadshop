@@ -34,6 +34,10 @@ class Order extends Model{
             'creditcard' => 'Credit Card',
             'bancontact' => 'Bancontact',
             'ideal' => 'iDEAL',
+            'kbc' => 'KBC/CBC',
+            'kbc' => 'KBC/CBC',
+            'belfius' => 'Belfius',
+            'applepay' => 'Apple Pay'
         ];
         return $TextArray[$this->payment_method];
     }
