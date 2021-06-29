@@ -186,6 +186,27 @@
                                             <label class="custom-control-label" for="ideal">iDEAL</label>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="kbc" name="payment_method" value="kbc"
+                                                class="custom-control-input">
+                                            <label class="custom-control-label" for="kbc">KBC/CBC</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="belfius" name="payment_method" value="belfius"
+                                                class="custom-control-input">
+                                            <label class="custom-control-label" for="belfius">Belfius</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="applepay" name="payment_method" value="applepay"
+                                                class="custom-control-input">
+                                            <label class="custom-control-label" for="applepay">Apple Pay</label>
+                                        </div>
+                                    </div>
                                     <div class="form-group mb-0">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" name="accepted_toc" class="custom-control-input"
