@@ -9,7 +9,7 @@ class AdminController extends Controller{
     public function getHome(){
       $TotalProductsCount = Product::where('status' , 'Available')->count();
       $TotalOrdersCount = Order::count();
-      $ThisMonthSales = Order::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->sum('total_amount');
+      $ThisMonthSales = Order::whereYear('created_at', Carbon::now()->year)->whereMonth('created_at', Carbon::now()->month)->where('is_paid' , 'paid')->sum('total_amount');
       $TotalUsersCount = User::count();
       $LatestOrders = Order::limit(10)->latest()->get();
       return view('admin.index' , compact('TotalProductsCount' , 'TotalUsersCount' , 'LatestOrders' , 'TotalOrdersCount' , 'ThisMonthSales'));
