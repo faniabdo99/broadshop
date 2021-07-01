@@ -573,8 +573,8 @@
             @endforelse
            ],
            "description": "{{$TheProduct->description}}",
-           "sku": "{{$TheProduct->model_number}}",
-           "mpn": "ARTE{{$TheProduct->model_number}}",
+           "sku": "{{$TheProduct->id}}",
+           "mpn": "Broadshop_{{$TheProduct->id}}",
            "brand": {
             "@type": "Brand",
             "name": "Broadshop"
@@ -607,7 +607,7 @@
            "offers": {
             "@type": "Offer",
             "url": "{{url()->current()}}",
-            "priceCurrency": "LE",
+            "priceCurrency": "EUR",
             "price": "{{$TheProduct->FinalPrice}}",
             "priceValidUntil": "{{$TheProduct->Discount()->valid_until->format('Y-m-d')}}",
             "itemCondition": "https://schema.org/NewCondition",
