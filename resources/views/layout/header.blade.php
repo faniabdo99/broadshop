@@ -8,6 +8,7 @@
     <meta name="author" content="Semicolon Group" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="base_url" content="{{route('home')}}">
+    <meta name="facebook-domain-verification" content="nhml53yvk1imm8wc5egp8blfhueuq5" />
     <link rel="canonical" href="{{url()->current()}}" />
     @auth
         <meta name="user_id" content="{{auth()->user()->id}}">
@@ -60,4 +61,5 @@
     gtag('js', new Date());
     gtag('config', 'UA-197639030-1');
     </script>
+    
 </head>
