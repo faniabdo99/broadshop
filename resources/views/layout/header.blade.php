@@ -10,10 +10,28 @@
     <meta name="base_url" content="{{route('home')}}">
     <link rel="canonical" href="{{url()->current()}}" />
     @auth
-        <meta name="user_id" content="{{auth()->user()->id}}">
+    <meta name="user_id" content="{{auth()->user()->id}}">
     @endauth
     <!-- Title -->
     <title>Broadshop - {{$PageTitle ?? 'Get everything your home needs online'}}</title>
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{{$PageTitle}}" >
+    <meta property="og:type" content="website" >
+    <meta property="og:url" content="{{url()->current()}}" >
+    <meta property="og:image" content="@if(!empty($getBlog)) {{$getBlog->b_pic_small}} @else {{config('global.icon')}}/logo-fill.jpg @endif">
+    <meta property="og:description" content="{{$PageDescription ?? 'Your number one source of kitchen tools and online scooters in belgium, Welcome to Broadshop'}}">
+    <meta property="og:site_name" content="Broadshop" >
+    <!-- Pointless But Needed Twitter Codes -->
+    <meta name="twitter:card" content="{{$PageDescription ?? 'Your number one source of kitchen tools and online scooters in belgium, Welcome to Broadshop'}}" >
+    <meta name="twitter:site" content="@broadshop.be" >
+    <meta name="twitter:creator" content="@broadshop.be" >
+    <meta name="twitter:image" content="{{url('public/')}}/images/logo-fill.jpg" >
+    <meta name="twitter:title" content="{{$PageTitle}}" />
+    <meta name="twitter:description" content="{{$PageDescription ?? 'Your number one source of kitchen tools and online scooters in belgium, Welcome to Broadshop'}}" >
+    <meta name="application-name" content="Broadshop.be">
+    <meta name="msapplication-TileImage" content="{{url('public/')}}/images/favicon.png">
+    <meta name="msapplication-TileColor" content="#0090e3">
+    <meta name='csrf_token' content="{{csrf_token()}}">
     <!-- Favicon Icon -->
     <link rel="shortcut icon" href="{{url('public/')}}/images/favicon.png" />
     <!-- inject css start -->
@@ -52,8 +70,7 @@
     </script>
     <!-- End Facebook Pixel Code -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-197639030-1">
-    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-197639030-1"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
