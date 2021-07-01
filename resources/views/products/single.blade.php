@@ -599,7 +599,7 @@
           ],
            "aggregateRating": {
              "@type": "AggregateRating",
-             "ratingValue": "{{$TheProduct->Rate}}",
+             "ratingValue": "{{$TheProduct->Reviews->avg('rate')}}",
              "reviewCount": "{{$TheProduct->Reviews->count() + 1}}",
              "worstRating": "0",
              "bestRating": "5"
