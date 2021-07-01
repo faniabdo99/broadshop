@@ -269,7 +269,7 @@
                                                 <li class="comment_info">
                                                     <div class="d-flex">
                                                         <div class="comment_user">
-                                                            <img rel="no" src="{{$Review->User->ProfileImage}}"
+                                                            <img src="{{$Review->User->ProfileImage}}"
                                                                 alt="{{$Review->User->name}}">
                                                         </div>
                                                         <div class="comment_content">

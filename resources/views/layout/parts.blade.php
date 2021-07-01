@@ -1,7 +1,5 @@
-
-
 <!-- Quick View Modal -->
-<div class="modal fade view-modal" id="quick-view" tabindex="-1" role="dialog" aria-hidden="true">
+{{-- <div class="modal fade view-modal" id="quick-view" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header border-bottom-0 pb-0">
@@ -10,8 +8,7 @@
             </div>
             <div class="modal-body">
                 <div class="row align-items-center">
-                    <div class="col-lg-5 col-12"> <img class="img-fluid rounded"
-                            src="{{url('public')}}/images/product/large/01.jpg" alt="" /> </div>
+                    <div class="col-lg-5 col-12"> <img class="img-fluid rounded" src="{{url('public')}}/images/product/large/01.jpg" alt="" /> </div>
                     <div class="col-lg-7 col-12 mt-5 mt-lg-0">
                         <div class="product-details">
                             <h3 class="mb-0">Women Sweater</h3>
@@ -95,7 +92,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!--back-to-top start-->
 <div class="scroll-top"><a class="smoothscroll" href="#top"><i class="las la-angle-up"></i></a></div>
 <!--back-to-top end-->
