@@ -1,6 +1,15 @@
-@include('layout.header' , [
-    'PageTitle' => __('products.title')
-])
+@if(count(request()->route()->parameters()) > 0) 
+    @php
+     $TheCategory = App\Models\Category::where('slug' , request()->route()->parameters('category'))->first();
+    @endphp
+    @include('layout.header' , [
+        'PageTitle' => $TheCategory->LocalTitle
+    ])
+@else
+    @include('layout.header' , [
+        'PageTitle' => __('products.title')
+    ])
+@endif
 <body class="bg-light-4 no-touch">
     @include('layout.tag-manager')
     <!-- page wrapper start -->
@@ -12,7 +21,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <h1>@lang('products.title')</h1>
+                            <h1>
+                                @if(count(request()->route()->parameters()) > 0) 
+                                    @php
+                                     $TheCategory = App\Models\Category::where('slug' , request()->route()->parameters('category'))->first();
+                                    @endphp
+                                    @lang('products.title'):{{$TheCategory->LocalTitle}}
+                                @else
+                                    @lang('products.title')
+                                @endif
+                            </h1>
                         </div>
                     </div>
                 </div>

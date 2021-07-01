@@ -330,7 +330,7 @@ class ProductsController extends Controller{
         }else{
             //Send Message to The Admin
             app()->setLocale($r->site_locale);
-            Mail::to('faniabdo99@gmail.com')->send(new QuestionAboutProduct($r->all()));
+            Mail::to('sales@broadshop.be')->send(new QuestionAboutProduct($r->all()));
             return response(__('controllers.product_Q_received'));
         }
     }

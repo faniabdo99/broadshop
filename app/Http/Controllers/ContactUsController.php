@@ -35,7 +35,7 @@ class ContactUsController extends Controller{
         return back()->withErrors($validator->errors()->all())->withInput();
       }else{
         //Do the contact
-        Mail::to('faniabdo99@gmail.com')->send(New ContactUsMail($r->all()));
+        Mail::to('sales@broadshop.be')->send(New ContactUsMail($r->all()));
         Mail::to($r->email)->send(New ContactEmailRecived($r->all()));
         return back()->withSuccess(__('controllers.contact_message_received'));
       }
