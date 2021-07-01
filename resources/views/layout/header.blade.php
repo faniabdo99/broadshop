@@ -15,10 +15,10 @@
     <!-- Title -->
     <title>Broadshop - {{$PageTitle ?? 'Get everything your home needs online'}}</title>
     <!-- Open Graph data -->
-    <meta property="og:title" content="{{$PageTitle}}" >
+    <meta property="og:title" content="{{$PageTitle ?? 'Broadshop'}}" >
     <meta property="og:type" content="website" >
     <meta property="og:url" content="{{url()->current()}}" >
-    <meta property="og:image" content="@if(!empty($getBlog)) {{$getBlog->b_pic_small}} @else {{config('global.icon')}}/logo-fill.jpg @endif">
+    <meta property="og:image" content="{{url('public/')}}/images/logo-fill.jpg">
     <meta property="og:description" content="{{$PageDescription ?? 'Your number one source of kitchen tools and online scooters in belgium, Welcome to Broadshop'}}">
     <meta property="og:site_name" content="Broadshop" >
     <!-- Pointless But Needed Twitter Codes -->
@@ -26,7 +26,7 @@
     <meta name="twitter:site" content="@broadshop.be" >
     <meta name="twitter:creator" content="@broadshop.be" >
     <meta name="twitter:image" content="{{url('public/')}}/images/logo-fill.jpg" >
-    <meta name="twitter:title" content="{{$PageTitle}}" />
+    <meta name="twitter:title" content="{{$PageTitle ?? 'Broadshop'}}" />
     <meta name="twitter:description" content="{{$PageDescription ?? 'Your number one source of kitchen tools and online scooters in belgium, Welcome to Broadshop'}}" >
     <meta name="application-name" content="Broadshop.be">
     <meta name="msapplication-TileImage" content="{{url('public/')}}/images/favicon.png">
