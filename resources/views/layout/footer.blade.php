@@ -1,9 +1,9 @@
-<div id="cookies-disclaimer">
+<div id="cookies-disclaimer" class="no-print">
     <p>@lang('layout.cookies_disclaimer_title')</p>
     <a href="javascript:;" id="agree-cookies-usage">@lang('layout.cookies_disclaimer_cta')</a>
 </div>
 <!--footer start-->
-<footer class="py-7 bg-dark-grey">
+<footer class="py-7 bg-dark-grey no-print">
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-5"> 

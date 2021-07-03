@@ -1,3 +1,6 @@
+body{
+    font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif !important;
+}
 svg {
     touch-action: none
 }

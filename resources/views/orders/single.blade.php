@@ -78,6 +78,18 @@
                                     <th>@lang('checkout.zip_code')</th>
                                     <td>{{$TheOrder->zip_code}}</td>
                                 </tr>
+                                @if($TheOrder->house_number)
+                                    <tr>
+                                        <th>House Number</th>
+                                        <td>{{$TheOrder->house_number}}</td>
+                                    </tr>
+                                @endif
+                                @if($TheOrder->bus_number)
+                                    <tr>
+                                        <th>Bus Number</th>
+                                        <td>{{$TheOrder->bus_number}}</td>
+                                    </tr>
+                                @endif
                                 @if($TheOrder->order_notes)
                                     <tr>
                                         <th>@lang('checkout.add_notes')</th>
@@ -85,6 +97,7 @@
                                     </tr>
                                 @endif
                             </table>
+                            <a href="javascript:;" id="save-as-pdf" class="btn btn-primary no-print"><i class="fas fa-file-pdf"></i> @lang('checkout.save_as_pdf')</a>
                         </div>
                     </div>
                 </div>

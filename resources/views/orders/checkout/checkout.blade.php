@@ -83,7 +83,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="country">Country</label>
+                                            <label for="country">@lang('checkout.country')</label>
                                             <select class="form-control" name="country" id="country" required>
                                                 <option value="Belgium">Belgium</option>
                                                 <option value="Netherlands">Netherlands</option>
@@ -92,7 +92,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>House Number*</label>
+                                            <label>@lang('checkout.house_number')*</label>
                                             <input type="text" name="house_number" id="house_number"
                                                 class="form-control" placeholder="House Number" required>
                                         </div>

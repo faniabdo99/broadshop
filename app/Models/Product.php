@@ -35,6 +35,9 @@ class Product extends Model{
             return false;
         }
     }
+    public function Local(){
+        return $this->hasOne(Product_Local::class);
+    }
     public function getLocalTitleAttribute(){
         $SiteLang = app()->getLocale() ?? 'en';
         if($SiteLang == 'en'){

@@ -21,6 +21,8 @@
     'testo_1' => 'Love it! Broadshop has a wide variatey of products that fit everyone needs.',
     'testo_2' => 'What is amaizing is how Broadshop solve the hardest equation ever, affordable prices and high quality!',
     //Contact
+    'contact_title' => 'Contact Us',
+    'contact_description' => 'Do you have any questions? Send us a direct message below:',
     'name' => 'Name',
     'email' => 'Email Address',
     'phone' => 'Phone Number',

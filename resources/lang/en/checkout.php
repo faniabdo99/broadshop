@@ -10,6 +10,9 @@
     'f_name' => 'First Name',
     'l_name' => 'Last Name',
     'email' => 'Email Address',
+    'country' => 'Country',
+    'house_number' => 'House Number',
+    'bus_number' => 'Bus Number',
     'phone' => 'Phone Number',
     'shipping_address' => 'Shipping Address',
     'second_address' => 'Second Address',
@@ -32,5 +35,6 @@
     'weight' => 'Order Weight',
     'serial_number' => 'Serial Number',
     'status' => 'Status',
-    'order' => 'Order'
+    'order' => 'Order',
+    'save_as_pdf' => 'Save as PDF / Print'
  ];
