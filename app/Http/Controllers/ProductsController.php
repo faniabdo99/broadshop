@@ -285,7 +285,7 @@ class ProductsController extends Controller{
         $Products = Product::where('category_id' , $TheCategory->id)->where('status','!=','Invisible')->latest()->get();
         return view('products.index' , compact('Categories' , 'FiltersList' , 'Products'));
     }
-    public function getIndex($Category = null){
+    public function getIndex(Request $r,$Category = null){
         $TheCategory = null;
         if($Category){
             $TheCategory = Category::where('slug' , $Category)->first();
@@ -295,7 +295,20 @@ class ProductsController extends Controller{
                 abort(404);
             }
         }else{
-            $AllProducts = Product::where('status' , '!=' , 'Invisible')->get();
+            //No Category
+            if($r->has('q') && $r->q != ''){
+                //Do a Search
+                if(session()->get('locale') == 'en'){
+                    $AllProducts = Product::where('status' , '!=' , 'Invisible')->where('title' , 'LIKE' , '%'.$r->q.'%')->get();
+                }else{
+                    $AllProducts = Product::with('Local')->where('status' , '!=' , 'Invisible')->whereHas('Local', function($q) use($r){
+                        $q->where('title_value', 'LIKE' ,'%'.$r->q.'%');
+                    })->get();
+                }
+                $AllProducts = Product::with('Local')->where('status' , '!=' , 'Invisible')->where('title' , 'LIKE' , '%'.$r->q.'%')->get();
+            }else{
+                $AllProducts = Product::where('status' , '!=' , 'Invisible')->get();
+            }
         }
         $AllCategories = Category::latest()->get();
         return view('products.index' , compact('AllProducts' , 'AllCategories' , 'TheCategory'));

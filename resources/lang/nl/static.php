@@ -21,6 +21,8 @@
     'testo_1' => 'Ben er dol op! Broadshop heeft een breed scala aan producten, die aan alle behoeften voldoen.',
     'testo_2' => 'Wat zo verbazingwekkend is, is hoe Broadshop de moeilijkste vergelijking ooit oplost, betaalbare prijzen en hoge kwaliteit!',
     //Contact
+    'contact_title' => 'Contact',
+    'contact_description' => 'Heb je nog vragen? Stuur ons hieronder een direct bericht:',
     'name' => 'Naam',
     'email' => 'E-mailadres',
     'phone' => 'Telefoonnummer',

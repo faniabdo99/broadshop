@@ -540,5 +540,7 @@ $('.update-cart-form').change(function(){
       }
   });
 });
-	
+$('#save-as-pdf').click(function(){
+  window.print();
+});
 })(jQuery);

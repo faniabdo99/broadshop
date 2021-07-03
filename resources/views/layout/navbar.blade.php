@@ -1,5 +1,5 @@
   <!--header start-->
-  <header class="site-header header-5">
+  <header class="site-header header-5 no-print">
     <div class="header-top bg-blue pt-1 d-none d-lg-block d-md-block">
       <div class="container">
         <div class="row">
@@ -35,8 +35,8 @@
           </div>
           <div class="col-md-8 col-lg-7 col-sm-10 col-10 d-none d-md-block">
             <div class="right-nav align-items-center d-flex justify-content-end">
-              {{-- <form class="form-inline w-100">
-                <input class="form-control border-0 rounded-0 border-left col" type="search" placeholder="Enter Your Keyword" aria-label="Search">
+              {{-- <form class="form-inline w-100" method="get" action="{{route('products')}}">
+                <input class="form-control border-0 rounded-0 border-left col" type="search" placeholder="Enter Your Keyword" aria-label="Search" name="q">
                 <button class="btn btn-yellow text-white col-auto rounded-right" type="submit"><i class="fa fa-search" aria-hidden="true"></i> </button>
               </form> --}}
             </div>

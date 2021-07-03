@@ -505,6 +505,9 @@ function ShowNoto(className, text, header) {
       }
     });
   });
+  $('#save-as-pdf').click(function () {
+    window.print();
+  });
 })(jQuery);
 
 /***/ }),

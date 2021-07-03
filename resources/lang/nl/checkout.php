@@ -9,6 +9,9 @@
     'vat_number' => ' BTW-nummer ',
     'f_name' => 'Voornaam',
     'l_name' => 'Achternaam',
+    'country' => 'Land',
+    'house_number' => 'Huisnummer',
+    'bus_number' => 'Busnummer',
     'email' => 'E-mailadres',
     'phone' => 'Telefoonnummer',
     'shipping_address' => 'Verzendadres:',
@@ -32,6 +35,7 @@
     'weight' => 'Bestelgewicht',
     'serial_number' => 'Serienummer',
     'status' => 'Status',
-    'order' => 'Bestelling'
+    'order' => 'Bestelling',
+    'save_as_pdf' => 'Opslaan als PDF / Afdrukken'
 
  ];
