@@ -583,7 +583,7 @@
           @forelse ($TheProduct->Reviews as $Review)
           {
             "@type": "Review",
-            "author": "{{$Review->name ?? $Review->User->name}}"
+            "author": "{{$Review->name ?? $Review->User->name}}",
             "datePublished": "{{$Review->created_at->format('Y-m-d')}}",
             "reviewBody": "{{$Review->review}}",
             "reviewRating": {
