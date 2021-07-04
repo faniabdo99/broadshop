@@ -1,4 +1,3 @@
-
 /* ------------------------
 12. Header
 ------------------------*/
@@ -409,9 +408,11 @@
 .header-5 .navbar-nav .nav-item {
     margin: 0px;
 }
+
 .header-5 .navbar-nav {
     width: 100%
 }
+
 .header-5 .header_list>li {
     color: #333;
     font-size: 13px;
@@ -839,7 +840,6 @@ header .navbar-nav .nav-item {
 .no-touch.add-to-cart-button:focus{
         background-color: $success;
 }
-
 .notification{
     position: fixed;
     z-index: 999;
