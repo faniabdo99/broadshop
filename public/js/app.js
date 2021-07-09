@@ -448,7 +448,7 @@ function ShowNoto(className, text, header) {
         $('.navbar-cart-icon').attr('data-cart-items', response.count);
         $('.user-cart-total').html(response.item.TotalPrice); //Update navbar using dynamic content
 
-        $('.cart_list').append("\n            <li>\n              <a href=\"/product/".concat(response.item.product.slug, "/").concat(response.item.product.id, "\">\n                <img src=\"/storage/app/images/products/").concat(response.item.product.image, "\" alt=\"").concat(response.item.product.title, "\">\n                ").concat(response.item.product.title, "\n              </a>\n              <span class=\"cart_quantity\"> 1 x <span class=\"cart_amount\">\n              <span class=\"price_symbole\">\u20AC</span></span>").concat(response.item.product.FinalPrice, "</span> \n            </li>\n          "));
+        $('.cart_list').append("\n            <li>\n              <a href=\"/product/".concat(response.item.product.slug, "/").concat(response.item.product.id, "\">\n                <img src=\"/storage/app/images/products/").concat(response.item.product.image, "\" alt=\"").concat(response.item.product.title, "\">\n                ").concat(response.item.product.title, "\n              </a>\n              <span class=\"cart_quantity\"> ").concat(response.item.qty, " x <span class=\"cart_amount\">\n              <span class=\"price_symbole\">\u20AC</span></span>").concat(response.item.product.FinalPrice, "</span> \n            </li>\n          "));
       },
       error: function error(response) {
         ShowNoto('danger-notification', response.responseText, 'Error');

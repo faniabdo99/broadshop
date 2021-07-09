@@ -480,7 +480,7 @@ $('#add-to-cart-single').click(function(){
                 <img src="/storage/app/images/products/${response.item.product.image}" alt="${response.item.product.title}">
                 ${response.item.product.title}
               </a>
-              <span class="cart_quantity"> 1 x <span class="cart_amount">
+              <span class="cart_quantity"> ${response.item.qty} x <span class="cart_amount">
               <span class="price_symbole">€</span></span>${response.item.product.FinalPrice}</span> 
             </li>
           `);  

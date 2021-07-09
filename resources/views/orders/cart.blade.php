@@ -42,7 +42,10 @@
                                     @empty
                                         <p>@lang('cart.no_items')</p>
                                     @endforelse
+                                @else    
+                                    <p>@lang('cart.no_items')</p>
                                 @endif
+
                                 </div>
                             </div>
                         </div>
