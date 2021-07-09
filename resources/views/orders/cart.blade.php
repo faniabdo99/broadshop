@@ -40,12 +40,15 @@
                                             </div>
                                         </div>
                                     @empty
+                                    <div class="col-12">
                                         <p>@lang('cart.no_items')</p>
+                                    </div>
                                     @endforelse
-                                @else    
-                                    <p>@lang('cart.no_items')</p>
+                                @else
+                                    <div class="col-12">
+                                        <p>@lang('cart.no_items')</p>
+                                    </div>
                                 @endif
-
                                 </div>
                             </div>
                         </div>
