@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 class Product extends Model{
     protected $guarded = [];
+    protected $appends = ['FinalPrice'];
     //Relations Methods
     public function Category(){
         return $this->belongsTo(Category::class)->withDefault([

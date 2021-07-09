@@ -66,7 +66,7 @@
                   @endforelse
                 </ul>
                 <div class="cart_footer">
-                  <p class="cart_total"><strong>@lang('layout.subtotal'):</strong> <span class="cart_price"> <span class="price_symbole">€</span></span>{{userCartTotal()}}</p>
+                  <p class="cart_total"><strong>@lang('layout.subtotal'):</strong> <span class="cart_price"> <span class="price_symbole">€</span></span><span class="user-cart-total">{{userCartTotal()}}</span></p>
                   <p class="cart_buttons">
                     <a href="{{route('cart')}}" class="btn btn-secondary view-cart ml-2 mr-2">@lang('layout.view_cart')</a>
                     <a href="{{route('checkout')}}" class="btn btn-yellow-dark ml-2 mr-2 checkout">@lang('layout.checkout')</a>
@@ -107,7 +107,7 @@
                   @endforelse
                 </ul>
                 <div class="cart_footer">
-                  <p class="cart_total"><strong>@lang('layout.subtotal'):</strong> <span class="cart_price"> <span class="price_symbole">€</span></span>{{userCartTotal()}}</p>
+                  <p class="cart_total"><strong>@lang('layout.subtotal'):</strong> <span class="cart_price"> <span class="price_symbole">€</span></span><span class="user-cart-total">{{userCartTotal()}}</span></p>
                   <p class="cart_buttons">
                     <a href="{{route('cart')}}" class="btn btn-secondary view-cart ml-2 mr-2">@lang('layout.view_cart')</a>
                     <a href="{{route('checkout')}}" class="btn btn-yellow-dark ml-2 mr-2 checkout">@lang('layout.checkout')</a>

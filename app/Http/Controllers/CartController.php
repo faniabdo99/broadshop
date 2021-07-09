@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Cookie;
 use Validator;
+use Response;
 use Carbon\Carbon;
 use App\Models\Product;
 use App\Models\Cart;
@@ -58,7 +59,7 @@ class CartController extends Controller{
                         'message' => 'Your cart has been updated'
                     ];
                 }
-                return response($ResponseArray , 200);
+                return Response::json($ResponseArray , 200);
             }
         }
     }

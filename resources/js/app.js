@@ -472,7 +472,7 @@ $('#add-to-cart-single').click(function(){
           ShowNoto('success-notification' , response.message+'<a class="btn btn-dark btn-animated mt-3 btn-block" href="/products">Continue Shopping</a> <a class="btn btn-dark btn-animated mt-3 btn-block" href="/checkout">Processed to Checkout</a>' , 'Success');
           //Update the cart number
           $('.navbar-cart-icon').attr('data-cart-items' , response.count);
-          $('.user-cart-total').html(response.total);
+          $('.user-cart-total').html(response.item.TotalPrice);
           //Update navbar using dynamic content
           $('.cart_list').append(`
             <li>
@@ -481,7 +481,7 @@ $('#add-to-cart-single').click(function(){
                 ${response.item.product.title}
               </a>
               <span class="cart_quantity"> 1 x <span class="cart_amount">
-              <span class="price_symbole">€</span></span>${response.item.product.price}</span> 
+              <span class="price_symbole">€</span></span>${response.item.product.FinalPrice}</span> 
             </li>
           `);  
       },
