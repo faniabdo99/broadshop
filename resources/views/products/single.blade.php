@@ -93,7 +93,7 @@
                                     </div>
                                 </div>
                                 <div class="d-sm-flex align-items-center mt-5">
-                                    <a class="add-to-cart-button mr-3" href="#" id="add-to-cart-single" data-product="{{$TheProduct->id}}" data-user="{{getUserId()}}">
+                                    <a class="add-to-cart-button mr-3" href="javascript:;" id="add-to-cart-single" data-product="{{$TheProduct->id}}" data-user="{{getUserId()}}">
                                         <i class="las la-shopping-cart mr-2"></i> @lang('products.add_to_cart')
                                     </a>
                                     @auth

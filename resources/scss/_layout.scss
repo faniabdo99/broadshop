@@ -832,6 +832,14 @@ header .navbar-nav .nav-item {
     background-color: $brand;
     color: #fff;
     border-radius: 4px;
+    &::after {
+     content: " pseudo element";
+     opacity: 0;
+    }
+    &:hover {
+    &::after {
+    opacity: 1;
+    }
 }
 .no-touch.add-to-cart-button:hover{
         background-color: red;
