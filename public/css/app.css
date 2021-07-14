@@ -86,6 +86,15 @@ p {
   font-weight: 400;
 }
 
+a::after {
+  display: none;
+  content: "pseudo block!";
+}
+
+a:hover::after {
+  display: inline;
+}
+
 .lead {
   font-size: 1.25rem;
   font-weight: 300;
