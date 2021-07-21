@@ -10,7 +10,7 @@ use Illuminate\Queue\SerializesModels;
 class NewOrderMail extends Mailable{
     use Queueable, SerializesModels;
     public $EmailData;
-    public function __construct(){
+    public function __construct($EmailData){
         $this->EmailData = $EmailData;
     }
 
