@@ -78,5 +78,20 @@
     gtag('js', new Date());
     gtag('config', 'UA-197639030-1');
     </script>
-    
+    <!-- Global site tag (gtag.js) - Google Ads: 609002036 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-609002036"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-609002036');
+    </script>
+    <!-- Event snippet for Purchase conversion page -->
+    <script>
+        gtag('event', 'conversion', {
+            'send_to': 'AW-609002036/yL1QCMvqktsCELTEsqIC',
+            'transaction_id': ''
+        });
+    </script>
 </head>
